@@ -1,0 +1,34 @@
+// Font Family
+$font-1: 'Exo', sans-serif;
+
+
+// Colors ---------------
+$white: #fff;
+$black: #222;
+$gray: #F1F1F1;
+
+
+// Theme Color
+$theme-color: #07294D;
+$theme-color-2: #0C8B51;
+
+
+//Body Color
+$body-color: #151515;
+
+
+// Border Color
+$border-color: #DBDBDB;
+
+
+
+
+// Responsive Variables
+$desktop: 'only screen and (min-width: 1400px)';
+$laptop: 'only screen and (min-width: 1200px) and (max-width: 1399px)';
+$lg : 'only screen and (min-width: 992px) and (max-width: 1199px)';
+$md:'only screen and (min-width: 768px) and (max-width: 991px)';
+$xs:'(max-width: 767px)';
+$sm: 'only screen and (min-width: 576px) and (max-width: 767px)';
+
+

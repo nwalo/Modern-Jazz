@@ -1,0 +1,86 @@
+/*===========================
+    30. Notice css 
+===========================*/
+
+.notice-area{
+    padding-top: 150px;
+
+    @media #{$md} {
+        padding-top: 90px;
+    }
+
+    @media #{$xs} {
+        padding-top: 70px;
+    }
+}
+
+.notice-content{
+    padding-top: 10px;
+}
+
+.single-notice{
+    margin-top: 45px;
+    position: relative;
+    padding-left: 45px;
+
+    @media #{$xs}{
+        padding-left: 35px;
+    }
+
+    & .number{
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 30px;
+        color: $theme-color;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @media #{$lg}{
+            font-size: 20px;
+        }
+        @media #{$md}{
+            font-size: 20px;
+        }
+        @media #{$xs}{
+            font-size: 18px;
+            line-height: 26px;
+        }
+    }
+    & .notice-title{
+        font-weight: 600;
+        font-size: 24px;
+        color: #303030;
+
+        @media #{$lg}{
+            font-size: 20px;
+        }
+        @media #{$md}{
+            font-size: 20px;
+        }
+        @media #{$xs}{
+            font-size: 18px;
+            line-height: 26px;
+        }
+    }
+    & p{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 30px;
+        color: #303030;
+        margin-top: 15px;
+
+        @media #{$lg}{
+            font-size: 16px;
+        }
+        @media #{$md}{
+            font-size: 16px;
+        }
+        @media #{$xs}{
+            font-size: 14px;
+            line-height: 26px;
+        }
+    }
+}
+
+

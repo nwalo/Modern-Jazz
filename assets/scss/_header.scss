@@ -1,0 +1,545 @@
+/*===========================
+    02. Header css 
+===========================*/
+
+.header-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: $white;
+}
+
+.header-top {
+    background: $theme-color;
+    padding-bottom: 15px;
+}
+
+.header-top-wrapper {
+    & .header-top-left {
+        @media #{$xs} {
+            width: 100%;
+            text-align: center;
+        }
+
+        @media #{$sm} {
+            width: auto;
+        }
+
+        & .header-meta {
+            & li {
+                & a {
+                    font-family: Exo;
+                    font-weight: 400;
+                    font-size: 13px;
+                    color: $white;
+                    @include transition(0.3s);
+
+                    &:hover {
+                        color: #8D8D8D;
+                    }
+                }
+            }
+        }
+    }
+
+
+    & .header-top-right {
+        @media #{$xs} {
+            width: 100%;
+            text-align: center;
+        }
+
+        @media #{$sm} {
+            width: auto;
+        }
+
+        & .header-link {
+            & a {
+                & + a {
+                    margin-left: 45px;
+                }
+
+                font-family: Exo;
+                font-weight: 400;
+                font-size: 13px;
+                color: #8D8D8D;
+                @include transition(0.3s);
+                position: relative;
+
+                &:hover {
+                    color: $white;
+                }
+
+                &.notice {}
+
+                &.login {}
+
+                &.register {
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        width: 1px;
+                        height: 70%;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                        left: -22px;
+                        background-color: #8D8D8D;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.navigation {
+    position: relative;
+
+    @media #{$md} {
+        padding: 10px 0;
+    }
+
+    @media #{$xs} {
+        padding: 10px 0;
+    }
+
+    & .header-logo {
+        & a {
+            
+        }
+    }
+
+    & .nav-menus-wrapper {
+
+        @media #{$md}{
+            width: 320px;
+            height: 100%;
+            top: 0;
+            left: -400px;
+            position: fixed;
+            background-color: $theme-color;
+            z-index: 9999;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            transition-duration: .8s;
+            transition-timing-function: ease;
+        }
+        @media #{$xs}{
+            width: 280px;
+            height: 100%;
+            top: 0;
+            left: -400px;
+            position: fixed;
+            background-color: $theme-color;
+            z-index: 9999;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            transition-duration: .8s;
+            transition-timing-function: ease;
+        }
+
+        &.nav-menus-wrapper-open {
+            @media #{$md}{
+                left: 0;
+            }
+            @media #{$xs}{
+                left: 0;
+            }
+        }
+
+        & .nav-menu {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+
+            @media #{$md}{
+                display: block;
+                padding-top: 80px;
+            }
+            @media #{$xs}{
+                display: block;
+                padding-top: 80px;
+            }
+
+            & li {
+                position: relative;
+
+                @media #{$md}{
+                    border-top: 1px solid rgba($border-color, 0.15);
+                }
+                @media #{$xs}{
+                    border-top: 1px solid rgba($border-color, 0.15);
+                }
+
+                &:last-child{
+                    @media #{$md}{
+                        border-bottom: 1px solid rgba($border-color, 0.15);
+                    }
+                    @media #{$xs}{
+                        border-bottom: 1px solid rgba($border-color, 0.15);
+                    }
+                }
+
+                & + li {
+                    margin-left: 40px;
+
+                    @media #{$lg}{
+                        margin-left: 22px;
+                    }
+                    @media #{$md}{
+                        margin-left: 0;
+                    }
+                    @media #{$xs}{
+                        margin-left: 0;
+                    }
+                }
+
+                & a {
+                    font-weight: 600;
+                    font-size: 16px;
+                    padding: 43px 0;
+                    color: $theme-color;
+                    @include transition(0.3s);
+                    display: block;
+                    position: relative;
+
+                    @media #{$lg}{
+                        font-size: 15px;
+                    }
+
+                    @media #{$md}{
+                        color: $white;
+                        padding: 12px 15px 12px 26px;
+                        font-size: 14px;
+                    }
+                    @media #{$xs}{
+                        color: $white;
+                        padding: 12px 15px 12px 26px;
+                        font-size: 14px;
+                    }
+
+                    &.active{
+                        color: $theme-color-2;
+                    }
+                }
+               
+                &:hover {
+                    & > a {
+                        color: $theme-color-2;
+                    }
+                }
+
+                & .nav-submenu {
+                    position: absolute;
+                    width: 215px;
+                    background-color: $white;
+                    border-top: 2px solid $theme-color;
+                    padding: 10px 0px;
+                    @include box-shadow (2px 2px 20px rgba($theme-color, 0.1));
+                    top: 100%;
+                    left: 0;
+                    z-index: 99;
+                    display: none;
+
+                    @media #{$md}{
+                        position: relative;
+                        width: 100%;
+                        background-color: transparent;
+                        padding: 0;                        
+                    }
+                    @media #{$xs}{
+                        position: relative;
+                        width: 100%;
+                        background-color: transparent;
+                        padding: 0;
+                    }
+
+                    & li {
+                        margin-left: 0;
+
+                        & a {
+                            line-height: 1;
+                            padding: 10px 20px;
+                            font-size: 14px;
+
+                            @media #{$md}{
+                                padding: 12px 35px;
+                            }
+                            @media #{$xs}{
+                                padding: 12px 35px;
+                            }
+
+                            & i {
+                                display: block;
+                                font-size: 13px;
+                                float: right;
+                            }
+                        }
+
+                        &:hover {
+                            & > a {
+                                padding-left: 25px;
+                                
+                                @media #{$md}{
+                                    padding: 12px 35px;
+                                }
+                                @media #{$xs}{
+                                    padding: 12px 35px;
+                                }
+                            }
+                        }
+
+                        & .nav-submenu {
+                            top: -12px;
+                            left: 100%;
+
+                            @media #{$md}{
+                                top: 0;
+                                left: 0;
+                            }
+                            @media #{$xs}{
+                                top: 0;
+                                left: 0;
+                            }
+
+                            & li{
+                                & a{
+                                    @media #{$md}{
+                                        padding-left: 45px;
+                                    }
+                                    @media #{$xs}{
+                                        padding-left: 45px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        & .submenu-indicator {
+            margin-left: 8px;
+            margin-top: 8px;
+            float: right;
+            transition: all .3s;
+
+            @media #{$md}{
+                margin: 0;
+            }
+            @media #{$xs}{
+                margin: 0;
+            }
+
+            & .submenu-indicator-chevron {
+                height: 6px;
+                width: 6px;
+                display: block;
+                border-style: solid;
+                border-width: 0 1px 1px 0;
+                border-color: transparent $theme-color $theme-color transparent;
+                @include transform(rotate(45deg));
+                @include transition(0.3s);
+
+                @media #{$md}{
+                    border-color: transparent $border-color $border-color transparent;
+                    margin: 0;
+                }
+                @media #{$xs}{
+                    border-color: transparent $border-color $border-color transparent;
+                    margin: 0;
+                }
+            }
+        }        
+
+        & .nav-dropdown{
+            & .submenu-indicator {
+                right: 15px;
+                top: 16px;
+                position: absolute;
+                margin: 0;
+
+                @media #{$md}{
+                    right: 0;
+                    top: 0;
+                }
+                @media #{$xs}{
+                    right: 0;
+                    top: 0;
+                }
+
+                & .submenu-indicator-chevron {
+                    @include transform(rotate(-45deg));
+                }
+            }
+        } 
+    }
+
+    & .nav-toggle {
+        width: 30px;
+        height: 30px;
+        padding: 6px 2px 0;
+        position: absolute;
+        top: 50%;
+        margin-top: -14px;
+        right: 15px;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background-color: $theme-color;
+            border-radius: 10px;
+            box-shadow: 0 .5em 0 0 $theme-color, 0 1em 0 0 $theme-color;
+        }
+    }
+    
+    & .nav-menus-wrapper-close-button {
+        width: 30px;
+        height: 40px;
+        margin: 10px 7px;
+        display: none;
+        float: right;
+        color: $border-color;
+        font-size: 26px;
+        cursor: pointer;      
+    }
+
+    & .header-search {
+        position: relative;
+
+        @media #{$md} {
+            position: absolute;
+            top: 50%;
+            right: 70px;
+            @include transform(translateY(-50%));
+            z-index: 99;
+        }
+
+        @media #{$xs} {
+            position: absolute;
+            top: 50%;
+            right: 70px;
+            @include transform(translateY(-50%));
+            z-index: 99;
+            display: none;
+        }
+
+        @media #{$sm} {
+            display: block;
+        }
+
+        & input {
+            width: 100%;
+            border: 0;
+            border-bottom: 1px solid $theme-color;
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            color: #8d8d8d;
+            height: 30px;
+
+            @include placeholder {
+                opacity: 1;
+                color: #8d8d8d;
+            }
+        }
+
+        & button {
+            padding: 0;
+            background: none;
+            border: 0;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            font-size: 14px;
+        }
+    }
+
+    &.sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        @include animation(sticky 1s);
+        @include box-shadow (2px 2px 20px rgba($black, 0.15));
+        background-color: $white;
+    }
+}
+
+.navigation-portrait{
+    & .nav-menus-wrapper-close-button {
+        display: block;
+    }
+
+    & .submenu-indicator {
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        text-align: center;
+        z-index: 20000;
+        top: 0;
+        right: 0;
+
+        & .submenu-indicator-chevron {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%) rotate(45deg) !important);
+        }
+    }
+
+    & .nav-submenu-open{
+        & > a {    
+            & .submenu-indicator {    
+                & .submenu-indicator-chevron {
+                    @include transform(translate(-50%, -50%) rotate(225deg) !important);
+                }
+            }
+        }
+    }
+}
+
+.nav-overlay-panel {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	display: none;
+	z-index: 999;
+}
+
+
+@-webkit-keyframes sticky {
+    0% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%)
+    }
+
+    100% {
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%)
+    }
+}
+
+@keyframes sticky {
+    0% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%)
+    }
+
+    100% {
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%)
+    }
+}

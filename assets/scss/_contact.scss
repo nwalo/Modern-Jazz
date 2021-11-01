@@ -1,0 +1,150 @@
+/*===========================
+    27. Contact css 
+===========================*/
+
+
+.contact-area {
+    padding-top: 130px;
+
+    @media #{$md} {
+        padding-top: 70px;
+    }
+
+    @media #{$xs} {
+        padding-top: 50px;
+    }
+}
+
+.single-contact-info {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    & .info-icon {
+        & i {
+            font-size: 24px;
+            color: $theme-color;
+            width: 50px;
+            height: 50px;
+            line-height: 48px;
+            text-align: center;
+            border: 1px solid $border-color;
+            border-radius: 50%;
+        }
+    }
+
+    & .info-content {
+        -webkit-flex: 1;
+        -moz-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        padding-left: 20px;
+
+        & .title {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.05em;
+            color: $theme-color-2;
+            padding-bottom: 15px;
+        }
+
+        & p {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: $body-color;
+
+            @media #{$md} {
+                font-size: 14px;
+            }
+
+            & a{
+                color: $body-color;
+                @include transition(0.3s);
+    
+                &:hover{
+                    color: $theme-color-2;
+                }
+            }
+        }
+    }
+}
+
+
+.contact-form {
+    padding-top: 150px;
+}
+
+
+.form-message{
+    &.success,
+    &.error{
+        font-size: 16px;
+        color: $theme-color;
+        background: #ddd;
+        padding: 10px 15px;
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+    &.error{
+        color: #f00;
+    }
+}
+
+
+
+.contact-title {
+    & .title {
+        font-weight: 700;
+        font-size: 24px;
+        color: $theme-color;
+        position: relative;
+        padding-bottom: 21px;
+
+        @media #{$xs} {
+            font-size: 20px;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 150px;
+            height: 2px;
+            background-color: $theme-color;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+    }
+
+    & p {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 30px;
+        color: $body-color;
+        margin-top: 30px;
+
+        @media #{$lg} {
+            font-size: 16px;
+        }
+
+        @media #{$md} {
+            font-size: 16px;
+        }
+
+        @media #{$xs} {
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+}
+
+.contact-form-wrapper {
+    padding-top: 30px;
+}

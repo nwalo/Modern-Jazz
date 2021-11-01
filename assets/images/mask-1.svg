@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 406 438">
+  <defs>
+    <filter id="Path">
+      <feComposite operator="in" in2="blur" />
+      <feComposite in="SourceGraphic" />
+    </filter>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="cls-1" data-name="Path 11"
+      d="M4.447,0H341.553A4.748,4.748,0,0,1,346,5V322a4.748,4.748,0,0,1-4.447,5L4.447,378A4.748,4.748,0,0,1,0,373V5A4.748,4.748,0,0,1,4.447,0Z" />
+  </g>
+</svg>

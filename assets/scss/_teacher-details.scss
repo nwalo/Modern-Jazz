@@ -1,0 +1,248 @@
+/*===========================
+    22. Teachers Details css 
+===========================*/
+
+.teacher-details{
+    padding-top: 110px;
+
+    @media #{$md}{
+        padding-top: 50px;
+    }
+    @media #{$xs}{
+        padding-top: 30px;
+    }
+}
+
+
+.single-teacher-details{
+    position: relative;
+    z-index: 5;
+    padding-left: 70px;
+    padding-bottom: 70px;
+
+    @media #{$md}{
+        padding-left: 40px;
+        padding-bottom: 40px;
+    }
+
+    &::before{
+        position: absolute;
+        content: '';
+        width: 60%;
+        height: 85%;
+        background-color: $gray;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    & .teacher-social{
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        @include transform(translateY(-50%));
+
+        @media #{$md}{
+            left: 10px;
+        }
+
+        & .social{
+            & li{
+                
+                & + li{
+                    margin-top: 25px;
+                }
+
+                & a{
+                    width: 35px;
+                    height: 35px;
+                    line-height: 33px;
+                    text-align: center;
+                    border: 1px solid $border-color;
+                    border-radius: 50%;
+                    color: $body-color;
+                    @include transition(0.3s);
+
+                    @media #{$md}{
+                        width: 25px;
+                        height: 25px;
+                        line-height: 25px;
+                        font-size: 12px;
+                    }
+
+                    &:hover{
+                        background-color: $theme-color-2;
+                        border-color: $theme-color-2;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+     & .teacher-image{
+        & a{
+            display: block;
+        }
+        & img{
+            width: 100%;
+        }
+    }
+}
+
+
+.teacher-details-content{
+    & .teacher-name{
+        font-weight: 700;
+        font-size: 46px;
+        color: $theme-color;
+        position: relative;
+        padding-bottom: 10px;
+
+        @media #{$xs}{
+            font-size: 28px;
+        }
+
+        &::before{
+            position: absolute;
+            content: '';
+            width: 150px;
+            height: 2px;
+            background-color: $theme-color;
+            bottom: 0;
+            left: 0;
+
+            @media #{$xs}{
+                width: 100px;
+            }
+        }
+    }
+    & .designation{
+        font-weight: 600;
+        font-size: 24px;
+        color: $theme-color;
+        margin-top: 14px;
+
+        @media #{$xs}{
+            font-size: 18px;
+        }
+    }
+    & .department{
+        font-weight: 500;
+        font-size: 18px;
+        color: $body-color;
+
+        @media #{$xs}{
+            font-size: 14px;
+        }
+        @media #{$sm}{
+            font-size: 16px;
+        }
+    }
+    & p{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 30px;
+        color: #303030;
+        margin-top: 30px;
+
+        @media #{$xs} {
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+    & .teacher-contact{
+        padding-top: 15px;
+
+        & li{
+            font-weight: 500;
+            font-size: 18px;
+            color: #303030;
+            margin-top: 10px;
+
+            @media #{$xs}{
+                font-size: 14px;
+            }
+            @media #{$sm}{
+                font-size: 16px;
+            }
+            
+            & strong{}
+            & a{
+                color: #303030;
+            }
+        }
+    }
+}
+
+
+.teacher-details-tab{
+    padding-top: 70px;
+
+    & .nav{
+        & li{
+            border-left: 1px solid $border-color;
+            
+            @media #{$xs}{
+                width: 100%;
+                -ms-flex-preferred-size: auto;
+                flex-basis: auto;
+            }
+            @media #{$sm}{
+                width: 100%;
+                -ms-flex-preferred-size: 0;
+                flex-basis: 0;
+            }
+            & a{
+                display: block;
+                background-color: $theme-color;
+                color: $white;
+                text-align: center;
+                height: 70px;
+                line-height: 70px;
+                @include transition(0.3s);
+                font-size: 18px;
+                font-weight: 600;
+
+                @media #{$xs}{
+                    font-size: 14px;
+                    height: 45px;
+                    line-height: 45px;
+                }
+                @media #{$sm}{
+                    height: 55px;
+                    line-height: 55px;
+                }
+
+                &.active{
+                    color: $theme-color-2;
+                }
+            }
+        }
+    }
+
+    & .tab-content{
+        padding-top: 10px;
+    }
+
+    & .single-content-tab{ 
+        margin-top: 40px;
+
+        & .title{
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.01em;
+            color: $theme-color;
+            padding-bottom: 10px;
+        }
+        & p{
+            font-weight: 500;
+            font-size: 16px;
+            color: $body-color;
+        }
+    }    
+}
+
+
+
+

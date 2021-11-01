@@ -1,0 +1,76 @@
+/*===========================
+   29. Login & Register css 
+===========================*/
+
+.login-register{
+    padding-top: 150px;
+
+    @media #{$md} {
+        padding-top: 90px;
+    }
+
+    @media #{$xs} {
+        padding-top: 70px;
+    }
+}
+
+
+.login-register-content{
+    & .title {
+        font-weight: 700;
+        font-size: 24px;
+        color: $theme-color;
+        position: relative;
+        padding-bottom: 10px;
+
+        @media #{$xs} {
+            font-size: 20px;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 150px;
+            height: 2px;
+            background-color: $theme-color;
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+
+
+.login-register-form{
+    & .single-form{
+        & .forget{
+            & a{
+                font-size: 16px;
+                font-weight: 400;
+                color: $body-color;
+                @include transition(0.3s);
+
+                @media #{$xs}{
+                    font-size: 14px;
+                }
+
+                &:hover{
+                    color: $theme-color;
+                }
+            }
+        }
+        & .main-btn{
+            height: 60px;
+            line-height: 60px;
+            padding: 0 30px;
+            font-size: 16px;
+
+            @media #{$xs}{
+                padding: 0 20px;
+                height: 45px;
+                line-height: 45px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,414 @@
+/*===========================
+    19. Courses Details css 
+===========================*/
+
+.courses-details{
+    padding-top: 110px;
+
+    @media #{$md}{
+        padding-top: 35px;
+    }
+    @media #{$xs}{
+        padding-top: 15px;
+    }
+}
+
+
+.courses-details-content{
+    & .title{
+        font-weight: 700;
+        font-size: 46px;
+        color: $theme-color;
+        margin-top: 30px;
+
+        @media #{$md}{
+            font-size: 36px;
+        }
+        @media #{$xs}{
+            font-size: 24px;
+        }
+    }
+    & p{
+        margin-top: 20px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 36px;
+        color: #303030;
+
+        @media #{$lg} {
+            font-size: 16px;
+        }
+
+        @media #{$md} {
+            font-size: 16px;
+        }
+
+        @media #{$xs} {
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+    & .sub-title{
+        font-weight: 700;
+        font-size: 24px;
+        color: $theme-color;
+        position: relative;
+        padding-bottom: 10px;
+        margin-top: 40px;
+
+        @media #{$md}{
+            font-size: 20px;
+        }
+        @media #{$xs}{
+            font-size: 18px;
+        }
+
+        &::before{
+            position: absolute;
+            content: '';
+            width: 150px;
+            height: 2px;
+            background-color: $theme-color;
+            left: 0;
+            bottom: 0;
+        }
+    }
+    & .courses-details-list{
+        & li{
+            position: relative;
+            padding-left: 40px;
+            margin-top: 40px;
+
+            & i{
+                color: $body-color;
+                font-size: 24px;
+                position: absolute;
+                left: 0;
+                top: 10px;
+            }
+            & p{
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+
+.courses-details-tab{
+    margin-top: 70px;
+
+    & .nav{
+        
+        & li{
+            border-left: 1px solid $border-color;
+
+            @media #{$xs}{
+                width: 50%;
+                -ms-flex-preferred-size: auto;
+                flex-basis: auto;
+            }
+            @media #{$sm}{
+                width: 100%;
+                -ms-flex-preferred-size: 0;
+                flex-basis: 0;
+            }           
+
+            & a{
+                display: block;
+                background-color: $theme-color;
+                color: $white;
+                text-align: center;
+                height: 70px;
+                line-height: 70px;
+                @include transition(0.3s);
+                font-size: 18px;
+                font-weight: 600;
+
+                @media #{$xs}{
+                    font-size: 14px;
+                    height: 45px;
+                    line-height: 45px;
+                }
+                @media #{$sm}{
+                    height: 55px;
+                    line-height: 55px;
+                }
+
+                &.active{
+                    color: $theme-color-2;
+                }
+            }
+        }
+    }
+
+    & .benefit-content{
+        padding-top: 20px;
+
+        & p{
+            margin-top: 20px;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 36px;
+            color: #303030;
+
+            @media #{$lg} {
+                font-size: 16px;
+            }
+
+            @media #{$md} {
+                font-size: 16px;
+            }
+
+            @media #{$xs} {
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+
+        & .courses-details-list{
+            & li{
+                position: relative;
+                padding-left: 40px;
+                margin-top: 40px;
+    
+                & i{
+                    color: $body-color;
+                    font-size: 24px;
+                    position: absolute;
+                    left: 0;
+                    top: 10px;
+                }
+                & p{
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    & .curriculum-content{
+
+        & .single-curriculum{
+            padding-top: 45px;
+
+            & .title{
+                font-weight: 700;
+                font-size: 18px;
+                letter-spacing: 0.05em;
+                color: $theme-color;
+
+            }
+            & .curriculum-list{
+                padding-left: 10px;
+
+                & li{
+                    margin-top: 20px;
+
+                    & a{
+                        font-weight: 500;
+                        font-size: 16px;
+                        color: $body-color;
+                        @include transition(0.3s);
+
+                        @media #{$lg}{
+                            font-size: 14px;
+                        }
+                        @media #{$xs}{
+                            font-size: 14px;
+                        }
+
+                        & i{
+                            color:#686868;
+                            margin-right: 5px;
+                        }
+
+                        &:hover{
+                            color: $theme-color-2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .courses-teachers{
+        padding-top: 20px;
+
+        & .single-teacher{       
+            @media #{$lg}{
+                padding-left: 40px;
+            }
+       
+            & .teacher-social{       
+                 @media #{$lg}{
+                      left: 10px;
+                 }
+       
+                 & .social{
+                      & li{       
+                           & a{       
+                                @media #{$lg}{
+                                     width: 25px;
+                                     height: 25px;
+                                     line-height: 25px;
+                                     font-size: 12px;
+                                }       
+                                &:hover{
+                                     background-color: $theme-color-2;
+                                     border-color: $theme-color-2;
+                                     color: $white;
+                                }
+                           }
+                      }
+                 }
+            }
+       
+            & .teacher-image{}
+            & .teacher-content{}
+       }
+    }
+
+    & .courses-reviews{
+        & .review-wrapper{
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: space-between;
+            -ms-flex-pack: space-between;
+            justify-content: space-between;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            -moz-flex-wrap: wrap;
+            flex-wrap: wrap;
+            max-width: 540px;
+            margin: 0 auto;           
+
+            @media #{$xs}{
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+            }
+            
+            & .review-star{
+                padding-top: 30px;
+                & .single-review{
+                    display: -webkit-flex;
+                    display: -moz-flex;
+                    display: -ms-flex;
+                    display: -o-flex;
+                    display: flex;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    margin-top: 10px;
+
+                    & .label{
+                        font-weight: 500;
+                        font-size: 18px;
+                        color: $body-color;
+                        width: 85px;
+
+                        @media #{$xs}{
+                            font-size: 14px;
+                            width: 60px;
+                        }
+                    }
+                    & .review-bar{
+                        width: 170px;
+                        height: 14px;
+                        background-color: $gray;
+                        position: relative;
+
+                        @media #{$xs}{
+                            width: 140px;
+                            height: 10px;
+                        }
+
+                        & .bar-inner{
+                            position: absolute;
+                            content: '';
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            background-color: $theme-color-2;
+                        }
+                    }
+                    & .value{
+                        font-weight: 500;
+                        font-size: 18px;
+                        color: $body-color;
+                        width: 50px;
+                        text-align: right;
+
+                        @media #{$xs}{
+                            font-size: 14px;
+                            width: 40px;
+                        }
+                    }
+                }
+            }
+            & .review-point{
+                padding-top: 30px;
+
+                @media #{$xs}{
+                    margin: 0 50px;
+                }
+
+                & span{
+                    font-weight: bold;
+                    font-size: 70px;
+                    line-height: 80px;
+                    color: $theme-color;
+                }
+            }
+        }
+
+        & .review-form{
+            margin-top: 50px;
+
+            & .review-rating{
+                & .title{
+                    font-weight: 700;
+                    font-size: 18px;
+                    color: $theme-color;
+
+                }
+                & ul{
+                    margin-top: 20px;
+
+                    & li{
+                        display: inline-block;
+                        color: #E1E1E1;
+                        cursor: pointer;
+                        
+                        &.selected,
+                        &.hover{
+                            color: #EAB830;
+                        }
+                    }
+                }
+            }
+        }
+
+        & .review-form-wrapper{
+
+            & .single-form{}
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
