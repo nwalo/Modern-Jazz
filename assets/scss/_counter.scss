@@ -1,0 +1,220 @@
+/*===========================
+     10. Counter css 
+===========================*/
+
+.counter-area {     
+     @media #{$xs}{
+          padding-top: 75px;
+     }
+}
+
+
+.counter-wrapper{
+     position: relative;
+     z-index: 5;
+     padding: 45px 70px 75px;
+
+     @media #{$md}{
+          padding: 10px 40px 40px;
+     }
+     @media #{$xs}{
+          padding: 1px 0px 30px;
+     }
+     @media #{$sm}{
+          padding: 1px 15px 30px;
+     }
+
+     &::before{
+          position: absolute;
+          content: '';
+          background-color: rgba($theme-color, 0.9);
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+     }
+
+     & .counter-col{
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flex;
+          display: -o-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+
+          &:first-child{               
+               -webkit-box-pack: flex-start;
+               -ms-flex-pack: flex-start;
+               justify-content: flex-start;
+          }          
+
+          &:last-child{
+               -webkit-box-pack: flex-end;
+               -ms-flex-pack: flex-end;
+               justify-content: flex-end;
+          }
+
+          &:nth-child(2n+1){
+               @media #{$xs}{
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+               }
+               @media #{$sm}{
+                    -webkit-box-pack: flex-start;
+                    -ms-flex-pack: flex-start;
+                    justify-content: flex-start;
+               }
+          }
+          &:nth-child(2n+2){
+               @media #{$xs}{
+                    -webkit-box-pack: flex-start;
+                    -ms-flex-pack: flex-start;
+                    justify-content: flex-start;
+               }
+          }
+          
+          & .single-counter{
+
+          }
+     }
+}
+
+.single-counter{
+     & .counter-count{
+          font-weight: 700;
+          font-size: 40px;
+          letter-spacing: 0.05em;
+          line-height: 36px;
+          color: $white;
+
+          @media #{$md}{
+               font-size: 32px;
+          }
+          @media #{$xs}{
+               font-size: 24px;
+          }
+     }
+     & p{
+          font-weight: 400;
+          font-size: 20px;
+          letter-spacing: 0.02em;
+          line-height: 33px;
+          color: $white;
+
+          @media #{$md}{
+               font-size: 18px;
+          }
+          @media #{$xs}{
+               font-size: 16px;
+          }
+     }
+}
+
+
+/*===== Counter 2 =====*/
+
+.counter-area-2{
+     padding-top: 160px;
+
+     @media #{$md}{
+          padding-top: 95px;
+     }
+     @media #{$xs}{
+          padding-top: 75px;
+     }
+}
+
+.counter-wrapper-2{
+     position: relative;
+     z-index: 5;
+     padding: 55px 60px 85px;
+
+     @media #{$md}{
+          padding: 10px 40px 40px;
+     }
+     @media #{$xs}{
+          padding: 1px 15px 30px;
+     }
+
+     &::before{
+          position: absolute;
+          content: '';
+          background-color: rgba($theme-color, 0.9);
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+     }
+     & .single-counter{}
+
+     & .counter-col{
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flex;
+          display: -o-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          position: relative;
+
+          @media #{$xs}{
+               display: block;
+               text-align: center;
+          }
+
+          &::before{
+               position: absolute;
+               content: '';
+               width: 1px;
+               height: 70%;
+               background-color: $border-color;
+               bottom: 0;
+               left: 0;
+               opacity: 0.65;
+          }
+
+          &:first-child{               
+               -webkit-box-pack: flex-start;
+               -ms-flex-pack: flex-start;
+               justify-content: flex-start;
+
+               &::before{
+                    opacity: 0;
+
+                    @media #{$sm}{
+                         opacity: 0 !important;
+                    }
+               }
+          }          
+
+          &:last-child{
+               -webkit-box-pack: flex-end;
+               -ms-flex-pack: flex-end;
+               justify-content: flex-end;               
+          }
+
+          &:nth-child(2n+1){
+               @media #{$xs}{
+                    &::before{
+                         opacity: 0;
+                    }
+               }
+               @media #{$sm}{
+                    &::before{
+                         opacity: 0.65;
+                    }
+               }
+          }
+          &:nth-child(2n+2){}
+          
+          & .single-counter{
+
+          }
+     }
+}

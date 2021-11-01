@@ -1,0 +1,293 @@
+/*===========================
+    20. Event Details css 
+===========================*/
+
+.event-details{
+    padding-top: 110px;
+
+    @media #{$md}{
+        padding-top: 50px;
+    }
+    @media #{$xs}{
+        padding-top: 30px;
+    }
+}
+
+
+.event-details-content{
+    & .title{
+        font-weight: 700;
+        font-size: 46px;
+        color: $theme-color;
+        margin-top: 30px;
+
+        @media #{$md}{
+            font-size: 36px;
+        }
+        @media #{$xs}{
+            font-size: 24px;
+        }
+    }
+    & p{
+        margin-top: 20px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 36px;
+        color: #303030;
+
+        @media #{$lg} {
+            font-size: 16px;
+        }
+
+        @media #{$md} {
+            font-size: 16px;
+        }
+
+        @media #{$xs} {
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+    & .sub-title{
+        font-weight: 700;
+        font-size: 24px;
+        color: $theme-color;
+        position: relative;
+        padding-bottom: 10px;
+        margin-top: 40px;
+
+        @media #{$md}{
+            font-size: 20px;
+        }
+        @media #{$xs}{
+            font-size: 18px;
+        }
+
+        &::before{
+            position: absolute;
+            content: '';
+            width: 150px;
+            height: 2px;
+            background-color: $theme-color;
+            left: 0;
+            bottom: 0;
+        }
+    }
+    & .event-list{
+        & li{
+            position: relative;
+            padding-left: 40px;
+            margin-top: 40px;
+
+            & i{
+                color: $body-color;
+                font-size: 24px;
+                position: absolute;
+                left: 0;
+                top: 10px;
+            }
+            & p{
+                margin-top: 0;
+            }
+        }
+    }
+
+    & .event-teachers{
+        padding-top: 20px;
+
+        & .single-teacher{       
+            @media #{$lg}{
+                padding-left: 40px;
+            }
+       
+            & .teacher-social{       
+                 @media #{$lg}{
+                      left: 10px;
+                 }
+       
+                 & .social{
+                      & li{       
+                           & a{       
+                                @media #{$lg}{
+                                     width: 25px;
+                                     height: 25px;
+                                     line-height: 25px;
+                                     font-size: 12px;
+                                }       
+                                &:hover{
+                                     background-color: $theme-color-2;
+                                     border-color: $theme-color-2;
+                                     color: $white;
+                                }
+                           }
+                      }
+                 }
+            }
+       
+            & .teacher-image{}
+            & .teacher-content{}
+       }
+    }
+
+    & .event-schedule-table{
+        margin-top: 50px;
+
+        & .table{
+
+            & thead{
+                & tr{
+                    & th{
+                        background-color: $theme-color-2;
+                        color: $white;
+                        text-align: center;
+                        border: 2px solid $white;
+
+                        &.time{
+                            min-width: 190px;
+                        }
+                        &.topics{
+                            width: 100%;
+                            min-width: 300px;
+                        }
+                        &.speakers{
+                            min-width: 200px;
+                        }
+                    }
+                }
+            }
+            & tbody{
+                & tr{
+                    & td{
+                        background-color: $gray;
+                        border: 2px solid $white;
+                        font-size: 14px;
+                        padding: 15px 20px;
+                        font-weight: 500;
+
+
+                        &.time{
+                            text-align: center;
+                        }
+                        &.topics{}
+                        &.speakers{
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .event-message{
+        & p{
+            margin-top: 20px;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 36px;
+            color: #303030;
+    
+            @media #{$lg} {
+                font-size: 16px;
+            }
+    
+            @media #{$md} {
+                font-size: 16px;
+            }
+    
+            @media #{$xs} {
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+        & .event-message-form{
+            padding-top: 15px;
+        }
+    }
+}
+
+
+
+
+.event-sidebar{
+    & .sidebar-title{
+        & .title{
+            font-weight: 500;
+            font-size: 24px;
+            color: $theme-color;
+
+            @media #{$lg}{
+                font-size: 20px;
+            }
+            @media #{$xs}{
+                font-size: 20px;
+            }
+        }
+    }
+
+    & ul{
+        padding-top: 15px;
+
+        & li{
+            padding: 14px 0;
+            border-bottom: 1px solid $border-color;
+            font-weight: 500;
+			font-size: 14px;
+            color: #303030;
+            
+            @media #{$lg}{
+                font-size: 12px;
+            }
+
+            &:last-child{
+                border-bottom: 0;
+            }
+
+            & strong{
+                display: block;
+                float: right;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.event-features{
+    background-color: $gray;
+    padding: 30px 25px;
+
+    @media #{$lg}{
+        padding: 25px 20px;
+    }
+
+    & .courses-features-items{}
+    & .sidebar-btn{
+        margin-top: 20px;
+        
+        & .main-btn{
+            height: 36px;
+            line-height: 36px;
+            padding: 0 22px;
+            font-size: 14px;
+        }
+    }
+}
+
+.event-sidebar-banner{
+    & a{
+        display: block;
+
+        & img{
+            width: 100%;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+

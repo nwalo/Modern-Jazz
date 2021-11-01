@@ -1,0 +1,15 @@
+/*===========================
+    21. Gallery css 
+===========================*/
+
+.gallery-page {
+    padding-top: 130px;
+
+    @media #{$md} {
+        padding-top: 70px;
+    }
+
+    @media #{$xs} {
+        padding-top: 50px;
+    }
+}

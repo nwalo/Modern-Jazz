@@ -1,0 +1,299 @@
+/*===========================
+    11. Blog css 
+===========================*/
+
+.blog-area {
+    padding-top: 150px;
+
+    @media #{$md} {
+        padding-top: 90px;
+    }
+
+    @media #{$xs} {
+        padding-top: 70px;
+    }
+}
+
+.blog-area-2 {
+    position: relative;
+    padding-top: 112px;
+
+    @media #{$md} {
+        padding-top: 90px;
+    }
+
+    @media #{$xs} {
+        padding-top: 70px;
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        max-width: 1300px;
+        width: 100%;
+        height: 60%;
+        background-color: $gray;
+        top: 0;
+        left: 150px;
+
+        @media #{$laptop} {
+            left: 0;
+        }
+
+        @media #{$lg} {
+            left: 0;
+        }
+
+        @media #{$md} {
+            left: 0;
+        }
+
+        @media #{$xs} {
+            left: 0;
+        }
+    }
+
+    & .trending-title {
+        font-weight: 700;
+        font-size: 46px;
+        letter-spacing: 0.1em;
+        line-height: 24px;
+        color: #d5d5d5;
+        opacity: 0.46;
+        text-transform: uppercase;
+        @include transform(rotate(-90deg));
+        display: inline-block;
+        position: absolute;
+        top: 283px;
+        left: 35px;
+
+        @media #{$laptop} {
+            top: 30px;
+            left: 15px;
+            @include transform(rotate(0deg));
+        }
+
+        @media #{$lg} {
+            top: 30px;
+            left: 15px;
+            @include transform(rotate(0deg));
+        }
+
+        @media #{$md} {
+            display: none;
+        }
+
+        @media #{$xs} {
+            display: none;
+        }
+    }
+}
+
+.blog-wrapper {
+    padding-top: 35px;
+    position: relative;
+
+    & .more-post {
+        position: absolute;
+        top: -35px;
+        right: 170px;
+        font-weight: 600;
+        font-size: 18px;
+        color: $theme-color;
+        border-bottom: 1px solid #707070;
+
+        @media #{$md} {
+            right: 0;
+        }
+
+        @media #{$xs} {
+            right: 0;
+        }
+
+        @media #{$xs} {
+            position: relative;
+            top: 0;
+            right: 0;
+            margin-top: 30px;
+            text-align: center;
+        }
+    }
+}
+
+.single-blog {
+    background-color: $gray;
+
+    & .blog-image {
+        overflow: hidden;
+
+        & a {
+            display: block;
+        }
+
+        & img {
+            @include transition(0.3s);
+            width: 100%;
+        }
+    }
+
+    & .blog-content {
+        padding: 25px;
+
+        @media #{$lg} {
+            padding: 15px;
+        }
+
+        @media #{$xs} {
+            padding: 15px;
+        }
+
+        & .meta {
+            & li {
+                display: inline-block;
+                position: relative;
+
+                & + li {
+                    margin-left: 30px;
+
+                    @media #{$lg} {
+                        margin-left: 20px;
+                    }
+
+                    @media #{$md} {
+                        margin-left: 20px;
+                    }
+
+                    @media #{$xs} {
+                        margin-left: 20px;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        content: '-';
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                        left: -18px;
+                        font-size: 16px;
+
+                        @media #{$lg} {
+                            left: -13px;
+                        }
+
+                        @media #{$md} {
+                            left: -13px;
+                        }
+
+                        @media #{$xs} {
+                            left: -13px;
+                        }
+                    }
+                }
+
+                & a {
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: $body-color;
+                    @include transition(0.3s);
+
+                    @media #{$lg} {
+                        font-size: 12px;
+                    }
+
+                    @media #{$xs} {
+                        font-size: 12px;
+                    }
+
+                    &:hover {
+                        color: $theme-color-2;
+                    }
+                }
+            }
+        }
+
+        & .blog-title {
+            & a {
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 32px;
+                text-align: left;
+                color: $theme-color;
+                margin-top: 10px;
+                @include transition(0.3s);
+
+                @media #{$lg} {
+                    font-size: 18px;
+                    line-height: 28px;
+                }
+
+                @media #{$md} {
+                    font-size: 20px;
+                    line-height: 28px;
+                }
+
+                @media #{$xs} {
+                    font-size: 18px;
+                    line-height: 28px;
+                }
+
+                &:hover {
+                    color: $theme-color-2;
+                }
+            }
+        }
+
+        & .more {
+            font-weight: 500;
+            font-size: 16px;
+            letter-spacing: 0.02em;
+            line-height: 24px;
+            color: $body-color;
+            margin-top: 15px;
+            @include transition(0.3s);
+
+            @media #{$lg} {
+                font-size: 13px;
+            }
+
+            @media #{$xs} {
+                font-size: 14px;
+            }
+
+            & i {
+                margin-left: 3px;
+                font-size: 12px;
+            }
+
+
+
+            &:hover {
+                color: $theme-color-2;
+            }
+        }
+    }
+
+    &:hover {
+        & .blog-image {
+            overflow: hidden;
+
+            & img {
+                @include transform(scale(1.1));
+            }
+        }
+    }
+}
+
+
+/*===== Blog Page Style =====*/
+
+.blog-page {
+    padding-top: 130px;
+
+    @media #{$md} {
+        padding-top: 70px;
+    }
+
+    @media #{$xs} {
+        padding-top: 50px;
+    }
+}

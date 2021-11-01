@@ -1,0 +1,131 @@
+/*===========================
+    23. Shop Sidebar css 
+===========================*/
+
+.shop-sidebar{
+    & .sidebar-title{
+        & .title{
+            font-weight: 500;
+            font-size: 24px;
+            color: $theme-color;
+
+            @media #{$lg}{
+                font-size: 20px;
+            }
+            @media #{$xs}{
+                font-size: 20px;
+            }
+        }
+    }
+
+    & ul{
+        padding-top: 15px;
+
+        & li{
+            padding: 14px 0;
+            border-bottom: 1px solid $border-color;
+            font-weight: 500;
+			font-size: 14px;
+            color: #303030;
+            
+            @media #{$lg}{
+                font-size: 12px;
+            }
+
+            &:last-child{
+                border-bottom: 0;
+            }
+
+            & strong{
+                display: block;
+                float: right;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.shop-sidebar-category{
+    background-color: $gray;
+    padding: 30px 25px;
+
+    @media #{$lg}{
+        padding: 25px 20px;
+    }
+
+    & .category-items{
+        padding-top: 15px;
+
+        & li{
+            & label{
+                & strong{}
+            }
+        }
+    }
+}
+
+.shop-sidebar-price{
+    background-color: $gray;
+    padding: 30px 25px;
+
+    @media #{$lg}{
+        padding: 25px 20px;
+    }
+
+    & .price-items{
+        padding-top: 15px;
+
+        & li{
+            & label{
+                & strong{}
+            }
+        }
+    }
+}
+
+
+.shop-sidebar-banner{
+    & a{
+        display: block;
+
+        & img{
+            width: 100%;
+        }
+    }
+}
+
+.shop-sidebar-tags{
+    background-color: $gray;
+    padding: 30px 25px;
+
+    @media #{$lg}{
+        padding: 25px 20px;
+    }
+
+
+    & .tags-items{
+        margin-left: -10px;
+        margin-right: -10px;
+        padding-top: 20px;
+
+        & li{
+            border-bottom: 0;
+            display: inline-block;
+            padding: 3px 10px;
+
+            & a{
+                font-weight: 500;
+                font-size: 14px;
+                color: $theme-color;
+                @include transition(0.3s);
+
+                &:hover{
+                    color: $theme-color-2;
+                }
+            }
+        }
+    }
+}
+
+
+

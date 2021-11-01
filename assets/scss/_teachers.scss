@@ -1,0 +1,162 @@
+/*===========================
+    17. Teachers css 
+===========================*/
+
+.teachers-area {
+    padding-top: 110px;
+
+    @media #{$md} {
+        padding-top: 35px;
+    }
+
+    @media #{$xs} {
+        padding-top: 15px;
+    }
+}
+
+.teachers-row {
+
+    @media #{$desktop} {
+        margin-left: -40px;
+        margin-right: -40px;
+    }
+
+    @media #{$laptop} {
+        margin-left: -40px;
+        margin-right: -40px;
+    }
+
+    & .teachers-col {
+
+        @media #{$desktop} {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        @media #{$laptop} {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+}
+
+.teachers-wrapper {
+    padding-top: 35px;
+    position: relative;
+}
+
+.single-teacher {
+    position: relative;
+    z-index: 5;
+    padding-left: 70px;
+
+    @media #{$md} {
+        padding-left: 40px;
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        width: 60%;
+        height: 85%;
+        background-color: $gray;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    & .teacher-social {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        @include transform(translateY(-50%));
+
+        @media #{$md} {
+            left: 10px;
+        }
+
+        & .social {
+            & li {
+                & + li {
+                    margin-top: 25px;
+                }
+
+                & a {
+                    width: 35px;
+                    height: 35px;
+                    line-height: 33px;
+                    text-align: center;
+                    border: 1px solid $border-color;
+                    border-radius: 50%;
+                    color: $body-color;
+                    @include transition(0.3s);
+
+                    @media #{$md} {
+                        width: 25px;
+                        height: 25px;
+                        line-height: 25px;
+                        font-size: 12px;
+                    }
+
+                    &:hover {
+                        background-color: $theme-color-2;
+                        border-color: $theme-color-2;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    & .teacher-image {
+        & a {
+            display: block;
+        }
+
+        & img {
+            width: 100%;
+        }
+    }
+
+    & .teacher-content {
+        padding: 20px 15px;
+
+        & .name {
+            & a {
+                font-size: 18px;
+                font-weight: 600;
+                color: $theme-color;
+                @include transition(0.3s);
+
+                @media #{$md} {
+                    font-size: 16px;
+                }
+
+                &:hover {
+                    color: $theme-color-2;
+                }
+            }
+        }
+
+        & .designation {
+            font-size: 14px;
+            color: $body-color;
+            font-weight: 500;
+        }
+    }
+}
+
+
+/*===== Teachers Page =====*/
+
+.teachers-page {
+    padding-top: 80px;
+
+    @media #{$md} {
+        padding-top: 20px;
+    }
+
+    @media #{$xs} {
+        padding-top: 0px;
+    }
+}

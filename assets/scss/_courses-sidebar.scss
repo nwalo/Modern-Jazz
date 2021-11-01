@@ -1,0 +1,136 @@
+/*===========================
+    18. Courses Sidebar css 
+===========================*/
+
+.courses-sidebar {
+    & .sidebar-title {
+        & .title {
+            font-weight: 500;
+            font-size: 24px;
+            color: $theme-color;
+
+            @media #{$lg} {
+                font-size: 20px;
+            }
+
+            @media #{$xs} {
+                font-size: 20px;
+            }
+        }
+    }
+
+    & ul {
+        padding-top: 15px;
+
+        & li {
+            padding: 14px 0;
+            border-bottom: 1px solid $border-color;
+            font-weight: 500;
+            font-size: 14px;
+            color: #303030;
+
+            @media #{$lg} {
+                font-size: 12px;
+            }
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            & strong {
+                display: block;
+                float: right;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.courses-sidebar-category {
+    background-color: $gray;
+    padding: 30px 25px;
+
+    @media #{$lg} {
+        padding: 25px 20px;
+    }
+
+    & .category-items {
+        padding-top: 15px;
+
+        & li {
+            & label {
+                & strong {}
+            }
+        }
+    }
+}
+
+.courses-sidebar-fee {
+    background-color: $gray;
+    padding: 30px 25px;
+
+    @media #{$lg} {
+        padding: 25px 20px;
+    }
+
+    & .category-items {
+        padding-top: 15px;
+
+        & li {
+            & label {
+                & strong {}
+            }
+        }
+    }
+}
+
+.courses-sidebar-banner {
+    & a {
+        display: block;
+
+        & img {
+            width: 100%;
+        }
+    }
+}
+
+.courses-sidebar-type {
+    background-color: $gray;
+    padding: 30px 25px;
+
+    @media #{$lg} {
+        padding: 25px 20px;
+    }
+
+    & .category-items {
+        padding-top: 15px;
+
+        & li {
+            & label {
+                & strong {}
+            }
+        }
+    }
+}
+
+.courses-features {
+    background-color: $gray;
+    padding: 30px 25px;
+
+    @media #{$lg} {
+        padding: 25px 20px;
+    }
+
+    & .courses-features-items {}
+
+    & .sidebar-btn {
+        margin-top: 20px;
+
+        & .main-btn {
+            height: 36px;
+            line-height: 36px;
+            padding: 0 22px;
+            font-size: 14px;
+        }
+    }
+}

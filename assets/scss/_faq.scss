@@ -1,0 +1,126 @@
+/*===========================
+    28. FAQ's css 
+===========================*/
+
+.faq-area{
+    padding-top: 150px;
+
+    @media #{$md} {
+        padding-top: 90px;
+    }
+
+    @media #{$xs} {
+        padding-top: 70px;
+    }
+}
+
+.faq-wrapper {
+    padding-top: 42px;
+
+    & .accordion {
+        & .card {
+            position: relative;
+            padding-left: 40px;
+            border: 0;
+            margin-top: 50px;
+
+            & .question {
+                font-weight: 600;
+                font-size: 28px;
+                line-height: 30px;
+                color: $theme-color;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                @media #{$lg}{
+                    font-size: 24px;
+                }
+                @media #{$md}{
+                    font-size: 24px;
+                }
+                @media #{$xs}{
+                    font-size: 24px;
+                    line-height: 36px;
+                }
+            }
+
+            & .card-header {
+                padding: 5px 0;
+                border-bottom: 0;
+                margin-bottom: 0;
+                background: none;
+
+                & a{
+                    font-weight: 600;
+                    font-size: 18px;
+                    color: $theme-color-2;
+                    @include transition(0.3s);
+
+                    @media #{$lg}{
+                        font-size: 16px;
+                    }
+                    @media #{$md}{
+                        font-size: 16px;
+                    }
+                    @media #{$xs}{
+                        font-size: 16px;
+                    }
+
+                    &.collapsed{
+                        color: #303030;
+                    }
+                }
+            }
+
+            & .card-body {
+                padding: 0;
+                padding-left: 35px;
+                position: relative;
+                margin-top: 30px;
+
+                & .answer{
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 36px;
+                    color: $theme-color;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    @media #{$lg}{
+                        font-size: 20px;
+                    }
+                    @media #{$md}{
+                        font-size: 20px;
+                    }
+                    @media #{$xs}{
+                        font-size: 20px;
+                    }
+                }
+
+                & p{
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 36px;
+                    color: #303030;
+
+                    @media #{$lg}{
+                        font-size: 16px;
+                    }
+                    @media #{$md}{
+                        font-size: 16px;
+                    }
+                    @media #{$xs}{
+                        font-size: 14px;
+                        line-height: 26px;
+
+                        & br{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,590 @@
+/*===========================
+    08. Event css 
+===========================*/
+
+.event-area {
+    padding-top: 110px;
+
+    @media #{$md} {
+        padding-top: 55px;
+    }
+
+    @media #{$xs} {
+        padding-top: 35px;
+    }
+}
+
+
+.event-title-tab-menu{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    @media #{$xs}{
+        display: block;
+    }
+    @media #{$sm}{
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+    }
+
+    & .event-title{
+        display: inline-block;
+        
+        & .title{
+            font-size: 47px;
+            line-height: 54px;
+            position: relative;
+            padding-right: 60px;
+
+            @media #{$lg}{
+                font-size: 34px;
+                line-height: 40px;
+                padding-right: 50px;
+            }
+            @media #{$md}{
+                font-size: 36px;
+                line-height: 45px;
+                padding-right: 30px;
+            }
+            @media #{$xs}{
+                font-size: 30px;
+                line-height: 30px;
+                padding-bottom: 20px;
+                padding-right: 0;
+            }
+            @media #{$sm}{
+                font-size: 24px;
+                line-height: 30px;
+                padding-bottom: 0;
+                padding-right: 30px;
+            }
+
+            &::before{
+                position: absolute;
+                content: '';
+                width: 2px;
+                height: 65%;
+                background-color: $theme-color;
+                top: 50%;
+                right: 0px;
+                @include transform(translateY(-50%));
+    
+                @media #{$xs}{
+                    height: 2px;
+                    left: 0;
+                    right: auto;
+                    top: auto;
+                    bottom: 0;
+                    width: 100px;
+                    @include transform(translateY(0));
+                }
+                @media #{$sm}{
+                    width: 2px;
+                    height: 75%;
+                    left: auto;
+                    top: 50%;
+                    right: 0px;
+                    bottom: auto;
+                    @include transform(translateY(-50%));
+                }
+            }
+        }
+    }
+}
+
+.event-tab-menu {
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    
+    & .nav {
+        padding-left: 60px;
+
+        @media #{$lg} {
+            padding-left: 50px;
+        }
+        @media #{$md} {
+            padding-left: 30px;
+        }
+        @media #{$xs} {
+            padding-left: 0;
+        }
+        @media #{$sm} {
+            padding-left: 30px;
+        }
+
+        & li {
+            & + li {
+                margin-left: 25px;
+
+                @media #{$md} {
+                    margin-left: 10px;
+                }
+
+                @media #{$xs} {
+                    margin-left: 10px;
+                }
+            }
+
+            & a {
+                font-weight: 600;
+                font-size: 18px;
+                text-align: left;
+                color: $theme-color;
+                border: 1px solid $border-color;
+                padding: 0 30px;
+                height: 45px;
+                line-height: 43px;
+
+                @media #{$md} {
+                    font-size: 16px;
+                    padding: 0 20px;
+                    height: 40px;
+                    line-height: 38px;
+                }
+
+                @media #{$xs} {
+                    font-size: 14px;
+                    padding: 0 10px;
+                    height: 40px;
+                    line-height: 38px;
+                }
+
+                &.active {
+                    background-color: $theme-color-2;
+                    border-color: $theme-color-2;
+                    color: $white;
+                    @include transition(0.3s);
+                }
+            }
+        }
+    }
+}
+
+.event-tab-items {
+    padding-top: 40px;
+    position: relative;
+
+    @media #{$md} {
+        padding-top: 20px;
+    }
+
+    @media #{$xs} {
+        padding-top: 20px;
+    }
+
+    & .view-btn{
+        position: absolute;
+        top: 25px;
+        right: 0;
+
+        @media #{$xs}{
+            position: relative;
+        }
+
+        & .view-more{
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            color: #808080;
+            @include transition(0.3s);
+    
+            &:hover{
+                color: $theme-color;
+            }
+        }
+    }
+}
+
+
+.single-event {
+    background-color: $gray;
+    padding: 50px 25px;
+    @include transition(0.3s);
+
+    @media #{$lg}{
+        padding: 20px ;
+    }
+    @media #{$sm}{
+        padding: 30px 25px;
+    }
+
+    & .time {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 32px;
+        display: block;
+        @include transition(0.3s);
+
+        @media #{$lg} {
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        @media #{$xs} {
+            font-size: 14px;
+        }
+    }
+
+    & .date {
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: 0.05em;
+        line-height: 32px;
+        color: $theme-color-2;
+        display: block;
+        @include transition(0.3s);
+
+        @media #{$lg} {
+            font-size: 16px;
+            line-height: 25px;
+        }
+
+        @media #{$xs} {
+            font-size: 18px;
+            line-height: 30px;
+        }
+    }
+
+    & .event-title {
+        & a {
+            font-weight: 600;
+            font-size: 24px;
+            letter-spacing: 0.02em;
+            line-height: 30px;
+            color: $theme-color;
+            margin-top: 11px;
+            @include transition(0.3s);
+
+            @media #{$lg} {
+                font-size: 18px;
+                line-height: 25px;
+            }
+            @media #{$xs} {
+                font-size: 18px;
+                line-height: 25px;
+            }
+        }
+    }
+
+    & .place {
+        font-weight: 500;
+        font-size: 16px;
+        margin-top: 11px;
+        @include transition(0.3s);
+
+        @media #{$lg} {
+            font-size: 14px;
+        }
+
+        @media #{$xs} {
+            font-size: 14px;
+        }
+    }
+
+    & .more {
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        margin-top: 15px;
+        color: $body-color;
+        @include transition(0.3s);
+
+        @media #{$lg} {
+            font-size: 13px;
+        }
+
+        @media #{$xs} {
+            font-size: 13px;
+        }
+
+        & i {
+            font-size: 11px;
+            margin-left: 3px;
+        }
+    }
+
+    &:hover {
+        background-color: $theme-color;
+
+        & .time {
+            color: $white;
+        }
+
+        & .event-title {
+            & a {
+                color: $white;
+            }
+        }
+
+        & .place {
+            color: $white;
+        }
+
+        & .more {
+            color: $white;
+        }
+    }
+}
+
+
+/*===== Event 2 =====*/
+
+.event-image {
+    & img {
+        width: 100%;
+    }
+}
+
+.event-title {
+    max-width: 490px;
+    margin-left: auto;
+
+    @media #{$md} {
+        margin-left: 0;
+    }
+
+    @media #{$xs} {
+        margin-left: 0;
+    }
+}
+
+.event-wrapper-2{
+    max-width: 490px;
+}
+
+.single-event-2 {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 60px;
+
+    & .event-date {
+        width: 125px;
+        height: 125px;
+        background-color: $gray;
+        text-align: center;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        @include transition(0.3s);
+
+        @media #{$xs} {
+            width: 80px;
+            height: 80px;
+        }
+
+        & .date {
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 0.05em;
+            line-height: 32px;
+            color: $theme-color;
+            @include transition(0.3s);
+
+            @media #{$lg} {
+                font-size: 20px;
+            }
+
+            @media #{$xs} {
+                font-size: 16px;
+                line-height: 26px;
+            }
+        }
+    }
+
+    & .event-content {
+        padding-left: 30px;
+        -webkit-flex: 1;
+        -moz-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+
+        @media #{$xs} {
+            padding-left: 15px;
+        }
+
+        & .event-title-2 {
+            & a {
+                font-weight: 600;
+                font-size: 24px;
+                letter-spacing: 0.02em;
+                line-height: 30px;
+                color: $theme-color;
+                @include transition(0.3s);
+
+                @media #{$lg} {
+                    font-size: 22px;
+                }
+                @media #{$xs} {
+                    font-size: 16px;
+                    line-height: 26px;
+                }
+
+                &:hover {
+                    color: $theme-color-2;
+                }
+            }
+        }
+
+        & .place {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 32px;
+
+            @media #{$xs} {
+                font-size: 13px;
+                line-height: 24px;
+            }
+        }
+
+        & .time {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 32px;
+            display: block;
+
+            @media #{$xs} {
+                font-size: 13px;
+                line-height: 24px;
+            }
+        }
+
+        & .more {
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            line-height: 24px;
+            color: $body-color;
+            @include transition(0.3s);
+
+            @media #{$xs} {
+                font-size: 12px;
+                line-height: 22px;
+            }
+
+            &:hover {
+                color: $theme-color-2;
+            }
+        }
+    }
+
+    &:hover {
+        & .event-date {
+            background-color: $theme-color-2;
+
+            & .date {
+                color: $white;
+            }
+        }
+    }
+}
+
+
+/*===== Event Page =====*/
+
+.event-page {
+    padding-top: 130px;
+
+    @media #{$md} {
+        padding-top: 70px;
+    }
+
+    @media #{$xs} {
+        padding-top: 50px;
+    }
+}
+
+
+.event-menu {
+    & .menu-items {
+        & li {
+
+            & + li {
+                margin-left: 23px;
+
+                @media #{$lg} {
+                    margin-left: 10px;
+                }
+
+                @media #{$md} {
+                    margin-left: 10px;
+                }
+
+                @media #{$xs} {
+                    margin-left: 5px;
+                }
+            }
+
+            display: inline-block;
+            width: 125px;
+            height: 45px;
+            line-height: 43px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: $theme-color;
+            border: 1px solid $border-color;
+            @include transition(0.3s);
+            cursor: pointer;
+            margin-top: 10px;
+
+            @media #{$lg} {
+                width: 110px;
+                font-size: 16px;
+            }
+
+            @media #{$md} {
+                width: 100px;
+                font-size: 16px;
+            }
+
+            @media #{$xs} {
+                width: auto;
+                font-size: 14px;
+                padding: 0 15px;
+                height: 40px;
+                line-height: 38px;
+            }
+
+            &:hover,
+            &.active {
+                background-color: $theme-color-2;
+                color: $white;
+                border-color: $theme-color-2;
+            }
+        }
+    }
+}
+
+.event-wrapper {
+    padding-top: 40px;
+
+    @media #{$md} {
+        padding-top: 20px;
+    }
+
+    @media #{$xs} {
+        padding-top: 20px;
+    }
+}

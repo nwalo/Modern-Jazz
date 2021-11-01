@@ -1,0 +1,211 @@
+/*===========================
+    25. Blog Sidebar css 
+===========================*/
+
+
+
+.blog-sidebar {
+    padding-right: 50px;
+
+    @media #{$lg} {
+        padding-right: 0;
+    }
+
+    @media #{$md} {
+        padding-right: 0;
+    }
+
+    @media #{$xs} {
+        padding-right: 0;
+    }
+
+    &.right-sidebar {
+        padding-right: 0;
+        padding-left: 50px;
+
+        @media #{$lg} {
+            padding-left: 0;
+        }
+
+        @media #{$md} {
+            padding-left: 0;
+        }
+
+        @media #{$xs} {
+            padding-left: 0;
+        }
+    }
+
+    & .sidebar-title {
+        & .title {
+            font-weight: 500;
+            font-size: 24px;
+            color: $theme-color;
+
+            @media #{$lg} {
+                font-size: 20px;
+            }
+
+            @media #{$xs} {
+                font-size: 20px;
+            }
+        }
+    }
+
+    & ul {
+        padding-top: 15px;
+
+        & li {
+            padding: 14px 0;
+            border-bottom: 1px solid $border-color;
+            font-weight: 500;
+            font-size: 14px;
+            color: #303030;
+
+            @media #{$lg} {
+                font-size: 12px;
+            }
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            & strong {
+                display: block;
+                float: right;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.blog-sidebar-category {
+    background-color: $gray;
+    padding: 30px 25px;
+
+    @media #{$lg} {
+        padding: 25px 20px;
+    }
+
+    & .category-items {
+        padding-top: 15px;
+
+        & li {
+            & label {
+                & strong {}
+            }
+        }
+    }
+}
+
+.blog-sidebar-post {
+    background-color: $gray;
+    padding: 30px 25px;
+
+    @media #{$lg} {
+        padding: 25px 20px;
+    }
+
+    & .post-items {
+        padding-top: 15px;
+
+        & li {
+            & + li {
+                border-top: 1px solid $border-color;
+            }
+
+            & .single-post {
+                display: -webkit-flex;
+                display: -moz-flex;
+                display: -ms-flex;
+                display: -o-flex;
+                display: flex;
+
+                & .post-thumb {
+                    & img {}
+                }
+
+                & .post-content {
+                    padding-left: 15px;
+                    -webkit-flex: 1;
+                    -moz-flex: 1;
+                    -ms-flex: 1;
+                    flex: 1;
+
+                    & .post-title {
+                        & a {
+                            font-weight: 600;
+                            font-size: 16px;
+                            color: $theme-color;
+                            @include transition(0.3s);
+
+                            &:hover{
+                                color: $theme-color-2;
+                            }
+                        }
+                    }
+
+                    & .more {
+                        font-weight: 500;
+                        font-size: 14px;
+                        letter-spacing: 0.02em;
+                        color: $body-color;
+                        margin-top: 10px;
+                        @include transition(0.3s);
+
+                        & i {
+                            font-size: 11px;
+                        }
+                        
+                        &:hover{
+                            color: $theme-color-2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.blog-sidebar-banner {
+    & a {
+        display: block;
+
+        & img {
+            width: 100%;
+        }
+    }
+}
+
+.blog-sidebar-tags {
+    background-color: $gray;
+    padding: 30px 25px;
+
+    @media #{$lg} {
+        padding: 25px 20px;
+    }
+
+
+    & .tags-items {
+        margin-left: -10px;
+        margin-right: -10px;
+        padding-top: 20px;
+
+        & li {
+            border-bottom: 0;
+            display: inline-block;
+            padding: 3px 10px;
+
+            & a {
+                font-weight: 500;
+                font-size: 14px;
+                color: $theme-color;
+                @include transition(0.3s);
+
+                &:hover {
+                    color: $theme-color-2;
+                }
+            }
+        }
+    }
+}

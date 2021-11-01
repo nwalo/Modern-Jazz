@@ -1,0 +1,89 @@
+/*===========================
+     06. Specialty css 
+===========================*/
+
+.specialty-area {
+     padding-top: 130px;
+
+     @media #{$md}{
+          padding-top: 70px;
+     }
+     @media #{$xs}{
+          padding-top: 50px;
+     }
+}
+
+.single-specialty{
+     &::before{
+          position: absolute;
+          content: '';
+          width: 1px;
+          height: 80%;
+     }
+
+     & .specialty-box{
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flex;
+          display: -o-flex;
+          display: flex;
+          max-width: 290px;
+          margin: 0 auto;
+          background: $white;
+          padding: 15px 30px;
+          @include transition(0.3s);
+
+          @media #{$md}{
+               padding: 15px 20px;
+          }
+          @media #{$sm}{
+               padding: 15px 10px;
+          }
+
+          & .box-icon{
+               & img{
+                    @media #{$md}{
+                         width: 45px;
+                    }
+                    @media #{$xs}{
+                         width: 45px;
+                    }
+                    @media #{$sm}{
+                         width: 35px;
+                    }
+               }
+          }
+          & .box-content{
+               -webkit-flex: 1;
+               -moz-flex: 1;
+               -ms-flex: 1;
+               flex: 1;
+               padding-left: 15px;
+
+               & p{
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 32px;
+                    color: $theme-color;
+
+                    @media #{$md}{
+                         font-size: 18px;
+                         line-height: 28px;
+                    }
+                    @media #{$xs}{
+                         font-size: 18px;
+                         line-height: 28px;
+                    }
+                    @media #{$sm}{
+                         font-size: 14px;
+                         line-height: 20px;
+                    }
+               }
+          }
+     }
+     &.active{
+          & .specialty-box{
+               @include box-shadow (0px 3px 4px rgba(0, 0, 0, 0.16));
+          }
+     }
+}
