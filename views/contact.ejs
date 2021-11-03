@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    
+    <!--====== Head Start ======-->
+
+  <%- include('partials/header') %>
+
+  <!--====== Head Ends ======-->
+
+  <body>
+    <!--====== Navigation Start ======-->
+
+    <%- include('partials/navigation') %>
+
+    <!--====== Navigation Ends ======-->
+
+    <!--====== Page Banner Start ======-->
+
+    <section class="page-banner">
+      <div
+        class="page-banner-bg bg_cover"
+        style="
+          background-image: url(assets/images/bg/conts.jpg);
+          background-position: top;
+          background-color: #24242475;
+          background-blend-mode: overlay;
+        "
+      >
+        <div class="container">
+          <div class="banner-content text-center">
+            <h2 class="title">Contact</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--====== Page Banner Ends ======-->
+
+    <!--====== Contact Start ======-->
+
+    <section class="contact-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="single-contact-info mt-30">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info-content">
+                <h5 class="title">Address</h5>
+                <p>Lagos,</p>
+                <p>Nigeria.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="single-contact-info mt-30">
+              <div class="info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="info-content">
+                <h5 class="title">Phone</h5>
+                <p><a href="tel:+23408143958001">+234 08143958001</a></p>
+                <p><a href="tel:+23408143958001">+234 08143958001</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="single-contact-info mt-30">
+              <div class="info-icon">
+                <i class="far fa-globe"></i>
+              </div>
+              <div class="info-content">
+                <h5 class="title">Web</h5>
+                <p>
+                  <a href="mailto://modernjazzwithnoels@gmail.com">
+                    modernjazzwithnoels@gmail.com
+                  </a>
+                </p>
+                <p><a href="www.example.com">www.modernjazz.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="contact-title text-center">
+                <h3 class="title">Leave a message here</h3>
+                <p>
+                  Your feedback is so important to us!!! Drop your question
+                  about our latest updates here and we would attend to you.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="contact-form-wrapper">
+                <form
+                  id="contact-form"
+                  action="assets/contact.php"
+                  method="post"
+                >
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="single-form">
+                        <input type="text" name="name" placeholder="Name" />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="single-form">
+                        <input type="email" name="email" placeholder="Email" />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="single-form">
+                        <input type="text" name="phone" placeholder="Phone" />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="single-form">
+                        <input
+                          type="text"
+                          name="subject"
+                          placeholder="Subject"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="single-form">
+                        <textarea
+                          name="message"
+                          placeholder="Write here..."
+                        ></textarea>
+                      </div>
+                    </div>
+                    <p class="form-message"></p>
+                    <div class="col-md-12">
+                      <div class="single-form text-center">
+                        <button class="main-btn">Submit now</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--====== Contact Ends ======-->
+
+    <!--====== Footer Starts ======-->
+    
+    <%- include('partials/footer') %>
+
+    <!--====== Footer Ends ======-->
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+
+    <!--====== Head Start ======-->
+
+  <%- include('partials/header') %>
+
+  <!--====== Head Ends ======-->
+
+  <body>
+
+    <!--====== Navigation Start ======-->
+
+    <%- include('partials/navigation') %>
+
+    <!--====== Navigation Ends ======-->
+    
+    <!--====== Page Banner Start ======-->
+
+    <section class="page-banner">
+        <div class="page-banner-bg bg_cover" style="background-image: url(assets/images/page-banner.jpg);">
+            <div class="container">
+                <div class="banner-content text-center">
+                    <h2 class="title">Login</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Page Banner Ends ======-->
+
+    <!--====== Login Start ======-->
+
+    <section class="login-register">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="login-register-content">
+                        <h4 class="title">Login to Your Account</h4>
+
+                        <div class="login-register-form">
+                            <form action="#">
+                                <div class="single-form">
+                                    <label>Username or email address *</label>
+                                    <input type="email">
+                                </div>
+                                <div class="single-form">
+                                    <label>Password</label>
+                                    <input type="password">
+                                </div>
+                                <div class="single-form">
+                                    <button class="main-btn btn-block">Login</button>
+                                </div>
+                                <div class="single-form d-flex justify-content-between">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="remember">
+                                        <label for="remember"><span></span> Remember Me</label>
+                                    </div>
+                                    <div class="forget">
+                                        <a href="#">Lost Your Password</a>
+                                    </div>
+                                </div>
+                                <div class="single-form">
+                                    <label>You don't have account ?</label>
+                                    <a href="register.html" class="main-btn main-btn-2 btn-block">Create Account Now</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </section>
+
+    <!--====== Login Ends ======-->
+    
+    
+    <!--====== Footer Starts ======-->
+    
+    <%- include('partials/footer') %>
+
+    <!--====== Footer Ends ======-->
+    
+</body>
+
+</html>

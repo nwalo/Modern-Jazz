@@ -2,171 +2,19 @@
 <html class="no-js" lang="en">
 
 <head>
-    <meta charset="utf-8">
     
-    <!--====== Title ======-->
-    <title>Edumate Education HTML Template</title>
+    <!--====== Head Start ======-->
+
+  <%- include('partials/header') %>
+
+  <!--====== Head Ends ======-->
+
+  <body>
+    <!--====== Navigation Start ======-->
+
+    <%- include('partials/navigation') %>
     
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
-    
-        
-    <!-- CSS
-    ============================================ -->
-
-    <!--===== Vendor CSS (Bootstrap & Icon Font) =====-->
-
-    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/default.css">
-
-
-    <!--===== Plugins CSS (All Plugins Files) =====-->
-    <link rel="stylesheet" href="assets/css/plugins/animate.css">
-    <link rel="stylesheet" href="assets/css/plugins/slick.css">
-    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
-
-    <!--====== Main Style CSS ======-->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-
-    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
-
-    <!-- <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
-    <link rel="stylesheet" href="assets/css/style.min.css"> -->
-    
-</head>
-
-<body>
-    
-    <!--====== Header Start ======-->
-
-    <header class="header-area">
-        <div class="header-top">
-            <div class="container">
-                <div class="header-top-wrapper d-flex flex-wrap justify-content-sm-between">
-                    <div class="header-top-left mt-10">
-                        <ul class="header-meta">
-                            <li><a href="mailto://infoedumate@example.com">infoedumate@example.com</a></li>
-                        </ul>
-                    </div>
-                    <div class="header-top-right mt-10">
-                        <div class="header-link">
-                            <a class="notice" href="notice.html">Notice</a>
-                            <a class="login" href="login.html">Login</a>
-                            <a class="register" href="register.html">Register</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="navigation" class="navigation navigation-landscape">
-            <div class="container position-relative">
-                <div class="row align-items-center">
-                    <div class="col-lg-3">
-                        <div class="header-logo">
-                            <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-7 position-static">
-                        <div class="nav-toggle"></div>
-                        <nav class="nav-menus-wrapper">
-                            <ul class="nav-menu">
-                                <li>
-                                    <a href="#">Home</a>
-                                    <ul class="nav-dropdown nav-submenu">
-                                        <li><a href="index.html">Home 01</a></li>
-                                        <li><a href="index-2.html">Home 02</a></li>
-                                        <li><a href="index-3.html">Home 03</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Courses</a>
-                                    <ul class="nav-dropdown nav-submenu">
-                                        <li>
-                                            <a href="#">Courses Grid</a>
-                                            <ul class="nav-dropdown nav-submenu">
-                                                <li><a href="our-courses.html">Courses 01</a></li>
-                                                <li><a href="our-courses-2.html">Courses 02</a></li>
-                                                <li><a href="our-courses-3.html">Courses 03</a></li>
-                                                <li><a href="our-courses-left-sidebar.html">Courses Left Sidebar</a></li>
-                                                <li><a href="our-courses-right-sidebar.html">Courses Right Sidebar</a></li>
-                                            </ul>
-                                        </li>  
-                                        <li>
-                                            <a href="#">Courses</a>
-                                            <ul class="nav-dropdown nav-submenu">
-                                                <li><a href="our-courses-list.html">Courses List</a></li>
-                                                <li><a href="our-courses-list-left-sidebar.html">Courses List Left Sidebar </a></li>
-                                                <li><a href="our-courses-list-right-sidebar.html">Courses List Right Sidebar</a></li>                                                    
-                                            </ul>
-                                        </li>                                            
-                                        <li><a href="courses-details.html">Courses Details</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Events</a>
-                                    <ul class="nav-dropdown nav-submenu">
-                                        <li><a href="event.html">Event 01</a></li>
-                                        <li><a href="event-2.html">Event 02</a></li>
-                                        <li><a href="event-details.html">Event Details</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="active" href="#">Pages</a>
-                                    <ul class="nav-dropdown nav-submenu">
-                                        <li><a href="about-us.html">About</a></li>
-                                        <li><a href="teachers.html">Teachers</a></li>
-                                        <li><a href="teacher-details.html">Teachers Details</a></li>
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                        <li><a href="gallery-masonry.html">Gallery Masonry</a></li>
-                                        <li><a href="testimonial.html">Testimonial</a></li>
-                                        <li><a href="faq.html">FAQ'S</a></li>
-                                        <li><a class="active" href="notice.html">Notice</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="register.html">Register</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Shop</a>
-                                    <ul class="nav-dropdown nav-submenu">
-                                        <li><a href="shop.html">Shop </a></li>
-                                        <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
-                                        <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                        <li><a href="product-details.html">Shop Details</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Blog</a>
-                                    <ul class="nav-dropdown nav-submenu">
-                                        <li><a href="blog.html">Blog </a></li>
-                                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                        <li><a href="blog-right-sideba.html">Blog Right Sidebar</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="col-lg-2 position-static">
-                        <div class="header-search">
-                            <form action="#">
-                                <input type="text" placeholder="Search">
-                                <button><i class="fas fa-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!--====== Header Ends ======-->
+    <!--====== Navigation Ends ======-->
     
     <!--====== Page Banner Start ======-->
 

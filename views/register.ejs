@@ -1,0 +1,128 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    
+    <!--====== Head Start ======-->
+
+  <%- include('partials/header') %>
+
+  <!--====== Head Ends ======-->
+
+  <body>
+    <!--====== Navigation Start ======-->
+
+    <%- include('partials/navigation') %>
+
+    <!--====== Navigation Ends ======-->
+    
+    <!--====== Page Banner Start ======-->
+
+    <section class="page-banner">
+        <div class="page-banner-bg bg_cover" style="background-image: url(assets/images/page-banner.jpg);">
+            <div class="container">
+                <div class="banner-content text-center">
+                    <h2 class="title">Register</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Page Banner Ends ======-->
+
+    <!--====== Login Start ======-->
+
+    <section class="login-register">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="login-register-content">
+                        <h4 class="title">Create New Account</h4>
+
+                        <div class="login-register-form">
+                            <form action="#">
+                                <div class="single-form">
+                                    <label>First Name *</label>
+                                    <input type="text">
+                                </div>
+                                <div class="single-form">
+                                    <label>Last Name *</label>
+                                    <input type="text">
+                                </div>
+                                <div class="single-form">
+                                    <label>Email address *</label>
+                                    <input type="email">
+                                </div>
+                                <div class="single-form">
+                                    <label>Username *</label>
+                                    <input type="text">
+                                </div>
+                                <div class="single-form">
+                                    <label>Password</label>
+                                    <input type="password">
+                                </div>
+                                <div class="single-form">
+                                    <label>Confirm Password</label>
+                                    <input type="password">
+                                </div>
+                                <div class="single-form">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="remember">
+                                        <label for="remember"><span></span>Receive Offers From Our Partners</label>
+                                    </div>
+                                </div>
+                                <div class="single-form">
+                                    <button class="main-btn btn-block">Register</button>
+                                </div>
+                                
+                                <div class="single-form">
+                                    <label>Already have an account?</label>
+                                    <a href="login.html" class="main-btn main-btn-2 btn-block">Log in instead!</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </section>
+
+    <!--====== Login Ends ======-->
+    
+    <!--====== Newsletter Start ======-->
+
+    <section class="newsletter-area-2">
+        <div class="container">
+            <div class="newsletter-wrapper bg_cover" style="background-image: url(assets/images/newsletter-bg-1.jpg);">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="section-title-2 mt-25">
+                            <h2 class="title">Subscribe our Newsletter</h2>
+                            <span class="line"></span>
+                            <p>Even slightly believable. If you are going use a passage of Lorem Ipsum need some</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="newsletter-form mt-30">
+                            <form action="#">
+                                <input type="text" placeholder="Enter your email here">
+                                <button class="main-btn main-btn-2">Subscribe now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Newsletter Ends ======-->
+
+    <!--====== Footer Starts ======-->
+    
+    <%- include('partials/footer') %>
+
+    <!--====== Footer Ends ======-->
+    
+</body>
+
+</html>
