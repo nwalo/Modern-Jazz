@@ -37,29 +37,35 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="login-register-content">
+                        <div>
+                            <p class="err">
+                                <span class="erImg"></span>
+                                <span class="erText"><%= errorMsg %></span>
+                            </p>
+                        </div>
                         <h4 class="title">Create New Account</h4>
 
                         <div class="login-register-form">
-                            <form action="#">
+                            <form autocomplete="off" action="/register" method="post">
                                 <div class="single-form">
                                     <label>First Name *</label>
-                                    <input type="text">
+                                    <input type="text" name="fname" placeholder="Enter First Name">
                                 </div>
                                 <div class="single-form">
                                     <label>Last Name *</label>
-                                    <input type="text">
+                                    <input type="text" name="lname" placeholder="Enter Last Name">
                                 </div>
                                 <div class="single-form">
                                     <label>Email address *</label>
-                                    <input type="email">
+                                    <input type="email" name="username" placeholder="Enter Email Adress">
                                 </div>
                                 <div class="single-form">
                                     <label>Username *</label>
-                                    <input type="text">
+                                    <input placeholder="Enter Username" name="name" type="text">
                                 </div>
                                 <div class="single-form">
                                     <label>Password</label>
-                                    <input type="password">
+                                    <input name="password" placeholder="Password must contain Letter, number and Symbol" autocomplete="new-password" type="password">
                                 </div>
                                 <div class="single-form">
                                     <label>Confirm Password</label>
@@ -68,7 +74,7 @@
                                 <div class="single-form">
                                     <div class="checkbox">
                                         <input type="checkbox" id="remember">
-                                        <label for="remember"><span></span>Receive Offers From Our Partners</label>
+                                        <label for="remember"><span></span>I verify that the information passed are correct.</label>
                                     </div>
                                 </div>
                                 <div class="single-form">

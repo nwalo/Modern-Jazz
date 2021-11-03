@@ -5,4 +5,11 @@ $(function($) {
 			$(this).addClass('active');
 		}
 	});
+
+	let errorImage = $('.erImg');
+	let errorText = $('.erText');
+
+	if (errorText.text().length > 0) {
+		errorImage.html('<img src="assets/images/icon/warning.png" alt=""> ');
+	}
 });
