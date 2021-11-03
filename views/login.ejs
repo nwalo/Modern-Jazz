@@ -38,17 +38,25 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="login-register-content">
+                        <div>
+                            <p class="err">
+                                <span class="erImg"></span>
+                                <span class="erText"><%= errorMsg %></span>
+                            </p>
+                        </div>
+
                         <h4 class="title">Login to Your Account</h4>
 
                         <div class="login-register-form">
-                            <form action="#">
+                            
+                            <form action="/login" method="post">
                                 <div class="single-form">
-                                    <label>Username or email address *</label>
-                                    <input type="email">
+                                    <label>Email address *</label>
+                                    <input type="email" name="username" autocomplete="">
                                 </div>
                                 <div class="single-form">
                                     <label>Password</label>
-                                    <input type="password">
+                                    <input type="password" name="password" autocomplete="new-password">
                                 </div>
                                 <div class="single-form">
                                     <button class="main-btn btn-block">Login</button>
