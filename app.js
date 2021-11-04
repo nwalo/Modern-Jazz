@@ -12,7 +12,12 @@ const session = require('express-session');
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect(
+	'mongodb+srv://Nwalo:modernjazz21@cluster0.wtq0j.mongodb.net/modernJazzDB?retryWrites=true&w=majority',
+	{ useUnifiedTopology: true }
+);
+
+// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MALWARES
 
@@ -106,7 +111,7 @@ app.post('/contact', function(req, res) {
 	var options = {
 		from: 'Admin <modernjazzwithnoels@gmail.com>',
 		to: email, // Email from web
-		bcc: 'modernjazzwithnoels@gmail.com', // used as RCPT TO: address for SMTP
+		bcc: process.env.GMAIL_T0, // used as RCPT TO: address for SMTP
 		subject: subject,
 		html: message
 	};
