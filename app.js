@@ -104,9 +104,9 @@ app.post('/contact', function(req, res) {
 	});
 
 	var options = {
-		from: 'Consultation <modernjazzwithnoels@gmail.com>',
+		from: 'Admin <modernjazzwithnoels@gmail.com>',
 		to: email, // Email from web
-		bcc: 'nwalookechukwu@gmail.com', // used as RCPT TO: address for SMTP
+		bcc: 'modernjazzwithnoels@gmail.com', // used as RCPT TO: address for SMTP
 		subject: subject,
 		html: message
 	};
