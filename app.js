@@ -12,10 +12,10 @@ const session = require('express-session');
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(
-	'mongodb+srv://Nwalo:modernjazz21@cluster0.wtq0j.mongodb.net/modernJazzDB?retryWrites=true&w=majority',
-	{ useUnifiedTopology: true }
-);
+mongoose.connect(process.env.MONGO_URL, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+});
 
 // mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
