@@ -9,6 +9,7 @@ const nodemailer = require('nodemailer');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 const session = require('express-session');
+
 // CONNECT DATABASE - MONGODB
 
 mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
@@ -51,7 +52,7 @@ const User = mongoose.model('User', userSchema);
 
 passport.use(User.createStrategy());
 
-//GLOBAL SERIALIZATION
+// GLOBAL SERIALIZATION
 
 passport.serializeUser(function(user, done) {
 	done(null, user.id);
@@ -78,9 +79,51 @@ app.get('/blog', function(req, res) {
 });
 
 app.get('/contact', function(req, res) {
-	res.render('login', {
-		errorMsg: ' '
+	res.render('contact');
+});
+
+app.post('/contact', function(req, res) {
+	let name = req.body.name;
+	let email = req.body.email;
+	let phone = req.body.phone;
+	let subject = req.body.subject;
+	let message = req.body.message;
+
+	console.log(name, email, phone, subject, message);
+
+	// NODEMAILER AUTHENTICATION
+
+	var transporter = nodemailer.createTransport({
+		host: 'smtp.gmail.com',
+		port: '465',
+		secure: true,
+		auth: {
+			user: process.env.GMAIL_ID,
+			pass: process.env.GMAIL_PASS
+		}
 	});
+
+	var options = {
+		from: 'Consultation <modernjazzwithnoels@gmail.com>',
+		to: email, // Email from web
+		bcc: 'nwalookechukwu@gmail.com', // used as RCPT TO: address for SMTP
+		subject: subject,
+		html: message
+	};
+
+	transporter.sendMail(options, function(err, info) {
+		if (err) {
+			console.log(err);
+			res.send('Error! Restore unsuccessful, please check your network and try again...');
+		} else {
+			res.send('Message sent successfully, Thank you for contacting us !');
+			console.log('Email status: ' + info.response);
+		}
+	});
+});
+
+app.get('/course', function(req, res) {
+	res.render('our-courses-list');
 });
 
 app.get('/login', function(req, res) {
@@ -114,6 +157,45 @@ app.post('/login', function(req, res) {
 			}
 		});
 	})(req, res);
+});
+
+app.post('/newsletter', function(req, res) {
+	const email = req.body.email;
+
+	const data = {
+		members: [
+			{
+				email_address: email,
+				status: 'subscribed'
+			}
+		]
+	};
+
+	const jsonData = JSON.stringify(data);
+
+	let url = 'https://us10.api.mailchimp.com/3.0/lists/eaa3903e59';
+	let options = {
+		method: 'POST',
+		auth: 'nob:46969607b2e3dfc293dfd5ca618f8d85-us10'
+	};
+
+	const request = https.request(url, options, function(response) {
+		if (response.statusCode === 200) {
+			console.log('success');
+		} else {
+			console.log('error');
+		}
+
+		console.log(response.statusCode);
+		// response.on('data', function (data) {
+		//   console.log(JSON.parse(data));
+		// })
+	});
+
+	request.write(jsonData);
+	request.end();
+
+	res.redirect('/');
 });
 
 app.get('/notice', function(req, res) {
@@ -168,6 +250,11 @@ app.get('/testimonial', function(req, res) {
 	res.render('testimonial');
 });
 
-app.listen('3000', function() {
-	console.log('Server is running at port 3000!');
+let port = process.env.PORT;
+if (port == null || port == '') {
+	port = 3000;
+}
+
+app.listen(port, function() {
+	console.log('server running at port ' + port);
 });

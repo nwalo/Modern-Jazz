@@ -8506,3 +8506,7 @@ p {
   margin-bottom: 20px;
   font-size: .9em;
 }
+
+.about-icon{
+  opacity: .5;
+}
