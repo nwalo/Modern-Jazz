@@ -158,6 +158,7 @@ app.post('/login', function(req, res) {
 			if (err) {
 				console.log(err);
 			} else {
+				console.log('logged in');
 				res.redirect('/');
 			}
 		});
@@ -214,7 +215,6 @@ app.get('/register', function(req, res) {
 });
 
 app.post('/register', function(req, res) {
-	console.log(req.body.username, req.body.lname, req.body.fname);
 	User.register(
 		{
 			username: req.body.username
@@ -239,7 +239,7 @@ app.post('/register', function(req, res) {
 						},
 						function(err) {
 							if (!err) {
-								console.log('logged in');
+								console.log('registered');
 							}
 						}
 					);
