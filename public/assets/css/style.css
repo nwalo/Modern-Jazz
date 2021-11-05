@@ -2022,6 +2022,17 @@ p {
   justify-content: center;
   align-items: center;
 }
+.single-courses-2 .courses-lock.full{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -37px; right: 0px;
+  background-color: #757575ad;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .single-courses-2 .courses-lock i{
   color: #a72d2d;
 }
