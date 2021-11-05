@@ -131,6 +131,10 @@ app.get('/course', function(req, res) {
 	res.render('our-courses-list');
 });
 
+app.get('/course-details', function(req, res) {
+	res.render('courses-details');
+});
+
 app.get('/login', function(req, res) {
 	res.render('login', {
 		errorMsg: ''
