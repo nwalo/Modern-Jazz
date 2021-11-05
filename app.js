@@ -9,6 +9,11 @@ const nodemailer = require('nodemailer');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 const session = require('express-session');
+var enforce = require('express-sslify');
+
+// EXPRESS-SSLIFY
+
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
