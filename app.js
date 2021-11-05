@@ -266,29 +266,35 @@ app.post('/newsletter', function(req, res) {
 
 	const jsonData = JSON.stringify(data);
 
-	let url = 'https://us10.api.mailchimp.com/3.0/lists/eaa3903e59';
+	let url = process.env.MAILCHIMP_KEY;
 	let options = {
 		method: 'POST',
-		auth: 'nob:46969607b2e3dfc293dfd5ca618f8d85-us10'
+		auth: process.env.MAILCHIMP_API
 	};
+
+	console.log(email);
 
 	const request = https.request(url, options, function(response) {
 		if (response.statusCode === 200) {
 			console.log('success');
+
+			res.render('success', {
+				message: 'Thanks for subscribing to our news letter',
+				emoji: 'fa fa-thumbs-up'
+			});
 		} else {
 			console.log('error');
+			res.render('success', {
+				message: 'Sorry! unable to subscribe to our news letter',
+				emoji: 'fa fa-thumbs-down'
+			});
 		}
 
 		console.log(response.statusCode);
-		// response.on('data', function (data) {
-		//   console.log(JSON.parse(data));
-		// })
 	});
 
 	request.write(jsonData);
 	request.end();
-
-	res.redirect('/');
 });
 
 app.get('/notice', function(req, res) {

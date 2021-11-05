@@ -791,6 +791,8 @@ p {
 
 .navigation {
   position: relative;
+  border-top: 1px solid #F23F00;
+  border-bottom: 1px solid #F23F00;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .navigation {
@@ -8527,4 +8529,32 @@ p.success{
   text-align: center;
   margin-bottom: 20px;
   font-size: .9em;
+}
+
+#custom{
+  color: #ca9400; font-size: 48px;
+}
+
+.fa-thumbs-up{
+  color: #ca9400; font-size: 48px; margin-bottom: 20px;
+}
+
+.fa-thumbs-down{
+  color: #ca9400; font-size: 48px; margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  #custom{
+  font-size: 40px;
+}
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #custom{
+  font-size: 30px;
+}
+}
+@media (max-width: 767px) {
+  #custom{
+  font-size: 24px;
+}
 }
