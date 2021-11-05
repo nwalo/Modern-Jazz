@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  
+  <!--====== Head Start ======-->
+
+  <%- include('partials/header') %>
+
+  <!--====== Head Ends ======-->
+
+  <body>
+    <!--====== Navigation Start ======-->
+
+    <%- include('partials/navigation') %>
+
+    <!--====== Navigation Ends ======-->
+
+    <section class="page-banner">
+        <div class="page-banner-bg bg_cover">
+            <div class="container">
+                <div class="banner-content text-center">
+                    <div class="">
+                    <i class="<%= emoji %>" ></i>
+                    <h2 class="title " id="custom" data-animation="fadeInLeft" data-delay="0.2s"><%= message%></h2>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Footer Starts ======-->
+    
+    <%- include('partials/footer') %>
+
+    <!--====== Footer Ends ======-->
+  </body>
+</html>
