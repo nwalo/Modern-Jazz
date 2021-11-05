@@ -11,10 +11,6 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const session = require('express-session');
 var enforce = require('express-sslify');
 
-// EXPRESS-SSLIFY
-
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
-
 // CONNECT DATABASE - MONGODB
 
 // mongoose.connect(process.env.MONGO_URL, {
@@ -40,6 +36,10 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+// EXPRESS-SSLIFY
+
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // SCHEMA DEFINITIONS
 
