@@ -38,6 +38,27 @@ app.use(passport.session());
 
 // SCHEMA DEFINITIONS
 
+const reviewSchema = new mongoose.Schema({
+	title: String,
+	reviewMsg: String
+});
+
+const userReviewSchema = new mongoose.Schema({
+	name: String,
+	email: String,
+	phone: String,
+	title: String,
+	reviewMsg: String
+});
+
+const courseReviewSchema = new mongoose.Schema({
+	name: String,
+	email: String,
+	phone: String,
+	title: String,
+	reviewMsg: String
+});
+
 const userSchema = new mongoose.Schema({
 	username: {
 		type: String,
@@ -45,7 +66,8 @@ const userSchema = new mongoose.Schema({
 	},
 	fname: String,
 	lname: String,
-	name: String
+	name: String,
+	review: [ reviewSchema ]
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -54,6 +76,7 @@ userSchema.plugin(findOrCreate);
 // MODEL DEFINITIONS
 
 const User = mongoose.model('User', userSchema);
+const Review = mongoose.model('Review', reviewSchema);
 
 passport.use(User.createStrategy());
 
@@ -119,7 +142,7 @@ app.post('/contact', function(req, res) {
 	transporter.sendMail(options, function(err, info) {
 		if (err) {
 			console.log(err);
-			res.send('Error! Restore unsuccessful, please check your network and try again...');
+			res.send("Oops! Something went wrong and we couldn't send your message.");
 		} else {
 			res.send('Message sent successfully, Thank you for contacting us !');
 			console.log('Email status: ' + info.response);
@@ -133,6 +156,66 @@ app.get('/course', function(req, res) {
 
 app.get('/course-details', function(req, res) {
 	res.render('courses-details');
+});
+
+app.post('/course-details', function(req, res) {
+	review = new Review({
+		title: req.body.title,
+		reviewMsg: req.body.review
+	});
+	var message = `<p> Hi ${req.body.name}, </p>
+						<p>Thank you for your review on <b style="color:#F23F00">${req.body.title}</b>,
+						 we appreciate our customers feedbacks.</p>						
+						<h4>REVIEW</h4>
+						<p> ${req.body.review}</p>
+						
+						<p><b>Emmanuel Umoh</b></p>
+						<i>Customer Support, Modern Jazz<i> 
+						`;
+
+	console.log(message);
+
+	if (req.isAuthenticated()) {
+		Review.create(review, function(err, item) {
+			if (err) {
+				console.log('err');
+			} else {
+				item.save(function(err) {
+					if (!err) {
+						var transporter = nodemailer.createTransport({
+							host: 'smtp.gmail.com',
+							port: '465',
+							secure: true,
+							auth: {
+								user: process.env.GMAIL_ID,
+								pass: process.env.GMAIL_PASS
+							}
+						});
+
+						var options = {
+							from: 'Admin <modernjazzwithnoels@gmail.com>',
+							to: req.body.email, // Email from web
+							bcc: process.env.GMAIL_T0, // used as RCPT TO: address for SMTP
+							subject: 'Course Review - ' + req.body.title,
+							html: message
+						};
+
+						transporter.sendMail(options, function(err, info) {
+							if (err) {
+								console.log(err);
+								res.send("Oops! Something went wrong and we couldn't send your message.");
+							} else {
+								res.send('Review sent successfully !');
+								console.log('Email status: ' + info.response);
+							}
+						});
+					}
+				});
+			}
+		});
+	} else {
+		res.redirect('/login');
+	}
 });
 
 app.get('/login', function(req, res) {
