@@ -9,15 +9,16 @@ const nodemailer = require('nodemailer');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 const session = require('express-session');
+var enforce = require('express-sslify');
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MALWARES
 
@@ -35,6 +36,10 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+// EXPRESS-SSLIFY
+
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // SCHEMA DEFINITIONS
 
@@ -333,11 +338,38 @@ app.post('/register', function(req, res) {
 						function(err) {
 							if (!err) {
 								console.log('registered');
+
+								// LOG IN USER AFTER REGISTRATION
+								const user = new User({
+									username: req.body.username,
+									password: req.body.password
+								});
+
+								passport.authenticate('local', function(err, user, info) {
+									if (err) {
+										console.log(err);
+									}
+									if (!user) {
+										return res.render('login', {
+											errorMsg: 'Invalid username or password !'
+										});
+									}
+
+									req.logIn(user, function(err) {
+										//This creates a log in session
+										if (err) {
+											console.log(err);
+										} else {
+											console.log('logged in');
+											res.redirect('/welcome');
+										}
+									});
+								})(req, res);
 							}
 						}
 					);
 
-					res.redirect('/login');
+					// res.redirect('/login');
 				});
 			}
 		}
@@ -346,6 +378,10 @@ app.post('/register', function(req, res) {
 
 app.get('/testimonial', function(req, res) {
 	res.render('testimonial');
+});
+
+app.get('/welcome', function(req, res) {
+	res.render('welcome');
 });
 
 let port = process.env.PORT;
