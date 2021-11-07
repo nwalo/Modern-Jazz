@@ -5548,6 +5548,9 @@ p {
 .online-library-area {
   padding-top: 150px;
 }
+#wel.online-library-area {
+  padding-top: 100px;
+}
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .online-library-area {
     padding-top: 90px;
@@ -5735,17 +5738,18 @@ p {
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .page-banner {
-    padding-top: 155px;
+    padding-top: 112px;
   }
 }
 @media (max-width: 767px) {
   .page-banner {
-    padding-top: 190px;
+    /* padding-top: 190px; */padding-top: 145px;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .page-banner {
-    padding-top: 155px;
+    /* padding-top: 155px; */
+    padding-top: 145px;
   }
 }
 
@@ -8570,4 +8574,12 @@ p.success{
 
 a.wel{
   color: #ca9400;
+}
+
+#wel a, #wel p, #wel span{
+  font-size: 18px;
+}
+
+#wel h2{
+  line-height: 50px;
 }
