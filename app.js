@@ -223,6 +223,22 @@ app.post('/course-details', function(req, res) {
 	}
 });
 
+app.get('/dashboard', function(req, res) {
+	res.render('dashboard');
+});
+
+app.get('/dashboard-notification', function(req, res) {
+	res.render('dashboard-notification');
+});
+
+// app.get('/dashboard-notification', function(req, res) {
+// 	res.render('dashboard-');
+// });
+
+app.get('/dashboard-user', function(req, res) {
+	res.render('dashboard-user');
+});
+
 app.get('/login', function(req, res) {
 	res.render('login', {
 		errorMsg: ''
@@ -255,6 +271,11 @@ app.post('/login', function(req, res) {
 			}
 		});
 	})(req, res);
+});
+
+app.get('/logout', function(req, res) {
+	req.logout();
+	res.redirect('/');
 });
 
 app.post('/newsletter', function(req, res) {

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <%- include('partials/dashboard/dashHeader') %>
+
+  <body class="">
+    <%- include('partials/dashboard/dashLeftNav') %>
+      <div class="main-panel">
+        <!-- Navbar -->
+        
+        <%- include('partials/dashboard/dashNav') %>
+
+        <!-- End Navbar -->
+
+        <div class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header mb-5">
+                  <div class="row">
+                    <div class="col-sm-6 text-left">
+                      <h5 class="card-category">Modern Jazz with Noels</h5>
+                    </div>
+                    <div class="col-sm-6">
+                      <div
+                        class="btn-group btn-group-toggle float-right"
+                        data-toggle="buttons"
+                      >
+                        <label
+                          class="btn btn-sm btn-primary btn-simple active"
+                          id="0"
+                        >
+                          <input type="radio" name="options" checked />
+                          <span
+                            class="d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                          >
+                            Accounts
+                          </span>
+                          <span class="d-block d-sm-none">
+                            <i class="tim-icons icon-single-02"></i>
+                          </span>
+                        </label>
+                        <label class="btn btn-sm btn-primary btn-simple" id="1">
+                          <input
+                            type="radio"
+                            class="d-none d-sm-none"
+                            name="options"
+                          />
+                          <span
+                            class="d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                          >
+                            Top Courses
+                          </span>
+                          <span class="d-block d-sm-none">
+                            <i class="tim-icons icon-gift-2"></i>
+                          </span>
+                        </label>
+                        <label class="btn btn-sm btn-primary btn-simple" id="2">
+                          <input type="radio" class="d-none" name="options" />
+                          <span
+                            class="d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                          >
+                            Notifications
+                          </span>
+                          <span class="d-block d-sm-none">
+                            <i class="tim-icons icon-tap-02"></i>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body mb-5" id="myPad">
+                  <div class="typography-line">
+                    <h1 class="text-center">
+                      Hello
+                      <span class="myhighlight">FirstName LastName</span>
+                      , Welcome to your dashboard
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="row">
+              <div class="col-12">
+                <div class="card card-chart">
+                  <div class="card-header">
+                    <div class="row">
+                      <div class="col-sm-6 text-left">
+                        <h5 class="card-category">Continue Learning</h5>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="card card-plain">
+                          <div class="card-header">
+                            <h4 class="card-title">
+                              Recent Course
+                            </h4>
+                            <p class="category">
+                              Resume your last lesson
+                            </p>
+                          </div>
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table tablesorter" id="">
+                                <thead class="text-primary">
+                                  <tr>
+                                    <th>
+                                      Course Title
+                                    </th>
+                                    <th>
+                                      Duration
+                                    </th>
+                                    <th>
+                                      Lesson
+                                    </th>
+                                    <th class="text-center"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      80 Solo Techniques in 4 weeks
+                                    </td>
+                                    <td>
+                                      4 Weeks
+                                    </td>
+                                    <td>
+                                      8 Lessons
+                                    </td>
+                                    <td class="text-center">
+                                      <button class="btn btn-primary">
+                                        <a href="" style="color: #f0f8ff; font-weight: 500;">Resume Course</a>
+                                      </button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              <div class="card card-tasks">
+                <div class="card-header">
+                  <div style="display: flex; justify-content: space-between;">
+                    <div>
+                      <h4 class="card-title">View Top Courses</h4>
+                      <p class="category">
+                        enrol for more courses to refine your skills.
+                      </p>
+                    </div>
+                    <div>
+                      <i class="tim-icons icon-book-bookmark mycol-alt"></i>
+                    </div>
+                  </div>
+                  <!-- <h6 class="title d-inline">Tasks(5)</h6>
+                  <p class="card-category d-inline">today</p> -->
+                </div>
+                <div class="card-body">
+                  <div class="table-full-width table-responsive">
+                    <table class="table" id="my">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <img
+                              src="../assets/img/anime3.png"
+                              width="150px"
+                              alt=""
+                            />
+                          </td>
+                          <td>
+                            <p
+                              class="title"
+                              style="color: #f23f00; font-size: 1.2em;"
+                            >
+                              80 Solo Techniques
+                            </p>
+                            <p
+                              class="title text-muted"
+                              style="font-weight: 400;"
+                            >
+                              Duration : 4 Weeks
+                            </p>
+                            <p
+                              class="title text-muted"
+                              style="font-weight: 400;"
+                            >
+                              Lessons: 8
+                            </p>
+                            <p
+                              class="title text-muted"
+                              style="font-weight: 400;"
+                            >
+                              Rating:
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            </p>
+                          </td>
+                          <td>
+                            <button class="mybg-alt">
+                              <a
+                                href=""
+                                style="color: #f0f8ff; font-weight: 600;"
+                              >
+                                Enrol
+                              </a>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="../assets/img/anime3.png"
+                              width="150px"
+                              alt=""
+                            />
+                          </td>
+                          <td>
+                            <p
+                              class="title"
+                              style="color: #f23f00; font-size: 1.2em;"
+                            >
+                              A Day With The Masters
+                            </p>
+                            <p
+                              class="title text-muted"
+                              style="font-weight: 400;"
+                            >
+                              Duration : 4 Weeks
+                            </p>
+                            <p
+                              class="title text-muted"
+                              style="font-weight: 400;"
+                            >
+                              Lessons: 8
+                            </p>
+                            <p
+                              class="title text-muted"
+                              style="font-weight: 400;"
+                            >
+                              Rating:
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            </p>
+                          </td>
+                          <td>
+                            <button class="mybg-alt">
+                              <a
+                                href=""
+                                style="color: #f0f8ff; font-weight: 600;"
+                              >
+                                Enrol
+                              </a>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img
+                              src="../assets/img/anime3.png"
+                              width="150px"
+                              alt=""
+                            />
+                          </td>
+                          <td>
+                            <p
+                              class="title"
+                              style="color: #f23f00; font-size: 1.2em;"
+                            >
+                              250 Chord Voicings In 250 Mins
+                            </p>
+                            <p
+                              class="title text-muted"
+                              style="font-weight: 400;"
+                            >
+                              Duration : 4 Weeks
+                            </p>
+                            <p
+                              class="title text-muted"
+                              style="font-weight: 400;"
+                            >
+                              Lessons: 8
+                            </p>
+                            <p
+                              class="title text-muted"
+                              style="font-weight: 400;"
+                            >
+                              Rating:
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            </p>
+                          </td>
+                          <td>
+                            <button class="mybg-alt">
+                              <a
+                                href=""
+                                style="color: #f0f8ff; font-weight: 600;"
+                              >
+                                Enrol
+                              </a>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <div style="display: flex; justify-content: space-between;">
+                    <div>
+                      <h4 class="card-title">Recent Notifications</h4>
+                      <p class="category">
+                        View most recent notifications
+                      </p>
+                    </div>
+                    <div>
+                      <i class="tim-icons icon-bell-55 mycol-alt"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="alert mybg">
+                    <span>This is a plain notification</span>
+                  </div>
+                  <div class="alert mybg">
+                    <span>This is a plain notification</span>
+                  </div>
+                  <div class="alert mybg">
+                    <span>This is a plain notification</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <%- include('partials/dashboard/dashFooter') %>
+
+      </div>
+    </div>
+
+    <!-- DASHBOARD THEME STARTS -->
+      <%- include('partials/dashboard/dashTheme') %>
+    <!-- DASHBOARD THEME ENDS -->
+
+    <!-- SCRIPTING FILE STARTS -->
+
+      <%- include('partials/dashboard/dashScript') %>
+
+    <!-- SCRIPTING FILE ENDS -->
+    
+  </body>
+</html>
