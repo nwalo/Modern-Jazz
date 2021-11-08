@@ -381,11 +381,11 @@ app.get('/testimonial', function(req, res) {
 });
 
 app.get('/welcome', function(req, res) {
-	if (req.isAuthenticated()) {
-		res.render('welcome');
-	} else {
-		res.redirect('/login');
-	}
+	// if (req.isAuthenticated()) {
+	res.render('welcome');
+	// } else {
+	// 	res.redirect('/login');
+	// }
 });
 
 let port = process.env.PORT;
