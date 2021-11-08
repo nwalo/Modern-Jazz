@@ -6,6 +6,12 @@ $(function($) {
 		}
 	});
 
+	$('.sidebar ul.nav li a').each(function() {
+		if (this.href === url) {
+			$(this).parents('li').addClass('active');
+		}
+	});
+
 	let errorImage = $('.erImg');
 	let errorText = $('.erText');
 
