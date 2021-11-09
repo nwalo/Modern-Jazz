@@ -20476,3 +20476,10 @@ button.mybg, button.mybg-alt{
 #my .fa-star{
   font-size: .8em;
 }
+
+@media (max-width: 768px) {
+  
+.myhide{
+ display: none; 
+}
+}
