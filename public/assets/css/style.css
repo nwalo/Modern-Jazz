@@ -8613,3 +8613,10 @@ a.wel{
 #wel h2{
   line-height: 50px;
 }
+
+@media (max-width: 480px) {
+  
+.hide-mobile{
+ display: none; 
+}
+}
