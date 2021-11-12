@@ -20,38 +20,30 @@
                 <h5 class="title">Edit Profile</h5>
               </div>
               <div class="card-body">
-                <form action="www.google.com" method="post">
+                <form action="" method="">
                   <div class="row">
-                    <div class="col-md-5 pr-md-1">
+                    <div class="col-md-3 pr-md-1">
                       <div class="form-group">
-                        <label>Company (disabled)</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" disabled="" placeholder="First Name" value="First Name">
+                      </div>
+                    </div>
+                    <div class="col-md-3 px-md-1">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Last Name</label>
+                        <input type="email" disabled="" name="lname"  class="form-control" value="Last Name">
                       </div>
                     </div>
                     <div class="col-md-3 px-md-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" value="michael23">
+                        <input type="text" disabled="" class="form-control"  value="michael23">
                       </div>
                     </div>
-                    <div class="col-md-4 pl-md-1">
+                    <div class="col-md-3 pl-md-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" placeholder="mike@email.com">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-md-1">
-                      <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" value="Mike">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-md-1">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                        <input type="email" disabled=""  class="form-control" value="mike@email.com">
                       </div>
                     </div>
                   </div>
@@ -59,7 +51,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                        <input type="text" class="form-control" placeholder="Home Address" value="Lagos, Nigeria">
                       </div>
                     </div>
                   </div>
@@ -67,13 +59,13 @@
                     <div class="col-md-4 pr-md-1">
                       <div class="form-group">
                         <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" value="Mike">
+                        <input type="text" class="form-control" placeholder="City" value="Ohio">
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
                       <div class="form-group">
                         <label>Country</label>
-                        <input type="text" class="form-control" placeholder="Country" value="Andrew">
+                        <input type="text" class="form-control" placeholder="Country" value="Canada">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
@@ -90,9 +82,13 @@
                         <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Modern Jazz with Noels - You too can play.</textarea>
                       </div>
                     </div>
+                    <div class="col-md-4">
+                      <label>Upload Profile Image</label>
+                        <input class="form-control" type="file">
+                    </div>
                   </div>
                   <div class="card-footer">
-                <button type="submit" class="btn btn-fill btn-primary">Save</button>
+                <button type="submit" class="btn btn-fill btn-primary" onclick="demo.showNotification('top','center')">Save</button>
               </div>
                 </form>
               </div>

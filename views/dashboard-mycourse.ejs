@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <%- include('partials/dashboard/dashHeader') %>
+
+  <body class="">
+    <%- include('partials/dashboard/dashLeftNav') %>
+      <div class="main-panel">
+        <!-- Navbar -->
+        
+        <%- include('partials/dashboard/dashNav') %>
+
+        <!-- End Navbar -->
+
+        <div class="content">
+          
+
+          <!-- <div class="content"> -->
+            <div class="row">
+              <div class="col-12">
+                <div class="card card-chart">
+                  <div class="card-header">
+                    <div class="row">
+                      <div class="col-sm-6 text-left">
+                        <h5 class="card-category">Continue Learning</h5>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="card card-plain">
+                          <div class="card-header">
+                            <h4 class="card-title">
+                              List of enrolled courses
+                            </h4>
+                            <p class="category">
+                              Resume your Courses
+                            </p>
+                          </div>
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table tablesorter" id="">
+                                <thead class="text-primary">
+                                  <tr>
+                                    <th>
+                                      Course Title
+                                    </th>
+                                    <th class="myhide">
+                                      Duration
+                                    </th>
+                                    <th class="text-center hide-mobile">
+                                      Lesson
+                                    </th>
+                                    <th class="text-center"></th>
+                                  </tr>
+                                </thead>
+                                <tbody id="mycourse">
+                                  <tr>
+                                    <td></td>
+                                    <td class="myhide"></td>
+                                    <td class="hide-mobile"></td>
+                                    <td></td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td class="dash-len">
+                                      <div class="dash-course">
+                                        <div class="dash-img">
+                                          <img src="./assets/images/courses/solo.jpg" alt="courses" />
+                                        </div>
+                                        <div>
+                                          <p
+                                            class="title"
+                                            style="color: #f23f00; font-size: 1.2em;"
+                                          >
+                                            80 Solo Techniques
+                                          </p>
+                                          <p
+                                            class="title text-muted"
+                                            style="font-weight: 400;"
+                                          >
+                                            Duration : 4 Weeks
+                                          </p>
+                                          <p
+                                            class="title text-muted"
+                                            style="font-weight: 400;"
+                                          >
+                                            Lessons: 8
+                                          </p>
+                                          <p
+                                            class="title text-muted"
+                                            style="font-weight: 400;"
+                                          >
+                                            Rating:
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                          </p>
+                                        </div>
+
+                                      </div>
+                                    </td>
+                                    <td class="myhide">
+                                      4 Weeks
+                                    </td>
+                                    <td class="text-center hide-mobile">
+                                      16 
+                                    </td>
+                                    <td class="text-center">
+                                      <button class="mybg-alt">
+                                        <a
+                                          href=""
+                                          style="color: #f0f8ff; font-weight: 600;"
+                                        >
+                                          Resume 
+                                        </a>
+                                      </button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- </div> -->
+         
+          </div>
+        </div>
+        
+        <%- include('partials/dashboard/dashFooter') %>
+
+      </div>
+    </div>
+
+    <!-- SCRIPTING FILE STARTS -->
+
+      <%- include('partials/dashboard/dashScript') %>
+
+    <!-- SCRIPTING FILE ENDS -->
+    
+  </body>
+</html>

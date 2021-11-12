@@ -111,7 +111,7 @@
                                     <th>
                                       Course Title
                                     </th>
-                                    <th>
+                                    <th class="myhide">
                                       Duration
                                     </th>
                                     <th class="text-center">
@@ -120,7 +120,7 @@
                                     <th class="text-center"></th>
                                   </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="mycourse">
                                   <tr>
                                     <td></td>
                                     <td class="myhide"></td>
@@ -128,14 +128,22 @@
                                     <td></td>
                                   </tr>
                                   <tr>
-                                    <td>
-                                      80 Solo Techniques in 4 weeks
+                                    <td class="dash-len">
+                                      <div class="dash-course">
+                                        <div class="dash-img">
+                                          <img src="./assets/images/courses/solo.jpg" alt="courses" />
+                                        </div>
+                                        <div style="display: flex; justify-content: center; align-items: center;">
+                                            80 Solo Techniques                                         
+                                        </div>
+
+                                      </div>
                                     </td>
                                     <td class="myhide">
                                       4 Weeks
                                     </td>
                                     <td class="text-center">
-                                      8 
+                                      16 
                                     </td>
                                     <td class="text-center">
                                       <!-- <button class="btn btn-primary">
@@ -171,7 +179,7 @@
                     <div>
                       <h4 class="card-title">View Top Courses</h4>
                       <p class="category">
-                        enrol for more courses to refine your skills.
+                        enroll for more courses to refine your skills.
                       </p>
                     </div>
                     <div>
@@ -230,7 +238,7 @@
                                 href=""
                                 style="color: #f0f8ff; font-weight: 600;"
                               >
-                                Enrol
+                                enroll
                               </a>
                             </button>
                           </td>
@@ -276,11 +284,11 @@
                           </td>
                           <td>
                             <button class="mybg-alt">
-                              <a
-                                href=""
+                              <a class="lock-link"
+                                href="#!"
                                 style="color: #f0f8ff; font-weight: 600;"
                               >
-                                Enrol
+                                enroll <i class="fa fa-lock" style="font-size: .8em; margin-left: 5px; color: #ffffff;"></i>
                               </a>
                             </button>
                           </td>
@@ -326,11 +334,11 @@
                           </td>
                           <td>
                             <button class="mybg-alt">
-                              <a
-                                href=""
+                              <a class="lock-link"
+                                href="#!"
                                 style="color: #f0f8ff; font-weight: 600;"
                               >
-                                Enrol
+                                enroll <i class="fa fa-lock" style="font-size: .8em; margin-left: 5px; color: #ffffff;"></i>
                               </a>
                             </button>
                           </td>
@@ -376,10 +384,6 @@
 
       </div>
     </div>
-
-    <!-- DASHBOARD THEME STARTS -->
-      <%- include('partials/dashboard/dashTheme') %>
-    <!-- DASHBOARD THEME ENDS -->
 
     <!-- SCRIPTING FILE STARTS -->
 

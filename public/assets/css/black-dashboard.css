@@ -20477,9 +20477,41 @@ button.mybg, button.mybg-alt{
   font-size: .8em;
 }
 
+#mycourse .dash-course{
+  display: flex;
+}
+
+#mycourse .dash-len{
+  width: 500px;
+}
+
+#mycourse .dash-course .dash-img{
+  width: 200px;
+  margin-right: 20px;
+}
+
 @media (max-width: 768px) {
   
 .myhide{
  display: none; 
 }
+
+#mycourse .dash-course .dash-img{
+  display: none;
+}
+
+#mycourse .dash-len{
+  width: 250px;
+}
+}
+
+@media (max-width: 480px) {
+  
+.hide-mobile{
+ display: none; 
+}
+}
+
+.lock-link{
+  cursor: not-allowed;
 }
