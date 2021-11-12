@@ -15,16 +15,27 @@
         <!-- End Navbar -->
         <div class="content">
           <div class="row">
+            
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Notifications Style</h4>
+                  <div style="display: flex; justify-content: space-between;">
+                    <div>
+                      <h4 class="card-title">Recent Notifications</h4>
+                      <p class="category">
+                        View most recent notifications
+                      </p>
+                    </div>
+                    <div>
+                      <i class="tim-icons icon-bell-55 mycol-alt"></i>
+                    </div>
+                  </div>
                 </div>
                 <div class="card-body">
-                  <div class="alert alert-info">
+                  <div class="alert mybg">
                     <span>This is a plain notification</span>
                   </div>
-                  <div class="alert alert-info">
+                  <div class="alert mybg">
                     <button
                       type="button"
                       aria-hidden="true"
@@ -37,7 +48,7 @@
                     <span>This is a notification with close button.</span>
                   </div>
                   <div
-                    class="alert alert-info alert-with-icon"
+                    class="alert mybg alert-with-icon"
                     data-notify="container"
                   >
                     <button
@@ -58,7 +69,7 @@
                     </span>
                   </div>
                   <div
-                    class="alert alert-info alert-with-icon"
+                    class="alert mybg alert-with-icon"
                     data-notify="container"
                   >
                     <button
@@ -91,12 +102,6 @@
 
       </div>
     </div> 
-    
-    <!-- DASHBOARD THEME STARTS -->
-    
-      <%- include('partials/dashboard/dashTheme') %>
-
-    <!-- DASHBOARD THEME ENDS -->
 
     <!-- SCRIPTING FILE STARTS -->
 

@@ -2028,7 +2028,7 @@ p {
   width: 40px;
   height: 40px;
   position: absolute;
-  top: -37px; right: 0px;
+  top: -20px; right: 0px;
   background-color: #757575ad;
   border-radius: 50%;
   display: flex;
@@ -5964,6 +5964,12 @@ p {
   font-size: 14px;
   color: #303030;
 }
+.courses-sidebar ul li a{
+  color: #303030;
+}
+.courses-sidebar ul li a:hover{
+  color: #ca9400;
+}
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .courses-sidebar ul li {
     font-size: 12px;
@@ -6046,15 +6052,33 @@ p {
 .courses-details {
   padding-top: 110px;
 }
+
+.courses-details.mysec{
+  margin-top: 50px;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .courses-details {
     padding-top: 35px;
   }
+
 }
+
 @media (max-width: 767px) {
   .courses-details {
     padding-top: 15px;
   }
+ 
+  .courses-details.mysec{
+  margin-top: 90px;
+}
+}
+
+@media (max-width: 558px) {
+
+  .courses-details.mysec{
+  margin-top: 120px;
+}
 }
 
 .courses-details-content .title {
@@ -6068,10 +6092,16 @@ p {
     font-size: 36px;
   }
 }
+
+  .courses-details-content .my {
+    font-size: 40px;
+  }
+
 @media (max-width: 767px) {
   .courses-details-content .title {
     font-size: 24px;
   }
+
 }
 .courses-details-content p {
   margin-top: 20px;

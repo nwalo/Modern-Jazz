@@ -11,14 +11,18 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const session = require('express-session');
 var enforce = require('express-sslify');
 
+// EXPRESS-SSLIFY
+
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
+
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MALWARES
 
@@ -36,10 +40,6 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
-// EXPRESS-SSLIFY
-
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // SCHEMA DEFINITIONS
 
@@ -231,12 +231,16 @@ app.get('/dashboard-notification', function(req, res) {
 	res.render('dashboard-notification');
 });
 
-// app.get('/dashboard-notification', function(req, res) {
-// 	res.render('dashboard-');
-// });
+app.get('/dashboard-mycourse', function(req, res) {
+	res.render('dashboard-mycourse');
+});
 
 app.get('/dashboard-user', function(req, res) {
 	res.render('dashboard-user');
+});
+
+app.get('/learn', function(req, res) {
+	res.render('learn');
 });
 
 app.get('/login', function(req, res) {
@@ -257,7 +261,7 @@ app.post('/login', function(req, res) {
 		}
 		if (!user) {
 			return res.render('login', {
-				errorMsg: 'Invalid username or password !'
+				errorMsg: 'Invalid email address or password !'
 			});
 		}
 
