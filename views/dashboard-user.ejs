@@ -25,25 +25,25 @@
                     <div class="col-md-3 pr-md-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" disabled="" placeholder="First Name" value="First Name">
+                        <input type="text" class="form-control" name="fname" disabled="" value="<%= foundUser.fname%>">
                       </div>
                     </div>
                     <div class="col-md-3 px-md-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Last Name</label>
-                        <input type="email" disabled="" name="lname"  class="form-control" value="Last Name">
+                        <input type="email" disabled="" name="lname"  class="form-control" value="<%= foundUser.lname%>">
                       </div>
                     </div>
                     <div class="col-md-3 px-md-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" disabled="" class="form-control"  value="michael23">
+                        <input type="text" disabled="" class="form-control" name="name"  value="<%= foundUser.name%>">
                       </div>
                     </div>
                     <div class="col-md-3 pl-md-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" disabled=""  class="form-control" value="mike@email.com">
+                        <input type="email" disabled=""  class="form-control" name="email" value="<%= foundUser.username%>">
                       </div>
                     </div>
                   </div>
@@ -51,7 +51,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="Lagos, Nigeria">
+                        <input type="text" class="form-control" placeholder="Home Address" name="address" value="<%= foundUser.address %>">
                       </div>
                     </div>
                   </div>
@@ -59,19 +59,19 @@
                     <div class="col-md-4 pr-md-1">
                       <div class="form-group">
                         <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" value="Ohio">
+                        <input type="text" class="form-control" placeholder="City" name="city" value="<%= foundUser.city %>">
                       </div>
                     </div>
                     <div class="col-md-4 px-md-1">
                       <div class="form-group">
                         <label>Country</label>
-                        <input type="text" class="form-control" placeholder="Country" value="Canada">
+                        <input type="text" class="form-control" placeholder="Country" name="country" value="<%= foundUser.country %>">
                       </div>
                     </div>
                     <div class="col-md-4 pl-md-1">
                       <div class="form-group">
                         <label>Postal Code</label>
-                        <input type="number" class="form-control" placeholder="ZIP Code">
+                        <input type="number" class="form-control" placeholder="Zip Code" name="zipcode" value="<%= foundUser.zipcode%>">
                       </div>
                     </div>
                   </div>
@@ -79,7 +79,7 @@
                     <div class="col-md-8">
                       <div class="form-group">
                         <label>About Me</label>
-                        <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Modern Jazz with Noels - You too can play.</textarea>
+                        <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description. Modern Jazz with Noels - You too can play." value="Mike"></textarea>
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -106,10 +106,10 @@
                     <div class="block block-four"></div>
                     <a href="javascript:void(0)">
                       <img class="avatar" src="./assets/images/dashboard/emilyz.jpg" alt="...">
-                      <h5 class="title primary">FirstName LastName</h5>
+                      <h5 class="title primary"> <%= foundUser.fname%> <%= foundUser.lname%></h5>
                     </a>
                     <p class="description">
-                      Username
+                      <%= foundUser.name%>
                     </p>
                   </div>
                 </p>

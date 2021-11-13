@@ -13,16 +13,16 @@ var enforce = require('express-sslify');
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MALWARES
 
@@ -95,6 +95,24 @@ passport.deserializeUser(function(id, done) {
 	User.findById(id, function(err, user) {
 		done(err, user);
 	});
+});
+
+// EJS CODING
+
+Object.assign(app.locals, {
+	meta: {
+		title: 'My Blog',
+		description: 'A blog about something awesome!'
+	},
+	header: {
+		title: 'Something Awesome'
+	},
+	footer: {
+		year: new Date().getFullYear()
+	},
+	nav: {
+		links: [ { text: 'Home', path: '/' }, { text: 'About', path: '/about' }, { text: 'Contact', path: '/contact' } ]
+	}
 });
 
 // ROUTES
@@ -224,19 +242,67 @@ app.post('/course-details', function(req, res) {
 });
 
 app.get('/dashboard', function(req, res) {
-	res.render('dashboard');
+	if (req.isAuthenticated()) {
+		User.findById(req.user, function(err, foundUser) {
+			let userInitials = foundUser.fname.slice(0, 1) + foundUser.lname.slice(0, 1);
+
+			if (err) {
+				res.redirect('/login');
+			} else {
+				res.render('dashboard', { foundUser, userInitials });
+			}
+		});
+	} else {
+		res.redirect('/login');
+	}
 });
 
 app.get('/dashboard-notification', function(req, res) {
-	res.render('dashboard-notification');
+	if (req.isAuthenticated()) {
+		User.findById(req.user, function(err, foundUser) {
+			let userInitials = foundUser.fname.slice(0, 1) + foundUser.lname.slice(0, 1);
+
+			if (err) {
+				res.redirect('/login');
+			} else {
+				res.render('dashboard-notification', { foundUser, userInitials });
+			}
+		});
+	} else {
+		res.redirect('/login');
+	}
 });
 
 app.get('/dashboard-mycourse', function(req, res) {
-	res.render('dashboard-mycourse');
+	if (req.isAuthenticated()) {
+		User.findById(req.user, function(err, foundUser) {
+			let userInitials = foundUser.fname.slice(0, 1) + foundUser.lname.slice(0, 1);
+
+			if (err) {
+				res.redirect('/login');
+			} else {
+				res.render('dashboard-mycourse', { foundUser, userInitials });
+			}
+		});
+	} else {
+		res.redirect('/login');
+	}
 });
 
 app.get('/dashboard-user', function(req, res) {
-	res.render('dashboard-user');
+	if (req.isAuthenticated()) {
+		User.findById(req.user, function(err, foundUser) {
+			let userInitials = foundUser.fname.slice(0, 1) + foundUser.lname.slice(0, 1);
+
+			if (err) {
+				res.redirect('/login');
+			} else {
+				res.render('dashboard-user', { foundUser, userInitials });
+			}
+		});
+	} else {
+		res.redirect('/login');
+	}
 });
 
 app.get('/learn', function(req, res) {
