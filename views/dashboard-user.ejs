@@ -20,30 +20,30 @@
                 <h5 class="title">Edit Profile</h5>
               </div>
               <div class="card-body">
-                <form action="" method="">
+                <form action="/dashboard-user" method="post" enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-md-3 pr-md-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" name="fname" disabled="" value="<%= foundUser.fname%>">
+                        <input type="text" class="form-control" name="fname" readonly value="<%= foundUser.fname%>">
                       </div>
                     </div>
                     <div class="col-md-3 px-md-1">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Last Name</label>
-                        <input type="email" disabled="" name="lname"  class="form-control" value="<%= foundUser.lname%>">
+                        <label for="">Last Name</label>
+                        <input type="text" readonly  name="lname"  class="form-control" value="<%= foundUser.lname%>">
                       </div>
                     </div>
                     <div class="col-md-3 px-md-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" disabled="" class="form-control" name="name"  value="<%= foundUser.name%>">
+                        <input type="text" readonly class="form-control" name="name"  value="<%= foundUser.name%>">
                       </div>
                     </div>
                     <div class="col-md-3 pl-md-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" disabled=""  class="form-control" name="email" value="<%= foundUser.username%>">
+                        <input type="email" readonly  class="form-control" name="email" value="<%= foundUser.username%>">
                       </div>
                     </div>
                   </div>
@@ -71,7 +71,7 @@
                     <div class="col-md-4 pl-md-1">
                       <div class="form-group">
                         <label>Postal Code</label>
-                        <input type="number" class="form-control" placeholder="Zip Code" name="zipcode" value="<%= foundUser.zipcode%>">
+                        <input type="number" class="form-control" placeholder="Zip Code" name="zipCode" value="<%= foundUser.zipCode%>">
                       </div>
                     </div>
                   </div>
@@ -79,12 +79,12 @@
                     <div class="col-md-8">
                       <div class="form-group">
                         <label>About Me</label>
-                        <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description. Modern Jazz with Noels - You too can play." value="Mike"></textarea>
+                        <textarea rows="4" cols="80" required name="details" class="form-control" placeholder="Here can be your description. Modern Jazz with Noels - You too can play." value="Mike"></textarea>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <label>Upload Profile Image</label>
-                        <input class="form-control" type="file">
+                        <input class="form-control" type="file" name="file" id="upload" single>
                     </div>
                   </div>
                   <div class="card-footer">
@@ -105,7 +105,13 @@
                     <div class="block block-three"></div>
                     <div class="block block-four"></div>
                     <a href="javascript:void(0)">
-                      <img class="avatar" src="./assets/images/dashboard/emilyz.jpg" alt="...">
+                      <% if(foundUser.image){ %>
+                      <img class="avatar" src="data:image/<%= foundUser.image.contentType%>;base64,
+                      <%=foundUser.image.data.toString('base64')%>" alt="user profile pic">
+                      <% } else{ %>
+                        <img class="avatar" src="./assets/images/dashboard/emilyz.jpg" alt="user profile pic">
+                      <% } %>
+                      
                       <h5 class="title primary"> <%= foundUser.fname%> <%= foundUser.lname%></h5>
                     </a>
                     <p class="description">
@@ -114,7 +120,13 @@
                   </div>
                 </p>
                 <div class="card-description">
-                  Modern Jazz with Noels - You too can play. Do not be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye...
+                  <% if(foundUser.details){ %>
+                      <%= foundUser.details %>
+                      <% } else{ %>
+                        Modern Jazz with Noels - You too can play. Do not be scared
+                         of the truth because we need to restart the human foundation
+                          in truth And I love you like Kanye loves Kanye...
+                      <% } %>
                 </div>
               </div>
               <div class="card-footer">
