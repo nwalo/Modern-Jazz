@@ -34,7 +34,7 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
@@ -597,7 +597,7 @@ app.get('/welcome', function(req, res) {
 });
 
 app.get('/sitemap', function(req, res) {
-	res.sendFile('sitemap.xml');
+	res.sendFile(__dirname + '/sitemap.xml');
 });
 
 app.get('*', function(req, res) {
