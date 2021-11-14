@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+  
+  <!--====== Head Start ======-->
+
+  <%- include('partials/header') %>
+
+  <!--====== Head Ends ======-->
+
+  <body>
+    <!--====== Navigation Start ======-->
+
+    <%- include('partials/navigation') %>
+
+    <!--====== Navigation Ends ======-->
+
+    <link href="css/loader.css" rel="stylesheet" type="text/css" />
+    <link href="css/normalize.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link href="assets/css/style2.css" rel="stylesheet" type="text/css" />
+        <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    
+    <script src="assets/js/jquery.js"></script>
+    
+    <div class="preloader">
+      <div class="loading">
+        <h2>
+          Loading...
+        </h2>
+        <span class="progress"></span>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <ul
+        class="scene unselectable"
+        data-friction-x="0.1"
+        data-friction-y="0.1"
+        data-scalar-x="25"
+        data-scalar-y="15"
+        id="scene"
+      >
+        <li class="layer" data-depth="0.00"></li>
+        <!-- BG -->
+
+        <li class="layer" data-depth="0.10">
+          <div class="background"></div>
+        </li>
+
+        <!-- Hero -->
+
+        <li class="layer" data-depth="0.20">
+          <div class="title">
+            <h2>
+              <!-- IMMINENT -->
+            </h2>
+            <!-- <span class="line"></span> -->
+          </div>
+        </li>
+
+        <li class="layer" data-depth="0.25">
+          <div class="sphere">
+            <img alt="sphere" src="assets/images/sphere.png" />
+          </div>
+        </li>
+
+        <li class="layer" data-depth="0.30">
+          <div class="hero">
+            <h1 id="myhead">
+              Coming Soon
+            </h1>
+
+            <p class="sub-title">
+              We are setting everything ready for you.
+            </p>
+          </div>
+        </li>
+        <!-- Flakes -->
+
+        <li class="layer" data-depth="0.40">
+          <div class="depth-1 flake1">
+            <img alt="flake" src="assets/images/flakes/depth1/flakes1.png" />
+          </div>
+
+          <div class="depth-1 flake2">
+            <img alt="flake" src="assets/images/flakes/depth1/flakes2.png" />
+          </div>
+
+          <div class="depth-1 flake3">
+            <img alt="flake" src="assets/images/flakes/depth1/flakes3.png" />
+          </div>
+
+          <div class="depth-1 flake4">
+            <img alt="flake" src="assets/images/flakes/depth1/flakes4.png" />
+          </div>
+        </li>
+
+        <li class="layer" data-depth="0.50">
+          <div class="depth-2 flake1">
+            <img alt="flake" src="assets/images/flakes/depth2/flakes1.png" />
+          </div>
+
+          <div class="depth-2 flake2">
+            <img alt="flake" src="assets/images/flakes/depth2/flakes2.png" />
+          </div>
+        </li>
+
+        <li class="layer" data-depth="0.60">
+          <div class="depth-3 flake1">
+            <img alt="flake" src="assets/images/flakes/depth3/flakes1.png" />
+          </div>
+
+          <div class="depth-3 flake2">
+            <img alt="flake" src="assets/images/flakes/depth3/flakes2.png" />
+          </div>
+
+          <div class="depth-3 flake3">
+            <img alt="flake" src="assets/images/flakes/depth3/flakes3.png" />
+          </div>
+
+          <div class="depth-3 flake4">
+            <img alt="flake" src="assets/images/flakes/depth3/flakes4.png" />
+          </div>
+        </li>
+
+        <li class="layer" data-depth="0.80">
+          <div class="depth-4">
+            <img alt="flake" src="assets/images/flakes/depth4/flakes.png" />
+          </div>
+        </li>
+
+        <li class="layer" data-depth="1.00">
+          <div class="depth-5">
+            <img alt="flake" src="assets/images/flakes/depth5/flakes.png" />
+          </div>
+        </li>
+        <!-- Contact -->
+
+        <li class="layer" data-depth="0.20">
+          <div class="contact">
+            <ul class="icons">
+              <li>
+                <a class="behance" href="#"><i class="fab fa-facebook-f"></i></a>
+              </li>
+
+              <li>
+                <a class="twitter" href="#"><i class="fab fa-instagram-square"></i></a>
+              </li>
+
+              <li>
+                <a class="dribbble" href="#"><i class="fas fa-envelope"></i></a>
+              </li>
+            </ul>
+            &copy; 2021
+            <a href="/" style="color: #f23f00;">Modern Jazz With Noels</a>
+            
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+
+    <!-- Javascript -->
+    
+    
+    <!--====== All Plugins js ======-->
+    <script src="./assets/js/plugins/popper.min.js"></script>
+    <script src="./assets/js/plugins/bootstrap.min.js"></script>
+    <script src="./assets/js/plugins/slick.min.js"></script>
+    <script src="./assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="./assets/js/plugins/jquery.appear.min.js"></script>
+    <script src="./assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="./assets/js/plugins/isotope.pkgd.min.js"></script>
+    <script src="./assets/js/plugins/wow.min.js"></script>
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+
+    <!-- <script src="./assets/js/plugin.min.js"></script> -->
+
+    <!--====== Main Activation  js ======-->
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/jquery.countdown.min.js"></script>
+    <script src="assets/js/main2.js"></script>
+  </body>
+</html>

@@ -9,6 +9,10 @@ const nodemailer = require('nodemailer');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 const session = require('express-session');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
+const GridFsStorage = require('multer-gridfs-storage');
 var enforce = require('express-sslify');
 
 // MALWARES
@@ -41,6 +45,19 @@ mongoose.connect(process.env.MONGO_URL, {
 
 // mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
+// MULTER CONFIG
+
+const storage = multer.diskStorage({
+	destination: (req, file, cb) => {
+		cb(null, 'uploads');
+	},
+	filename: (req, file, cb) => {
+		cb(null, file.fieldname + ' - ' + Date.now());
+	}
+});
+
+const upload = multer({ storage });
+
 // SCHEMA DEFINITIONS
 
 const reviewSchema = new mongoose.Schema({
@@ -72,7 +89,21 @@ const userSchema = new mongoose.Schema({
 	fname: String,
 	lname: String,
 	name: String,
-	review: [ reviewSchema ]
+	review: [ reviewSchema ],
+	address: String,
+	city: String,
+	country: String,
+	zipCode: String,
+	details: String,
+	image: {
+		type: {
+			name: String,
+			originalName: String,
+			data: Buffer,
+			contentType: String
+		},
+		required: false
+	}
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -126,7 +157,11 @@ app.get('/about', function(req, res) {
 });
 
 app.get('/blog', function(req, res) {
-	res.render('blog');
+	res.render('coming');
+});
+
+app.get('/coming', function(req, res) {
+	res.render('coming');
 });
 
 app.get('/contact', function(req, res) {
@@ -294,12 +329,93 @@ app.get('/dashboard-user', function(req, res) {
 		User.findById(req.user, function(err, foundUser) {
 			let userInitials = foundUser.fname.slice(0, 1) + foundUser.lname.slice(0, 1);
 
+			// console.log(foundUser.details);
+
 			if (err) {
 				res.redirect('/login');
 			} else {
 				res.render('dashboard-user', { foundUser, userInitials });
 			}
 		});
+	} else {
+		res.redirect('/login');
+	}
+});
+
+app.post('/dashboard-user', upload.single('file'), function(req, res) {
+	if (req.isAuthenticated()) {
+		if (req.file) {
+			User.updateOne(
+				{ username: req.body.email },
+				{
+					address: req.body.address,
+					city: req.body.city,
+					country: req.body.country,
+					zipCode: req.body.zipCode,
+					details: req.body.details,
+					image: {
+						name: req.file.filename,
+						originalName: req.file.originalname,
+						data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+						contentType: req.file.mimetype
+					}
+				},
+				{ multi: true },
+				function(err) {
+					if (err) {
+						console.log('error');
+					} else {
+						console.log('yes-image');
+						res.redirect('dashboard-user');
+					}
+				}
+			);
+		} else {
+			// User.findOne(req.user, function(err, found) {
+			// 	if (!err) {
+			// 		User.updateOne(
+			// 			{ username: found.username },
+			// 			{
+			// 				$set: {
+			// 					address: req.body.address,
+			// 					city: req.body.city,
+			// 					country: req.body.country,
+			// 					zipCode: req.body.zipCode,
+			// 					details: req.body.details
+			// 				}
+			// 			},
+			// 			{ multi: true },
+			// 			function(err) {
+			// 				if (err) {
+			// 					console.log('error');
+			// 				} else {
+			// 					console.log('yes');
+			// 					res.redirect('dashboard-user');
+			// 				}
+			// 			}
+			// 		);
+			// 	}
+			// });
+			User.findOneAndUpdate(
+				{ username: req.body.email },
+				{
+					address: req.body.address,
+					city: req.body.city,
+					country: req.body.country,
+					zipCode: req.body.zipCode,
+					details: req.body.details
+				},
+				{ multi: true },
+				function(err) {
+					if (err) {
+						console.log('error');
+					} else {
+						console.log('yes');
+						res.redirect('dashboard-user');
+					}
+				}
+			);
+		}
 	} else {
 		res.redirect('/login');
 	}
@@ -478,6 +594,10 @@ app.get('/welcome', function(req, res) {
 	// } else {
 	// 	res.redirect('/login');
 	// }
+});
+
+app.get('*', function(req, res) {
+	res.render('404');
 });
 
 let port = process.env.PORT;

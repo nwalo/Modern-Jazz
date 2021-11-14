@@ -358,7 +358,7 @@ p {
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .section-title-2 .title {
-    font-size: 38px;
+    font-size: 40px;
     line-height: 45px;
   }
 }
@@ -892,7 +892,7 @@ p {
   }
 }
 .navigation .nav-menus-wrapper .nav-menu li + li {
-  margin-left: 40px;
+  margin-left: 38px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .navigation .nav-menus-wrapper .nav-menu li + li {

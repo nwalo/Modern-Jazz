@@ -96,7 +96,13 @@
                     data-toggle="dropdown"
                   >
                     <div class="photo">
-                      <img src="/assets/images/dashboard/anime3.png" alt="Profile Photo" />
+                      <% if(foundUser.image){ %>
+                      <img class="avatar" src="data:image/<%= foundUser.image.contentType%>;base64,
+                      <%=foundUser.image.data.toString('base64')%>" alt="user profile pic">
+                      <% } else{ %>
+                        <img class="avatar" src="./assets/images/dashboard/emilyz.jpg" alt="user profile pic">
+                      <% } %>
+                      <!-- <img src="/assets/images/dashboard/anime3.png" alt="Profile Photo" /> -->
                       <!-- <i class="fa fa-user mycol"></i> -->
                     </div>
                     <b class="caret d-none d-lg-block d-xl-block"></b>
