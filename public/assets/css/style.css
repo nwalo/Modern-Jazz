@@ -8614,7 +8614,7 @@ a.wel{
   line-height: 50px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   
 .hide-mobile{
  display: none; 

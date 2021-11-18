@@ -15,6 +15,12 @@ const fs = require('fs');
 const GridFsStorage = require('multer-gridfs-storage');
 var enforce = require('express-sslify');
 
+// IMPORT LOCAL MODULES
+
+const courses = require(__dirname + '/public/assets/js/courses.js');
+
+// console.log(courses.courses);
+
 // MALWARES
 
 const app = express();
@@ -38,12 +44,12 @@ app.use(passport.session());
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -59,6 +65,20 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // SCHEMA DEFINITIONS
+
+const notificationSchema = new mongoose.Schema({
+	message: String
+});
+
+const courseSchema = new mongoose.Schema({
+	series: String,
+	title: String,
+	img: String,
+	duration: String,
+	lesson: String,
+	rating: String,
+	fee: String
+});
 
 const reviewSchema = new mongoose.Schema({
 	title: String,
@@ -89,7 +109,9 @@ const userSchema = new mongoose.Schema({
 	fname: String,
 	lname: String,
 	name: String,
+	course: [ courseSchema ],
 	review: [ reviewSchema ],
+	notification: [ notificationSchema ],
 	address: String,
 	city: String,
 	country: String,
@@ -113,6 +135,7 @@ userSchema.plugin(findOrCreate);
 
 const User = mongoose.model('User', userSchema);
 const Review = mongoose.model('Review', reviewSchema);
+const Notification = mongoose.model('Notification', notificationSchema);
 
 passport.use(User.createStrategy());
 
@@ -128,23 +151,30 @@ passport.deserializeUser(function(id, done) {
 	});
 });
 
-// EJS CODING
+// DEFAULT ITEMS FOR ALL USERS
 
-Object.assign(app.locals, {
-	meta: {
-		title: 'My Blog',
-		description: 'A blog about something awesome!'
+const welcomeNotification = [
+	{
+		message: 'Welcome to the Advance Master Course, you are in for an awesome ride.'
 	},
-	header: {
-		title: 'Something Awesome'
+	{
+		message: 'Follow us on Instagram to watch Amazing Techniques, Tricks and Hacks.'
 	},
-	footer: {
-		year: new Date().getFullYear()
+	{
+		message: 'Join the Private Modern Jazz Facebook Page'
 	},
-	nav: {
-		links: [ { text: 'Home', path: '/' }, { text: 'About', path: '/about' }, { text: 'Contact', path: '/contact' } ]
+	{
+		message: 'Subscribe to our newsletter to get latest update on all courses, events and news.'
 	}
-});
+];
+
+// Notification.insertMany(welcomeNotification, function(err, inserted) {
+// 	if (err) {
+// 		console.log('err');
+// 	} else {
+// 		console.log('success');
+// 	}
+// });
 
 // ROUTES
 
@@ -210,6 +240,15 @@ app.post('/contact', function(req, res) {
 
 app.get('/course', function(req, res) {
 	res.render('our-courses-list');
+});
+
+app.get('/course-details/:courseTitle', function(req, res) {
+	console.log(req.params);
+	let course = courses.courses.find((element) => {
+		return element.title == req.params.courseTitle;
+	});
+
+	res.render('courses-details', { course });
 });
 
 app.get('/course-details', function(req, res) {
@@ -329,8 +368,6 @@ app.get('/dashboard-user', function(req, res) {
 		User.findById(req.user, function(err, foundUser) {
 			let userInitials = foundUser.fname.slice(0, 1) + foundUser.lname.slice(0, 1);
 
-			// console.log(foundUser.details);
-
 			if (err) {
 				res.redirect('/login');
 			} else {
@@ -366,36 +403,11 @@ app.post('/dashboard-user', upload.single('file'), function(req, res) {
 						console.log('error');
 					} else {
 						console.log('yes-image');
-						res.redirect('dashboard-user');
+						res.redirect('/dashboard-user');
 					}
 				}
 			);
 		} else {
-			// User.findOne(req.user, function(err, found) {
-			// 	if (!err) {
-			// 		User.updateOne(
-			// 			{ username: found.username },
-			// 			{
-			// 				$set: {
-			// 					address: req.body.address,
-			// 					city: req.body.city,
-			// 					country: req.body.country,
-			// 					zipCode: req.body.zipCode,
-			// 					details: req.body.details
-			// 				}
-			// 			},
-			// 			{ multi: true },
-			// 			function(err) {
-			// 				if (err) {
-			// 					console.log('error');
-			// 				} else {
-			// 					console.log('yes');
-			// 					res.redirect('dashboard-user');
-			// 				}
-			// 			}
-			// 		);
-			// 	}
-			// });
 			User.findOneAndUpdate(
 				{ username: req.body.email },
 				{
@@ -411,11 +423,41 @@ app.post('/dashboard-user', upload.single('file'), function(req, res) {
 						console.log('error');
 					} else {
 						console.log('yes');
-						res.redirect('dashboard-user');
+						res.redirect('/dashboard-user');
 					}
 				}
 			);
 		}
+	} else {
+		res.redirect('/login');
+	}
+});
+
+app.get('/enroll/:courseTitle', function(req, res) {
+	// console.log(req.params);
+	if (req.isAuthenticated()) {
+		User.findById(req.user, function(err, foundUser) {
+			let myCourse = courses.courses.find(function(course) {
+				return course.title == req.params.courseTitle;
+			});
+
+			const courseTitles = foundUser.course.map(function(i) {
+				return i.title;
+			});
+
+			if (!courseTitles.includes(myCourse.title)) {
+				foundUser.course.push(myCourse);
+				foundUser.save(function(err) {
+					if (!err) {
+						console.log('new course added to ' + foundUser.fname);
+						res.redirect('/welcome');
+					}
+				});
+			} else {
+				console.log('course already exist');
+				res.redirect('/welcome');
+			}
+		});
 	} else {
 		res.redirect('/login');
 	}
@@ -540,12 +582,12 @@ app.post('/register', function(req, res) {
 						{
 							fname: req.body.fname,
 							lname: req.body.lname,
-							name: req.body.name
+							name: req.body.name,
+							notification: welcomeNotification
 						},
 						function(err) {
 							if (!err) {
 								console.log('registered');
-								// res.redirect('/');
 
 								// // LOG IN USER AFTER REGISTRATION
 								const user = new User({
