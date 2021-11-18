@@ -552,7 +552,7 @@ app.post('/newsletter', function(req, res) {
 });
 
 app.get('/notice', function(req, res) {
-	res.render('notice');
+	res.render('blog');
 });
 
 app.get('/register', function(req, res) {
