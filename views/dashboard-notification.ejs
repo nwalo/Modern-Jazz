@@ -23,7 +23,7 @@
                     <div>
                       <h4 class="card-title">Recent Notifications</h4>
                       <p class="category">
-                        View most recent notifications
+                        View all notifications
                       </p>
                     </div>
                     <div>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="card-body">
 
-                  <% foundUser.notification.forEach(function(notif ){ %>
+                  <% foundUser.notification.reverse().forEach(function(notif ){ %>
                   <div class="alert mybg">
                     <button
                       type="button"

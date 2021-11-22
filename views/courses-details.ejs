@@ -39,10 +39,15 @@
             <div class="row flex-row-reverse">
                 <div class="col-lg-9">
                     <div class="courses-details-content mt-50">
-                        <img src="/assets/images/courses/solo-lg.jpg" alt="">
-
-                        <h2 class="title" style="font-size: 40px;">80 Solo Techniques In 4 Weeks - Suitable For All Instruments
-                             <span style="font-size: 22px; color: #ca9400;">(Coming Soon, 20TH NOV.)</span></h2>
+                        <img src="/assets/images/courses/<%=course.image%>" alt="course image">
+                        
+                        <h2 class="title" style="font-size: 40px;">
+                            <% if(course.title == '80 Solo Techniques in 4 Weeks'){%>
+                                <%=course.title%> - Suitable For All Instruments
+                            <%} else {%>
+                                <%=course.title%>   
+                            <% } %>
+                        </h2>
 
                         <!-- <p>Even slightly believable. If you are going use a passage of Lorem Ipsum need equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish</p> -->
 
@@ -81,26 +86,15 @@
                                 <div class="benefit-content">
                                     <!-- <p></p> -->
                                     <ul class="courses-details-list">
+                                        <% course.benefits.forEach(function(benefit){ %>
                                         <li>
                                             <i class="far fa-check-circle"></i>
-                                            <p>The course has been fully simplified to enable students have a thorough understanding of music.</p>
+                                            <p> 
+                                                <%= benefit%>
+                                            </p>
                                         </li>
-                                        <li>
-                                            <i class="far fa-check-circle"></i>
-                                            <p> Learn the basic and essential techniques needed to master the art of musical improvisation. </p>
-                                        </li>
-                                        <li>
-                                            <i class="far fa-check-circle"></i>
-                                            <p>Understand and master the Art of Soloing.</p>
-                                        </li>
-                                        <li>
-                                            <i class="far fa-check-circle"></i>
-                                            <p>Mentorship.</p>
-                                        </li>
-                                        <li>
-                                            <i class="far fa-check-circle"></i>
-                                            <p>professional Certification.</p>
-                                        </li>
+                                        <% }) %> 
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -279,7 +273,7 @@
                             </div>
                         </div>
                         <div class="sidebar-btn" style="margin: 80px auto 0; width: 300px; " >
-                                <a class="main-btn" href="/enroll/<%= course.title%>">Enroll Now</a>
+                                <a class="main-btn" href="/enroll/<%=course.link%>">Enroll Course / Resume</a>
                             </div>
                     </div>
                 </div>
@@ -290,25 +284,20 @@
                                 <h4 class="title">Course Features</h4>
                             </div>
                             <ul class="courses-features-items">
-                                <li>Fee <strong>$ 25 | NGN 10 000</strong></li>
-                                <li>Duration <strong>4 Weeks</strong></li>
-                                <li>Lessons <strong>9</strong></li>
+                                <li>Fee <strong><%= course.fee %></strong></li>
+                                <li>Duration <strong><%= course.duration%></strong></li>
+                                <li>Lessons <strong><%= course.lesson%></strong></li>
                                 <!-- <li>Semester <strong>12</strong></li> -->
                                 <li>Certification <strong>Yes</strong></li>
                                 <!-- <li>Pass Parcentages <strong>80%</strong></li> -->
                                 <!-- <li>Maximum Retakes <strong>5</strong></li> -->
-                                <li>Rating <strong>4.9 (80 reviews)</strong></li>
+                                <li>Rating <strong><%= course.rating%> (<%= course.ratingNumber%> reviews)</strong></li>
                             </ul>
                             <div class="sidebar-btn">
-                                <a class="main-btn" href="/enroll/ <%= course.title%>">Enroll Course</a>
+                                <a class="main-btn" href="/enroll/<%=course.link%>">Enroll Course / Resume</a>
                             </div>
                         </div>
 
-                        <!-- <div class="courses-sidebar-banner mt-30">
-                            <a href="#">
-                                <img src="assets/images/banner.jpg" alt="">
-                            </a>
-                        </div> -->
                     </div>
                 </div>
             </div>

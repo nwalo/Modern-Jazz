@@ -1,5 +1,6 @@
 $(function($) {
 	let url = location.href;
+
 	$('nav ul li a').each(function() {
 		if (this.href === url) {
 			$(this).addClass('active');
@@ -9,6 +10,13 @@ $(function($) {
 	$('.sidebar ul.nav li a').each(function() {
 		if (this.href === url) {
 			$(this).parents('li').addClass('active');
+		}
+	});
+
+	$('.courses-sidebar .courses-features ul li a').each(function() {
+		if (this.href === url) {
+			$(this).addClass('active');
+			console.log(this);
 		}
 	});
 

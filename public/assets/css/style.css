@@ -2035,9 +2035,9 @@ p {
   justify-content: center;
   align-items: center;
 }
-.single-courses-2 .courses-lock i{
+/* .single-courses-2 .courses-lock i{
   color: #a72d2d;
-}
+} */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .single-courses-2 .courses-content {
     padding: 15px;
@@ -8619,4 +8619,21 @@ a.wel{
 .hide-mobile{
  display: none; 
 }
+}
+
+.fa-lock{
+  color: #c73703;
+}
+
+.fa-check-circle{
+  color: #009130;
+}
+
+.fa-unlock{
+  color: #ca9400;
+}
+
+.courses-features .active {
+  color: #F23F00;
+  font-weight: 500;
 }

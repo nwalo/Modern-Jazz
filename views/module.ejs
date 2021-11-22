@@ -1,0 +1,94 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <!--====== Head Start ======-->
+
+    <%- include('partials/header') %>
+
+    <!--====== Head Ends ======-->
+
+  <body>
+
+    <!--====== Navigation Start ======-->
+
+    <%- include('partials/navigation') %>
+
+    <!--====== Navigation Ends ======-->
+
+    <!--====== Learning Start ======-->
+
+    <section class="courses-details mysec">
+        <div class="container">
+            <div class="row flex-row-reverse">
+                <div class="col-lg-8">
+                    <div class="courses-details-content mt-50">
+                        
+                        <video src="/assets/smoke.mp4" width="100%" poster="/assets/images/courses/solo-lg.jpg" controls ></video>
+
+                        <h2 class="title my"> <%= currentCourse.title %> <br> Lesson <%= lessonNumber %> : <%= currentCourseModule.name%> </h2>
+
+                    </div>
+
+                    <form action="/modules/:courseLink" method="post">
+                    <div class="sidebar-btn " style="margin: 80px auto 0; width: 300px; " >
+                                             
+                        <% if (lessonNumber) { %>
+                        <input type="text " value="<%= currentCourse.link %>" name="courseLink" hidden>
+                        <input type="text " value="<%= lessonNumber %>" name="lessonValue" hidden>
+                        <% } %>
+                        <button class="main-btn">Finish Lesson</button>
+                    </div>
+                    </form>
+                        
+                    
+                </div>
+                <div class="col-lg-4">
+                    <div class="courses-sidebar pt-20">
+                        <div class="courses-features mt-30">
+                            <div class="sidebar-title">
+                                <h4 class="title">Course Modules</h4>
+                            </div>
+                            <ul>
+                                <%  module.forEach(function(i){ %>
+                                   <li> <a href="<%= i.lesson%>"><i class="fal fa-book"></i> <%= i.name %></a> <strong> <i class="fas fa-<%= i.status %>" ></i></strong></li> 
+                                <%})%>
+                            </ul>
+                            <div class="sidebar-btn">
+                                <a class="main-btn mybtn" href="#!">Print Certificate</a>
+                            </div>
+                            <div>
+                            <p class="form-message success mysuc" style="margin-left: 0; margin-right: 0">
+                                <span class="erImg"></span>
+                                <span> </span>
+                                <span class="erText">Kindly complete all modules</span>
+                            </p>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Learning Ends ======-->
+    
+    <!--====== Footer Starts ======-->
+    
+    <%- include('partials/footer') %>
+
+    <!--====== Footer Ends ======-->
+
+    <script>
+        $(function () {
+            $('.mysuc').hide()
+            $('.mybtn').on('click', function () {
+                $('.mysuc').fadeIn(1000)
+            })
+            
+        })
+    </script>
+    
+</body>
+
+</html>

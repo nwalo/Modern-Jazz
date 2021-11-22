@@ -37,6 +37,8 @@
                           </div>
                           <div class="card-body">
                             <div class="table-responsive">
+                              <% if (foundUser.course.length != 0) { %>
+
                               <table class="table tablesorter" id="">
                                 <thead class="text-primary">
                                   <tr>
@@ -53,6 +55,7 @@
                                   </tr>
                                 </thead>
                                 <tbody id="mycourse">
+                                  <% foundUser.course.forEach(function(course){ %>
                                   <tr>
                                     <td></td>
                                     <td class="myhide"></td>
@@ -64,26 +67,26 @@
                                     <td class="dash-len">
                                       <div class="dash-course">
                                         <div class="dash-img">
-                                          <img src="./assets/images/courses/solo.jpg" alt="courses" />
+                                          <img src="/assets/images/courses/<%= course.img%>" alt="courses" />
                                         </div>
                                         <div>
                                           <p
                                             class="title"
                                             style="color: #f23f00; font-size: 1.2em;"
                                           >
-                                            80 Solo Techniques
+                                            <%= course.title%>
                                           </p>
                                           <p
                                             class="title text-muted"
                                             style="font-weight: 400;"
                                           >
-                                            Duration : 4 Weeks
+                                            Duration : <%= course.duration%>
                                           </p>
                                           <p
                                             class="title text-muted"
                                             style="font-weight: 400;"
                                           >
-                                            Lessons: 16
+                                            Lessons: <%= course.lesson%>
                                           </p>
                                           <p
                                             class="title text-muted"
@@ -101,15 +104,15 @@
                                       </div>
                                     </td>
                                     <td class="myhide">
-                                      4 Weeks
+                                      <%= course.duration %>
                                     </td>
                                     <td class="text-center hide-mobile">
-                                      16 
+                                      <%= course.lesson%>
                                     </td>
                                     <td class="text-center">
                                       <button class="mybg-alt">
                                         <a
-                                          href=""
+                                          href="/learn/<%= course.link%>"
                                           style="color: #f0f8ff; font-weight: 600;"
                                         >
                                           Resume 
@@ -117,8 +120,22 @@
                                       </button>
                                     </td>
                                   </tr>
+                                  <% }) %>
                                 </tbody>
                               </table>
+                              <%} else { %>
+                                <div class="text-center">
+                                  HI THERE, WANNA BE GREAT AT MUSIC IN NO TIME? START YOUR LEARNING CAMPAIGN NOW
+                                      <button class="mybg-alt ml-5">
+                                    <a
+                                      href="/course"
+                                      style="color: #f0f8ff; font-weight: 600;"
+                                    >
+                                      SELECT COURSE
+                                    </a>
+                                  </button>
+                                </div>
+                              <% } %>
                             </div>
                           </div>
                         </div>
