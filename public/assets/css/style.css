@@ -2042,11 +2042,16 @@ p {
   .single-courses-2 .courses-content {
     padding: 15px;
   }
+
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .single-courses-2 .courses-content {
     padding: 30px 40px;
   }
+
+  .single-courses-2 .courses-lock.full{
+  top: 0px;
+}
 }
 .single-courses-2 .courses-content .category {
   font-weight: 400;
@@ -2073,6 +2078,10 @@ p {
     font-size: 20px;
     line-height: 28px;
   }
+
+  .single-courses-2 .courses-lock.full{
+  top: -282px;
+}
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .single-courses-2 .courses-content .courses-title a {
