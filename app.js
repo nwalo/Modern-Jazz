@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-// app.use(enforce.HTTPS({ trustProtoHeader: true }));
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-// mongoose.connect(process.env.MONGO_URL, {
-// 	useNewUrlParser: true,
-// 	useUnifiedTopology: true
-// });
+mongoose.connect(process.env.MONGO_URL, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+});
 
-mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -773,7 +773,7 @@ app.post('/newsletter', function(req, res) {
 
 			res.render('success', {
 				message: 'Thanks for subscribing to our newsletter',
-				emoji: 'fa fa-thumbs-up',
+				emoji: 'fas fa-thumbs-up',
 				title: ' Success Page'
 			});
 		} else {
