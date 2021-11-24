@@ -172,7 +172,7 @@ const welcomeNotification = [
 		message: 'Welcome to the Advance Master Course, you are in for an awesome ride.'
 	},
 	{
-		message: 'Follow us on Instagram to watch Amazing Techniques, Tricks and Hacks.'
+		message: 'Follow us on Instagram to watch amazing Techniques, Tricks and Hacks.'
 	},
 	{
 		message: 'Join the Private Modern Jazz Facebook Page'
@@ -473,7 +473,6 @@ app.get('/learn/:courseLink', function(req, res) {
 
 	var courseLink = req.session.link;
 	let number = 1;
-	// let next = Number(number) + 1;
 	let currentLesson = '1.' + number;
 
 	User.findById(req.user, function(err, foundUser) {
