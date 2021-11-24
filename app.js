@@ -537,7 +537,7 @@ app.post('/login', function(req, res) {
 				console.log(err);
 			} else {
 				console.log('logged in');
-				res.redirect('/login');
+				res.redirect('/dashboard');
 			}
 		});
 	})(req, res);
