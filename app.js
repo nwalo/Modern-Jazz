@@ -172,7 +172,7 @@ const welcomeNotification = [
 		message: 'Welcome to the Advance Master Course, you are in for an awesome ride.'
 	},
 	{
-		message: 'Follow us on Instagram to watch amazing Techniques, Tricks and Hacks.'
+		message: 'Follow us on Instagram to watch a	mazing Techniques, Tricks and Hacks.'
 	},
 	{
 		message: 'Join the Private Modern Jazz Facebook Page'
@@ -439,7 +439,6 @@ app.post('/dashboard-user', upload.single('file'), function(req, res) {
 });
 
 app.get('/enroll/:courseLink', function(req, res) {
-	// console.log(req.params.courseLink);
 	if (req.isAuthenticated()) {
 		User.findById(req.user, function(err, foundUser) {
 			let myCourse = courses.courses.find(function(course) {
@@ -455,12 +454,12 @@ app.get('/enroll/:courseLink', function(req, res) {
 				foundUser.save(function(err) {
 					if (!err) {
 						console.log('new course added to ' + foundUser.fname);
-						res.redirect('/learn/' + req.params.courseLink);
+						res.redirect('/course/' + req.params.courseLink + '/lesson/1.1');
 					}
 				});
 			} else {
 				console.log('course already exist');
-				res.redirect('/learn/' + req.params.courseLink);
+				res.redirect('/course/' + req.params.courseLink + '/lesson/1.1');
 			}
 		});
 	} else {
@@ -468,43 +467,54 @@ app.get('/enroll/:courseLink', function(req, res) {
 	}
 });
 
-app.get('/learn/:courseLink', function(req, res) {
-	req.session.link = req.params.courseLink;
+// app.get('/learn/:courseLink', function(req, res) {
+// 	req.session.link = req.params.courseLink;
 
-	var courseLink = req.session.link;
-	let number = 1;
-	let currentLesson = '1.' + number;
+// 	var courseLink = req.session.link;
+// 	let number = 1;
+// 	let currentLesson = '1.' + number;
 
-	User.findById(req.user, function(err, foundUser) {
-		if (err) {
-			console.log(err);
-		} else {
-			if (!foundUser) {
-				res.redirect('/course');
-			} else {
-				var currentCourse = foundUser.course.find(function(course) {
-					return course.link == courseLink;
-				});
-				if (currentCourse) {
-					var currentCourseModule = currentCourse.modules.find(function(course) {
-						return course.lesson == currentLesson;
-					});
-					var modules = currentCourse.modules.slice(0, 9);
-					res.render('module', {
-						courseTitle: currentCourse.title,
-						title: 'Learn',
-						module: modules,
-						lessonNumber: '1.1',
-						currentCourse,
-						currentCourseModule
-					});
-				} else {
-					res.render('404', { title: 'Page Not Found' });
-				}
-			}
-		}
-	});
-});
+// 	User.findById(req.user, function(err, foundUser) {
+// 		if (err) {
+// 			console.log(err);
+// 		} else {
+// 			if (!foundUser) {
+// 				res.redirect('/course');
+// 			} else {
+// 				var currentCourse = foundUser.course.find(function(course) {
+// 					return course.link == courseLink;
+// 				});
+
+// 				if (currentCourse) {
+// 					var currentCourseModule = currentCourse.modules.find(function(course) {
+// 						return course.lesson == currentLesson;
+// 					});
+// 					var modules = currentCourse.modules.slice(0, 9);
+// 					res.render('module', {
+// 						courseTitle: currentCourse.title,
+// 						title: 'Learn',
+// 						module: modules,
+// 						lessonNumber: '1.1',
+// 						currentCourse,
+// 						currentCourseModule
+// 					});
+// 				} else {
+// 					var dataType = typeof Number(courseLink);
+
+// 					if (dataType == 'number') {
+// 						var currentCourse = foundUser.course.find(function(course) {
+// 							return course.link == courseLink;
+// 						});
+// 						console.log('num');
+// 					} else {
+// 						console.log('str');
+// 					}
+// 					res.render('404', { title: 'Page Not Found' });
+// 				}
+// 			}
+// 		}
+// 	});
+// });
 
 app.get('/login', function(req, res) {
 	res.render('login', {
@@ -547,12 +557,15 @@ app.get('/logout', function(req, res) {
 	res.redirect('/login');
 });
 
-app.get('/module/:lesson', function(req, res) {
+app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 	var courseLink = req.session.link;
+	var newCourseLink = req.params.courseLink;
 	var lesson = req.params.lesson;
 	let number = req.params.lesson.substring(2);
 	let next = Number(number) + 1;
 	let currentLesson = '1.' + number;
+
+	console.log(newCourseLink, lesson, courseLink);
 
 	User.findById(req.user, function(err, foundUser) {
 		if (err) {
@@ -561,9 +574,9 @@ app.get('/module/:lesson', function(req, res) {
 			if (!foundUser) {
 				res.redirect('/course');
 			} else {
-				if (courseLink) {
+				if (newCourseLink) {
 					var currentCourse = foundUser.course.find(function(course) {
-						return course.link == courseLink;
+						return course.link == newCourseLink;
 					});
 
 					if (currentCourse) {
@@ -573,24 +586,22 @@ app.get('/module/:lesson', function(req, res) {
 
 						if (number > 0 && number < currentCourse.modules.length) {
 							if (currentCourseModule.status == 'lock') {
-								lesson = '1.1';
-								currentCourseModule = currentCourse.modules.find(function(course) {
-									return course.lesson == lesson;
-								});
 								console.log('locked');
+
+								res.redirect('/course/' + newCourseLink + '/lesson/1.1');
+							} else {
+								var modules = currentCourse.modules.slice(0, 9);
+
+								res.render('module', {
+									title: 'Learn',
+									module: modules,
+									lessonNumber: lesson,
+									currentCourse,
+									currentCourseModule
+								});
 							}
-
-							var modules = currentCourse.modules.slice(0, 9);
-
-							res.render('module', {
-								title: 'Learn',
-								module: modules,
-								lessonNumber: lesson,
-								currentCourse,
-								currentCourseModule
-							});
 						} else {
-							res.redirect('/learn/' + courseLink);
+							res.redirect('/course/' + newCourseLink + '/lesson/1.1');
 						}
 					} else {
 						res.render('404', { title: 'Page Not Found' });
@@ -603,6 +614,62 @@ app.get('/module/:lesson', function(req, res) {
 	});
 });
 
+// app.get('/module/:lesson', function(req, res) {
+// 	var courseLink = req.session.link;
+// 	var lesson = req.params.lesson;
+// 	let number = req.params.lesson.substring(2);
+// 	let next = Number(number) + 1;
+// 	let currentLesson = '1.' + number;
+
+// 	User.findById(req.user, function(err, foundUser) {
+// 		if (err) {
+// 			console.log(err);
+// 		} else {
+// 			if (!foundUser) {
+// 				res.redirect('/course');
+// 			} else {
+// 				if (courseLink) {
+// 					var currentCourse = foundUser.course.find(function(course) {
+// 						return course.link == courseLink;
+// 					});
+
+// 					if (currentCourse) {
+// 						var currentCourseModule = currentCourse.modules.find(function(course) {
+// 							return course.lesson == currentLesson;
+// 						});
+
+// 						if (number > 0 && number < currentCourse.modules.length) {
+// 							if (currentCourseModule.status == 'lock') {
+// 								lesson = '1.1';
+// 								currentCourseModule = currentCourse.modules.find(function(course) {
+// 									return course.lesson == lesson;
+// 								});
+// 								console.log('locked');
+// 							}
+
+// 							var modules = currentCourse.modules.slice(0, 9);
+
+// 							res.render('module', {
+// 								title: 'Learn',
+// 								module: modules,
+// 								lessonNumber: lesson,
+// 								currentCourse,
+// 								currentCourseModule
+// 							});
+// 						} else {
+// 							res.redirect('/learn/' + courseLink);
+// 						}
+// 					} else {
+// 						res.render('404', { title: 'Page Not Found' });
+// 					}
+// 				} else {
+// 					res.redirect('/course');
+// 				}
+// 			}
+// 		}
+// 	});
+// });
+
 app.post('/modules/:courseLink', function(req, res) {
 	let number = req.body.lessonValue.substring(2);
 	let next = Number(number) + 1;
@@ -611,7 +678,7 @@ app.post('/modules/:courseLink', function(req, res) {
 	let nextLesson = '1.' + next;
 	let previousLesson = '1.' + (number - 1);
 
-	// console.log(previousLesson, currentLesson, nextLesson);
+	console.log(previousLesson, currentLesson, nextLesson, courseLink);
 
 	User.findById(req.user, function(err, foundUser) {
 		if (err) {
@@ -685,26 +752,26 @@ app.post('/modules/:courseLink', function(req, res) {
 			}
 			if (!previousModule) {
 				console.log('no previous');
-				res.redirect('/module/1.' + next);
+				res.redirect('/course/' + courseLink + '/lesson/1.' + next);
 			} else {
 				if (
 					previousModule.status == 'check-circle' &&
 					module.status == 'check-circle' &&
 					nextModule.status == 'check-circle'
 				) {
-					res.redirect('/module/1.' + next);
+					res.redirect('/course/' + courseLink + '/lesson/1.' + next);
 				} else if (
 					previousModule.status == 'check-circle' &&
 					module.status == 'check-circle' &&
 					nextModule.status == 'unlock'
 				) {
-					res.redirect('/module/1.' + next);
+					res.redirect('/course/' + courseLink + '/lesson/1.' + next);
 				} else if (
 					previousModule.status == 'check-circle' &&
 					module.status == 'unlock' &&
 					nextModule.status == 'lock'
 				) {
-					res.redirect('/module/1.' + next);
+					res.redirect('/course/' + courseLink + '/lesson/1.' + next);
 				} else if (
 					previousModule.status == 'check-circle' &&
 					module.status == 'unlock' &&
@@ -733,9 +800,9 @@ app.post('/modules/:courseLink', function(req, res) {
 							}
 						}
 					);
-					res.redirect('/module/1.' + next);
+					res.redirect('/course/' + courseLink + '/lesson/1.' + next);
 				} else {
-					res.redirect('/module/1.' + number);
+					res.redirect('/course/' + courseLink + '/lesson/1.' + number);
 					log('anything else?');
 				}
 				console.log('there is previous');
