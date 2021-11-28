@@ -90,5 +90,26 @@ exports.tutors = [
 		experience: [ { place: '', date: '' } ],
 		qualifications: [ {} ],
 		achievement: [ {} ]
+	},
+	{
+		name: 'Justyn',
+		fullname: 'Justyn Delbridge',
+		role: 'Bass Instructor',
+		description: `Justyn Delbridge is a professional musician from the United States with degrees in jazz performance and theory.
+		 Specializing in slap bass studies, his videos have been shared by Davie504, he came in 4th place for Music Radars
+		 “Unsigned Bassist of the Year” competition and is the author of The Kool Katz Guide to Slap Bass.`,
+		image: 'justyn.jpg',
+		contact: [
+			{
+				email: '',
+				phone: '',
+				fb: '',
+				ig: 'https://instagram.com/massive_bass_nerd?utm_medium=copy_link',
+				twitter: ''
+			}
+		],
+		experience: [ { place: '', date: '' } ],
+		qualifications: [ {} ],
+		achievement: [ {} ]
 	}
 ];

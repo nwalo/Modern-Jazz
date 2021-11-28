@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -1014,6 +1014,17 @@ app.get('/sitemap', function(req, res) {
 	res.sendFile(__dirname + '/sitemap.xml');
 });
 
+app.get('/tutors', function(req, res) {
+	let allTutors = tutors.tutors;
+	// Tutor.findOne({ name: tutor }, function(err, foundTutor) {
+	if (!allTutors) {
+		res.render('404');
+	} else {
+		res.render('teachers', { title: 'Tutors', allTutors });
+	}
+	// });
+});
+
 app.get('/tutors/:name', function(req, res) {
 	let tutor = tutors.tutors.find(function(i) {
 		// console.log(i.name, _.capitalize(req.params.name));
@@ -1024,7 +1035,7 @@ app.get('/tutors/:name', function(req, res) {
 	if (!tutor) {
 		res.render('404');
 	} else {
-		res.render('teacher-details', { title: 'Tutors', tutor });
+		res.render('teacher-details', { title: 'Tutor Details', tutor });
 	}
 	// });
 });

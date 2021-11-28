@@ -18,9 +18,9 @@
 
     <section class="page-banner">
         <div class="page-banner-bg bg_cover"
-         style="background-image: url(/assets/images/bg/teach.jpg);
+         style="background-image: url(/assets/images/bg/tutor.jpg);
          background-color: #24242475;
-          background-blend-mode: overlay;">
+         background-blend-mode: overlay;">
             <div class="container">
                 <div class="banner-content text-center">
                     <h2 class="title">Teacher Details</h2>
@@ -36,9 +36,10 @@
     <section class="teacher-details">
         <div class="container">
             <div class="row teachers-row justify-content-center">
+                <%  tutor.contact.forEach(function(i){ %> 
                 <div class="col-lg-5 col-md-6 col-sm-8 teachers-col">
                     <div class="single-teacher-details mt-50 text-center">
-                        <%  tutor.contact.forEach(function(i){ %> 
+                        
                         <div class="teacher-social">
                             <ul class="social">
                                 <li><a href="<%= i.fb %>"><i class="fab fa-facebook-f"></i></a></li>
@@ -64,9 +65,10 @@
                             <li><strong>Email:</strong> <a href="#"><%= i.email %></a></li>
                             <li><strong>Phone:</strong> <a href="#"><%= i.phone %></a></li>
                         </ul>
-                        <%}) %>
+                        
                     </div>
                 </div>
+                <%}) %>
             </div>
 
             <div class="teacher-details-tab">

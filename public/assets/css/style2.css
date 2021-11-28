@@ -129,8 +129,7 @@ h2 {
 
 /* Background */
 .background {
-  background: url(../images/40.jpg) no-repeat 50% 100%;
-  /* background-position: t center; */
+  background: url(../images/coming.jpg) no-repeat 50% 100%;
   bottom: -20px;
   background-size: cover;
   position: absolute;
