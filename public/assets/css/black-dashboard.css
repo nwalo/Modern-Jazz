@@ -17601,7 +17601,6 @@ table.tablesorter thead tr .headerSortDown {
 
 .sidebar .nav i,
 .off-canvas-sidebar .nav i {
-  font-size: 20px;
   float: left;
   margin-right: 12px;
   line-height: 30px;
@@ -20449,6 +20448,12 @@ Copyright (c) 2015 Daniel Eden
   background-color: #ca9400;
 }
 
+.mybg-alt:hover{
+  background-color: #f23f00;
+  transform: scale(1.1);
+  transition: .3s;
+}
+
 button.mybg, button.mybg-alt{
   padding: 10px 15px;
   outline: none;
@@ -20514,4 +20519,8 @@ button.mybg, button.mybg-alt{
 
 .lock-link{
   cursor: not-allowed;
+}
+
+.far{
+  font-size: 10px;
 }

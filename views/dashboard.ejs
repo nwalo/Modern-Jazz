@@ -74,8 +74,8 @@
                   <div class="typography-line">
                     <h1 class="text-center">
                       Hello
-                      <span class="myhighlight"><%= foundUser.fname %> <%= foundUser.lname %></span>
-                      , Welcome to your dashboard
+                      <span class="myhighlight"><%= foundUser.fname %> <%= foundUser.lname %></span> ,
+                       Welcome to your dashboard
                     </h1>
                   </div>
                 </div>
@@ -105,7 +105,8 @@
                           </div>
                           <div class="card-body">
                             <div class="table-responsive">
-                              <table class="table tablesorter" id="">
+                              <% if (foundUser.course.length != 0) { %>
+                                <table class="table tablesorter" id="">
                                 <thead class="text-primary">
                                   <tr>
                                     <th>
@@ -121,6 +122,7 @@
                                   </tr>
                                 </thead>
                                 <tbody id="mycourse">
+                                  <% foundUser.course.reverse().splice(0,1).forEach(function(course){ %>
                                   <tr>
                                     <td></td>
                                     <td class="myhide"></td>
@@ -131,36 +133,50 @@
                                     <td class="dash-len">
                                       <div class="dash-course">
                                         <div class="dash-img">
-                                          <img src="./assets/images/courses/solo.jpg" alt="courses" />
+                                          <img src="/assets/images/courses/<%= course.img%>" alt="courses" />
                                         </div>
                                         <div style="display: flex; justify-content: center; align-items: center;">
-                                            80 Solo Techniques                                         
+                                            <%= course.title%>                                        
                                         </div>
 
                                       </div>
                                     </td>
                                     <td class="myhide">
-                                      4 Weeks
+                                      <%= course.duration%>
                                     </td>
                                     <td class="text-center">
-                                      16 
+                                      <%= course.lesson%>
                                     </td>
                                     <td class="text-center">
                                       <!-- <button class="btn btn-primary">
                                         <a href="" style="color: #f0f8ff; font-weight: 500;">Resume Course</a>
                                       </button> -->
                                       <button class="mybg-alt">
-                              <a
-                                href=""
-                                style="color: #f0f8ff; font-weight: 600;"
-                              >
-                                Resume 
-                              </a>
-                            </button>
+                                        <a 
+                                          href="/course/<%= course.link%>/lesson/1.1"
+                                          style="color: #f0f8ff; font-weight: 600;"
+                                        >
+                                          Resume 
+                                        </a>
+                                      </button>
                                     </td>
                                   </tr>
+                                  <% }) %>
                                 </tbody>
                               </table>
+                              <%} else { %>
+                                <div class="text-center">
+                                  YOU DON'T HAVE A RECENT COURSE. START YOUR LEARNING CAMPAIGN NOW
+                                      <button class="mybg-alt ml-5">
+                                    <a
+                                      href="/course"
+                                      style="color: #f0f8ff; font-weight: 600;"
+                                    >
+                                      SELECT COURSE
+                                    </a>
+                                  </button>
+                                </div>
+                              <% } %>
                             </div>
                           </div>
                         </div>
@@ -196,7 +212,7 @@
                         <tr>
                           <td>
                             <img
-                              src="../assets/img/anime3.png"
+                              src="/assets/img/anime3.png"
                               width="150px"
                               alt=""
                             />
@@ -235,10 +251,10 @@
                           <td>
                             <button class="mybg-alt">
                               <a
-                                href=""
+                                href="/enroll/80_solo_techniques/"
                                 style="color: #f0f8ff; font-weight: 600;"
                               >
-                                enroll
+                                Enroll
                               </a>
                             </button>
                           </td>
@@ -246,7 +262,7 @@
                         <tr>
                           <td>
                             <img
-                              src="../assets/img/anime3.png"
+                              src="/assets/img/anime3.png"
                               width="150px"
                               alt=""
                             />
@@ -283,12 +299,12 @@
                             </p>
                           </td>
                           <td>
-                            <button class="mybg-alt">
+                            <button class="mybg-alt lock-link">
                               <a class="lock-link"
                                 href="#!"
                                 style="color: #f0f8ff; font-weight: 600;"
                               >
-                                enroll <i class="fa fa-lock" style="font-size: .8em; margin-left: 5px; color: #ffffff;"></i>
+                                Enroll <i class="fa fa-lock" style="font-size: .8em; margin-left: 5px; color: #ffffff;"></i>
                               </a>
                             </button>
                           </td>
@@ -296,7 +312,7 @@
                         <tr>
                           <td>
                             <img
-                              src="../assets/img/anime3.png"
+                              src="/assets/img/anime3.png"
                               width="150px"
                               alt=""
                             />
@@ -338,7 +354,7 @@
                                 href="#!"
                                 style="color: #f0f8ff; font-weight: 600;"
                               >
-                                enroll <i class="fa fa-lock" style="font-size: .8em; margin-left: 5px; color: #ffffff;"></i>
+                                Enroll <i class="fa fa-lock" style="font-size: .8em; margin-left: 5px; color: #ffffff;"></i>
                               </a>
                             </button>
                           </td>
@@ -365,15 +381,11 @@
                   </div>
                 </div>
                 <div class="card-body">
+                  <% foundUser.notification.reverse().slice(0,5).forEach(function(notif ){ %>
                   <div class="alert mybg">
-                    <span>This is a plain notification</span>
+                    <span><%= notif.message %></span>
                   </div>
-                  <div class="alert mybg">
-                    <span>This is a plain notification</span>
-                  </div>
-                  <div class="alert mybg">
-                    <span>This is a plain notification</span>
-                  </div>
+                  <% }) %>
                 </div>
               </div>
             </div>

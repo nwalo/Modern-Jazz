@@ -12,8 +12,14 @@ const session = require('express-session');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const _ = require('lodash');
 const GridFsStorage = require('multer-gridfs-storage');
 var enforce = require('express-sslify');
+
+// IMPORT LOCAL MODULES
+
+const courses = require(__dirname + '/public/assets/js/courses.js');
+const tutors = require(__dirname + '/public/assets/js/tutors.js');
 
 // MALWARES
 
@@ -38,12 +44,12 @@ app.use(passport.session());
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -59,6 +65,28 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // SCHEMA DEFINITIONS
+
+const notificationSchema = new mongoose.Schema({
+	message: String
+});
+
+const courseSchema = new mongoose.Schema({
+	series: String,
+	title: String,
+	overview: String,
+	benefits: [],
+	tutors: [],
+	link: String,
+	img: String,
+	image: String,
+	video: String,
+	duration: String,
+	lesson: String,
+	rating: String,
+	ratingNumber: String,
+	fee: String,
+	modules: [ {} ]
+});
 
 const reviewSchema = new mongoose.Schema({
 	title: String,
@@ -88,8 +116,10 @@ const userSchema = new mongoose.Schema({
 	},
 	fname: String,
 	lname: String,
-	name: String,
+	nick: String,
+	course: [ courseSchema ],
 	review: [ reviewSchema ],
+	notification: [ notificationSchema ],
 	address: String,
 	city: String,
 	country: String,
@@ -106,6 +136,11 @@ const userSchema = new mongoose.Schema({
 	}
 });
 
+const tutorSchema = new mongoose.Schema({
+	title: String,
+	reviewMsg: String
+});
+
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
 
@@ -113,6 +148,8 @@ userSchema.plugin(findOrCreate);
 
 const User = mongoose.model('User', userSchema);
 const Review = mongoose.model('Review', reviewSchema);
+const Tutor = mongoose.model('Tutor', tutorSchema);
+const Notification = mongoose.model('Notification', notificationSchema);
 
 passport.use(User.createStrategy());
 
@@ -128,44 +165,43 @@ passport.deserializeUser(function(id, done) {
 	});
 });
 
-// EJS CODING
+// DEFAULT ITEMS FOR ALL USERS
 
-Object.assign(app.locals, {
-	meta: {
-		title: 'My Blog',
-		description: 'A blog about something awesome!'
+const welcomeNotification = [
+	{
+		message: 'Welcome to the Advance Master Course, you are in for an awesome ride.'
 	},
-	header: {
-		title: 'Something Awesome'
+	{
+		message: 'Follow us on Instagram to watch a	mazing Techniques, Tricks and Hacks.'
 	},
-	footer: {
-		year: new Date().getFullYear()
+	{
+		message: 'Join the Private Modern Jazz Facebook Page'
 	},
-	nav: {
-		links: [ { text: 'Home', path: '/' }, { text: 'About', path: '/about' }, { text: 'Contact', path: '/contact' } ]
+	{
+		message: 'Subscribe to our newsletter to get latest update on all courses, events and news.'
 	}
-});
+];
 
 // ROUTES
 
 app.get('/', function(req, res) {
-	res.render('index');
+	res.render('index', { title: 'Home' });
 });
 
 app.get('/about', function(req, res) {
-	res.render('about-us');
+	res.render('about-us', { title: 'About' });
 });
 
 app.get('/blog', function(req, res) {
-	res.render('coming');
+	res.render('coming', { title: 'Blog' });
 });
 
 app.get('/coming', function(req, res) {
-	res.render('coming');
+	res.render('coming', { title: 'Coming Soon' });
 });
 
 app.get('/contact', function(req, res) {
-	res.render('contact');
+	res.render('contact', { title: 'Contact' });
 });
 
 app.post('/contact', function(req, res) {
@@ -209,12 +245,20 @@ app.post('/contact', function(req, res) {
 });
 
 app.get('/course', function(req, res) {
-	res.render('our-courses-list');
+	res.render('our-courses-list', { title: 'All Courses' });
 });
 
-app.get('/course-details', function(req, res) {
-	res.render('courses-details');
+app.get('/course-details/:courseLink', function(req, res) {
+	let course = courses.courses.find((element) => {
+		return element.link == req.params.courseLink;
+	});
+
+	res.render('courses-details', { course, title: 'Course - ' + course.title });
 });
+
+// app.get('/course-details', function(req, res) {
+// 	res.render('courses-details', { title: 'Course Details' });
+// });
 
 app.post('/course-details', function(req, res) {
 	review = new Review({
@@ -284,7 +328,7 @@ app.get('/dashboard', function(req, res) {
 			if (err) {
 				res.redirect('/login');
 			} else {
-				res.render('dashboard', { foundUser, userInitials });
+				res.render('dashboard', { foundUser, userInitials, title: 'Dashboard' });
 			}
 		});
 	} else {
@@ -300,7 +344,7 @@ app.get('/dashboard-notification', function(req, res) {
 			if (err) {
 				res.redirect('/login');
 			} else {
-				res.render('dashboard-notification', { foundUser, userInitials });
+				res.render('dashboard-notification', { foundUser, userInitials, title: 'Dashboard Notification' });
 			}
 		});
 	} else {
@@ -316,7 +360,7 @@ app.get('/dashboard-mycourse', function(req, res) {
 			if (err) {
 				res.redirect('/login');
 			} else {
-				res.render('dashboard-mycourse', { foundUser, userInitials });
+				res.render('dashboard-mycourse', { foundUser, userInitials, title: 'Dashboard - My Courses' });
 			}
 		});
 	} else {
@@ -328,8 +372,6 @@ app.get('/dashboard-user', function(req, res) {
 	if (req.isAuthenticated()) {
 		User.findById(req.user, function(err, foundUser) {
 			let userInitials = foundUser.fname.slice(0, 1) + foundUser.lname.slice(0, 1);
-
-			// console.log(foundUser.details);
 
 			if (err) {
 				res.redirect('/login');
@@ -366,36 +408,11 @@ app.post('/dashboard-user', upload.single('file'), function(req, res) {
 						console.log('error');
 					} else {
 						console.log('yes-image');
-						res.redirect('dashboard-user');
+						res.redirect('/dashboard-user');
 					}
 				}
 			);
 		} else {
-			// User.findOne(req.user, function(err, found) {
-			// 	if (!err) {
-			// 		User.updateOne(
-			// 			{ username: found.username },
-			// 			{
-			// 				$set: {
-			// 					address: req.body.address,
-			// 					city: req.body.city,
-			// 					country: req.body.country,
-			// 					zipCode: req.body.zipCode,
-			// 					details: req.body.details
-			// 				}
-			// 			},
-			// 			{ multi: true },
-			// 			function(err) {
-			// 				if (err) {
-			// 					console.log('error');
-			// 				} else {
-			// 					console.log('yes');
-			// 					res.redirect('dashboard-user');
-			// 				}
-			// 			}
-			// 		);
-			// 	}
-			// });
 			User.findOneAndUpdate(
 				{ username: req.body.email },
 				{
@@ -411,7 +428,7 @@ app.post('/dashboard-user', upload.single('file'), function(req, res) {
 						console.log('error');
 					} else {
 						console.log('yes');
-						res.redirect('dashboard-user');
+						res.redirect('/dashboard-user');
 					}
 				}
 			);
@@ -421,13 +438,83 @@ app.post('/dashboard-user', upload.single('file'), function(req, res) {
 	}
 });
 
-app.get('/learn', function(req, res) {
-	res.render('learn');
+app.get('/enroll/:courseLink', function(req, res) {
+	req.session.link = req.params.courseLink;
+	if (req.isAuthenticated()) {
+		User.findById(req.user, function(err, foundUser) {
+			let myCourse = courses.courses.find(function(course) {
+				return course.link == req.params.courseLink;
+			});
+
+			const courseLinks = foundUser.course.map(function(i) {
+				return i.link;
+			});
+
+			if (!courseLinks.includes(myCourse.link)) {
+				res.redirect('/payment');
+			} else {
+				console.log('course already exist');
+				res.redirect('/course/' + req.params.courseLink + '/lesson/1.1');
+			}
+		});
+	} else {
+		res.redirect('/login');
+	}
 });
+
+// app.get('/learn/:courseLink', function(req, res) {
+// 	req.session.link = req.params.courseLink;
+
+// 	var courseLink = req.session.link;
+// 	let number = 1;
+// 	let currentLesson = '1.' + number;
+
+// 	User.findById(req.user, function(err, foundUser) {
+// 		if (err) {
+// 			console.log(err);
+// 		} else {
+// 			if (!foundUser) {
+// 				res.redirect('/course');
+// 			} else {
+// 				var currentCourse = foundUser.course.find(function(course) {
+// 					return course.link == courseLink;
+// 				});
+
+// 				if (currentCourse) {
+// 					var currentCourseModule = currentCourse.modules.find(function(course) {
+// 						return course.lesson == currentLesson;
+// 					});
+// 					var modules = currentCourse.modules.slice(0, 9);
+// 					res.render('module', {
+// 						courseTitle: currentCourse.title,
+// 						title: 'Learn',
+// 						module: modules,
+// 						lessonNumber: '1.1',
+// 						currentCourse,
+// 						currentCourseModule
+// 					});
+// 				} else {
+// 					var dataType = typeof Number(courseLink);
+
+// 					if (dataType == 'number') {
+// 						var currentCourse = foundUser.course.find(function(course) {
+// 							return course.link == courseLink;
+// 						});
+// 						console.log('num');
+// 					} else {
+// 						console.log('str');
+// 					}
+// 					res.render('404', { title: 'Page Not Found' });
+// 				}
+// 			}
+// 		}
+// 	});
+// });
 
 app.get('/login', function(req, res) {
 	res.render('login', {
-		errorMsg: ''
+		errorMsg: '',
+		title: 'Login'
 	});
 });
 
@@ -443,7 +530,8 @@ app.post('/login', function(req, res) {
 		}
 		if (!user) {
 			return res.render('login', {
-				errorMsg: 'Invalid email address or password !'
+				errorMsg: 'Invalid email address or password !',
+				title: 'Login'
 			});
 		}
 
@@ -453,7 +541,7 @@ app.post('/login', function(req, res) {
 				console.log(err);
 			} else {
 				console.log('logged in');
-				res.redirect('/welcome');
+				res.redirect('/dashboard');
 			}
 		});
 	})(req, res);
@@ -461,7 +549,279 @@ app.post('/login', function(req, res) {
 
 app.get('/logout', function(req, res) {
 	req.logout();
-	res.redirect('/');
+	res.redirect('/login');
+});
+
+app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
+	var newCourseLink = req.params.courseLink;
+	var lesson = req.params.lesson;
+	let number = req.params.lesson.substring(2);
+	let next = Number(number) + 1;
+	let currentLesson = '1.' + number;
+	req.session.link = req.params.courseLink;
+
+	// console.log(newCourseLink, lesson, number, next, currentLesson, req.session.link);
+
+	User.findById(req.user, function(err, foundUser) {
+		if (err) {
+			console.log(err);
+		} else {
+			if (!foundUser) {
+				res.redirect('/course');
+			} else {
+				// console.log(newCourseLink, lesson, number, next, currentLesson, req.session.link);
+				if (newCourseLink) {
+					var currentCourse = foundUser.course.find(function(course) {
+						return course.link == newCourseLink;
+					});
+
+					req.session.TitleOfCourse = currentCourse.title;
+
+					if (currentCourse) {
+						var currentCourseModule = currentCourse.modules.find(function(course) {
+							return course.lesson == currentLesson;
+						});
+
+						if (number > 0 && number <= currentCourse.modules.length) {
+							if (currentCourseModule.status == 'lock') {
+								console.log('locked');
+
+								res.redirect('/course/' + newCourseLink + '/lesson/1.1');
+							} else {
+								var modules = currentCourse.modules.slice(0, 9);
+								res.render('module', {
+									title: 'Learn',
+									module: modules,
+									lessonNumber: lesson,
+									currentCourse,
+									currentCourseModule
+								});
+							}
+						} else {
+							res.redirect('/course-details/' + newCourseLink);
+							console.log('nope');
+						}
+					} else {
+						res.redirect('/enroll/' + newCourseLink);
+					}
+				} else {
+					res.redirect('/course');
+				}
+			}
+		}
+	});
+});
+
+// app.get('/module/:lesson', function(req, res) {
+// 	var courseLink = req.session.link;
+// 	var lesson = req.params.lesson;
+// 	let number = req.params.lesson.substring(2);
+// 	let next = Number(number) + 1;
+// 	let currentLesson = '1.' + number;
+
+// 	User.findById(req.user, function(err, foundUser) {
+// 		if (err) {
+// 			console.log(err);
+// 		} else {
+// 			if (!foundUser) {
+// 				res.redirect('/course');
+// 			} else {
+// 				if (courseLink) {
+// 					var currentCourse = foundUser.course.find(function(course) {
+// 						return course.link == courseLink;
+// 					});
+
+// 					if (currentCourse) {
+// 						var currentCourseModule = currentCourse.modules.find(function(course) {
+// 							return course.lesson == currentLesson;
+// 						});
+
+// 						if (number > 0 && number < currentCourse.modules.length) {
+// 							if (currentCourseModule.status == 'lock') {
+// 								lesson = '1.1';
+// 								currentCourseModule = currentCourse.modules.find(function(course) {
+// 									return course.lesson == lesson;
+// 								});
+// 								console.log('locked');
+// 							}
+
+// 							var modules = currentCourse.modules.slice(0, 9);
+
+// 							res.render('module', {
+// 								title: 'Learn',
+// 								module: modules,
+// 								lessonNumber: lesson,
+// 								currentCourse,
+// 								currentCourseModule
+// 							});
+// 						} else {
+// 							res.redirect('/learn/' + courseLink);
+// 						}
+// 					} else {
+// 						res.render('404', { title: 'Page Not Found' });
+// 					}
+// 				} else {
+// 					res.redirect('/course');
+// 				}
+// 			}
+// 		}
+// 	});
+// });
+
+app.post('/modules/:courseLink', function(req, res) {
+	let number = req.body.lessonValue.substring(2);
+	let next = Number(number) + 1;
+	let courseLink = req.body.courseLink;
+	let currentLesson = '1.' + number;
+	let nextLesson = '1.' + next;
+	let previousLesson = '1.' + (number - 1);
+
+	// console.log(previousLesson, currentLesson, nextLesson, courseLink);
+
+	User.findById(req.user, function(err, foundUser) {
+		if (err) {
+			console.log(err);
+		} else {
+			var currentCourse = foundUser.course.find(function(course) {
+				return course.link == courseLink;
+			});
+			var module = currentCourse.modules.slice(0, 9).find(function(course) {
+				return course.lesson == currentLesson;
+			});
+			var previousModule = currentCourse.modules.slice(0, 9).find(function(course) {
+				return course.lesson == previousLesson;
+			});
+			var nextModule = currentCourse.modules.slice(0, 9).find(function(course) {
+				return course.lesson == nextLesson;
+			});
+			// console.log(previousModule);
+			// console.log(module);
+			// console.log(nextModule);
+
+			req.session.TitleOfCourse = currentCourse.title;
+
+			if (module.status == 'check-circle') {
+				console.log('yes');
+			} else {
+				User.findOneAndUpdate(
+					{
+						username: req.user.username,
+						'course.title': currentCourse.title,
+						'course.$[outer].modules.$[inner].lesson': currentLesson,
+						'course.$[outer].modules.$[inner].status': 'unlock'
+					},
+					{
+						$set: {
+							'course.$[outer].modules.$[inner].status': 'check-circle'
+						}
+					},
+					{
+						arrayFilters: [ { 'outer.title': currentCourse.title }, { 'inner.lesson': currentLesson } ]
+					},
+					function(err, found) {
+						if (err) {
+							console.log(err);
+						} else {
+							console.log('current course has updated');
+						}
+					}
+				);
+				User.findOneAndUpdate(
+					{
+						username: req.user.username,
+						'course.title': currentCourse.title,
+						'course.$[outer].modules.$[inner].lesson': nextLesson,
+						'course.$[outer].modules.$[inner].status': 'lock'
+					},
+					{
+						$set: {
+							'course.$[outer].modules.$[inner].status': 'unlock'
+						}
+					},
+					{
+						arrayFilters: [ { 'outer.title': currentCourse.title }, { 'inner.lesson': nextLesson } ]
+					},
+					function(err, found) {
+						if (err) {
+							console.log(err);
+						} else {
+							console.log('next course has updated');
+						}
+					}
+				);
+			}
+			if (!previousModule) {
+				console.log('no previous');
+				res.redirect('/course/' + courseLink + '/lesson/1.' + next);
+			} else {
+				if (!nextModule) {
+					console.log('no next');
+					res.redirect('/certificate');
+				} else {
+					if (
+						previousModule.status == 'check-circle' &&
+						module.status == 'check-circle' &&
+						nextModule.status == 'check-circle'
+					) {
+						res.redirect('/course/' + courseLink + '/lesson/1.' + next);
+					} else if (
+						previousModule.status == 'check-circle' &&
+						module.status == 'check-circle' &&
+						nextModule.status == 'unlock'
+					) {
+						res.redirect('/course/' + courseLink + '/lesson/1.' + next);
+					} else if (
+						previousModule.status == 'check-circle' &&
+						module.status == 'unlock' &&
+						nextModule.status == 'lock'
+					) {
+						res.redirect('/course/' + courseLink + '/lesson/1.' + next);
+					} else if (
+						previousModule.status == 'check-circle' &&
+						module.status == 'unlock' &&
+						nextModule.status == 'check-circle'
+					) {
+						User.findOneAndUpdate(
+							{
+								username: req.user.username,
+								'course.title': currentCourse.title,
+								'course.$[outer].modules.$[inner].lesson': currentLesson,
+								'course.$[outer].modules.$[inner].status': 'unlock'
+							},
+							{
+								$set: {
+									'course.$[outer].modules.$[inner].status': 'check-circle'
+								}
+							},
+							{
+								arrayFilters: [ { 'outer.title': currentCourse.title }, { 'inner.lesson': nextLesson } ]
+							},
+							function(err, found) {
+								if (err) {
+									console.log(err);
+								} else {
+									console.log('next course has updated');
+								}
+							}
+						);
+						res.redirect('/course/' + courseLink + '/lesson/1.' + next);
+					} else {
+						res.redirect('/course/' + courseLink + '/lesson/1.' + number);
+						log('anything else?');
+					}
+					console.log('there is previous');
+				}
+			}
+		}
+	});
+});
+
+app.get('/certificate', function(req, res) {
+	if (req.session.TitleOfCourse) {
+		res.send('CONGRATULATIONS, PRINT YOUR CERTIFICATE FOR ' + req.session.TitleOfCourse + ' HERE!');
+	} else {
+		res.send('KINDLY FINISH ALL COURSES');
+	}
 });
 
 app.post('/newsletter', function(req, res) {
@@ -491,14 +851,16 @@ app.post('/newsletter', function(req, res) {
 			console.log('success');
 
 			res.render('success', {
-				message: 'Thanks for subscribing to our news letter',
-				emoji: 'fa fa-thumbs-up'
+				message: 'Thanks for subscribing to our newsletter',
+				emoji: 'fas fa-thumbs-up',
+				title: ' Success Page'
 			});
 		} else {
 			console.log('error');
 			res.render('success', {
 				message: 'Sorry! unable to subscribe to our news letter',
-				emoji: 'fa fa-thumbs-down'
+				emoji: 'fa fa-thumbs-down',
+				title: 'Error Page'
 			});
 		}
 
@@ -510,12 +872,75 @@ app.post('/newsletter', function(req, res) {
 });
 
 app.get('/notice', function(req, res) {
-	res.render('notice');
+	res.render('coming', { title: 'Notice' });
+});
+
+app.get('/payment', function(req, res) {
+	req.session.confirmPayment = 'paid';
+	if (req.isAuthenticated()) {
+		res.render('payment', { title: 'Modern Jazz Course Checkout' });
+	} else {
+		res.redirect('/login');
+	}
+});
+
+app.get('/payment-confirmation', function(req, res) {
+	if (req.session.confirmPayment === 'paid') {
+		console.log(req.session.id);
+		if (req.isAuthenticated()) {
+			User.findById(req.user, function(err, foundUser) {
+				let myCourse = courses.courses.find(function(course) {
+					return course.link == req.session.link;
+				});
+
+				const courseLinks = foundUser.course.map(function(i) {
+					return i.link;
+				});
+
+				if (!courseLinks.includes(myCourse.link)) {
+					foundUser.course.push(myCourse);
+					foundUser.save(function(err) {
+						if (!err) {
+							console.log('new course added to ' + foundUser.fname);
+							let notification = {
+								message: `Thanks for your purchase. A new course - ${myCourse.title} - has been added to your learning inventory.`
+							};
+							foundUser.notification.push(notification);
+							foundUser.save(function(err) {
+								if (err) {
+									res.resend('Error, Transaction failed. Unable to enroll to' + myCourse.title);
+								} else {
+									console.log('notification updated');
+								}
+							});
+
+							res.redirect('/dashboard-mycourse');
+						}
+					});
+				} else {
+					console.log('course already exist');
+					res.redirect('/dashboard-mycourse');
+				}
+			});
+		} else {
+			res.redirect('/login');
+		}
+	} else {
+		console.log('not paid');
+		res.render('403', { title: '403 Error - Access Forbidden' });
+	}
+});
+
+app.get('/403', function(req, res) {
+	res.render('403', {
+		title: '403 Error - Access Forbidden'
+	});
 });
 
 app.get('/register', function(req, res) {
 	res.render('register', {
-		errorMsg: ''
+		errorMsg: '',
+		title: 'Register'
 	});
 });
 
@@ -529,7 +954,8 @@ app.post('/register', function(req, res) {
 			if (err) {
 				console.log('err');
 				res.render('register', {
-					errorMsg: 'Error ! User registration failed.'
+					errorMsg: 'Error ! User registration failed.',
+					title: 'Register'
 				});
 			} else {
 				passport.authenticate('local')(req, res, function() {
@@ -538,14 +964,14 @@ app.post('/register', function(req, res) {
 							_id: req.user.id
 						},
 						{
-							fname: req.body.fname,
-							lname: req.body.lname,
-							name: req.body.name
+							fname: _.capitalize(req.body.fname),
+							lname: _.capitalize(req.body.lname),
+							nick: req.body.nick,
+							notification: welcomeNotification
 						},
 						function(err) {
 							if (!err) {
 								console.log('registered');
-								// res.redirect('/');
 
 								// // LOG IN USER AFTER REGISTRATION
 								const user = new User({
@@ -556,20 +982,20 @@ app.post('/register', function(req, res) {
 								passport.authenticate('local', function(err, user, info) {
 									if (err) {
 										console.log(err);
+										res.redirect('/register');
 									}
 									if (!user) {
 										return res.render('login', {
-											errorMsg: 'Invalid username or password !'
+											errorMsg: 'Invalid username or password !',
+											title: 'Login'
 										});
 									}
 
 									req.logIn(user, function(err) {
-										//This creates a log in session
 										if (err) {
 											console.log(err);
 										} else {
-											console.log('logged in');
-											res.redirect('/welcome');
+											res.redirect('/dashboard');
 										}
 									});
 								})(req, res);
@@ -584,24 +1010,50 @@ app.post('/register', function(req, res) {
 	);
 });
 
-app.get('/testimonial', function(req, res) {
-	res.render('testimonial');
-});
-
-app.get('/welcome', function(req, res) {
-	// if (req.isAuthenticated()) {
-	res.render('welcome');
-	// } else {
-	// 	res.redirect('/login');
-	// }
-});
-
 app.get('/sitemap', function(req, res) {
 	res.sendFile(__dirname + '/sitemap.xml');
 });
 
+app.get('/tutors', function(req, res) {
+	let allTutors = tutors.tutors;
+	// Tutor.findOne({ name: tutor }, function(err, foundTutor) {
+	if (!allTutors) {
+		res.render('404');
+	} else {
+		res.render('teachers', { title: 'Tutors', allTutors });
+	}
+	// });
+});
+
+app.get('/tutors/:name', function(req, res) {
+	let tutor = tutors.tutors.find(function(i) {
+		// console.log(i.name, _.capitalize(req.params.name));
+		return i.name == _.capitalize(req.params.name);
+	});
+	// console.log(tutor);
+	// Tutor.findOne({ name: tutor }, function(err, foundTutor) {
+	if (!tutor) {
+		res.render('404');
+	} else {
+		res.render('teacher-details', { title: 'Tutor Details', tutor });
+	}
+	// });
+});
+
+app.get('/testimonial', function(req, res) {
+	res.render('testimonial', { title: 'Testimonial' });
+});
+
+// app.get('/welcome', function(req, res) {
+// 	// if (req.isAuthenticated()) {
+// 	res.render('welcome', { title: 'Welcome' });
+// 	// } else {
+// 	// 	res.redirect('/login');
+// 	// }
+// });
+
 app.get('*', function(req, res) {
-	res.render('404');
+	res.render('404', { title: '404 Error - Page Not Found' });
 });
 
 let port = process.env.PORT;

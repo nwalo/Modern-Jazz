@@ -22,24 +22,40 @@
             <div class="row flex-row-reverse">
                 <div class="col-lg-8">
                     <div class="courses-details-content mt-50">
-                        <video src="assets/smoke.mp4" width="100%" poster="assets/images/courses/solo-lg.jpg" controls ></video>
+                        <video src="/assets/smoke.mp4" width="100%" poster="/assets/images/courses/solo-lg.jpg" controls ></video>
 
-                        <h2 class="title my" >80 solo techniques in 4 weeks - Suitable for all instruments</h2>
+                        <h2 class="title my"> 80 Solo Techniques In 4 Weeks <br> Lesson 1.1 : Intervals</h2>
 
                         <!-- <p>Even slightly believable. If you are going use a passage of Lorem Ipsum need equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish</p> -->
 
-                        <h5 class="sub-title">Course Overview</h5>
+                        <!-- <h5 class="sub-title">Course Overview</h5>
 
                         <p>This course contains the essential techniques needed to completely gain mastery
                              of improvisation as essentially needed in today's world of modern jazz and contemporary music.
                               The improvisational approaches needed for all music styles has been thoroughly dissected
-                               in this course.</p>
+                               in this course.</p> -->
 
                     </div>
-                        
-                    <div class="sidebar-btn hide-mobile" style="margin: 80px auto 0; width: 300px; " >
-                        <a class="main-btn " href="#!">Print Certificate</a>
+
+                    <form action="/modules/:courseTitle" method="post">
+                    <div class="sidebar-btn " style="margin: 80px auto 0; width: 300px; " >
+                        <% var val = module.find(function(i){ %>
+                            <% return i.lesson == '1.1' %>
+                        <%})%>
+                        <input type="text " value="<%= courseTitle %>" name="courseTitle" hidden>
+                        <input type="text " value="<%= val.lesson %>" name="lessonValue" hidden>
+                        <button class="main-btn">Finish Lesson</button>
                     </div>
+                    </form>
+
+                    <!-- <form action="/modules" method="post">
+                    <div class="sidebar-btn " style="margin: 80px auto 0; width: 300px; " >
+                        <input type="text " value="" hidden>
+                        <button class="main-btn">Finish Lesson</button>
+                    </div>
+                    </form> -->
+                        
+                    
                 </div>
                 <div class="col-lg-4">
                     <div class="courses-sidebar pt-20">
@@ -47,7 +63,15 @@
                             <div class="sidebar-title">
                                 <h4 class="title">Course Modules</h4>
                             </div>
-                            <ul class="courses-features-items">
+                            <ul>
+                                <%  module.forEach(function(i){ %>
+                                   <li><a href="#"><i class="fal fa-book"></i> <%= i.name %></a> <strong> <i class="fa fa-<%= i.status %>"></i></strong></li> 
+                                <%})%>
+                                <!-- <%  module.forEach(function(i){ %>
+                                   <li><a href="#"><i class="fal fa-book"></i> <%= i.name %></a> <strong> <i class="fa fa-<%= i.status %>"></i></strong></li> 
+                                <%})%> -->
+                            </ul>
+                            <!-- <ul class="courses-features-items">
                                 <li><a href="#"><i class="fal fa-book"></i> Intervals</a> <strong> <i class="fa fa-unlock"></i></strong></li>
                                 <li><a href="#"><i class="fal fa-book"></i> Jazz Chords</a> <strong> <i class="fa fa-lock"></i></strong></li>
                                 <li><a href="#"><i class="fal fa-book"></i> The Art of Soloing 1</a> <strong> <i class="fa fa-lock"></i></strong></li>
@@ -57,7 +81,7 @@
                                 <li><a href="#"><i class="fal fa-book"></i> Modern Music Band Setup</a> <strong> <i class="fa fa-lock"></i></strong></li>
                                 <li><a href="#"><i class="fal fa-book"></i> 22 Modern Music Skills Monetization</a> <strong> <i class="fa fa-lock"></i></strong></li>
                                 <li><a href="#"><i class="fal fa-book"></i> The Legalities of 20th Century Music</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                            </ul>
+                            </ul> -->
                             <div class="sidebar-btn">
                                 <a class="main-btn mybtn" href="#!">Print Certificate</a>
                             </div>

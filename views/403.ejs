@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Modern Jazz | <%=title%> </title>
+	<title>Modern Jazz | <%= title%></title>
 
 	<!--====== Favicon Icon ======-->
 
@@ -44,12 +44,19 @@
 		<div class="notfound">
 			<img src="/assets/images/logo/logo1.png" width="150" style="margin-bottom: 30px;" alt="modernjazzwithnoels logo">
 			<div class="notfound-404">
-				<h1>404</h1>
-				<h2>Page not found</h2>
+				<h1>403</h1>
+				<h2>Access Forbidden</h2>
 			</div>
 			<a href="/">Homepage</a>
 		</div>
 	</div>
+
+    <script>
+    setTimeout(function () {
+        // after 2 seconds
+        window.location = "/";
+    }, 2000)
+    </script>
 
 </body>
 

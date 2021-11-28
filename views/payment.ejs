@@ -1,0 +1,238 @@
+<!doctype html>
+
+  <!--====== Head Start ======-->
+
+  <%- include('partials/header.ejs') %>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/assets/css/payment.css">
+
+  <!--====== Head Ends ======-->
+
+  <body oncontextmenu='return false' class='snippet-body'>
+    <!--====== Page Banner Start ======-->
+                        
+    <div class="container">
+    <div class="row m-0">
+        <div class="col-lg-7 pb-5 pe-lg-5">
+            <div class="row">
+                <div class="col-12 p-5"> <img src="/assets/images/courses/solo.jpg" alt=""> </div>
+                <div class="row m-0 bg-light">
+                    <div class="col-md-4 col-6 ps-30 pe-0 my-4">
+                        <p class="text-muted">Series</p>
+                        <p class="text-lt">You Too Can Play #1</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Duration</p>
+                        <p class="text-lt">4 Weeks</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Lessons</p>
+                        <p class="text-lt">20</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4 courses-content">
+                        <p class="text-muted">Rating</p>
+                        <p class="h5 m-0 "><ul class="star">
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star"></i></li>
+                      </ul></p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Fee</p>
+                        <p class="text-lt">$ 100 | NGN 40 000</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Course Difficulty</p>
+                        <p class="text-lt">Basic</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 p-0 ps-lg-4">
+            <div class="row m-0">
+                <div class="col-12 px-4">
+                    <div class="d-flex align-items-end mt-4 mb-2">
+                        <p class="h4 m-0"><span class="pe-1">80 Solo Techniques In 4 Weeks</span></p>
+                        <P class="ps-3 textmuted"><i class="fas fa-tags color"></i></P>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <p class="textmuted">Fee</p>
+                        <p class="fs-14 fw-bold"><span class="pe-1">$ 100 | NGN 40 000</span></p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <p class="textmuted">Discount</p>
+                        <p class="fs-14 fw-bold"></span>75 %</p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <p class="textmuted">Promo</p>
+                        <p class="fs-14 fw-bold">-<span class="pe-1">$ 75 | NGN 30 000</span></p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <p class="textmuted fw-bold">Total</p>
+                        <div class="d-flex align-text-top "> <span class="h4"><sup>$</sup> 25 | <sup>NGN</sup> 10 000</span></div>
+                    </div>
+                </div>
+                <div class="col-12 px-0">
+                    <div class="row bg-light m-0">
+                    <div id="mytab">
+                        <div id="card" class="paywithcard fw-bold btn btn-primary active" style="border-right: 2px solid #ffffff" ><a href="#card">Credit Card</a></div>
+                        <div id="trans" class="paywithtransfer fw-bold btn btn-primary"> <a href="#trans">Tranfers</a> </div>
+                    </div>
+                    <div class="mytab-content">
+                     <div id="paywithcard">
+                        <form action="" name="payment" method="post">
+                        <div class="col-12 px-4 my-4">
+                            <p class="fw-bold">Payment Methods</p>
+                        </div>
+                        <!-- <div class="col-12 px-4">
+                            <div class="d-flex mb-4"> <span class="">
+                                    <p class="text-muted">Card number</p> <input class="form-control" type="text" placeholder="1234 5678 9012 3456" maxlength="16" name="cardNumber" onkeyup="autotab(this, document.payment.expMonth)">
+                                </span>
+                                <div class="w-100 d-flex flex-column align-items-end">
+                                    <p class="text-muted">Expires</p>
+                                
+                                <div class=" w-100 d-flex flex-row justify-content-end align-items-end ">
+                                     <input class="form-control3 me-3" type="text" placeholder="MM" maxlength="2" minlength="2" name="expMonth" onkeyup="autotab(this, document.payment.expYear)"> 
+                                     <input class="form-control3" type="text" placeholder="YYYY" maxlength="4" minlength="4" name="expYear" onkeyup="autotab(this, document.payment.cardCVV)">
+                                </div>
+                                </div>  
+                            </div>
+                            <div class="d-flex mb-5"> <span class="me-5">
+                                    <p class="text-muted">Cardholder name</p> <input class="form-control" type="text" placeholder="Modern Jazz with Noels" name="cardName" onkeyup="autotab(this, document.payment)">
+                                </span>
+                                <div class="w-100 d-flex flex-column align-items-end">
+                                    <p class="text-muted">CVV</p> <input class="form-control3" type="text" placeholder="XXX" maxlength="3" minlength="3" name="cardCVV" onkeyup="autotab(this, document.payment.cardName)">
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="row m-0">
+                        <div class="col-12 mb-4 p-0">
+                            <a href="https://flutterwave.com/pay/modernjazzwithnoelswuxp" class="btn btn-primary">Purchase With Dollars<span class="fas fa-arrow-right ps-2"></span> </a>
+                        </div>
+                        <div class="col-12 mb-4 p-0">
+                            <a href="https://flutterwave.com/pay/quev3chl3org" class="btn btn-primary">Purchase With Naira<span class="fas fa-arrow-right ps-2"></span> </a>
+                        </div>
+                        </div>
+                    </form> 
+                     </div>
+
+                     <div id="paywithtransfer">
+                         <div class="col-12 px-4 my-4">
+                            <p class="fw-bold">Account Details</p>
+                        </div> 
+                        <div class="col-12 px-4">
+                         <p class="text-muted">ACCOUNT NAME</p>
+                         <div class="d-flex mb-4 input-group">
+                                <input type="text" class="full" id="accountName" value="Emmanuel Gentle Umoh" disabled >
+                                <div class="input-group-append">
+                                    <button class="input-group-text click" id="basic-addon2" onclick="copyNameToClipboard()"><i class="far fa-clipboard"></i> </button>
+                                </div>
+                        </div>
+                        </div>
+                        <div class="col-12 px-4">
+                         <p class="text-muted">ACCOUNT NAME</p>
+                         <div class="d-flex mb-4 input-group">
+                                <input type="text" class="full" id="accountNumber" value="2111193758" disabled >
+                                <div class="input-group-append">
+                                    <button class="input-group-text click" id="basic-addon2" onclick="copyNumberToClipboard()"><i class="far fa-clipboard"></i> </button>
+                                </div>
+                        </div>
+                        </div>
+                        <div class="col-12 px-4">
+                         <p class="text-muted">ACCOUNT BANK</p>
+                         <div class="d-flex mb-4 input-group">
+                                <input type="text" class="full" id="accountBank" value="Zenith Bank" disabled >
+                                <div class="input-group-append">
+                                    <button class="input-group-text click" id="basic-addon2" onclick="copyBankToClipboard()"><i class="far fa-clipboard"></i> </button>
+                                </div>
+                        </div>
+                        </div>
+
+                        <div class="row m-0">
+                        
+                        <div class="col-12 mb-4 p-0">
+                            <a href="https://wa.me/message/XJBIJQQEU6ROE1" class="btn btn-primary">Payment Verification<span class="fas fa-arrow-right ps-2"></span> </a>
+                        </div>
+                        </div>
+                         
+                     </div>
+                     </div>
+                    </div>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+<script src="/assets/js/vendor/jquery-3.6.0.min.js"></script>
+<script type='text/Javascript'></script>
+<script>
+    function autotab(original, destination) {
+      if (original.getAttribute && original.value.length == original.getAttribute("maxlength"))
+        destination.focus()
+    }
+    $('#paywithtransfer').hide();
+    $('#mytab .paywithcard').on('click', function() {
+		$('#paywithtransfer').hide();
+		$('#paywithcard').show();
+	});
+
+	$('#mytab .paywithtransfer').on('click', function() {
+		$('#paywithcard').hide();
+		$('#paywithtransfer').show();
+	});
+
+    $('#mytab div').on('click', function () {
+        $(this).addClass('active');
+		if (this.id === 'card') {
+			$('#mytab #trans').removeClass('active');
+		}
+
+		if (this.id === 'trans') {
+			$('#mytab #card').removeClass('active');
+		}
+    })
+
+    function copyNameToClipboard() {
+    
+    /* Get the text field */
+    var copyName = document.getElementById("accountName");
+
+    /* Select the text field */
+    copyName.select();
+    copyName.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyName.value);
+    }
+
+    function copyNumberToClipboard() {
+        
+    var copyNumber = document.getElementById("accountNumber");
+
+    /* Select the text field */
+    copyNumber.select();
+    copyNumber.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyNumber.value);
+    }
+
+    function copyBankToClipboard() {
+        
+    var copyBank = document.getElementById("accountBank");
+
+    /* Select the text field */
+    copyBank.select();
+    copyBank.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyBank.value);
+    }
+</script>
+</body>
+</html>

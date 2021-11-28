@@ -1,5 +1,6 @@
 $(function($) {
 	let url = location.href;
+
 	$('nav ul li a').each(function() {
 		if (this.href === url) {
 			$(this).addClass('active');
@@ -12,6 +13,13 @@ $(function($) {
 		}
 	});
 
+	$('.courses-sidebar .courses-features ul li a').each(function() {
+		if (this.href === url) {
+			$(this).addClass('active');
+			console.log(this);
+		}
+	});
+
 	let errorImage = $('.erImg');
 	let errorText = $('.erText');
 
@@ -21,4 +29,10 @@ $(function($) {
 		$('p.success').show();
 		errorImage.html('<img src="assets/images/icon/warning.png" alt=""> ');
 	}
+
+	$(document).ready(function() {
+		$('video').bind('contextmenu', function() {
+			return false;
+		});
+	});
 });

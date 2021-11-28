@@ -37,7 +37,7 @@
                     <div class="col-md-3 px-md-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" readonly class="form-control" name="name"  value="<%= foundUser.name%>">
+                        <input type="text" readonly class="form-control" name="name"  value="<%= foundUser.nick%>">
                       </div>
                     </div>
                     <div class="col-md-3 pl-md-1">
@@ -79,7 +79,8 @@
                     <div class="col-md-8">
                       <div class="form-group">
                         <label>About Me</label>
-                        <textarea rows="4" cols="80" required name="details" class="form-control" placeholder="Here can be your description. Modern Jazz with Noels - You too can play." value="Mike"></textarea>
+                        <textarea rows="4" cols="80" required name="details" class="form-control" 
+                        placeholder="Please write a short description about yourself. It would over ride the initial description, to prevent that, copy and paste the details from the preview section." value=""></textarea>
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -115,7 +116,7 @@
                       <h5 class="title primary"> <%= foundUser.fname%> <%= foundUser.lname%></h5>
                     </a>
                     <p class="description">
-                      <%= foundUser.name%>
+                      <%= foundUser.nick%>
                     </p>
                   </div>
                 </p>
