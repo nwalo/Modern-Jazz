@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Work+Sans:wght@800&family=Exo:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+body {
+    padding: 15px;
+    background-color: #cfcfcf;
+    font-family: 'Exo', sans-serif !important;
+}
+
+.container {
+    margin: 20px auto;
+    max-width: 1000px;
+    background-color: white;
+    padding: 0
+}
+
+.form-control {
+    height: 25px;
+    width: 150px;
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+    padding: 0 0 5px 0;
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    margin: 0;
+    font-size: 14px
+}
+
+.full{
+    width: 200px;
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+    color: black;
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    margin: 0;
+    font-size: 14px
+}
+
+.full:focus {
+    box-shadow: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent
+}
+
+.form-control2 {
+    font-size: 14px;
+    height: 20px;
+    width: 55px;
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+    padding: 0 0 5px 0;
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    margin: 0
+}
+
+.form-control2:focus {
+    box-shadow: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent
+}
+
+.form-control3 {
+    font-size: 14px;
+    height: 20px;
+    width: 30px;
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+    padding: 0 0 5px 0;
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    margin: 0
+}
+
+.form-control3:focus {
+    box-shadow: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent
+}
+
+p {
+    margin: 0
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill
+}
+
+.text-muted {
+    font-size: 10px
+}
+
+.textmuted {
+    color: #6c757d;
+    font-size: 13px
+}
+
+.fs-14 {
+    font-size: 14px
+}
+
+.btn.btn-primary {
+    width: 100%;
+    height: 55px;
+    border-radius: 0;
+    padding: 13px 0;
+    background-color: #f23f00;
+    border: none;
+    font-weight: 600
+}
+
+.btn.btn-primary:hover {
+    background-color: #ca9400;
+}
+
+.btn.btn-primary:hover .fas {
+    transform: translateX(10px);
+    transition: transform 0.5s ease
+}
+
+.fw-900 {
+    font-weight: 900
+}
+
+::placeholder {
+    font-size: 12px
+}
+
+.ps-30 {
+    padding-left: 30px
+}
+
+.h4 {
+    font-weight: 800 !important
+}
+
+.textmuted,
+h5,
+.text-muted {
+    font-family: 'Poppins', sans-serif
+}
+
+.star{
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-size: .85em;
+}
+
+.star .fas{
+    color: #f23f00
+}
+
+.color{
+    color: #f23f00
+}
+
+.text-lt{
+    font-size: .8em;
+}
+
+sup{
+    font-size: 14px;
+}
+
+#mytab{
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    border-bottom: 1px solid #ffffff;
+}
+
+#mytab .active{
+    background-color: #ca9400;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover{
+    color: #ffffff;
+}
+
+.mytab-content{
+    margin: 0;
+    padding: 0;
+}
+
+.click:hover{
+    cursor: pointer;
+}
+

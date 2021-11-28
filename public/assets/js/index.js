@@ -29,4 +29,10 @@ $(function($) {
 		$('p.success').show();
 		errorImage.html('<img src="assets/images/icon/warning.png" alt=""> ');
 	}
+
+	$(document).ready(function() {
+		$('video').bind('contextmenu', function() {
+			return false;
+		});
+	});
 });

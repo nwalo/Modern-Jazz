@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -256,9 +256,9 @@ app.get('/course-details/:courseLink', function(req, res) {
 	res.render('courses-details', { course, title: 'Course - ' + course.title });
 });
 
-app.get('/course-details', function(req, res) {
-	res.render('courses-details', { title: 'Course Details' });
-});
+// app.get('/course-details', function(req, res) {
+// 	res.render('courses-details', { title: 'Course Details' });
+// });
 
 app.post('/course-details', function(req, res) {
 	review = new Review({
@@ -439,6 +439,7 @@ app.post('/dashboard-user', upload.single('file'), function(req, res) {
 });
 
 app.get('/enroll/:courseLink', function(req, res) {
+	req.session.link = req.params.courseLink;
 	if (req.isAuthenticated()) {
 		User.findById(req.user, function(err, foundUser) {
 			let myCourse = courses.courses.find(function(course) {
@@ -450,13 +451,7 @@ app.get('/enroll/:courseLink', function(req, res) {
 			});
 
 			if (!courseLinks.includes(myCourse.link)) {
-				foundUser.course.push(myCourse);
-				foundUser.save(function(err) {
-					if (!err) {
-						console.log('new course added to ' + foundUser.fname);
-						res.redirect('/course/' + req.params.courseLink + '/lesson/1.1');
-					}
-				});
+				res.redirect('/payment');
 			} else {
 				console.log('course already exist');
 				res.redirect('/course/' + req.params.courseLink + '/lesson/1.1');
@@ -558,14 +553,14 @@ app.get('/logout', function(req, res) {
 });
 
 app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
-	var courseLink = req.session.link;
 	var newCourseLink = req.params.courseLink;
 	var lesson = req.params.lesson;
 	let number = req.params.lesson.substring(2);
 	let next = Number(number) + 1;
 	let currentLesson = '1.' + number;
+	req.session.link = req.params.courseLink;
 
-	console.log(newCourseLink, lesson, courseLink);
+	// console.log(newCourseLink, lesson, number, next, currentLesson, req.session.link);
 
 	User.findById(req.user, function(err, foundUser) {
 		if (err) {
@@ -574,24 +569,26 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 			if (!foundUser) {
 				res.redirect('/course');
 			} else {
+				// console.log(newCourseLink, lesson, number, next, currentLesson, req.session.link);
 				if (newCourseLink) {
 					var currentCourse = foundUser.course.find(function(course) {
 						return course.link == newCourseLink;
 					});
+
+					req.session.TitleOfCourse = currentCourse.title;
 
 					if (currentCourse) {
 						var currentCourseModule = currentCourse.modules.find(function(course) {
 							return course.lesson == currentLesson;
 						});
 
-						if (number > 0 && number < currentCourse.modules.length) {
+						if (number > 0 && number <= currentCourse.modules.length) {
 							if (currentCourseModule.status == 'lock') {
 								console.log('locked');
 
 								res.redirect('/course/' + newCourseLink + '/lesson/1.1');
 							} else {
 								var modules = currentCourse.modules.slice(0, 9);
-
 								res.render('module', {
 									title: 'Learn',
 									module: modules,
@@ -601,10 +598,11 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 								});
 							}
 						} else {
-							res.redirect('/course/' + newCourseLink + '/lesson/1.1');
+							res.redirect('/course-details/' + newCourseLink);
+							console.log('nope');
 						}
 					} else {
-						res.render('404', { title: 'Page Not Found' });
+						res.redirect('/enroll/' + newCourseLink);
 					}
 				} else {
 					res.redirect('/course');
@@ -678,7 +676,7 @@ app.post('/modules/:courseLink', function(req, res) {
 	let nextLesson = '1.' + next;
 	let previousLesson = '1.' + (number - 1);
 
-	console.log(previousLesson, currentLesson, nextLesson, courseLink);
+	// console.log(previousLesson, currentLesson, nextLesson, courseLink);
 
 	User.findById(req.user, function(err, foundUser) {
 		if (err) {
@@ -699,6 +697,8 @@ app.post('/modules/:courseLink', function(req, res) {
 			// console.log(previousModule);
 			// console.log(module);
 			// console.log(nextModule);
+
+			req.session.TitleOfCourse = currentCourse.title;
 
 			if (module.status == 'check-circle') {
 				console.log('yes');
@@ -754,61 +754,74 @@ app.post('/modules/:courseLink', function(req, res) {
 				console.log('no previous');
 				res.redirect('/course/' + courseLink + '/lesson/1.' + next);
 			} else {
-				if (
-					previousModule.status == 'check-circle' &&
-					module.status == 'check-circle' &&
-					nextModule.status == 'check-circle'
-				) {
-					res.redirect('/course/' + courseLink + '/lesson/1.' + next);
-				} else if (
-					previousModule.status == 'check-circle' &&
-					module.status == 'check-circle' &&
-					nextModule.status == 'unlock'
-				) {
-					res.redirect('/course/' + courseLink + '/lesson/1.' + next);
-				} else if (
-					previousModule.status == 'check-circle' &&
-					module.status == 'unlock' &&
-					nextModule.status == 'lock'
-				) {
-					res.redirect('/course/' + courseLink + '/lesson/1.' + next);
-				} else if (
-					previousModule.status == 'check-circle' &&
-					module.status == 'unlock' &&
-					nextModule.status == 'check-circle'
-				) {
-					User.findOneAndUpdate(
-						{
-							username: req.user.username,
-							'course.title': currentCourse.title,
-							'course.$[outer].modules.$[inner].lesson': currentLesson,
-							'course.$[outer].modules.$[inner].status': 'unlock'
-						},
-						{
-							$set: {
-								'course.$[outer].modules.$[inner].status': 'check-circle'
-							}
-						},
-						{
-							arrayFilters: [ { 'outer.title': currentCourse.title }, { 'inner.lesson': nextLesson } ]
-						},
-						function(err, found) {
-							if (err) {
-								console.log(err);
-							} else {
-								console.log('next course has updated');
-							}
-						}
-					);
-					res.redirect('/course/' + courseLink + '/lesson/1.' + next);
+				if (!nextModule) {
+					console.log('no next');
+					res.redirect('/certificate');
 				} else {
-					res.redirect('/course/' + courseLink + '/lesson/1.' + number);
-					log('anything else?');
+					if (
+						previousModule.status == 'check-circle' &&
+						module.status == 'check-circle' &&
+						nextModule.status == 'check-circle'
+					) {
+						res.redirect('/course/' + courseLink + '/lesson/1.' + next);
+					} else if (
+						previousModule.status == 'check-circle' &&
+						module.status == 'check-circle' &&
+						nextModule.status == 'unlock'
+					) {
+						res.redirect('/course/' + courseLink + '/lesson/1.' + next);
+					} else if (
+						previousModule.status == 'check-circle' &&
+						module.status == 'unlock' &&
+						nextModule.status == 'lock'
+					) {
+						res.redirect('/course/' + courseLink + '/lesson/1.' + next);
+					} else if (
+						previousModule.status == 'check-circle' &&
+						module.status == 'unlock' &&
+						nextModule.status == 'check-circle'
+					) {
+						User.findOneAndUpdate(
+							{
+								username: req.user.username,
+								'course.title': currentCourse.title,
+								'course.$[outer].modules.$[inner].lesson': currentLesson,
+								'course.$[outer].modules.$[inner].status': 'unlock'
+							},
+							{
+								$set: {
+									'course.$[outer].modules.$[inner].status': 'check-circle'
+								}
+							},
+							{
+								arrayFilters: [ { 'outer.title': currentCourse.title }, { 'inner.lesson': nextLesson } ]
+							},
+							function(err, found) {
+								if (err) {
+									console.log(err);
+								} else {
+									console.log('next course has updated');
+								}
+							}
+						);
+						res.redirect('/course/' + courseLink + '/lesson/1.' + next);
+					} else {
+						res.redirect('/course/' + courseLink + '/lesson/1.' + number);
+						log('anything else?');
+					}
+					console.log('there is previous');
 				}
-				console.log('there is previous');
 			}
 		}
 	});
+});
+
+app.get('/certificate', function(req, res) {
+	if (req.session.TitleOfCourse) {
+		res.send('CONGRATULATIONS, PRINT YOUR CERTIFICATE FOR ' + req.session.TitleOfCourse + ' HERE!');
+	} else {
+		res.send('KINDLY FINISH ALL COURSES');
+	}
 });
 
 app.post('/newsletter', function(req, res) {
@@ -860,6 +873,68 @@ app.post('/newsletter', function(req, res) {
 
 app.get('/notice', function(req, res) {
 	res.render('coming', { title: 'Notice' });
+});
+
+app.get('/payment', function(req, res) {
+	req.session.confirmPayment = 'paid';
+	if (req.isAuthenticated()) {
+		res.render('payment', { title: 'Modern Jazz Course Checkout' });
+	} else {
+		res.redirect('/login');
+	}
+});
+
+app.get('/payment-confirmation', function(req, res) {
+	if (req.session.confirmPayment === 'paid') {
+		console.log(req.session.id);
+		if (req.isAuthenticated()) {
+			User.findById(req.user, function(err, foundUser) {
+				let myCourse = courses.courses.find(function(course) {
+					return course.link == req.session.link;
+				});
+
+				const courseLinks = foundUser.course.map(function(i) {
+					return i.link;
+				});
+
+				if (!courseLinks.includes(myCourse.link)) {
+					foundUser.course.push(myCourse);
+					foundUser.save(function(err) {
+						if (!err) {
+							console.log('new course added to ' + foundUser.fname);
+							let notification = {
+								message: `Thanks for your purchase. A new course - ${myCourse.title} - has been added to your learning inventory.`
+							};
+							foundUser.notification.push(notification);
+							foundUser.save(function(err) {
+								if (err) {
+									res.resend('Error, Transaction failed. Unable to enroll to' + myCourse.title);
+								} else {
+									console.log('notification updated');
+								}
+							});
+
+							res.redirect('/dashboard-mycourse');
+						}
+					});
+				} else {
+					console.log('course already exist');
+					res.redirect('/dashboard-mycourse');
+				}
+			});
+		} else {
+			res.redirect('/login');
+		}
+	} else {
+		console.log('not paid');
+		res.render('403', { title: '403 Error - Access Forbidden' });
+	}
+});
+
+app.get('/403', function(req, res) {
+	res.render('403', {
+		title: '403 Error - Access Forbidden'
+	});
 });
 
 app.get('/register', function(req, res) {
@@ -967,7 +1042,7 @@ app.get('/testimonial', function(req, res) {
 // });
 
 app.get('*', function(req, res) {
-	res.render('404', { title: 'Page Not Found' });
+	res.render('404', { title: '404 Error - Page Not Found' });
 });
 
 let port = process.env.PORT;

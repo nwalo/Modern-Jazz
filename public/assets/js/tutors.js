@@ -44,6 +44,33 @@ exports.tutors = [
 		achievement: [ { title: '', details: '' } ]
 	},
 	{
+		name: 'Bittner',
+		fullname: 'Chris Bittner',
+		role: 'Saxophonist',
+		description: `Chris Bittner is a saxophonist and composer based in New York City. 
+		Originally from North Carolina, Bittner has performed with groups all over the east coast,
+		in styles ranging from Jazz to R&B, Folk, Gospel, and Country. Bittner can be heard as a sideman
+		in clubs in the NYC area such as Fat Cat, Dizzy's Club Coca-Cola, Smalls, Rockwood Music Hall,
+		Blue Note Jazz Club, Zinc Bar, and many more. He has also performed internationally with his
+		quartet at the Bern Jazz Festival in Bern, Switzerland. A graduate of the prestigious Juilliard
+		School, he has had the opportunity to play alongside jazz greats such as Jimmy Heath, Bill Charlap,
+		Herlin Riley, Jon Faddis, Rodney Whitaker, Etienne Charles, Aaron Diehl, Donny McCaslin, and many more.
+		He is currently working on composing new material to perform with his own quartet and is busy with numerous other projects.`,
+		image: 'bittner.jpg',
+		contact: [
+			{
+				email: 'chrisbittnermusic@gmail.com',
+				phone: '',
+				fb: '',
+				ig: 'https://instagram.com/c_bitty?utm_medium=copy_link',
+				twitter: ''
+			}
+		],
+		experience: [ { place: '', date: '' } ],
+		qualifications: [ {} ],
+		achievement: [ {} ]
+	},
+	{
 		name: 'Taiwo',
 		fullname: 'Taiwo Okunola',
 		role: 'Saxophonist',

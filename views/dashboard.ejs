@@ -251,7 +251,7 @@
                           <td>
                             <button class="mybg-alt">
                               <a
-                                href="/course/80_solo_techniques/lesson/1.1"
+                                href="/enroll/80_solo_techniques/"
                                 style="color: #f0f8ff; font-weight: 600;"
                               >
                                 Enroll
@@ -381,7 +381,7 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <% foundUser.notification.reverse().forEach(function(notif ){ %>
+                  <% foundUser.notification.reverse().slice(0,5).forEach(function(notif ){ %>
                   <div class="alert mybg">
                     <span><%= notif.message %></span>
                   </div>

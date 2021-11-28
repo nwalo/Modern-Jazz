@@ -53,9 +53,20 @@
                                    <li> <a href="<%= i.lesson%>"><i class="fal fa-book"></i> <%= i.name %></a> <strong> <i class="fas fa-<%= i.status %>" ></i></strong></li> 
                                 <%})%>
                             </ul>
-                            <div class="sidebar-btn">
-                                <a class="main-btn mybtn" href="#!">Print Certificate</a>
-                            </div>
+                                
+                                <% var checkStatus = module.find(function(i){ %>
+                                 <% return i.status == 'lock' %>
+                                <%})%>
+                                    
+                                <% if (checkStatus){ %>
+                                <div class="sidebar-btn">
+                                    <a class="main-btn mybtn" href="#!">Print Certificate</a>
+                                </div>
+                                <%} else {%>
+                                <div class="sidebar-btn">
+                                    <a class="main-btn mybtn" href="/certificate">Print Certificate</a>
+                                </div>
+                                <% } %>
                             <div>
                             <p class="form-message success mysuc" style="margin-left: 0; margin-right: 0">
                                 <span class="erImg"></span>
