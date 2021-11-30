@@ -24,7 +24,7 @@ exports.tutors = [
 	{
 		name: 'Wale',
 		fullname: 'Adewale Adeyemi',
-		role: 'Creative Drummer',
+		role: 'Jazz Drum Instructor',
 		description: `For over 25 years, Adewale Simeon Adeyemi has been one of the most sought after jazz musician in Nigeria.
 		He is not just a drummer but he makes music with drums each time he performs either alone or with a band, astute producer, songwriter and drums teacher.
 		In his musical journey as a drum performer and teacher, he still continues his tradition of inspiring, impacting and
@@ -46,7 +46,7 @@ exports.tutors = [
 	{
 		name: 'Bittner',
 		fullname: 'Chris Bittner',
-		role: 'Saxophonist and music composer',
+		role: 'Saxophonist and Music Composer',
 		description: `Chris Bittner is a saxophonist and composer based in New York City. 
 		Originally from North Carolina, Bittner has performed with groups all over the east coast,
 		in styles ranging from Jazz to R&B, Folk, Gospel, and Country. Bittner can be heard as a sideman
@@ -73,7 +73,7 @@ exports.tutors = [
 	{
 		name: 'Chibuzor',
 		fullname: 'Chibuzor Emmanuel',
-		role: 'Music Instructor',
+		role: 'Gospel Music/Piano Instructor',
 		description: `Chibuzor Emmanuel Okafor (A.K.A - D ELECT) Is a Music Director, Music Instructor, Voice Coach, Producer, Pianist and Song writer.
 		He is the CEO of the 'D ELECT' Music. He has been in the industry for more than a decade now, having worked with several artists home and abroad,
 		including the likes of Kim Burrel, Kierra Sheard, Lionel Peterson, Uche Agu, Lawrence & DeCovenant, Efe Nathan, Minister Kenn, Tosin Martins,
@@ -124,7 +124,7 @@ exports.tutors = [
 	{
 		name: 'Taiwo',
 		fullname: 'Taiwo Okunola',
-		role: 'Saxophonist',
+		role: 'Saxophone Instructor',
 		description: `Okunola Taiwo Oluwasegun is a Jazz Saxophone prodigy and a multi instrumentalist that started his musical career as a piano player before he took up the saxophone.
 		He has won several awards, and most recently - A Sax Challenge organised by Mike Aremu which features many saxophone players from different part of Nigeria.
 		He has shared stage with great musicians like Mike Aremu , Etuk ubong, Femislide, Taiwo clegg, Victor Ademofe and the likes`,
