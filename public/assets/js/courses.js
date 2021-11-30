@@ -237,5 +237,54 @@ exports.courses = [
 				status: 'lock'
 			}
 		]
+	},
+	{
+		series: 'You Too Can Play Series #1',
+		title: 'The Art of Mastering Both Hand Improvisation',
+		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
+		benefits: [
+			'The course has been fully simplified to enable students have a thorough understanding of music.',
+			'Learn the basic and essential techniques needed to master the art of musical improvisation.',
+			'Understand and master the Art Both Hand Improvisation.',
+			'Mentorship.',
+			'professional Certification.'
+		],
+		tutors: [],
+		link: 'the_art_of_mastering_hand_improvisation',
+		img: 'solo.jpg',
+		image: 'solo-lg.jpg',
+		video: '',
+		duration: '2 Weeks',
+		lesson: '10',
+		rating: '4.6',
+		ratingNumber: '55',
+		fee: '$ 100 | NGN 40 000',
+		modules: [
+			{
+				name: 'Intervals',
+				lesson: '1.1',
+				status: 'unlock'
+			},
+			{
+				name: 'Jazz Chords',
+				lesson: '1.2',
+				status: 'lock'
+			},
+			{
+				name: 'The Art of Soloing 1',
+				lesson: '1.3',
+				status: 'lock'
+			},
+			{
+				name: 'The Art of Soloing 2',
+				lesson: '1.4',
+				status: 'lock'
+			},
+			{
+				name: 'The Art of Soloing 3',
+				lesson: '1.5',
+				status: 'lock'
+			}
+		]
 	}
 ];
