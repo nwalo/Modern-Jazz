@@ -46,7 +46,7 @@ exports.tutors = [
 	{
 		name: 'Bittner',
 		fullname: 'Chris Bittner',
-		role: 'Saxophonist and Music Composer',
+		role: 'Music Composer and Saxophone Instructor',
 		description: `Chris Bittner is a saxophonist and composer based in New York City. 
 		Originally from North Carolina, Bittner has performed with groups all over the east coast,
 		in styles ranging from Jazz to R&B, Folk, Gospel, and Country. Bittner can be heard as a sideman
