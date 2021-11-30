@@ -46,7 +46,7 @@ exports.tutors = [
 	{
 		name: 'Bittner',
 		fullname: 'Chris Bittner',
-		role: 'Saxophonist',
+		role: 'Saxophonist and music composer',
 		description: `Chris Bittner is a saxophonist and composer based in New York City. 
 		Originally from North Carolina, Bittner has performed with groups all over the east coast,
 		in styles ranging from Jazz to R&B, Folk, Gospel, and Country. Bittner can be heard as a sideman
@@ -70,6 +70,57 @@ exports.tutors = [
 		qualifications: [ {} ],
 		achievement: [ {} ]
 	},
+	{
+		name: 'Chibuzor',
+		fullname: 'Chibuzor Emmanuel',
+		role: 'Music Instructor',
+		description: `Chibuzor Emmanuel Okafor (A.K.A - D ELECT) Is a Music Director, Music Instructor, Voice Coach, Producer, Pianist and Song writer.
+		He is the CEO of the 'D ELECT' Music. He has been in the industry for more than a decade now, having worked with several artists home and abroad,
+		including the likes of Kim Burrel, Kierra Sheard, Lionel Peterson, Uche Agu, Lawrence & DeCovenant, Efe Nathan, Minister Kenn, Tosin Martins,
+		just to mention a few. He has recorded lots of albums and singles for artists both home and abroad and has a passion for excellence in his business.
+		He is also involved in actively training musicians and singers home and abroad, and this has brought out the BEST in the lives of those He has trained.
+		His passion is to see musicians and singers become all the best they can be, and match up with the standard of music, not just locally, but internationally.`,
+		image: 'chibuzor.jpg',
+		contact: [
+			{
+				email: '',
+				phone: '',
+				fb: '',
+				ig: 'https://instagram.com/itsdelect?utm_medium=copy_link',
+				twitter: ''
+			}
+		],
+		experience: [ { place: '', date: '' } ],
+		qualifications: [ { title: '', institute: '', date: '' } ],
+		achievement: [ { title: '', details: '' } ]
+	},
+	// {
+	// 	name: 'Bittner',
+	// 	fullname: 'Chris Bittner',
+	// 	role: 'Saxophonist',
+	// 	description: `Chris Bittner is a saxophonist and composer based in New York City.
+	// 	Originally from North Carolina, Bittner has performed with groups all over the east coast,
+	// 	in styles ranging from Jazz to R&B, Folk, Gospel, and Country. Bittner can be heard as a sideman
+	// 	in clubs in the NYC area such as Fat Cat, Dizzy's Club Coca-Cola, Smalls, Rockwood Music Hall,
+	// 	Blue Note Jazz Club, Zinc Bar, and many more. He has also performed internationally with his
+	// 	quartet at the Bern Jazz Festival in Bern, Switzerland. A graduate of the prestigious Juilliard
+	// 	School, he has had the opportunity to play alongside jazz greats such as Jimmy Heath, Bill Charlap,
+	// 	Herlin Riley, Jon Faddis, Rodney Whitaker, Etienne Charles, Aaron Diehl, Donny McCaslin, and many more.
+	// 	He is currently working on composing new material to perform with his own quartet and is busy with numerous other projects.`,
+	// 	image: 'bittner.jpg',
+	// 	contact: [
+	// 		{
+	// 			email: 'chrisbittnermusic@gmail.com',
+	// 			phone: '',
+	// 			fb: '',
+	// 			ig: 'https://instagram.com/c_bitty?utm_medium=copy_link',
+	// 			twitter: ''
+	// 		}
+	// 	],
+	// 	experience: [ { place: '', date: '' } ],
+	// 	qualifications: [ {} ],
+	// 	achievement: [ {} ]
+	// },
 	{
 		name: 'Taiwo',
 		fullname: 'Taiwo Okunola',

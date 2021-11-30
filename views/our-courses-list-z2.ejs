@@ -1,0 +1,185 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+  <!--====== Head Start ======-->
+
+  <%- include('partials/header') %>
+
+  <!--====== Head Ends ======-->
+
+  <body>
+    <!--====== Navigation Start ======-->
+
+    <%- include('partials/navigation') %>
+
+    <!--====== Navigation Ends ======-->
+    
+    <!--====== Page Banner Start ======-->
+
+    <section class="page-banner">
+        <div class="page-banner-bg bg_cover"
+        style="background-image: url(/assets/images/bg/all.jpg);
+        background-color: #24242475;
+        background-blend-mode: overlay;
+         ">
+            <div class="container">
+                <div class="banner-content text-center">
+                    <h2 class="title">All Courses</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Page Banner Ends ======-->
+
+    <!--====== Top Course Start ======-->
+    
+    <section class="top-courses-area">
+        <div class="container">
+            <div class="courses-bar">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="courses-tab">
+                            <ul class="nav" role="tablist">
+                                <li><a data-toggle="tab" href="#grid" role="tab"><i class="fas fa-th-large"></i></a></li>
+                                <li><a class="active" data-toggle="tab" href="#list" role="tab"><i class="fas fa-list"></i></a></li>
+                            </ul>
+                            <p>Showing 8 - 16 of 40 results</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="courses-bar-form">
+                            <div class="courses-select">
+                                <select id="selectbox1">
+                                    <option value="0">Newly Published</option>
+                                    <option value="1">Alphabetic Order</option>
+                                    <option value="2">Rating</option>
+                                    <option value="3">Published Date</option>
+                                    <option value="4">Price</option>
+                                    <option value="5">Series #</option>
+                                </select>
+                            </div>
+                            <div class="courses-search">
+                                <input type="text" placeholder="Search courses">
+                                <i class="far fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+            </div>    
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade" id="grid" role="tabpanel">
+                    <div class="courses-wrapper wrapper-2">
+                        <div class="row">
+                            
+                            <div class="col-lg-3 col-sm-6 courses-col">
+                                <div class="single-courses-2 mt-30">
+                                    <div class="courses-image">
+                                        <a href= "#!"><img src="/assets/images/courses/teach.jpg" alt="courses"></a>
+                                    </div>
+                                    <div class="courses-content">
+                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
+                                        <h4 class="courses-title"><a href="#!">The Art of Mastering Both Hand Improvisation</a></h4>
+                                        <div class="duration-rating">
+                                            <div class="duration-fee">
+                                                <p class="duration">Duration: <span> 2 weeks</span></p>
+                                                <p class="fee">Fee: <span> $ 100</span><span> NGN 40 000</span></p>
+                                            </div>
+                                            <div class="rating">
+                                                <span>Rating: </span>
+                                                <ul class="star">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star-half-alt"></i></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="courses-link">
+                                            <a class="apply" href= "#!">Coming Soon</a>
+                                        </div>
+                                    </div>
+                                    <div class="courses-lock">
+                                    <div class="lock">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LONG COURSES LIST -->
+
+                <div class="tab-pane fade show active" id="list" role="tabpanel">
+                    <div class="courses-wrapper wrapper-2">
+                        
+                        <div class="courses-col">
+                            <div class="single-courses-2 courses-list mt-30">
+                                <div class="courses-image">
+                                    <a href= "#!"><img src="/assets/images/courses/teach.jpg" alt="courses"></a>
+                                </div>
+                                <div class="courses-content">
+                                    <p class="courses-fee">Fee: <span> $ 100</span> <br>
+                                    <span> NGN 40 000</span> </p>
+                                    <div class="courses-lock full">
+                                    <div class="lock">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    </div> 
+                                    <div class="courses-content-wrapper">                                        
+                                        <h4 class="courses-title"><a href= "#!">The Art of Mastering Both Hand Improvisation</a></h4>
+                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
+                                        <div class="duration-rating">
+                                            <div class="duration-fee">
+                                                <p class="duration">Duration: <span> 2 Weeks</span></p>
+                                                <p class="credit">Lessons: 10</p>
+                                            </div>
+                                            <div class="rating">
+                                                <span>Rating: </span>
+                                                <ul class="star">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star-half-alt"></i></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="courses-link">
+                                            <a class="apply" href= "#!">Coming Soon</a>
+                                        </div>
+                                    </div>                                
+                                </div>                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>        
+            
+
+            <ul class="pagination-items text-center">
+                <li><a href= "/course">01</a></li>
+                <li><a class="active" href= "/course-pg2">02</a></li>
+                <li><a href= "#!">03</a></li>
+                <li><a href= "#!">04</a></li>
+                <li><a href= "#!">05</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!--====== Top Course Ends ======-->
+    
+    <!--====== Footer Starts ======-->
+    
+    <%- include('partials/footer') %>
+
+    <!--====== Footer Ends ======-->
+    
+</body>
+
+</html>
