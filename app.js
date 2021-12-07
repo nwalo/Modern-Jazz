@@ -172,13 +172,16 @@ const welcomeNotification = [
 		message: 'Welcome to the Advance Master Course, you are in for an awesome ride.'
 	},
 	{
-		message: 'Follow us on Instagram to watch a	mazing Techniques, Tricks and Hacks.'
+		message: 'Follow us on Instagram to watch amazing Techniques, Tricks and Hacks.'
 	},
 	{
 		message: 'Join the Private Modern Jazz Facebook Page'
 	},
 	{
 		message: 'Subscribe to our newsletter to get latest update on all courses, events and news.'
+	},
+	{
+		message: 'A live virtual class session takes place on the telegram channel on Mondays and Thursdays.'
 	}
 ];
 
