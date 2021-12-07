@@ -139,27 +139,31 @@
                             <div class="tab-pane fade" id="teachers" role="tabpanel">
                                 <div class="courses-teachers">
                                     <div class="row">
+                                        <% allTutors.forEach(function(i) { %>
                                         <div class="col-md-4 col-sm-6">
                                             <div class="single-teacher mt-30 text-center">
                                                 <div class="teacher-social">
+                                                    <% i.contact.forEach(function(j){ %>
                                                     <ul class="social">
-                                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                                        <li><a href="<%= j.fb%>"><i class="fab fa-facebook-f"></i></a></li>
+                                                        <li><a href="<%= j.phone%>"><i class="fa fa-phone"></i></a></li>
+                                                        <li><a href="<%= j.ig%>"><i class="fab fa-instagram"></i></a></li>
+                                                        <li><a href="<%= j.email%>"><i class="fa fa-envelope"></i></a></li>
                                                     </ul>
+                                                    <%})%>
                                                 </div>
                                                 <div class="teacher-image">
-                                                    <a href="teacher-details.html">
-                                                        <img src="/assets/images/teachers/noel.jpg" alt="teacher">
+                                                    <a href="/tutors/<%=i.name%>">
+                                                        <img src="/assets/images/teachers/<%=i.image%>" alt="teacher">
                                                     </a>
                                                 </div>
                                                 <div class="teacher-content">
-                                                    <h4 class="name"><a href="teacher-details.html">Noels Emmanuel</a></h4>
+                                                    <h4 class="name"><a href="/tutors/<%=i.name%>"><%=i.fullname%></a></h4>
                                                 </div>
+                                                
                                             </div>
                                         </div>
-                                        
+                                        <% })%>
                                     </div>
                                 </div>
                             </div>
