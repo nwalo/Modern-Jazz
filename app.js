@@ -248,6 +248,10 @@ app.get('/course', function(req, res) {
 	res.render('our-courses-list', { title: 'All Courses' });
 });
 
+app.get('/course-pg2', function(req, res) {
+	res.render('our-courses-list-z2', { title: 'All Courses - Page 2' });
+});
+
 app.get('/course-details/:courseLink', function(req, res) {
 	let course = courses.courses.find((element) => {
 		return element.link == req.params.courseLink;
