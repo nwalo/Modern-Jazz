@@ -32,73 +32,123 @@ exports.courses = [
 				status: 'lock'
 			},
 			{
-				name: 'The Art of Soloing 1',
+				name: 'ARPEGGIOS',
 				lesson: '1.3',
 				status: 'lock'
 			},
 			{
-				name: 'The Art of Soloing 2',
+				name: 'Arpeggio Extensions',
 				lesson: '1.4',
 				status: 'lock'
 			},
 			{
-				name: 'The Art of Soloing 3',
+				name: 'Enclosures',
 				lesson: '1.5',
 				status: 'lock'
 			},
 			{
-				name: 'The Art of Soloing 4',
+				name: 'CHROMATICISM',
 				lesson: '1.6',
 				status: 'lock'
 			},
 			{
-				name: 'Modern Music Band Setup',
+				name: 'Ambigous Scales',
 				lesson: '1.7',
 				status: 'lock'
 			},
 			{
-				name: '22 Modern Music Skills Monetization',
+				name: 'Constant Melodies',
 				lesson: '1.8',
 				status: 'lock'
 			},
 			{
-				name: 'The Legalities of 20th Century Music',
+				name: 'Durational Values',
 				lesson: '1.9',
 				status: 'lock'
 			},
 			{
-				name: '',
+				name: 'Jazz Rhythms',
 				lesson: '1.10',
 				status: 'lock'
 			},
 			{
-				name: '',
+				name: 'Rhythmic Improvisation',
 				lesson: '1.11',
 				status: 'lock'
 			},
 			{
-				name: '',
+				name: 'Rhythmic Exercises',
 				lesson: '1.12',
 				status: 'lock'
 			},
 			{
-				name: '',
+				name: 'Melodic Patterns',
 				lesson: '1.13',
 				status: 'lock'
 			},
 			{
-				name: '',
+				name: 'Cycled Patterns',
 				lesson: '1.14',
 				status: 'lock'
 			},
 			{
-				name: '',
+				name: 'Advance Cycled Patterns',
 				lesson: '1.15',
 				status: 'lock'
 			},
 			{
-				name: '',
+				name: 'Major Scale Exercises',
 				lesson: '1.16',
+				status: 'lock'
+			},
+			{
+				name: 'Basic Jazz Voicings (Part 1)',
+				lesson: '1.17',
+				status: 'lock'
+			},
+			{
+				name: 'Basic Jazz Voicings (Part 2)',
+				lesson: '1.18',
+				status: 'lock'
+			},
+			{
+				name: 'Basic Jazz Voicings (Part 3)',
+				lesson: '1.19',
+				status: 'lock'
+			},
+			{
+				name: '2 5 1 Chord Progressions',
+				lesson: '1.20',
+				status: 'lock'
+			},
+			{
+				name: 'Modes',
+				lesson: '1.21',
+				status: 'lock'
+			},
+			{
+				name: 'Modal Interchange',
+				lesson: '1.22',
+				status: 'lock'
+			},
+			{
+				name: 'The Greatness Of The Major Scale',
+				lesson: '1.23',
+				status: 'lock'
+			},
+			{
+				name: 'Modal Superimposition',
+				lesson: '1.24',
+				status: 'lock'
+			},
+			{
+				name: 'Modal Use Of Scales',
+				lesson: '1.25',
+				status: 'lock'
+			},
+			{
+				name: 'Summary',
+				lesson: '1.26',
 				status: 'lock'
 			}
 		]

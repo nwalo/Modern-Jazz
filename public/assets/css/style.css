@@ -8646,3 +8646,7 @@ a.wel{
   color: #F23F00;
   font-weight: 500;
 }
+
+.courses-details-tab .curriculum-content .single-curriculum .curriculum-list li a {
+  font-size: .9em;
+}
