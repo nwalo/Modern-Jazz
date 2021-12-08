@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -231,7 +231,7 @@ app.post('/contact', function(req, res) {
 	var options = {
 		from: 'Admin <modernjazzwithnoels@gmail.com>',
 		to: email, // Email from web
-		bcc: process.env.GMAIL_T0, // used as RCPT TO: address for SMTP
+		bcc: process.env.GMAIL_TO, // used as RCPT TO: address for SMTP
 		subject: subject,
 		html: message
 	};
@@ -306,7 +306,7 @@ app.post('/course', function(req, res) {
 						var options = {
 							from: 'Admin <modernjazzwithnoels@gmail.com>',
 							to: req.body.email, // Email from web
-							bcc: process.env.GMAIL_T0, // used as RCPT TO: address for SMTP
+							bcc: process.env.GMAIL_TO, // used as RCPT TO: address for SMTP
 							subject: 'Course Review - ' + req.body.title,
 							html: message
 						};
@@ -400,6 +400,34 @@ app.get('/dashboard', function(req, res) {
 	} else {
 		res.redirect('/login');
 	}
+});
+
+app.post('/dashboard-notification', function(req, res) {
+	var checkedId = req.body.checkbox;
+
+	User.findOneAndUpdate(
+		{
+			_id: req.user
+		},
+		{
+			$pull: {
+				notification: {
+					_id: checkedId
+				}
+			}
+		},
+		{
+			useFindAndModify: false
+		},
+		function(err, found) {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log('item has been deleted');
+				res.redirect('/dashboard-notification');
+			}
+		}
+	);
 });
 
 app.get('/dashboard-notification', function(req, res) {
@@ -517,7 +545,7 @@ app.get('/enroll/:courseLink', function(req, res) {
 			});
 
 			if (!courseLinks.includes(myCourse.link)) {
-				res.redirect('/payment');
+				res.redirect('/payment/' + req.params.courseLink);
 			} else {
 				console.log('course already exist');
 				res.redirect('/course/' + req.params.courseLink + '/lesson/1.1');
@@ -550,7 +578,7 @@ app.get('/enroll/:courseLink', function(req, res) {
 // 					var currentCourseModule = currentCourse.modules.find(function(course) {
 // 						return course.lesson == currentLesson;
 // 					});
-// 					var modules = currentCourse.modules.slice(0 ,);
+// 					var modules = currentCourse.modules.slice(0 , 2);
 // 					res.render('module', {
 // 						courseTitle: currentCourse.title,
 // 						title: 'Learn',
@@ -825,10 +853,14 @@ app.get('/notice', function(req, res) {
 	res.render('coming', { title: 'Notice' });
 });
 
-app.get('/payment', function(req, res) {
-	req.session.confirmPayment = 'paid';
+app.get('/payment/:courseLink', function(req, res) {
 	if (req.isAuthenticated()) {
-		res.render('payment', { title: 'Modern Jazz Course Checkout' });
+		let myCourse = courses.courses.find(function(course) {
+			return course.link == req.params.courseLink;
+		});
+		req.session.confirmPayment = 'paid';
+
+		res.render('payment', { title: 'Modern Jazz Course Checkout', course: myCourse });
 	} else {
 		res.redirect('/login');
 	}
@@ -836,7 +868,6 @@ app.get('/payment', function(req, res) {
 
 app.get('/payment-confirmation', function(req, res) {
 	if (req.session.confirmPayment === 'paid') {
-		console.log(req.session.id);
 		if (req.isAuthenticated()) {
 			User.findById(req.user, function(err, foundUser) {
 				let myCourse = courses.courses.find(function(course) {
@@ -994,13 +1025,13 @@ app.get('/testimonial', function(req, res) {
 	res.render('testimonial', { title: 'Testimonial' });
 });
 
-// app.get('/welcome', function(req, res) {
-// 	// if (req.isAuthenticated()) {
-// 	res.render('welcome', { title: 'Welcome' });
-// 	// } else {
-// 	// 	res.redirect('/login');
-// 	// }
-// });
+app.get('/welcome', function(req, res) {
+	// if (req.isAuthenticated()) {
+	res.render('welcome', { title: 'Welcome' });
+	// } else {
+	// 	res.redirect('/login');
+	// }
+});
 
 app.get('*', function(req, res) {
 	res.render('404', { title: '404 Error - Page Not Found' });

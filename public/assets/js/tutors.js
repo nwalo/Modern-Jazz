@@ -17,7 +17,12 @@ exports.tutors = [
 				twitter: ''
 			}
 		],
-		experience: [ { place: '', date: '' } ],
+		experience: [
+			{ place: 'Lekki, Nigeria', date: '2020 - now', position: 'CEO', firm: 'Modern Jazz' },
+			{ place: 'Lagos, Nigeria', date: '2020 - now', position: 'Instrumentalist', firm: 'Modern Jazz' },
+			{ place: 'Lekki, Nigeria', date: '2020 - now', position: 'Trainer', firm: 'Modern Jazz' },
+			{ place: 'Lekki, Nigeria', date: '2020 - now', position: 'Trainer', firm: 'Modern Jazz' },
+		],
 		qualifications: [ {} ],
 		achievement: [ {} ]
 	},

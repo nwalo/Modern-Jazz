@@ -34,18 +34,20 @@
                 <div class="card-body">
 
                   <% foundUser.notification.reverse().forEach(function(notif ){ %>
-                  <div class="alert mybg">
+                  <form action="/dashboard-notification" method="post">
+                    <div class="alert mybg">
                     <button
                       type="button"
                       aria-hidden="true"
                       class="close"
-                      data-dismiss="alert"
                       aria-label="Close"
                     >
-                      <i class="tim-icons icon-simple-remove"></i>
+                      <label style="color: #ffffff;" for="<%= notif._id %>"><i class="tim-icons icon-simple-remove"></i></label>
                     </button>
                     <span><%= notif.message %></span>
-                  </div>
+                    <input type="checkbox" id="<%= notif._id %>" name="checkbox" value="<%= notif._id %>" onchange="this.form.submit()" hidden>
+                    </div>
+                  </form>
                   <% }) %>
                 
                   

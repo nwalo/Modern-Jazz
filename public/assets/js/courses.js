@@ -6,9 +6,10 @@ exports.courses = [
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of music.',
 			'Learn the basic and essential techniques needed to master the art of musical improvisation.',
+			'Weekly live virtual class on telegram.',
 			'Understand and master the Art of Soloing.',
 			'Mentorship.',
-			'professional Certification.'
+			'Professional Certification.'
 		],
 		tutors: [],
 		link: '80_solo_techniques',
@@ -16,7 +17,7 @@ exports.courses = [
 		image: 'solo-lg.jpg',
 		video: '',
 		duration: '4 Weeks',
-		lesson: '20',
+		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '80',
 		fee: '$ 25 | NGN 10 000',

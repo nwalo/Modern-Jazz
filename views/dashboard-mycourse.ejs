@@ -86,7 +86,7 @@
                                             class="title text-muted"
                                             style="font-weight: 400;"
                                           >
-                                            Lessons: <%= course.lesson%>
+                                            Lessons: <%= course.modules.length%>
                                           </p>
                                           <p
                                             class="title text-muted"
@@ -107,7 +107,7 @@
                                       <%= course.duration %>
                                     </td>
                                     <td class="text-center hide-mobile">
-                                      <%= course.lesson%>
+                                      <%= course.modules.length%>
                                     </td>
                                     <td class="text-center">
                                       <button class="mybg-alt">
