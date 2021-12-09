@@ -18,10 +18,12 @@ exports.tutors = [
 			}
 		],
 		experience: [
-			{ place: 'Lekki, Nigeria', date: '2020 - now', position: 'CEO', firm: 'Modern Jazz' },
-			{ place: 'Lagos, Nigeria', date: '2020 - now', position: 'Instrumentalist', firm: 'Modern Jazz' },
-			{ place: 'Lekki, Nigeria', date: '2020 - now', position: 'Trainer', firm: 'Modern Jazz' },
-			{ place: 'Lekki, Nigeria', date: '2020 - now', position: 'Trainer', firm: 'Modern Jazz' },
+			{ place: 'Modern Jazz With Noels', date: '2021 till date', position: 'Founder/CEO' },
+			{ place: 'Modern Jazz With Noels', date: '2021 till date', position: 'Jazz piano Instructor' },
+			{ place: 'The Elevation Church', date: '2019 to 2021', position: 'Pianist' },
+			{ place: 'Span Jazz Academy', date: '2018 to 2018', position: 'Jazz pianist' },
+			{ place: 'Hilltop international Christian Center', date: '2018 to 2018', position: 'Pianist' },
+			{ place: 'Biodun and batik AfroJazz band', date: '2017 to 2021', position: 'Band leader' }
 		],
 		qualifications: [ {} ],
 		achievement: [ {} ]
