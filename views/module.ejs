@@ -17,19 +17,26 @@
 
     <!--====== Learning Start ======-->
 
+    <style>
+        .hide{
+            display: none;
+        }
+    </style>
+
     <section class="courses-details mysec">
         <div class="container">
+            <!-- <div class="row flex-row-reverse"> -->
             <div class="row flex-row-reverse">
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <div class="courses-details-content mt-50">
                         
                         <!-- <video src="/assets/smoke.mp4" width="100%" poster="/assets/images/courses/solo-lg.jpg" controls ></video> -->
-                        <img src="/assets/images/courses/solo-lg.jpg" alt="Course image" width="100%">
+                        <img src="/assets/images/courses/solo-lg.jpg" alt="Course image" width="80%">
                         <h2 class="title my"> <%= currentCourse.title %> <br> Lesson <%= lessonNumber %> : <%= currentCourseModule.name%> </h2>
 
                     </div>
 
-                    <form action="/modules/:courseLink" id="myform" method="post">
+                    <!-- <form action="/modules/:courseLink" id="myform" method="post">
                     <div class="sidebar-btn " style="margin: 80px auto 0; width: 110px; " >
                                              
                         <% if (lessonNumber) { %>
@@ -38,7 +45,7 @@
                         <% } %>
                         <button class="main-btn">Finish Lesson</button>
                     </div>
-                    </form>
+                    </form> -->
 
                     <p class="form-message success myles" id="nextLesson" style="margin-left: 0; margin-right: 0">
                         <span class="erImg"></span>
@@ -49,6 +56,7 @@
 
                 <div class="courses-details-tab">
                  <div class="benefit-content">
+                     <h4>THANK YOU FOR ENROLLING FOR THE COURSE 80 SOLO TECHNIQUES, LESSONS SHALL BE AVAILABLE ON MONDAY 20TH DECEMBER, 2021.</h4>
                         <ul class="courses-details-list">
                             <li>
                                 <i class="far fa-check-circle"></i>
@@ -68,7 +76,7 @@
                  </div>
                     
                 </div>
-                <div class="col-lg-4"> 
+                <div class="col-lg-4 hide"> 
                     <div class="courses-sidebar pt-20">
                         <div class="courses-features mt-30">
                             <div class="sidebar-title">
