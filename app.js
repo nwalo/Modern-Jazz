@@ -802,6 +802,10 @@ app.get('/certificate', function(req, res) {
 	}
 });
 
+app.get('/legal', function(req, res) {
+	res.render('legal', { title: 'Terms & Condition ' });
+});
+
 app.post('/newsletter', function(req, res) {
 	const email = req.body.email;
 
@@ -850,7 +854,7 @@ app.post('/newsletter', function(req, res) {
 });
 
 app.get('/notice', function(req, res) {
-	res.render('coming', { title: 'Notice' });
+	res.render('notice', { title: 'Notice' });
 });
 
 app.get('/payment/:courseLink', function(req, res) {
