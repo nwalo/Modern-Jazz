@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -361,7 +361,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 							if (currentCourseModule.status == 'lock') {
 								res.redirect('/course/' + newCourseLink + '/lesson/1.' + req.session.url);
 							} else {
-								var modules = currentCourse.modules.slice(0, 2);
+								var modules = currentCourse.modules.slice(0, 0);
 								req.session.url = number;
 								res.render('module', {
 									title: 'Learn',
@@ -578,7 +578,7 @@ app.get('/enroll/:courseLink', function(req, res) {
 // 					var currentCourseModule = currentCourse.modules.find(function(course) {
 // 						return course.lesson == currentLesson;
 // 					});
-// 					var modules = currentCourse.modules.slice(0 , 2);
+// 					var modules = currentCourse.modules.slice(0 , 0);
 // 					res.render('module', {
 // 						courseTitle: currentCourse.title,
 // 						title: 'Learn',
@@ -860,6 +860,8 @@ app.get('/payment/:courseLink', function(req, res) {
 		});
 		req.session.confirmPayment = 'paid';
 
+		req.session.TitleOfCourse = myCourse.title;
+
 		res.render('payment', { title: 'Modern Jazz Course Checkout', course: myCourse });
 	} else {
 		res.redirect('/login');
@@ -895,7 +897,7 @@ app.get('/payment-confirmation', function(req, res) {
 								}
 							});
 
-							res.redirect('/dashboard-mycourse');
+							res.redirect('welcome');
 						}
 					});
 				} else {
@@ -910,12 +912,6 @@ app.get('/payment-confirmation', function(req, res) {
 		console.log('not paid');
 		res.render('403', { title: '403 Error - Access Forbidden' });
 	}
-});
-
-app.get('/403', function(req, res) {
-	res.render('403', {
-		title: '403 Error - Access Forbidden'
-	});
 });
 
 app.get('/register', function(req, res) {
@@ -1026,11 +1022,17 @@ app.get('/testimonial', function(req, res) {
 });
 
 app.get('/welcome', function(req, res) {
-	// if (req.isAuthenticated()) {
-	res.render('welcome', { title: 'Welcome' });
-	// } else {
-	// 	res.redirect('/login');
-	// }
+	if (req.isAuthenticated()) {
+		res.render('welcome', { title: 'Welcome', courseTitle: req.session.TitleOfCourse });
+	} else {
+		res.redirect('/login');
+	}
+});
+
+app.get('/403', function(req, res) {
+	res.render('403', {
+		title: '403 Error - Access Forbidden'
+	});
 });
 
 app.get('*', function(req, res) {

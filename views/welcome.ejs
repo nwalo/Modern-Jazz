@@ -36,6 +36,25 @@
 
     <!--====== About Us Starts ======-->
 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">HURRAY !</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="text-transform: uppercase;">
+             CONGRATULATIONS, your purchase of the course - <span style="color: #f23f00; font-weight: 600;"> <%= courseTitle%> </span> - is successful.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="main-btn mybtn" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section id="wel" class="online-library-area">
       <div class="container">
         <div class="row justify-content-center wide">
@@ -57,6 +76,8 @@
               <p> The Modern Jazz with Noels team have prepared a very insightful course for your massive development. 
                 <span style="color: #f23f00; "> You will love it.</span>
               </p>
+              <p> Your transitive process from <span style="color: #f23f00;  "> zero to hero level</span> begins on <span style="color: #f23f00;  "> MONDAY 20TH DECEMBER, 2021. </span> 
+                wherein you will be granted full access to all the sequentially arranged lessons.</p>
               
                 <div class="courses-details-tab">
                  <div class="benefit-content">
@@ -76,7 +97,7 @@
                             </li>
                             <li>
                                 <i class="far fa-check-circle"></i>
-                                <p>You can add me as a friend with <a href="https://www.facebook.com/modernjazzwithnoels/" style="color: #ca9400;"> Noels Emmanuel on Facebook.</a> </p>
+                                <p>You can add me as a friend with <a href="https://www.facebook.com/modernjazzwithnoels/" target="blank" style="color: #ca9400;"> Noels Emmanuel on Facebook.</a> </p>
                             </li>
                             <li>
                                 <i class="far fa-check-circle"></i>
@@ -87,6 +108,10 @@
                         <p>That's it friends, lots of knowledge awaits you there.</p>
 
                         <p><span style="color: #f23f00;  font-weight: 600;"> NOELS EMMANUEL</span></p>
+
+                        <div style="margin: 50px auto; width: 110px;">
+                          <a href="/dashboard-mycourse" class="main-btn">Continue To Course </a>
+                        </div>
                   </div>
                  </div>
                 </div>
@@ -104,5 +129,11 @@
     <%- include('partials/footer') %>
 
     <!--====== Footer Ends ======-->
+
+    <script>
+      $(window).on('load', function() {
+        $('#myModal').modal('show');
+    });
+    </script>
   </body>
 </html>
