@@ -854,7 +854,7 @@ app.post('/newsletter', function(req, res) {
 });
 
 app.get('/notice', function(req, res) {
-	res.render('notice', { title: 'Notice' });
+	res.render('coming', { title: 'Notice' });
 });
 
 app.get('/payment/:courseLink', function(req, res) {
