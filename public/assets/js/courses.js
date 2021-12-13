@@ -4,6 +4,7 @@ exports.courses = [
 		title: '80 Solo Techniques in 4 Weeks',
 		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
 		benefits: [
+			'Get sponsorhip offer for the course for just NGN 5 000 ($ 13) between 14TH to 25TH December.',
 			'The course has been fully simplified to enable students have a thorough understanding of music.',
 			'Learn the basic and essential techniques needed to master the art of musical improvisation.',
 			'Weekly live virtual class on telegram.',
@@ -20,7 +21,7 @@ exports.courses = [
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '80',
-		fee: '$ 25 | NGN 10 000',
+		fee: '$ 13 | NGN 5 000',
 		modules: [
 			{
 				name: 'Intervals',

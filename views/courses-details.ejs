@@ -287,7 +287,8 @@
                                 <h4 class="title">Course Features</h4>
                             </div>
                             <ul class="courses-features-items">
-                                <li>Fee <strong><%= course.fee %></strong></li>
+                                
+                                <li>Fee <strong style="position: relative;"><%= course.fee %> <sup style="position: absolute; bottom: 10px; right: 2px; color: #f23f00;"><abbr title="$ 100 | NGN 40 000">PROMO <i class="fa fa-tag"></i></abbr></sup></strong></li>
                                 <li>Duration <strong><%= course.duration%></strong></li>
                                 <li>Lessons <strong><%= course.lesson%></strong></li>
                                 <!-- <li>Semester <strong>12</strong></li> -->
@@ -307,6 +308,35 @@
         </div>
     </section>
 
+    <!--====== Courses Modal Starts ======-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">MODERN JAZZ WITH NOELS SPONSORSHIP OFFER.</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" >
+            Get the opportunity to get the course at a huge discount of 88% <span style="color: #f23f00; font-weight: 600;"> (NGN 5 000 | $ 13) </span> for the next 11 days.
+            <br>
+            <br>
+            <ul>
+                <li>Old Price: NGN 40 000 | $ 100 </li>
+                <li>Now: NGN 5 000 | $ 13 </li>
+            </ul>
+            <br>
+            Grab this offer now !!!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="main-btn mybtn" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--====== Courses ModaL Ends ======-->
+
     <!--====== Courses Details Ends ======-->
     
     <!--====== Footer Starts ======-->
@@ -314,6 +344,12 @@
     <%- include('partials/footer') %>
 
     <!--====== Footer Ends ======-->
+
+    <script>
+      $(window).on('load', function() {
+        $('#myModal').modal('show');
+    });
+    </script>
     
 </body>
 
