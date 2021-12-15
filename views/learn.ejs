@@ -22,7 +22,8 @@
             <div class="row flex-row-reverse">
                 <div class="col-lg-8">
                     <div class="courses-details-content mt-50">
-                        <video src="/assets/smoke.mp4" width="100%" poster="/assets/images/courses/solo-lg.jpg" controls ></video>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/0PvAb4Zuy9o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <video src="https://www.youtube.com/embed/0PvAb4Zuy9o" width="100%" poster="/assets/images/courses/solo-lg.jpg" controls ></video>
 
                         <h2 class="title my"> 80 Solo Techniques In 4 Weeks <br> Lesson 1.1 : Intervals</h2>
 
@@ -37,16 +38,6 @@
 
                     </div>
 
-                    <form action="/modules/:courseTitle" method="post">
-                    <div class="sidebar-btn " style="margin: 80px auto 0; width: 300px; " >
-                        <% var val = module.find(function(i){ %>
-                            <% return i.lesson == '1.1' %>
-                        <%})%>
-                        <input type="text " value="<%= courseTitle %>" name="courseTitle" hidden>
-                        <input type="text " value="<%= val.lesson %>" name="lessonValue" hidden>
-                        <button class="main-btn">Finish Lesson</button>
-                    </div>
-                    </form>
 
                     <!-- <form action="/modules" method="post">
                     <div class="sidebar-btn " style="margin: 80px auto 0; width: 300px; " >
@@ -64,14 +55,8 @@
                                 <h4 class="title">Course Modules</h4>
                             </div>
                             <ul>
-                                <%  module.forEach(function(i){ %>
-                                   <li><a href="#"><i class="fal fa-book"></i> <%= i.name %></a> <strong> <i class="fa fa-<%= i.status %>"></i></strong></li> 
-                                <%})%>
-                                <!-- <%  module.forEach(function(i){ %>
-                                   <li><a href="#"><i class="fal fa-book"></i> <%= i.name %></a> <strong> <i class="fa fa-<%= i.status %>"></i></strong></li> 
-                                <%})%> -->
                             </ul>
-                            <!-- <ul class="courses-features-items">
+                            <ul class="courses-features-items">
                                 <li><a href="#"><i class="fal fa-book"></i> Intervals</a> <strong> <i class="fa fa-unlock"></i></strong></li>
                                 <li><a href="#"><i class="fal fa-book"></i> Jazz Chords</a> <strong> <i class="fa fa-lock"></i></strong></li>
                                 <li><a href="#"><i class="fal fa-book"></i> The Art of Soloing 1</a> <strong> <i class="fa fa-lock"></i></strong></li>
@@ -81,7 +66,7 @@
                                 <li><a href="#"><i class="fal fa-book"></i> Modern Music Band Setup</a> <strong> <i class="fa fa-lock"></i></strong></li>
                                 <li><a href="#"><i class="fal fa-book"></i> 22 Modern Music Skills Monetization</a> <strong> <i class="fa fa-lock"></i></strong></li>
                                 <li><a href="#"><i class="fal fa-book"></i> The Legalities of 20th Century Music</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                            </ul> -->
+                            </ul>
                             <div class="sidebar-btn">
                                 <a class="main-btn mybtn" href="#!">Print Certificate</a>
                             </div>

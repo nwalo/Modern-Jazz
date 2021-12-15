@@ -1033,6 +1033,10 @@ app.get('/welcome', function(req, res) {
 	}
 });
 
+// app.get('/learn', function(req, res) {
+// 	res.render('learn', { title: 'learn' });
+// });
+
 app.get('/403', function(req, res) {
 	res.render('403', {
 		title: '403 Error - Access Forbidden'
