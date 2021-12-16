@@ -235,7 +235,7 @@
                                         </div>
 
                                         <div class="review-form-wrapper">
-                                            <form action="/course-details" method="post">
+                                            <form action="/course" method="post">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="single-form">
@@ -288,7 +288,7 @@
                             </div>
                             <ul class="courses-features-items">
                                 
-                                <li>Fee <strong style="position: relative;"><%= course.fee %> <sup style="position: absolute; bottom: 10px; right: 2px; color: #f23f00;"><abbr title="$ 100 | NGN 40 000">PROMO <i class="fa fa-tag"></i></abbr></sup></strong></li>
+                                <li>Fee <strong style="position: relative;"><%= course.fee %> </strong></li>
                                 <li>Duration <strong><%= course.duration%></strong></li>
                                 <li>Lessons <strong><%= course.lesson%></strong></li>
                                 <!-- <li>Semester <strong>12</strong></li> -->
@@ -309,7 +309,7 @@
     </section>
 
     <!--====== Courses Modal Starts ======-->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalTitle" aria-hidden="true">
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -334,7 +334,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--====== Courses ModaL Ends ======-->
 
     <!--====== Courses Details Ends ======-->
