@@ -72,17 +72,18 @@
                     <div class="courses-wrapper wrapper-2">
                         <div class="row">
                             
+                            <% courses.forEach(function(i){%>
                             <div class="col-lg-3 col-sm-6 courses-col">
                                 <div class="single-courses-2 mt-30">
                                     <div class="courses-image">
-                                        <a href= "#!"><img src="/assets/images/courses/teach.jpg" alt="courses"></a>
+                                        <a href= "#!"><img src="/assets/images/courses/<%= i.img%>" alt="courses"></a>
                                     </div>
                                     <div class="courses-content">
                                         <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <h4 class="courses-title"><a href="#!">The Art of Mastering Both Hand Improvisation</a></h4>
+                                        <h4 class="courses-title"><a href="#!"><%= i.title%></a></h4>
                                         <div class="duration-rating">
                                             <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 2 weeks</span></p>
+                                                <p class="duration">Duration: <span> <%= i.duration%></span></p>
                                                 <p class="fee">Fee: <span> $ 100</span><span> NGN 40 000</span></p>
                                             </div>
                                             <div class="rating">
@@ -107,6 +108,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <%})%>
                             
                         </div>
                     </div>
@@ -117,10 +119,11 @@
                 <div class="tab-pane fade show active" id="list" role="tabpanel">
                     <div class="courses-wrapper wrapper-2">
                         
+                        <% courses.forEach(function(i){%>
                         <div class="courses-col">
                             <div class="single-courses-2 courses-list mt-30">
                                 <div class="courses-image">
-                                    <a href= "#!"><img src="/assets/images/courses/teach.jpg" alt="courses"></a>
+                                    <a href= "#!"><img src="/assets/images/courses/<%= i.img%>" alt="courses"></a>
                                 </div>
                                 <div class="courses-content">
                                     <p class="courses-fee">Fee: <span> $ 100</span> <br>
@@ -131,12 +134,12 @@
                                     </div>
                                     </div> 
                                     <div class="courses-content-wrapper">                                        
-                                        <h4 class="courses-title"><a href= "#!">The Art of Mastering Both Hand Improvisation</a></h4>
+                                        <h4 class="courses-title"><a href= "#!"><%= i.title%></a></h4>
                                         <a href= "#!" class="category">You Too Can Play Series #1</a>
                                         <div class="duration-rating">
                                             <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 2 Weeks</span></p>
-                                                <p class="credit">Lessons: 10</p>
+                                                <p class="duration">Duration: <span> <%= i.duration%></span></p>
+                                                <p class="credit">Lessons: <%= i.lesson%></p>
                                             </div>
                                             <div class="rating">
                                                 <span>Rating: </span>
@@ -156,19 +159,14 @@
                                 </div>                                
                             </div>
                         </div>
+                        <%})%>
 
                     </div>
                 </div>
             </div>        
             
-
-            <ul class="pagination-items text-center">
-                <li><a href= "/course">01</a></li>
-                <li><a class="active" href= "/course-pg2">02</a></li>
-                <li><a href= "#!">03</a></li>
-                <li><a href= "#!">04</a></li>
-                <li><a href= "#!">05</a></li>
-            </ul>
+            <%- include('partials/pagination') %>
+            
         </div>
     </section>
 

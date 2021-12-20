@@ -20,6 +20,12 @@ $(function($) {
 		}
 	});
 
+	$('ul.pagination-items li a').each(function() {
+		if (this.href === url) {
+			$(this).addClass('active');
+		}
+	});
+
 	let errorImage = $('.erImg');
 	let errorText = $('.erText');
 
