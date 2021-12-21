@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -120,6 +120,7 @@ const userSchema = new mongoose.Schema({
 	fname: String,
 	lname: String,
 	nick: String,
+	theme: String,
 	course: [ courseSchema ],
 	review: [ reviewSchema ],
 	notification: [ notificationSchema ],
@@ -398,7 +399,7 @@ app.get('/dashboard', function(req, res) {
 			if (err) {
 				res.redirect('/login');
 			} else {
-				res.render('dashboard', { foundUser, userInitials, title: 'Dashboard' });
+				res.render('dashboard', { foundUser, userInitials, title: 'Dashboard', theme: foundUser.theme });
 			}
 		});
 	} else {
@@ -442,7 +443,12 @@ app.get('/dashboard-notification', function(req, res) {
 			if (err) {
 				res.redirect('/login');
 			} else {
-				res.render('dashboard-notification', { foundUser, userInitials, title: 'Dashboard Notification' });
+				res.render('dashboard-notification', {
+					foundUser,
+					userInitials,
+					title: 'Dashboard Notification',
+					theme: foundUser.theme
+				});
 			}
 		});
 	} else {
@@ -458,7 +464,12 @@ app.get('/dashboard-mycourse', function(req, res) {
 			if (err) {
 				res.redirect('/login');
 			} else {
-				res.render('dashboard-mycourse', { foundUser, userInitials, title: 'Dashboard - My Courses' });
+				res.render('dashboard-mycourse', {
+					foundUser,
+					userInitials,
+					title: 'Dashboard - My Courses',
+					theme: foundUser.theme
+				});
 			}
 		});
 	} else {
@@ -474,7 +485,7 @@ app.get('/dashboard-user', function(req, res) {
 			if (err) {
 				res.redirect('/login');
 			} else {
-				res.render('dashboard-user', { foundUser, userInitials });
+				res.render('dashboard-user', { foundUser, userInitials, theme: foundUser.theme });
 			}
 		});
 	} else {
@@ -1035,6 +1046,26 @@ app.get('/welcome', function(req, res) {
 	} else {
 		res.redirect('/login');
 	}
+});
+
+app.post('/theme', function(req, res) {
+	console.log(req.body.theme);
+
+	User.updateOne(
+		{
+			_id: req.user.id
+		},
+		{
+			theme: req.body.theme
+		},
+		function(err) {
+			if (!err) {
+				res.redirect('/dashboard-user');
+			} else {
+				res.redirect('/dashboard');
+			}
+		}
+	);
 });
 
 // app.get('/learn', function(req, res) {

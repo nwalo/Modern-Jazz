@@ -25,10 +25,15 @@
             </a>
           </li>
           <li class="adjustments-line text-center color-change">
+            <form action="/theme" method="post">
             <span class="color-label">LIGHT MODE</span>
-            <span class="badge light-badge mr-2"></span>
-            <span class="badge dark-badge ml-2"></span>
-            <span class="color-label">DARK MODE</span>
+            <input type="checkbox" name="theme" id="light" value="white-content" onchange="this.form.submit()">
+            
+            <label for="light"><span class="badge light-badge mr-2"></span></label>
+            <label for="dark"><span class="badge dark-badge ml-2"></span></label>
+            <span class="color-label" >DARK MODE</span>
+            <input type="checkbox" name="theme" id="dark" value="change-background" onchange="this.form.submit()">
+            </form>
           </li>
                     
         </ul>
