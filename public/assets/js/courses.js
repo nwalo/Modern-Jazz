@@ -15,7 +15,6 @@ exports.courses = [
 		link: '80_solo_techniques',
 		img: 'solo.jpg',
 		image: 'solo-lg.jpg',
-		video: '',
 		duration: '4 Weeks',
 		lesson: '26',
 		rating: '4.9',
@@ -25,132 +24,158 @@ exports.courses = [
 			{
 				name: 'Intervals',
 				lesson: '1.1',
-				status: 'unlock'
+				status: 'unlock',
+				video: ''
 			},
 			{
 				name: 'Jazz Chords',
 				lesson: '1.2',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'ARPEGGIOS',
 				lesson: '1.3',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Arpeggio Extensions',
 				lesson: '1.4',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Enclosures',
 				lesson: '1.5',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'CHROMATICISM',
 				lesson: '1.6',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Ambigous Scales',
 				lesson: '1.7',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Constant Melodies',
 				lesson: '1.8',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Durational Values',
 				lesson: '1.9',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Jazz Rhythms',
 				lesson: '1.10',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Rhythmic Improvisation',
 				lesson: '1.11',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Rhythmic Exercises',
 				lesson: '1.12',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Melodic Patterns',
 				lesson: '1.13',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Cycled Patterns',
 				lesson: '1.14',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Advance Cycled Patterns',
 				lesson: '1.15',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Major Scale Exercises',
 				lesson: '1.16',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Basic Jazz Voicings (Part 1)',
 				lesson: '1.17',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Basic Jazz Voicings (Part 2)',
 				lesson: '1.18',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Basic Jazz Voicings (Part 3)',
 				lesson: '1.19',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: '2 5 1 Chord Progressions',
 				lesson: '1.20',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Modes',
 				lesson: '1.21',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Modal Interchange',
 				lesson: '1.22',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'The Greatness Of The Major Scale',
 				lesson: '1.23',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Modal Superimposition',
 				lesson: '1.24',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Modal Use Of Scales',
 				lesson: '1.25',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			},
 			{
 				name: 'Summary',
 				lesson: '1.26',
-				status: 'lock'
+				status: 'lock',
+				video: ''
 			}
 		]
 	},
