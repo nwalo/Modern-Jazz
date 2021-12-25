@@ -71,19 +71,20 @@
                 <div class="tab-pane fade" id="grid" role="tabpanel">
                     <div class="courses-wrapper wrapper-2">
                         <div class="row">
+                            <% courses.slice(0, 2).forEach(function(i){%>
                             <div class="col-lg-3 col-sm-6 courses-col">
                                 <div class="single-courses-2 mt-30">
                                     <div class="courses-image">
-                                        <a href="/course/80_solo_techniques"><img src="/assets/images/courses/solo.jpg" alt="courses"></a>
+                                        <a href="/course/<%= i.link%>"><img src="/assets/images/courses/<%= i.img%>" alt="courses"></a>
                                     </div>
                                     <div class="courses-content">
                                         <a href="#!" class="category">You Too Can Play Series #1</a>
-                                        <h4 class="courses-title"><a href="/course/80_solo_techniques">80 Solo Techniques in 4 Weeks</a></h4>
+                                        <h4 class="courses-title"><a href="/course/<%= i.link%>"><%= i.title%></a></h4>
                                         <div class="duration-rating">
                                             <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 4 Weeks</span></p>
-                                                <p class="fee">Fee: <span> $ 25</span>
-                                                 <span> NGN 10 000</span></p>
+                                                <p class="duration">Duration: <span> <%= i.duration%></span></p>
+                                                <p class="fee">Fee: <span> $ <%= i.fee_$%></span>
+                                                 <span> NGN <%= i.fee_N%></span></p>
                                             </div>
                                             <div class="rating">
                                                 <span>Rating: </span>
@@ -97,24 +98,27 @@
                                             </div>
                                         </div>
                                         <div class="courses-link">
-                                            <a class="apply" href="/course/80_solo_techniques">Apply Now</a>
+                                            <a class="apply" href="/course/<%= i.link%>">Apply Now</a>
                                             <a class="more" href= "#!">Read more <i class="fal fa-chevron-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <%})%>
+
+                            <% courses.slice(2, 8).forEach(function(i){%>
                             <div class="col-lg-3 col-sm-6 courses-col">
                                 <div class="single-courses-2 mt-30">
                                     <div class="courses-image">
-                                        <a href= "#!"><img src="/assets/images/courses/perform.jpg" alt="courses"></a>
+                                        <a href= "#!"><img src="/assets/images/courses/<%= i.img%>" alt="courses"></a>
                                     </div>
                                     <div class="courses-content">
                                         <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <h4 class="courses-title"><a href="#!">A Day With The Masters (12)</a></h4>
+                                        <h4 class="courses-title"><a href="#!"><%= i.title%></a></h4>
                                         <div class="duration-rating">
                                             <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 1 weeks</span></p>
-                                                <p class="fee">Fee: <span> $ 100</span><span> NGN 40 000</span></p>
+                                                <p class="duration">Duration: <span> <%= i.duration%></span></p>
+                                                <p class="fee">Fee: <span> $ <%= i.fee_$%></span><span> NGN <%= i.fee_N%></span></p>
                                             </div>
                                             <div class="rating">
                                                 <span>Rating: </span>
@@ -138,216 +142,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-sm-6 courses-col">
-                                <div class="single-courses-2 mt-30">
-                                    <div class="courses-image">
-                                        <a href= "#!"><img src="/assets/images/courses/key.jpg" alt="courses"></a>
-                                    </div>
-                                    <div class="courses-content">
-                                        <a href= "#!" class="category">#You Too Can Play Series #1</a>
-                                        <h4 class="courses-title"><a href= "#!">500 Plus Chord Voicings</a></h4>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 4 Weeks</span></p>
-                                                <p class="fee">Fee: <span> $ 100</span><span> NGN 40 000</span></p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>
-                                    <div class="courses-lock">
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 courses-col">
-                                <div class="single-courses-2 mt-30">
-                                    <div class="courses-image">
-                                        <a href= "#!"><img src="/assets/images/courses/performance.jpeg" alt="courses"></a>
-                                    </div>
-                                    <div class="courses-content">
-                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <h4 class="courses-title"><a href= "#!">Music Performance Mastery </a></h4>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 2 weeks</span></p>
-                                                <p class="fee">Fee: <span> $ 100</span><span> NGN 40 000</span></p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>
-                                    <div class="courses-lock">
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 courses-col">
-                                <div class="single-courses-2 mt-30">
-                                    <div class="courses-image">
-                                        <a href= "#!"><img src="/assets/images/courses/musc.jpg" alt="courses"></a>
-                                    </div>
-                                    <div class="courses-content">
-                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <h4 class="courses-title"><a href= "#!">The Depth of Hearing Music (Intense Ear Training)</a></h4>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 2 weeks</span></p>
-                                                <p class="fee">Fee: <span> $ 100</span> <span> NGN 40 000</span></p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>
-                                    <div class="courses-lock">
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 courses-col">
-                                <div class="single-courses-2 mt-30">
-                                    <div class="courses-image">
-                                        <a href= "#!"><img src="/assets/images/courses/mony.jpg" alt="courses"></a>
-                                    </div>
-                                    <div class="courses-content">
-                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <h4 class="courses-title"><a href= "#!">Music Business and Music Skills Monetization A-Z</a></h4>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 2 weeks</span></p>
-                                                <p class="fee">Fee: <span> $ 100</span> <span> NGN 40 000</span></p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>
-                                    <div class="courses-lock">
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 courses-col">
-                                <div class="single-courses-2 mt-30">
-                                    <div class="courses-image">
-                                        <a href= "#!"><img src="/assets/images/courses/piano.jpg" alt="courses"></a>
-                                    </div>
-                                    <div class="courses-content">
-                                        <a href= "#!" class="category">#You Too Can Play Series #1</a>
-                                        <h4 class="courses-title"><a href= "#!">Become An Advanced Solo Jazz Painist in 10days</a></h4>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 2 weeks</span></p>
-                                                <p class="fee">Fee: <span> $ 100</span> <span> NGN 40 000</span></p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>
-                                    <div class="courses-lock">
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 courses-col">
-                                <div class="single-courses-2 mt-30">
-                                    <div class="courses-image">
-                                        <a href= "#!"><img src="/assets/images/courses/sing.jpg" alt="courses"></a>
-                                    </div>
-                                    <div class="courses-content">
-                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <h4 class="courses-title"><a href= "#!">Blues Music From Basic To Super advanced</a></h4>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 3 weeks</span></p>
-                                                <p class="fee">Fee: <span> $ 100</span> <span> NGN 40 000</span></p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>
-                                    <div class="courses-lock">
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div>
-                                </div>      
-                            </div>
+                            <%})%>
                         </div>
                     </div>
                 </div>
@@ -356,22 +151,23 @@
 
                 <div class="tab-pane fade show active" id="list" role="tabpanel">
                     <div class="courses-wrapper wrapper-2">
+                        <% courses.slice(0, 2).forEach(function(i){%>
                         <div class="courses-col">
                             <div class="single-courses-2 courses-list mt-30">
                                 <div class="courses-image">
-                                    <a href="/course/80_solo_techniques"><img src="/assets/images/courses/solo.jpg" alt="courses"></a>
+                                    <a href="/course/<%= i.link%>"><img src="/assets/images/courses/<%= i.img%>" alt="courses"></a>
                                 </div>
                                 <div class="courses-content">
-                                    <p class="courses-fee">Fee: <span> $ 25</span> <br>
-                                    <span> NGN 10 000</span> </p>
+                                    <p class="courses-fee">Fee: <span> $ <%= i.fee_$%></span> <br>
+                                    <span> NGN <%= i.fee_N%></span> </p>
                                     <div class="courses-content-wrapper">                                        
-                                        <h4 class="courses-title"><a href="/course/80_solo_techniques">80 Solo Techniques in 4 Weeks (Suitable For All Instruments)</a></h4>
+                                        <h4 class="courses-title"><a href="/course/<%= i.link%>"><%= i.fulltitle%></a></h4>
                                         
                                         <a href= "#!" class="category">You Too Can Play Series #1</a>
                                         <div class="duration-rating">
                                             <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 4 Weeks</span></p>
-                                                <p class="credit">Lessons: 16</p>
+                                                <p class="duration">Duration: <span> <%= i.duration%></span></p>
+                                                <p class="credit">Lessons: <%= i.lesson%></p>
                                             </div>
                                             <div class="rating">
                                                 <span>Rating: </span>
@@ -385,37 +181,38 @@
                                             </div>
                                         </div>
                                         <div class="courses-link">
-                                            <a class="apply" href="/enroll/80_solo_techniques">Apply Now</a>
-                                            <a class="more" href="/course/80_solo_techniques">Read more <i class="fal fa-chevron-right"></i></a>
+                                            <a class="apply" href="/enroll/<%= i.link%>">Apply Now</a>
+                                            <a class="more" href="/course/<%= i.link%>">Read more <i class="fal fa-chevron-right"></i></a>
                                         </div>
                                     </div>  
                                                                 
                                 </div>                                
                             </div>
                         </div>
+                        <%})%>
                         
+                        <% courses.slice(2, 8).forEach(function(i){%>
                         <div class="courses-col">
-                            
                             <div class="single-courses-2 courses-list mt-30">
                                 <div class="courses-image">
-                                    <a href= "#!"><img src="/assets/images/courses/perform.jpg" alt="courses"></a>
+                                    <a href= "#!"><img src="/assets/images/courses/<%= i.img%>" alt="courses"></a>
                                 </div>
                                 
                                 <div class="courses-content">
-                                    <p class="courses-fee">Fee: <span> $ 100</span> <br>
-                                    <span> NGN 40 000</span> </p>
+                                    <p class="courses-fee">Fee: <span> $ <%= i.fee_$%></span> <br>
+                                    <span> NGN <%= i.fee_N%></span> </p>
                                     <div class="courses-lock full">
                                     <div class="lock">
                                         <i class="fas fa-lock"></i>
                                     </div>
                                     </div>
                                     <div class="courses-content-wrapper">                                        
-                                        <h4 class="courses-title"><a href= "#!">A Day With The Masters (12 Global Professionals)</a></h4>
+                                        <h4 class="courses-title"><a href= "#!"> <%=i.fulltitle%></a></h4>
                                         <a href= "#!" class="category">You Too Can Play Series #1</a>
                                         <div class="duration-rating">
                                             <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 1 week</span></p>
-                                                <p class="credit">Lessons: 8</p>
+                                                <p class="duration">Duration: <span> <%=i.duration%></span></p>
+                                                <p class="credit">Lessons: <%=i.lesson%></p>
                                             </div>
                                             <div class="rating">
                                                 <span>Rating: </span>
@@ -435,242 +232,8 @@
                                 </div>                                
                             </div>
                         </div>
-                        
-                        <div class="courses-col">
-                            <div class="single-courses-2 courses-list mt-30">
-                                <div class="courses-image">
-                                    <a href= "#!"><img src="/assets/images/courses/key.jpg" alt="courses"></a>
-                                </div>
-                                <div class="courses-content">
-                                    <p class="courses-fee">Fee: <span> $ 100</span> <br>
-                                    <span> NGN 40 000</span> </p>
-                                    <div class="courses-lock full">  
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div>
-                                    <div class="courses-content-wrapper">                                        
-                                        <h4 class="courses-title"><a href= "#!">500 Plus Chord Voicings For The Aspiring Pianists </a></h4>
-                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 4 weeks</span></p>
-                                                <p class="credit">Lessons: 10</p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>                                
-                                </div>                                
-                            </div>
-                        </div>
-                        <div class="courses-col">
-                            <div class="single-courses-2 courses-list mt-30">
-                                <div class="courses-image">
-                                    <a href= "#!"><img src="/assets/images/courses/performance.jpeg" alt="courses"></a>
-                                </div>
-                                <div class="courses-content">
-                                    <p class="courses-fee">Fee: <span> $ 100</span> <br>
-                                    <span> NGN 40 000</span> </p>
-                                    <div class="courses-lock full">
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div> 
-                                    <div class="courses-content-wrapper">                                        
-                                        <h4 class="courses-title"><a href= "#!">Music Performance Mastery (Staging)</a></h4>
-                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 2 Weeks</span></p>
-                                                <p class="credit">Lessons: 4</p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>                                
-                                </div>                                
-                            </div>
-                        </div>
-                        <div class="courses-col">
-                            <div class="single-courses-2 courses-list mt-30">
-                                <div class="courses-image">
-                                    <a href= "#!"><img src="/assets/images/courses/musc.jpg" alt="courses"></a>
-                                </div>
-                                <div class="courses-content">
-                                    <p class="courses-fee">Fee: <span> $ 100</span> <br>
-                                    <span> NGN 40 000</span> </p>
-                                    <div class="courses-lock full">
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div> 
-                                    <div class="courses-content-wrapper">                                        
-                                        <h4 class="courses-title"><a href= "#!">The Depth of Hearing Music (Intense Ear Training)</a></h4>
-                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 2 Weeks</span></p>
-                                                <p class="credit">Lessons: 8</p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>                                
-                                </div>                                
-                            </div>
-                        </div>
-                        <div class="courses-col">
-                            <div class="single-courses-2 courses-list mt-30">
-                                <div class="courses-image">
-                                    <a href= "#!"><img src="/assets/images/courses/mony.jpg" alt="courses"></a>
-                                </div>
-                                <div class="courses-content">
-                                    <p class="courses-fee">Fee: <span> $ 100</span> <br>
-                                    <span> NGN 40 000</span> </p>
-                                    <div class="courses-lock full">
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div> 
-                                    <div class="courses-content-wrapper">                                        
-                                        <h4 class="courses-title"><a href= "#!">Music Business and Music Skills Monetization A-Z</a></h4>
-                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 2 Weeks</span></p>
-                                                <p class="credit">Lessons: 5</p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>                                
-                                </div>                                
-                            </div>
-                        </div>
-                        <div class="courses-col">
-                            <div class="single-courses-2 courses-list mt-30">
-                                <div class="courses-image">
-                                    <a href= "#!"><img src="/assets/images/courses/piano.jpg" alt="courses"></a>
-                                </div>
-                                <div class="courses-content">
-                                    <p class="courses-fee">Fee: <span> $ 100</span> <br>
-                                    <span> NGN 40 000</span> </p>
-                                    <div class="courses-lock full">
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div> 
-                                    <div class="courses-content-wrapper">                                        
-                                        <h4 class="courses-title"><a href= "#!">Become An Advanced Solo Jazz Pianist In 10 days</a></h4>
-                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 4 Weeks</span></p>
-                                                <p class="credit">Lessons: 10</p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>                                
-                                </div>                                
-                            </div>
-                        </div>
-                        <div class="courses-col">
-                            <div class="single-courses-2 courses-list mt-30">
-                                <div class="courses-image">
-                                    <a href= "#!"><img src="/assets/images/courses/sing.jpg" alt="courses"></a>
-                                </div>
-                                <div class="courses-content">
-                                    <p class="courses-fee">Fee: <span> $ 100</span> <br>
-                                    <span> NGN 40 000</span> </p>
-                                    <div class="courses-lock full">
-                                    <div class="lock">
-                                        <i class="fas fa-lock"></i>
-                                    </div>
-                                    </div> 
-                                    <div class="courses-content-wrapper">                                        
-                                        <h4 class="courses-title"><a href= "#!">Blues Music From Basic To Super Advance</a></h4>
-                                        <a href= "#!" class="category">You Too Can Play Series #1</a>
-                                        <div class="duration-rating">
-                                            <div class="duration-fee">
-                                                <p class="duration">Duration: <span> 3 Weeks</span></p>
-                                                <p class="credit">Lessons: 12</p>
-                                            </div>
-                                            <div class="rating">
-                                                <span>Rating: </span>
-                                                <ul class="star">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="courses-link">
-                                            <a class="apply" href= "#!">Coming Soon</a>
-                                        </div>
-                                    </div>                                
-                                </div>                                
-                            </div>
-                        </div>
-
+                        <%})%>
+                                       
                     </div>
                 </div>
             </div>        

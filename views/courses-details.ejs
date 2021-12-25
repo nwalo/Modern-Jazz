@@ -39,13 +39,13 @@
             <div class="row flex-row-reverse">
                 <div class="col-lg-9">
                     <div class="courses-details-content mt-50">
-                        <img src="/assets/images/courses/<%=course.image%>" alt="course image">
+                        <img src="/assets/images/courses/<%=course.img%>" alt="course image">
                         
                         <h2 class="title" style="font-size: 40px;">
                             <% if(course.title == '80 Solo Techniques in 4 Weeks'){%>
                                 <%=course.title%> - Suitable For All Instruments
                             <%} else {%>
-                                <%=course.title%>   
+                                <%=course.fulltitle%>   
                             <% } %>
                         </h2>
 
@@ -288,7 +288,7 @@
                             </div>
                             <ul class="courses-features-items">
                                 
-                                <li>Fee <strong style="position: relative;"><%= course.fee %> </strong></li>
+                                <li>Fee <strong style="position: relative;"><%= course.fee_$ %> | <%= course.fee_N %> </strong></li>
                                 <li>Duration <strong><%= course.duration%></strong></li>
                                 <li>Lessons <strong><%= course.lesson%></strong></li>
                                 <!-- <li>Semester <strong>12</strong></li> -->

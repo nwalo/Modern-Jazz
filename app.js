@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -192,7 +192,8 @@ const welcomeNotification = [
 // ROUTES
 
 app.get('/', function(req, res) {
-	res.render('index', { title: 'Home' });
+	var myCourse = courses.courses;
+	res.render('index', { title: 'Home', courses: myCourse });
 });
 
 app.get('/about', function(req, res) {
@@ -252,7 +253,8 @@ app.post('/contact', function(req, res) {
 });
 
 app.get('/course', function(req, res) {
-	res.render('our-courses-list', { title: 'All Courses' });
+	var myCourse = courses.courses;
+	res.render('our-courses-list', { title: 'All Courses', courses: myCourse });
 });
 
 app.get('/course-pg2', function(req, res) {
@@ -1071,6 +1073,31 @@ app.post('/theme', function(req, res) {
 		}
 	);
 });
+
+// var lesson = '1.1';
+// var title = '80 Solo Techniques in 4 Weeks';
+
+// User.findOneAndUpdate(
+// 	{
+// 		'course.title': title,
+// 		'course.$[outer].modules.$[inner].lesson': lesson
+// 	},
+// 	{
+// 		$set: {
+// 			'course.$[outer].modules.$[inner].video': 'i love Jesus'
+// 		}
+// 	},
+// 	{
+// 		arrayFilters: [ { 'outer.title': title }, { 'inner.lesson': lesson } ]
+// 	},
+// 	function(err, found) {
+// 		if (err) {
+// 			console.log(err);
+// 		} else {
+// 			console.log('current course has updated');
+// 		}
+// 	}
+// );
 
 // app.get('/learn', function(req, res) {
 // 	res.render('learn', { title: 'learn' });

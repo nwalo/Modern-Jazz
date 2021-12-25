@@ -31,7 +31,7 @@
                     <div class="courses-details-content mt-50">
                         
                         <!-- <video src="/assets/smoke.mp4" width="100%" poster="/assets/images/courses/solo-lg.jpg" controls ></video> -->
-                        <img src="/assets/images/courses/solo-lg.jpg" alt="Course image" width="80%">
+                        <img src="/assets/images/courses/<%= currentCourse.img %>" alt="Course image" width="80%">
                         <h2 class="title my"> <%= currentCourse.title %> <br> 
                             <!-- Lesson <%= lessonNumber %> : <%= currentCourseModule.name%>  -->
                         </h2>
@@ -58,11 +58,15 @@
 
                 <div class="courses-details-tab">
                  <div class="benefit-content">
-                     <h4>THANK YOU FOR ENROLLING FOR THE COURSE 80 SOLO TECHNIQUES, LESSONS SHALL BE AVAILABLE ON FRIDAY 14TH JANUARY, 2022.</h4>
+                     <% if(currentCourse.title == '80 Solo Techniques in 4 Weeks'){ %>
+                        <h4 style="text-transform: uppercase">THANK YOU FOR ENROLLING FOR THE COURSE "<%= currentCourse.title %>", LESSONS SHALL BE AVAILABLE ON FRIDAY 14TH JANUARY, 2022.</h4>
+                    <% } else { %>
+                        <h4 style="text-transform: uppercase">THANK YOU FOR ENROLLING FOR THE COURSE "<%= currentCourse.title %>", LESSONS SHALL BE AVAILABLE ON MONDAY 7TH FEBRUARY, 2022.</h4>
+                        <% } %>
                         <ul class="courses-details-list">
                             <li>
                                 <i class="far fa-check-circle"></i>
-                                <p>Join our telegram channel <a href="https://t.me/+8KIwRtycjitkNTM0" style="color: #ca9400;">here</a> to engage in the live virtual class session.</p>
+                                <p>Join our Telegram channel <a href="https://t.me/+8KIwRtycjitkNTM0" style="color: #ca9400;">here</a> to engage in the live virtual class session.</p>
                             </li>
                             <li>
                                 <i class="far fa-check-circle"></i>

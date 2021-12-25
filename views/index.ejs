@@ -359,12 +359,13 @@
           data-wow-delay="0.2s"
         >
           <div class="row">
+            <% courses.slice(0, 2).forEach(function(i){%>
             <div class="col-lg-3 col-sm-6 courses-col">
               <div class="single-courses-2 mt-30">
                 <div class="courses-image">
-                  <a href="/course/80_solo_techniques">
+                  <a href="/course/<%=i.link%>">
                     <img
-                      src="/assets/images/courses/solo.jpg"
+                      src="/assets/images/courses/<%=i.img%>"
                       alt="courses"
                     />
                   </a>
@@ -372,20 +373,20 @@
                 <div class="courses-content">
                   <a href="course" class="category">You Too Can Play Series #1</a>
                   <h4 class="courses-title">
-                    <a href="/course/80_solo_techniques">
-                      80 Solo Techniques in 4 Weeks
+                    <a href="/course/<%=i.link%>">
+                      <%=i.title%>
                     </a>
                   </h4>
                   <div class="duration-rating">
                     <div class="duration-fee">
                       <p class="duration">
                         Duration:
-                        <span>4 weeks</span>
+                        <span><%=i.duration%></span>
                       </p>
                       <p class="fee">
                         Fee: 
-                        <span>$ 25</span>
-                        <span>NGN 10 000</span>
+                        <span>$ <%=i.fee_$%></span>
+                        <span>NGN <%= i.fee_N%></span>
                       </p>
                     </div>
                     <div class="rating">
@@ -409,156 +410,45 @@
                 </div>
               </div>
             </div>
+            <%})%>
+
+            <% courses.slice(2, 4).forEach(function(i){%>
             <div class="col-lg-3 col-sm-6 courses-col">
               <div class="single-courses-2 mt-30">
-                <div class="courses-image">
-                  <a href="#!">
-                    <img
-                      src="/assets/images/courses/perform.jpg"
-                      alt="courses"
-                    />
-                  </a>
-                </div>
-                <div class="courses-content">
-                  <a href="#!" class="category">You Too Can Play Series #1</a>
-                  <h4 class="courses-title">
-                    <a href="#!">
-                      A Day With The Masters (12)
-                    </a>
-                  </h4>
-                  <div class="duration-rating">
-                    <div class="duration-fee">
-                      <p class="duration">
-                        Duration:
-                        <span>2 Weeks</span>
-                      </p>
-                      <p class="fee">
-                        Fee: <span> $ 100 </span>
-                        <span>NGN 40 000</span>
-                      </p>
-                    </div>
-                    <div class="rating">
-                      <span>Rating:</span>
-                      <ul class="star">
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                      </ul>
-                    </div>
+                  <div class="courses-image">
+                      <a href= "#!"><img src="/assets/images/courses/<%= i.img%>" alt="courses"></a>
                   </div>
-                  <div class="courses-link">
-                    <a class="apply" href="#!">Coming Soon</a>
+                  <div class="courses-content">
+                      <a href= "#!" class="category">You Too Can Play Series #1</a>
+                      <h4 class="courses-title"><a href="#!"><%= i.title%></a></h4>
+                      <div class="duration-rating">
+                          <div class="duration-fee">
+                              <p class="duration">Duration: <span> <%= i.duration%></span></p>
+                              <p class="fee">Fee: <span> $ <%= i.fee_$%></span><span> NGN <%= i.fee_N%></span></p>
+                          </div>
+                          <div class="rating">
+                              <span>Rating: </span>
+                              <ul class="star">
+                                  <li><i class="fas fa-star"></i></li>
+                                  <li><i class="fas fa-star"></i></li>
+                                  <li><i class="fas fa-star"></i></li>
+                                  <li><i class="fas fa-star"></i></li>
+                                  <li><i class="fas fa-star"></i></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="courses-link">
+                          <a class="apply" href= "#!">Coming Soon</a>
+                      </div>
                   </div>
-                </div>
-                <div class="courses-lock">
+                  <div class="courses-lock">
                   <div class="lock">
-                    <i class="fas fa-lock"></i>
+                      <i class="fas fa-lock"></i>
                   </div>
-                </div>
+                  </div>
               </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 courses-col">
-              <div class="single-courses-2 mt-30">
-                <div class="courses-image">
-                  <a href="#!">
-                    <img
-                      src="/assets/images/courses/key.jpg"
-                      alt="courses"
-                    />
-                  </a>
-                </div>
-                <div class="courses-content">
-                  <a href="#!" class="category">You Too Can Play Series #1</a>
-                  <h4 class="courses-title">
-                    <a href="#!">
-                      500 Plus Chord Voicings
-                    </a>
-                  </h4>
-                  <div class="duration-rating">
-                    <div class="duration-fee">
-                      <p class="duration">
-                        Duration:
-                        <span>4 Weeks</span>
-                      </p>
-                      <p class="fee">
-                        Fee: <span> $ 100 </span>
-                        <span>NGN 40 000</span>
-                      </p>
-                    </div>
-                    <div class="rating">
-                      <span>Rating:</span>
-                      <ul class="star">
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="courses-link">
-                    <a class="apply" href="#!">Coming Soon</a>
-                  </div>
-                </div>
-                <div class="courses-lock">
-                  <div class="lock">
-                    <i class="fas fa-lock"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 courses-col">
-              <div class="single-courses-2 mt-30">
-                <div class="courses-image">
-                  <a href="#!">
-                    <img
-                      src="/assets/images/courses/performance.jpeg"
-                      alt="courses"
-                    />
-                  </a>
-                </div>
-                <div class="courses-content">
-                  <a href="#!" class="category">You Too Can Play Series #1</a>
-                  <h4 class="courses-title">
-                    <a href="#!">
-                      Music performance mastery (Staging)
-                    </a>
-                  </h4>
-                  <div class="duration-rating">
-                    <div class="duration-fee">
-                      <p class="duration">
-                        Duration:
-                        <span>4 Weeks</span>
-                      </p>
-                      <p class="fee">
-                        Fee: <span> $ 100 </span>
-                        <span>NGN 40 000</span>
-                      </p>
-                    </div>
-                    <div class="rating">
-                      <span>Rating:</span>
-                      <ul class="star">
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                        <li><i class="fas fa-star"></i></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="courses-link">
-                    <a class="apply" href="#!">Coming Soon</a>
-                  </div>
-                </div>
-                <div class="courses-lock">
-                  <div class="lock">
-                    <i class="fas fa-lock"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+          </div>
+            <%})%>
           </div>
         </div>
       </div>

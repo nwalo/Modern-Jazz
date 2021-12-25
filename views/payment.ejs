@@ -21,7 +21,7 @@
     <div class="row m-0">
         <div class="col-lg-7 pb-5 pe-lg-5">
             <div class="row">
-                <div class="col-12 p-5"> <img src="/assets/images/courses/solo.jpg" alt=""> </div>
+                <div class="col-12 p-5"> <img src="/assets/images/courses/<%= course.img%>" alt=""> </div>
                 <div class="row m-0 bg-light">
                     <div class="col-md-4 col-6 ps-30 pe-0 my-4">
                         <p class="text-muted">Series</p>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="col-md-4 col-6 ps-30 my-4">
                         <p class="text-muted">Fee</p>
-                        <p class="text-lt"><%= course.fee %></p>
+                        <p class="text-lt"><%= course.fee_$ %> | <%= course.fee_N %></p>
                     </div>
                     <div class="col-md-4 col-6 ps-30 my-4">
                         <p class="text-muted">Course Difficulty</p>

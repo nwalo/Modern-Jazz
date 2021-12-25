@@ -2,6 +2,7 @@ exports.courses = [
 	{
 		series: 'You Too Can Play Series #1',
 		title: '80 Solo Techniques in 4 Weeks',
+		fulltitle: '80 Solo Techniques in 4 Weeks (Suitable For All Instruments)',
 		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of music.',
@@ -19,7 +20,8 @@ exports.courses = [
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '80',
-		fee: '$ 25 | NGN 10 000',
+		fee_$: '25',
+		fee_N: '10 000',
 		modules: [
 			{
 				name: 'Intervals',
@@ -181,6 +183,30 @@ exports.courses = [
 	},
 	{
 		series: 'You Too Can Play Series #1',
+		title: 'The Art Of Piano Playing',
+		fulltitle: 'The Art Of Piano Playing (Beginner To Intermediate)',
+		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
+		benefits: [
+			'The course has been fully simplified to enable students have a thorough understanding of music.',
+			'Weekly live virtual class on telegram.',
+			'Mentorship.',
+			'Professional Certification.'
+		],
+		tutors: [],
+		link: 'the_art_of_piano_playing',
+		img: 'piano.jpg',
+		image: 'solo-lg.jpg',
+		video: '',
+		duration: '2 Weeks',
+		lesson: '10',
+		rating: '4.9',
+		ratingNumber: '95',
+		fee_$: '100',
+		fee_N: '40 000',
+		modules: []
+	},
+	{
+		series: 'You Too Can Play Series #1',
 		title: 'A Day With The Masters (12)',
 		fulltitle: 'A Day With The Masters (12 Global Professionals)',
 		link: 'a_day_with_the_masters',
@@ -199,7 +225,8 @@ exports.courses = [
 		duration: '1 Day',
 		lesson: '12',
 		rating: '4.5',
-		fee: '$ 100 | NGN 40 000',
+		fee_$: '100',
+		fee_N: '40 000',
 		modules: [
 			{
 				name: 'Intervals',
@@ -268,43 +295,9 @@ exports.courses = [
 		lesson: '10',
 		rating: '5',
 		ratingNumber: '50',
-		fee: '$ 100 | NGN 40 000',
+		fee_$: '100',
+		fee_N: '40 000',
 		modules: [
-			{
-				name: 'Intervals',
-				lesson: '1.1',
-				status: 'unlock'
-			},
-			{
-				name: 'Jazz Chords',
-				lesson: '1.2',
-				status: 'lock'
-			}
-		]
-	},
-	{
-		series: 'You Too Can Play Series #1',
-		title: 'Music Performance Mastery',
-		fulltitle: 'Music Performance Mastery (Staging)',
-		link: 'music_performance_mastery',
-		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
-		benefits: [
-			'The course has been fully simplified to enable students have a thorough understanding of music.',
-			'Learn the basic and essential techniques needed to master the art of musical improvisation.',
-			'Understand and master the Art of Soloing.',
-			'Mentorship.',
-			'professional Certification.'
-		],
-		tutors: [],
-		img: 'performance.jpeg',
-		image: '',
-		video: '',
-		duration: '2 Weeks',
-		lesson: '6',
-		rating: '4.9',
-		ratingNumber: '30',
-		fee: '$ 100 | NGN 40 000',
-		module: [
 			{
 				name: 'Intervals',
 				lesson: '1.1',
@@ -338,12 +331,14 @@ exports.courses = [
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '80',
-		fee: '$ 100 | NGN 40 000',
+		fee_$: '100',
+		fee_N: '40 000',
 		modules: []
 	},
 	{
 		series: 'You Too Can Play Series #1',
-		title: 'Music Business and Music Skills Monetization A-Z',
+		title: 'Music Business and Skills Monetization',
+		fulltitle: 'Music Business and Music Skills Monetization A-Z',
 		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of music.',
@@ -361,12 +356,14 @@ exports.courses = [
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '80',
-		fee: '$ 100 | NGN 40 000',
+		fee_$: '100',
+		fee_N: '40 000',
 		modules: []
 	},
 	{
 		series: 'You Too Can Play Series #1',
-		title: 'Become An Advanced Solo Jazz Painist in 10days',
+		title: 'Become A Solo Jazz Painist In 10 Days',
+		fulltitle: 'Become An Advanced Solo Jazz Painist In 10 Days',
 		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of music.',
@@ -377,19 +374,45 @@ exports.courses = [
 		],
 		tutors: [],
 		link: 'become_an_advanced_solo_jazz_painist',
-		img: 'piano.jpg',
+		img: 'play key.jpg',
 		image: 'solo-lg.jpg',
 		video: '',
 		duration: '2 Weeks',
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '80',
-		fee: '$ 100 | NGN 40 000',
+		fee_$: '100',
+		fee_N: '40 000',
 		modules: []
 	},
 	{
 		series: 'You Too Can Play Series #1',
-		title: 'Blues Music From Basic To Super Advanced',
+		title: 'Music Performance Mastery',
+		fulltitle: 'Music Performance Mastery (Staging)',
+		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
+		benefits: [
+			'The course has been fully simplified to enable students have a thorough understanding of music.',
+			'Learn the basic and essential techniques needed to master the art of musical improvisation.',
+			'Weekly live virtual class on telegram.',
+			'Mentorship.',
+			'Professional Certification.'
+		],
+		tutors: [],
+		link: 'music_performance_mastery',
+		img: 'performance.jpeg',
+		video: '',
+		duration: '2 Weeks',
+		lesson: '6',
+		rating: '4.9',
+		ratingNumber: '30',
+		fee_$: '100',
+		fee_N: '40 000',
+		modules: []
+	},
+	{
+		series: 'You Too Can Play Series #1',
+		title: 'Blues Music From Basic To Advanced',
+		fulltitle: 'Blues Music From Basic To Super Advanced',
 		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of music.',
@@ -406,12 +429,14 @@ exports.courses = [
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '95',
-		fee: '$ 100 | NGN 40 000',
+		fee_$: '100',
+		fee_N: '40 000',
 		modules: []
 	},
 	{
 		series: 'You Too Can Play Series #1',
 		title: 'The Art of Mastering Hand Improvisation',
+		fulltitle: 'The Art of Mastering Hand Improvisation',
 		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of music.',
@@ -429,7 +454,8 @@ exports.courses = [
 		lesson: '10',
 		rating: '4.6',
 		ratingNumber: '55',
-		fee: '$ 100 | NGN 40 000',
+		fee_$: '100',
+		fee_N: '40 000',
 		modules: [
 			{
 				name: 'Intervals',
@@ -460,8 +486,8 @@ exports.courses = [
 	},
 	{
 		series: 'You Too Can Play Series #1',
-		title: 'The Art Of Piano Playing',
-		fulltitle: 'The Art Of Piano Playing (Beginner To Intermediate)',
+		title: 'Gospel/Jazz Leaks For Aspiring Pianist',
+		fulltitle: '200 Gospel/Jazz Leaks For The Aspiring Pianist',
 		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of music.',
@@ -470,29 +496,7 @@ exports.courses = [
 			'Professional Certification.'
 		],
 		tutors: [],
-		link: 'the_art_of_piano_playing',
-		img: 'piano.jpg',
-		image: 'solo-lg.jpg',
-		video: '',
-		duration: '2 Weeks',
-		lesson: '26',
-		rating: '4.9',
-		ratingNumber: '95',
-		fee: '$ 100 | NGN 40 000',
-		modules: []
-	},
-	{
-		series: 'You Too Can Play Series #1',
-		title: '200 Gospel/Jazz Licks For The Aspiring Pianist',
-		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
-		benefits: [
-			'The course has been fully simplified to enable students have a thorough understanding of music.',
-			'Weekly live virtual class on telegram.',
-			'Mentorship.',
-			'Professional Certification.'
-		],
-		tutors: [],
-		link: '200_gospel/jazz_licks_for_the_aspiring_pianist',
+		link: '200_gospel/jazz_leaks_for_the_aspiring_pianist',
 		img: 'gospel.jpg',
 		image: 'solo-lg.jpg',
 		video: '',
@@ -500,12 +504,14 @@ exports.courses = [
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '95',
-		fee: '$ 100 | NGN 40 000',
+		fee_$: '100',
+		fee_N: '40 000',
 		modules: []
 	},
 	{
 		series: 'You Too Can Play Series #1',
-		title: '200 251 Chords Suitable For All Music Styles',
+		title: 'Chords Suitable For All Music Styles',
+		fulltitle: '200 251 Chords Suitable For All Music Styles',
 		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of music.',
@@ -522,12 +528,14 @@ exports.courses = [
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '95',
-		fee: '$ 100 | NGN 40 000',
+		fee_$: '100',
+		fee_N: '40 000',
 		modules: []
 	},
 	{
 		series: 'You Too Can Play Series #1',
 		title: '100 Gospel Piano Secrets',
+		fulltitle: '100 Gospel/Jazz Piano Secrets',
 		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of music.',
@@ -544,7 +552,8 @@ exports.courses = [
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '95',
-		fee: '$ 100 | NGN 40 000',
+		fee_$: '100',
+		fee_N: '40 000',
 		modules: []
 	}
 ];
