@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -188,6 +188,25 @@ const welcomeNotification = [
 		message: 'A live virtual class session takes place on the telegram channel on Mondays and Thursdays.'
 	}
 ];
+
+// var text = { message: '🎉 Compliments of the season to you 🎁 ! 🎄 We wish you a jolly Christmas from Modern Jazz with Noels ❤.' };
+
+// User.find({}, function(err, found) {
+// 	if (err) {
+// 		console.log('err');
+// 	} else {
+// 		found.forEach(function(user) {
+// 			user.notification.push(text);
+// 			user.save(function(err) {
+// 				if (err) {
+// 					console.log('err');
+// 				} else {
+// 					console.log('user.notification.');
+// 				}
+// 			});
+// 		});
+// 	}
+// });
 
 // ROUTES
 
@@ -1074,27 +1093,30 @@ app.post('/theme', function(req, res) {
 	);
 });
 
-// var lesson = '1.1';
+// var lesson = '1.10';
 // var title = '80 Solo Techniques in 4 Weeks';
 
-// User.findOneAndUpdate(
+// User.find(
 // 	{
 // 		'course.title': title,
-// 		'course.$[outer].modules.$[inner].lesson': lesson
-// 	},
-// 	{
-// 		$set: {
-// 			'course.$[outer].modules.$[inner].video': 'i love Jesus'
-// 		}
-// 	},
-// 	{
-// 		arrayFilters: [ { 'outer.title': title }, { 'inner.lesson': lesson } ]
+// 		'course.modules.lesson': lesson
 // 	},
 // 	function(err, found) {
 // 		if (err) {
 // 			console.log(err);
 // 		} else {
-// 			console.log('current course has updated');
+// 			found.forEach(function(i) {
+// 				i.course.forEach(function(j) {
+// 					j.modules.forEach(function(k) {
+// 						j.save(function(err) {
+// 							if (!err) {
+// 								k['video'] = '';
+// 								console.log(k);
+// 							}
+// 						});
+// 					});
+// 				});
+// 			});
 // 		}
 // 	}
 // );
