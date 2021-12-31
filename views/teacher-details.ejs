@@ -62,8 +62,8 @@
                         <p><%= tutor.description %> </p>
                         
                         <ul class="teacher-contact">
-                            <li><strong>Email:</strong> <a href="#"><%= i.email %></a></li>
-                            <li><strong>Phone:</strong> <a href="#"><%= i.phone %></a></li>
+                            <li><strong>Email:</strong> <a href="mailto:<%= i.email %>" target="_blank"><%= i.email %></a></li>
+                            <li><strong>Phone:</strong> <a href="tel:<%= i.phone %>"><%= i.phone %></a></li>
                         </ul>
                         
                     </div>
@@ -71,7 +71,7 @@
                 <%}) %>
             </div>
 
-            <div class="teacher-details-tab">
+            <!-- <div class="teacher-details-tab">
                 <ul class="nav nav-justified" role="tablist">
                     <li class="nav-item"><a class="active" data-toggle="tab" href="#experience" role="tab">Experience</a></li>
                     <li class="nav-item"><a data-toggle="tab" href="#educational" role="tab">Qualification</a></li>
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                 </div> 
-            </div>
+            </div> -->
         </div>
     </section>
 

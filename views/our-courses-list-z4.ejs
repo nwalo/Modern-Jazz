@@ -44,7 +44,7 @@
                                 <li><a data-toggle="tab" href="#grid" role="tab"><i class="fas fa-th-large"></i></a></li>
                                 <li><a class="active" data-toggle="tab" href="#list" role="tab"><i class="fas fa-list"></i></a></li>
                             </ul>
-                            <p>Showing 1 - 8 of 40 results</p>
+                            <p>Showing 24 - 32 of 40 results</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -64,14 +64,14 @@
                                 <i class="far fa-search"></i>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>            
             </div>    
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade" id="grid" role="tabpanel">
                     <div class="courses-wrapper wrapper-2">
                         <div class="row">
-                            <% courses.slice(0, 8).forEach(function(i){%>
+                            <% courses.forEach(function(i){%>
                             <% if(i.status == 'unlock'){%>                            
                             <div class="col-lg-3 col-sm-6 courses-col">
                                 <div class="single-courses-2 mt-30">
@@ -238,6 +238,7 @@
             </div>        
             
             <%- include('partials/pagination') %>
+            
         </div>
     </section>
 

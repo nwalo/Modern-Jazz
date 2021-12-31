@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -77,6 +77,7 @@ const courseSchema = new mongoose.Schema({
 	benefits: [],
 	tutors: [],
 	link: String,
+	status: String,
 	img: String,
 	image: String,
 	video: String,
@@ -279,6 +280,16 @@ app.get('/course', function(req, res) {
 app.get('/course-pg2', function(req, res) {
 	var myCourse = courses.courses.slice(8, 16);
 	res.render('our-courses-list-z2', { title: 'All Courses - Page 2', courses: myCourse });
+});
+
+app.get('/course-pg3', function(req, res) {
+	var myCourse = courses.courses.slice(16, 24);
+	res.render('our-courses-list-z3', { title: 'All Courses - Page 3', courses: myCourse });
+});
+
+app.get('/course-pg4', function(req, res) {
+	var myCourse = courses.courses.slice(24);
+	res.render('our-courses-list-z4', { title: 'All Courses - Page 3', courses: myCourse });
 });
 
 app.get('/course/:courseLink', function(req, res) {

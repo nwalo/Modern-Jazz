@@ -42,11 +42,7 @@
                         <img src="/assets/images/courses/<%=course.img%>" alt="course image">
                         
                         <h2 class="title" style="font-size: 40px;">
-                            <% if(course.title == '80 Solo Techniques in 4 Weeks'){%>
-                                <%=course.title%> - Suitable For All Instruments
-                            <%} else {%>
-                                <%=course.fulltitle%>   
-                            <% } %>
+                            <%=course.fulltitle%>
                         </h2>
 
                         <!-- <p>Even slightly believable. If you are going use a passage of Lorem Ipsum need equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish</p> -->
@@ -130,11 +126,12 @@
                                             </div>                                           
                                         </div>
                                     <% }else{ %>
+                                        <%var n = course.modules.length/3;%>
                                         <div class="col-md-4 col-sm-6">
                                             <div class="single-curriculum">
                                                 <h4 class="title">Beginner</h4>
                                                 <ul class="curriculum-list">
-                                                    <% course.modules.slice(0, 5).forEach(function(lesson){ %>
+                                                    <% course.modules.slice(0, (n)).forEach(function(lesson){ %>
                                                     <li><a href="/course/<%= course.link%>/lesson/<%= lesson.lesson%>"><i class="fal fa-book"></i> Lessons <%= lesson.lesson%>: <%= lesson.name%></a></li>
                                                     <% }) %> 
                                                 </ul>
@@ -144,7 +141,7 @@
                                             <div class="single-curriculum">
                                                 <h4 class="title">Intermediate</h4>
                                                 <ul class="curriculum-list">
-                                                    <% course.modules.slice(5, 10).forEach(function(lesson){ %>
+                                                    <% course.modules.slice((n), (n*2)).forEach(function(lesson){ %>
                                                     <li><a href="/course/<%= course.link%>/lesson/<%= lesson.lesson%>"><i class="fal fa-book"></i> Lessons <%= lesson.lesson%>: <%= lesson.name%></a></li>
                                                     <% }) %> 
                                                 </ul>
@@ -154,7 +151,7 @@
                                             <div class="single-curriculum">
                                                 <h4 class="title">Advance</h4>
                                                 <ul class="curriculum-list">
-                                                    <% course.modules.slice(10, ).forEach(function(lesson){ %>
+                                                    <% course.modules.slice((n*2), ).forEach(function(lesson){ %>
                                                     <li><a href="/course/<%= course.link%>/lesson/<%= lesson.lesson%>"><i class="fal fa-book"></i> Lessons <%= lesson.lesson%>: <%= lesson.name%></a></li>
                                                     <% }) %> 
                                                 </ul>
