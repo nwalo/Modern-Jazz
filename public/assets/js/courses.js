@@ -1343,7 +1343,7 @@ exports.courses = [
 			},
 			{
 				name: 'Drumming To Songs',
-				lesson: '1.12',
+				lesson: '1.13',
 				status: 'lock',
 				video: ''
 			}
