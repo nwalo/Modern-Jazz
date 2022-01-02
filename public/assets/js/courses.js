@@ -205,8 +205,8 @@ exports.courses = [
 		lesson: '10',
 		rating: '4.9',
 		ratingNumber: '95',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Seating and Posture',
@@ -319,8 +319,8 @@ exports.courses = [
 		lesson: '10',
 		rating: '5.0',
 		ratingNumber: '48',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Music Definition and Types',
@@ -512,8 +512,8 @@ exports.courses = [
 		lesson: '10',
 		rating: '5.0',
 		ratingNumber: '48',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Introduction To The Guitar/Guitar Anatomy',
@@ -646,8 +646,8 @@ exports.courses = [
 		lesson: '10',
 		rating: '5',
 		ratingNumber: '50',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'What is music?',
@@ -768,8 +768,8 @@ exports.courses = [
 		lesson: '10',
 		rating: '5',
 		ratingNumber: '50',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'What is music?',
@@ -965,8 +965,8 @@ exports.courses = [
 		lesson: '10',
 		rating: '5',
 		ratingNumber: '50',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Introduction To Saxophone And Its Types',
@@ -1066,7 +1066,6 @@ exports.courses = [
 		fee_N: '40 000',
 		modules: []
 	},
-
 	{
 		series: 'You Too Can Play Series #1',
 		type: 'Guitar',
@@ -1088,8 +1087,8 @@ exports.courses = [
 		lesson: '10',
 		rating: '5',
 		ratingNumber: '35',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Anatomy Of The Guitar',
@@ -1186,8 +1185,8 @@ exports.courses = [
 		lesson: '10',
 		rating: '4.6',
 		ratingNumber: '55',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Intervals',
@@ -1266,8 +1265,8 @@ exports.courses = [
 		lesson: '10',
 		rating: '5',
 		ratingNumber: '50',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'The Parts Of A Drum',
@@ -1393,8 +1392,8 @@ exports.courses = [
 		lesson: '12',
 		rating: '4.3',
 		ratingNumber: '39',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Introduction To The Bass Guitar/Bass Anatomy',
@@ -1485,8 +1484,8 @@ exports.courses = [
 		lesson: '12',
 		rating: '4.5',
 		ratingNumber: '53',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Introduction To The Trumpet And Its Families',
@@ -1582,8 +1581,8 @@ exports.courses = [
 		lesson: '12',
 		rating: '4.3',
 		ratingNumber: '39',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Introduction To The Staff',
@@ -1680,8 +1679,8 @@ exports.courses = [
 		lesson: '12',
 		rating: '4.3',
 		ratingNumber: '39',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Introduction To The Violin (Brief history)',
@@ -1779,8 +1778,8 @@ exports.courses = [
 		lesson: '12',
 		rating: '4.3',
 		ratingNumber: '39',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Introduction To Music Theory',
@@ -1876,8 +1875,8 @@ exports.courses = [
 		lesson: '12',
 		rating: '4.3',
 		ratingNumber: '39',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Introduction To Music/Musical Instruments',
