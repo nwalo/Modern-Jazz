@@ -20,8 +20,8 @@ exports.courses = [
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '80',
-		fee_$: '25',
-		fee_N: '10 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Intervals',
@@ -200,7 +200,6 @@ exports.courses = [
 		status: 'unlock',
 		link: 'the_art_of_piano_playing',
 		img: 'piano.jpg',
-		video: '',
 		duration: '2 Weeks',
 		lesson: '10',
 		rating: '4.9',
@@ -430,12 +429,11 @@ exports.courses = [
 			'Professional Certification.'
 		],
 		img: 'perform.jpg',
-		video: '',
 		duration: '1 Day',
 		lesson: '12',
 		rating: '4.5',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Intervals',
@@ -609,8 +607,8 @@ exports.courses = [
 		lesson: '10',
 		rating: '5',
 		ratingNumber: '50',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: [
 			{
 				name: 'Intervals',
@@ -744,8 +742,8 @@ exports.courses = [
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '80',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: []
 	},
 	{
@@ -866,8 +864,8 @@ exports.courses = [
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '80',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: []
 	},
 	{
@@ -886,13 +884,12 @@ exports.courses = [
 		status: 'lock',
 		link: 'become_an_advanced_solo_jazz_painist',
 		img: 'play key.jpg',
-		video: '',
 		duration: '2 Weeks',
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '80',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: []
 	},
 	{
@@ -911,13 +908,12 @@ exports.courses = [
 		status: 'lock',
 		link: 'music_performance_mastery',
 		img: 'performance.jpeg',
-		video: '',
 		duration: '2 Weeks',
 		lesson: '6',
 		rating: '4.9',
 		ratingNumber: '30',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: []
 	},
 	{
@@ -935,13 +931,12 @@ exports.courses = [
 		status: 'lock',
 		link: 'blues_music_from_basic_to_superadvanced',
 		img: 'sing.jpg',
-		video: '',
 		duration: '2 Weeks',
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '95',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: []
 	},
 	{
@@ -960,7 +955,6 @@ exports.courses = [
 			'Professional Certification.'
 		],
 		img: 'saxoph.jpg',
-		video: '',
 		duration: '1 Week',
 		lesson: '10',
 		rating: '5',
@@ -1057,20 +1051,19 @@ exports.courses = [
 		status: 'lock',
 		link: '200-251_chords_suitable_for_all_music_styles',
 		img: 'instruments.jpg',
-		video: '',
 		duration: '2 Weeks',
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '95',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: []
 	},
 	{
 		series: 'You Too Can Play Series #1',
 		type: 'Guitar',
-		title: 'Acoustic guitar for kids',
-		fulltitle: 'Acoustic guitar for kids (Beginners)',
+		title: 'Acoustic Guitar For Kids',
+		fulltitle: 'Acoustic Guitar For Kids (Beginners)',
 		status: 'unlock',
 		link: 'acoustic_guitar_for_kids',
 		overview: `This course contains the basic information, skills and techniques needed for a kid to properly gain understanding of the structure and concept of the guitar and also learn to play children songs the guitar.`,
@@ -1082,7 +1075,6 @@ exports.courses = [
 			'Professional Certification.'
 		],
 		img: 'acoustic-guitar.jpg',
-		video: '',
 		duration: '1 Week',
 		lesson: '10',
 		rating: '5',
@@ -1180,7 +1172,6 @@ exports.courses = [
 		status: 'lock',
 		link: 'the_art_of_mastering_hand_improvisation',
 		img: 'teach.jpg',
-		video: '',
 		duration: '2 Weeks',
 		lesson: '10',
 		rating: '4.6',
@@ -1235,13 +1226,12 @@ exports.courses = [
 		status: 'lock',
 		link: '200_gospel/jazz_leaks_for_the_aspiring_pianist',
 		img: 'gospel.jpg',
-		video: '',
 		duration: '3 Weeks',
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '95',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: []
 	},
 	{
@@ -1260,7 +1250,6 @@ exports.courses = [
 			'Professional Certification.'
 		],
 		img: 'drum.jpg',
-		video: '',
 		duration: '1 Week',
 		lesson: '10',
 		rating: '5',
@@ -1363,13 +1352,12 @@ exports.courses = [
 		status: 'lock',
 		link: '100_gospel_piano_secrets',
 		img: 'pia.jpg',
-		video: '',
 		duration: '6 Weeks',
 		lesson: '26',
 		rating: '4.9',
 		ratingNumber: '95',
-		fee_$: '100',
-		fee_N: '40 000',
+		fee_$: 'Free',
+		fee_N: 'Free',
 		modules: []
 	},
 	{
@@ -1479,7 +1467,6 @@ exports.courses = [
 			'Professional Certification.'
 		],
 		img: 'trumpet.jpg',
-		video: '',
 		duration: '2 Weeks',
 		lesson: '12',
 		rating: '4.5',
@@ -1674,7 +1661,6 @@ exports.courses = [
 			'Professional Certification.'
 		],
 		img: 'violin.jpg',
-		video: '',
 		duration: '2 Weeks',
 		lesson: '12',
 		rating: '4.3',
@@ -1773,7 +1759,6 @@ exports.courses = [
 			'Professional Certification.'
 		],
 		img: 'mus.jpg',
-		video: '',
 		duration: '2 Weeks',
 		lesson: '12',
 		rating: '4.3',
@@ -1870,7 +1855,6 @@ exports.courses = [
 			'Professional Certification.'
 		],
 		img: 'music-instrument-kids.jpg',
-		video: '',
 		duration: '2 Weeks',
 		lesson: '12',
 		rating: '4.3',
