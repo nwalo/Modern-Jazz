@@ -9,73 +9,198 @@
 
 <url>
   <loc>https://www.noelsjazzacademy.com/</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.noelsjazzacademy.com/blog</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <loc>https://www.noelsjazzacademy.com/notice</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.noelsjazzacademy.com/login</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.noelsjazzacademy.com/register</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.noelsjazzacademy.com/index</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.noelsjazzacademy.com/about</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.noelsjazzacademy.com/course</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/tutors</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/blog</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.noelsjazzacademy.com/contact</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.noelsjazzacademy.com/course-details</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <loc>https://www.noelsjazzacademy.com/course/80_solo_techniques</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.noelsjazzacademy.com/register.html</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <loc>https://www.noelsjazzacademy.com/course/the_art_of_piano_playing</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/piano_for_kids</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/sitemap</loc>
+  <lastmod>2022-01-04T09:39:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/legal</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/tutors/noels</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.noelsjazzacademy.com/login.html</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <loc>https://www.noelsjazzacademy.com/tutors/wale</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.noelsjazzacademy.com/teacher-details.html</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <loc>https://www.noelsjazzacademy.com/tutors/bittner</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/the_art_of_playing_guitar</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/music_theory_101</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course-pg2</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course-pg3</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course-pg4</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/tutors/Noels</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/tutors/Wale</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/tutors/Bittner</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/tutors/Chibuzor</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/tutors/Taiwo</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/tutors/Justyn</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.noelsjazzacademy.com/www.modernjazz.com</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.noelsjazzacademy.com/welcome</loc>
-  <lastmod>2021-11-14T08:29:46+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://www.noelsjazzacademy.com/course/the_art_of_singing_1</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/the_art_of_playing_saxophone_1</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/acoustic_guitar_for_kids</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/the_art_of_drumming_1</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/basic_bass_lessons_for_aspiring_players</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/the_art_of_playing_the_trumpet_1</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/music_theory_for_kids_1</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/violin_for_kids</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/basic_ear_training_and_indepth_solfa_notation_tutorials_for_singers_and_musicians</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.noelsjazzacademy.com/course/understanding_musical_instruments_for_kids</loc>
+  <lastmod>2022-01-05T06:34:33+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 
 
