@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -242,8 +242,6 @@ app.post('/contact', function(req, res) {
 	let subject = req.body.subject;
 	let message = req.body.message;
 
-	console.log(name, email, phone, subject, message);
-
 	// NODEMAILER AUTHENTICATION
 
 	var transporter = nodemailer.createTransport({
@@ -306,7 +304,11 @@ app.get('/course/:courseLink', function(req, res) {
 		return i.name == _.capitalize(req.params.name);
 	});
 
-	res.render('courses-details', { course, allTutors, tutor, title: 'Course - ' + course.title });
+	if (typeof course === 'undefined') {
+		res.redirect('/course');
+	} else {
+		res.render('courses-details', { course, allTutors, tutor, title: 'Course - ' + course.title });
+	}
 });
 
 app.post('/course', function(req, res) {
@@ -382,7 +384,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 			console.log(err);
 		} else {
 			if (!foundUser) {
-				res.redirect('/course');
+				res.redirect('/login');
 			} else {
 				// console.log(newCourseLink, lesson, number, next, currentLesson, req.session.link);
 				if (newCourseLink) {
@@ -419,7 +421,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 						res.redirect('/enroll/' + newCourseLink);
 					}
 				} else {
-					res.redirect('/course');
+					res.redirect('/course/' + newCourseLink + '/lesson/1.1');
 				}
 			}
 		}
