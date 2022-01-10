@@ -44,7 +44,9 @@
                                 <li><a data-toggle="tab" href="#grid" role="tab"><i class="fas fa-th-large"></i></a></li>
                                 <li><a class="active" data-toggle="tab" href="#list" role="tab"><i class="fas fa-list"></i></a></li>
                             </ul>
-                            <p>Showing 1 - 8 of 40 results</p>
+                            
+                                <p>Showing <%= 8*(n-1) + 1 %> - <%= 8*n %> of 40 results</p>
+                            
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -71,7 +73,7 @@
                 <div class="tab-pane fade" id="grid" role="tabpanel">
                     <div class="courses-wrapper wrapper-2">
                         <div class="row">
-                            <% courses.slice(0, 8).forEach(function(i){%>
+                            <% courses.slice(8*(n-1), 8*n).forEach(function(i){%>
                             <% if(i.status == 'unlock'){%>                            
                             <div class="col-lg-3 col-sm-6 courses-col">
                                 <div class="single-courses-2 mt-30">
@@ -151,7 +153,7 @@
 
                 <div class="tab-pane fade show active" id="list" role="tabpanel">
                     <div class="courses-wrapper wrapper-2">
-                        <% courses.slice(0, 8).forEach(function(i){%>
+                        <% courses.slice(8*(n-1), 8*n).forEach(function(i){%>
                         <% if(i.status == 'unlock'){%> 
                         <div class="courses-col">
                             <div class="single-courses-2 courses-list mt-30">

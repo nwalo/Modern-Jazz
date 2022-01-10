@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -276,6 +276,21 @@ app.post('/contact', function(req, res) {
 app.get('/course', function(req, res) {
 	var myCourse = courses.courses;
 	res.render('our-courses-list', { title: 'All Courses', courses: myCourse });
+});
+
+app.get('/courses/:page', function(req, res) {
+	var page = req.params.page.slice(4);
+	var myCourse = courses.courses;
+	var length = [];
+
+	for (let i = 0; i < myCourse.length; i++) {
+		const element = myCourse[i];
+		if (i % 8 == 0) {
+			length.push(i);
+		}
+	}
+
+	res.render('our-courses-list', { title: 'All Courses', courses: myCourse, n: page, length });
 });
 
 app.get('/course-pg2', function(req, res) {
