@@ -273,11 +273,6 @@ app.post('/contact', function(req, res) {
 	});
 });
 
-app.get('/course', function(req, res) {
-	var myCourse = courses.courses;
-	res.render('our-courses-list', { title: 'All Courses', courses: myCourse });
-});
-
 app.get('/courses/:page', function(req, res) {
 	var page = req.params.page.slice(4);
 	var myCourse = courses.courses;
@@ -292,21 +287,6 @@ app.get('/courses/:page', function(req, res) {
 	res.render('our-courses-list', { title: 'All Courses', courses: myCourse, n: page, length });
 });
 
-app.get('/course-pg2', function(req, res) {
-	var myCourse = courses.courses.slice(8, 16);
-	res.render('our-courses-list-z2', { title: 'All Courses - Page 2', courses: myCourse });
-});
-
-app.get('/course-pg3', function(req, res) {
-	var myCourse = courses.courses.slice(16, 24);
-	res.render('our-courses-list-z3', { title: 'All Courses - Page 3', courses: myCourse });
-});
-
-app.get('/course-pg4', function(req, res) {
-	var myCourse = courses.courses.slice(24);
-	res.render('our-courses-list-z4', { title: 'All Courses - Page 3', courses: myCourse });
-});
-
 app.get('/course/:courseLink', function(req, res) {
 	let course = courses.courses.find((element) => {
 		return element.link == req.params.courseLink;
@@ -319,7 +299,7 @@ app.get('/course/:courseLink', function(req, res) {
 	});
 
 	if (typeof course === 'undefined') {
-		res.redirect('/course');
+		res.redirect('/courses/page1');
 	} else {
 		res.render('courses-details', { course, allTutors, tutor, title: 'Course - ' + course.title });
 	}
@@ -400,7 +380,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 			if (!foundUser) {
 				res.redirect('/login');
 			} else {
-				// console.log(newCourseLink, lesson, number, next, currentLesson, req.session.link);
+				console.log(newCourseLink, lesson, number, next, currentLesson, req.session.link, req.session.url);
 				if (newCourseLink) {
 					var currentCourse = foundUser.course.find(function(course) {
 						return course.link == newCourseLink;
@@ -416,8 +396,9 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 						if (number > 0 && number <= currentCourse.modules.length) {
 							if (currentCourseModule.status == 'lock') {
 								res.redirect('/course/' + newCourseLink + '/lesson/1.' + req.session.url);
+								console.log('pk');
 							} else {
-								var modules = currentCourse.modules.slice(0, 0);
+								var modules = currentCourse.modules.slice(0, 3);
 								req.session.url = number;
 								res.render('module', {
 									title: 'Learn',
@@ -426,6 +407,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 									currentCourse,
 									currentCourseModule
 								});
+								console.log('pl');
 							}
 						} else {
 							res.redirect('/course/' + newCourseLink);
@@ -433,9 +415,11 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 						}
 					} else {
 						res.redirect('/enroll/' + newCourseLink);
+						console.log('pp');
 					}
 				} else {
 					res.redirect('/course/' + newCourseLink + '/lesson/1.1');
+					console.log('p');
 				}
 			}
 		}
