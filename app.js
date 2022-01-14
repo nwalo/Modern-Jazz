@@ -40,16 +40,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -71,21 +71,21 @@ const notificationSchema = new mongoose.Schema({
 });
 
 const courseSchema = new mongoose.Schema({
+	type: String,
 	series: String,
 	title: String,
+	fulltitle: String,
 	overview: String,
 	benefits: [],
-	tutors: [],
 	link: String,
 	status: String,
 	img: String,
-	image: String,
-	video: String,
 	duration: String,
 	lesson: String,
 	rating: String,
 	ratingNumber: String,
-	fee: String,
+	fee_$: String,
+	fee_N: String,
 	modules: [ {} ]
 });
 
@@ -398,7 +398,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 								res.redirect('/course/' + newCourseLink + '/lesson/1.' + req.session.url);
 								console.log('pk');
 							} else {
-								var modules = currentCourse.modules.slice(0, 3);
+								var modules = currentCourse.modules.slice(0, 1);
 								req.session.url = number;
 								res.render('module', {
 									title: 'Learn',
@@ -852,6 +852,10 @@ app.get('/certificate', function(req, res) {
 	}
 });
 
+app.get('/faq', function(req, res) {
+	res.render('faq', { title: 'Frequently Asked Questions' });
+});
+
 app.get('/legal', function(req, res) {
 	res.render('legal', { title: 'Terms & Condition ' });
 });
@@ -1138,6 +1142,29 @@ app.post('/theme', function(req, res) {
 // app.get('/learn', function(req, res) {
 // 	res.render('learn', { title: 'learn' });
 // });
+
+User.updateMany({ 'course.title': '80 Solo Techniques in 4 Weeks' }, { course: courses.courses[0] }, function(
+	err,
+	found
+) {
+	if (err) {
+		console.log(err);
+	} else {
+		// found.forEach(function(user) {
+		console.log(found.fname);
+		console.log('updated the course');
+
+		// 	user.notification.push(text);
+		// 	user.save(function(err) {
+		// 		if (err) {
+		// 			console.log('err');
+		// 		}else{
+		// 			console.log('added new notif')
+		// 		}
+		// 	});
+		// });
+	}
+});
 
 app.get('/403', function(req, res) {
 	res.render('403', {

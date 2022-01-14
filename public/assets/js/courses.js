@@ -27,7 +27,7 @@ exports.courses = [
 				name: 'Intervals',
 				lesson: '1.1',
 				status: 'unlock',
-				video: ''
+				video: 'https://player.vimeo.com/video/665499694?h=7aea76ee4d'
 			},
 			{
 				name: 'Jazz Chords',
