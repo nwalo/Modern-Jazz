@@ -1,0 +1,180 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <!--====== Head Start ======-->
+
+  <%- include('partials/header') %>
+
+  <!--====== Head Ends ======-->
+
+  <body>
+    <!--====== Navigation Start ======-->
+
+    <%- include('partials/navigation') %>
+
+    <!--====== Navigation Ends ======-->
+    
+    <!--====== Page Banner Start ======-->
+
+    <section class="page-banner">
+        <div class="page-banner-bg bg_cover" style="background-image: url(assets/images/page-banner.jpg);">
+            <div class="container">
+                <div class="banner-content text-center">
+                    <h2 class="title">Admin Dashboard</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Page Banner Ends ======-->
+
+    <!--====== Notice Start ======-->
+
+    <section class="notice-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title-2">
+                        <h2 class="title">Blog Creation</h2>
+                        <span class="line"></span>
+                        <!-- <p>Find your desired questioner here If you are going use a passage of Lorem Ipsum need equal belongs to those who fail in their duty of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy</p> -->
+                    </div>
+                </div>
+            </div>
+            <section class="">
+                <div class="container">
+                    <div class="row">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="col-lg-12 single-notice">
+                            <p> <span class="notice-title">Title: </span> <input required type="text" name="title" placeholder="Title of blog post" autofocus></p>
+                        </div>
+                        <div class="col-lg-12 single-notice">
+                            <p> <span class="notice-title">Image: </span> <input required type="file" name="file"></p>
+                        </div>
+                        <div class="col-lg-12 single-notice">
+                            <p> <span class="notice-title">Content: </span> <textarea name="content" id="" placeholder="Write your html/blog code here"></textarea> </p>
+                        </div>
+                        <div class="col-lg-12 single-notice">
+                            <p> <span class="notice-title">Category: </span> <input required type="text" name="category" placeholder="What is the category of music e.g. Piano"></p>
+                        </div>
+                        <div class="col-lg-12 single-notice">
+                            <p> <span class="notice-title">Tags: </span> <input required type="text" name="tags" placeholder="seperate each tag with a ' ; ' "></p>
+                        </div>
+                        <div class="col-lg-12 single-notice">
+                            <p> <span class="notice-title">Author: </span> <input required type="text" name="author" placeholder="Input Author name"></p>
+                        </div>
+                        <div class="col-lg-12 single-notice" style="margin-top: 50px;">
+                            <p> <span class="notice-title"> <input type="submit" class="submit-form" value="Create Blog" ></span></p>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </section>
+
+    <div class="footer-copyright" >
+            <div class="container">
+                <div class="copyright text-center">
+                    <p style=" color: #fafafa;">&copy; 2022 <span> ModernJazzWithNoels </span> Made with <i class="fa fa-heart"></i> by NobTech</p>
+                </div>
+            </div>
+    </div>
+
+    <!--====== Notice Ends ======-->
+    
+    
+    <!--====== BACK TOP TOP PART START ======-->
+
+    <a href="#" class="back-to-top"><i class="fal fa-chevron-up"></i></a>
+
+    <!--====== BACK TOP TOP PART ENDS ======-->
+
+
+    <!--====== SCRIPT STARTS ======-->
+
+    <!--====== Jquery js ======-->
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+    
+   <!--====== All Plugins js ======-->
+    <script src="assets/js/plugins/popper.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/slick.min.js"></script>
+    <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/plugins/jquery.appear.min.js"></script>
+    <script src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/plugins/isotope.pkgd.min.js"></script>
+    <script src="assets/js/plugins/wow.min.js"></script>
+    <script src="assets/js/plugins/ajax-contact.js"></script>
+    
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+
+    <!-- <script src="assets/js/plugin.min.js"></script> -->
+
+    
+    <!--====== Main Activation  js ======-->
+    <script src="assets/js/main.js"></script>
+
+    <!--====== SCRIPT ENDS ======-->
+
+
+
+        
+    <style>
+        .submit-form{
+            padding: 10px 0;
+            background-color: #f23f00;
+            outline: none;
+            border: none;
+            color: white;
+        }
+
+        .submit-form:hover{
+            background-color: #ca9400;  
+        }
+
+        input{
+            width: 300px;
+            padding: 0 10px;
+        }
+
+        textarea{
+            padding: 10px;
+            width: 100%;
+            min-width: 70vw;
+            min-height: 300px;
+        }
+
+        span.notice-title{
+            width: 150px;
+        }
+
+        .footer-copyright{
+            margin-top: 50px;
+            background-color: #113153;
+        }
+
+        @media (max-width: 760px){
+            input{
+            width: 250px;
+            padding: 0 10px;
+        }
+        textarea{
+            min-width: 330px;
+            min-height: 200px;
+        }
+            span.notice-title{
+            width: 80px;
+        }
+            .single-notice {
+    padding-left: 0;
+}
+        }
+    </style>
+    
+</body>
+
+</html>

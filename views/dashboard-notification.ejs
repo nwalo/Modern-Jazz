@@ -44,13 +44,12 @@
                     >
                       <label style="color: #ffffff;" for="<%= notif._id %>"><i class="tim-icons icon-simple-remove"></i></label>
                     </button>
-                    <span><%= notif.message %></span>
+                    <span><%- notif.message %></span>
                     <input type="checkbox" id="<%= notif._id %>" name="checkbox" value="<%= notif._id %>" onchange="this.form.submit()" hidden>
                     </div>
                   </form>
                   <% }) %>
                 
-                  
                 </div>
               </div>
             </div>

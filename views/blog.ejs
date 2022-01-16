@@ -1,8 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-<head>
-
     <!--====== Head Start ======-->
 
   <%- include('partials/header') %>
@@ -19,7 +17,7 @@
     <!--====== Page Banner Start ======-->
 
     <section class="page-banner">
-        <div class="page-banner-bg bg_cover" style="background-image: url(assets/images/page-banner.jpg);">
+        <div class="page-banner-bg bg_cover" style="background-image: url(/assets/images/page-banner.jpg);">
             <div class="container">
                 <div class="banner-content text-center">
                     <h2 class="title">Blog</h2>
@@ -35,168 +33,26 @@
     <section class="blog-page">
         <div class="container">
             <div class="row">
+                <% posts.forEach( (post) => { %>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog mt-30">
                         <div class="blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog-1.jpg" alt="blog">
+                            <a href="/blog/post/<%= post.id %>">
+                                <img src="data:image/<%= post.image.contentType%>;base64,<%= post.image.data.toString('base64')%>" alt="blog" width="370" height="250">
                             </a>
                         </div>
                         <div class="blog-content">
                             <ul class="meta">
-                                <li><a href="#">25 May, 2020</a></li>
-                                <li><a href="#">By: Alex</a></li>
-                                <li><a href="#">12 Comments</a></li>
+                                <li><a href="#"><%= post.timestamp %></a></li>
+                                <li><a href="#">By: <%= post.author %></a></li>
+                                <!-- <li><a href="#">12 Comments</a></li> -->
                             </ul>
-                            <h4 class="blog-title"><a href="blog-details.html">Latest Micro Biological basic Workshop for Research</a></h4>
-                            <a href="blog-details.html" class="more">Read more <i class="fal fa-chevron-right"></i></a>
+                            <h4 class="blog-title"><a href="/blog/post/<%= post.id %>"><%= post.title %></a></h4>
+                            <a href="/blog/post/<%= post.id %>" class="more">Read more <i class="fal fa-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog mt-30">
-                        <div class="blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog-2.jpg" alt="blog">
-                            </a>
-                        </div>
-                        <div class="blog-content">
-                            <ul class="meta">
-                                <li><a href="#">25 May, 2020</a></li>
-                                <li><a href="#">By: Alex</a></li>
-                                <li><a href="#">12 Comments</a></li>
-                            </ul>
-                            <h4 class="blog-title"><a href="blog-details.html">Post Graduate Certification giving Program 2020</a></h4>
-                            <a href="blog-details.html" class="more">Read more <i class="fal fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog mt-30">
-                        <div class="blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog-3.jpg" alt="blog">
-                            </a>
-                        </div>
-                        <div class="blog-content">
-                            <ul class="meta">
-                                <li><a href="#">25 May, 2020</a></li>
-                                <li><a href="#">By: Alex</a></li>
-                                <li><a href="#">12 Comments</a></li>
-                            </ul>
-                            <h4 class="blog-title"><a href="blog-details.html">Latest Micro Biological basic Workshop for Research</a></h4>
-                            <a href="blog-details.html" class="more">Read more <i class="fal fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog mt-30">
-                        <div class="blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog-4.jpg" alt="blog">
-                            </a>
-                        </div>
-                        <div class="blog-content">
-                            <ul class="meta">
-                                <li><a href="#">25 May, 2020</a></li>
-                                <li><a href="#">By: Alex</a></li>
-                                <li><a href="#">12 Comments</a></li>
-                            </ul>
-                            <h4 class="blog-title"><a href="blog-details.html">Advantage of Laravel in you Programming language</a></h4>
-                            <a href="blog-details.html" class="more">Read more <i class="fal fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog mt-30">
-                        <div class="blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog-5.jpg" alt="blog">
-                            </a>
-                        </div>
-                        <div class="blog-content">
-                            <ul class="meta">
-                                <li><a href="#">25 May, 2020</a></li>
-                                <li><a href="#">By: Alex</a></li>
-                                <li><a href="#">12 Comments</a></li>
-                            </ul>
-                            <h4 class="blog-title"><a href="blog-details.html">Resources for PHP Developer and UX Designer</a></h4>
-                            <a href="blog-details.html" class="more">Read more <i class="fal fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog mt-30">
-                        <div class="blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog-6.jpg" alt="blog">
-                            </a>
-                        </div>
-                        <div class="blog-content">
-                            <ul class="meta">
-                                <li><a href="#">25 May, 2020</a></li>
-                                <li><a href="#">By: Alex</a></li>
-                                <li><a href="#">12 Comments</a></li>
-                            </ul>
-                            <h4 class="blog-title"><a href="blog-details.html">Digital Marketing and Social Marketing Workshop</a></h4>
-                            <a href="blog-details.html" class="more">Read more <i class="fal fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog mt-30">
-                        <div class="blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog-7.jpg" alt="blog">
-                            </a>
-                        </div>
-                        <div class="blog-content">
-                            <ul class="meta">
-                                <li><a href="#">25 May, 2020</a></li>
-                                <li><a href="#">By: Alex</a></li>
-                                <li><a href="#">12 Comments</a></li>
-                            </ul>
-                            <h4 class="blog-title"><a href="blog-details.html">Workshop on Presentation of your Project</a></h4>
-                            <a href="blog-details.html" class="more">Read more <i class="fal fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog mt-30">
-                        <div class="blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog-8.jpg" alt="blog">
-                            </a>
-                        </div>
-                        <div class="blog-content">
-                            <ul class="meta">
-                                <li><a href="#">25 May, 2020</a></li>
-                                <li><a href="#">By: Alex</a></li>
-                                <li><a href="#">12 Comments</a></li>
-                            </ul>
-                            <h4 class="blog-title"><a href="blog-details.html">Cultural Program Festival for all new Students</a></h4>
-                            <a href="blog-details.html" class="more">Read more <i class="fal fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog mt-30">
-                        <div class="blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog-9.jpg" alt="blog">
-                            </a>
-                        </div>
-                        <div class="blog-content">
-                            <ul class="meta">
-                                <li><a href="#">25 May, 2020</a></li>
-                                <li><a href="#">By: Alex</a></li>
-                                <li><a href="#">12 Comments</a></li>
-                            </ul>
-                            <h4 class="blog-title"><a href="blog-details.html">Group Study is the best way to prepare your Lesson </a></h4>
-                            <a href="blog-details.html" class="more">Read more <i class="fal fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                <% }) %>
             </div>
             <ul class="pagination-items text-center">
                 <li><a class="active" href="#">01</a></li>

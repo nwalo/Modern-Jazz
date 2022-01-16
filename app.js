@@ -5,6 +5,7 @@ const express = require('express');
 const findOrCreate = require('mongoose-findorcreate');
 const https = require('https');
 const mongoose = require('mongoose');
+const moment = require('moment');
 const nodemailer = require('nodemailer');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
@@ -40,16 +41,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -95,6 +96,28 @@ const reviewSchema = new mongoose.Schema({
 	phone: String,
 	title: String,
 	reviewMsg: String
+});
+
+const blogSchema = new mongoose.Schema({
+	title: String,
+	image: {
+		type: {
+			name: String,
+			originalName: String,
+			data: Buffer,
+			contentType: String
+		},
+		required: false
+	},
+	content: String,
+	category: String,
+	tags: [],
+	author: String,
+	date: Date,
+	timestamp: {
+		type: String,
+		default: () => moment().format('DD MMM, YYYY')
+	}
 });
 
 const userReviewSchema = new mongoose.Schema({
@@ -151,6 +174,7 @@ userSchema.plugin(findOrCreate);
 
 // MODEL DEFINITIONS
 
+const Blog = mongoose.model('Blog', blogSchema);
 const User = mongoose.model('User', userSchema);
 const Review = mongoose.model('Review', reviewSchema);
 const Tutor = mongoose.model('Tutor', tutorSchema);
@@ -192,7 +216,7 @@ const welcomeNotification = [
 
 // var text = {
 // 	message:
-// 		'Every new yaer brings opportunities, thanks for explore those opportunities with us. 🎉 Happy new year 🎁 !'
+// 		'The <strong> Modern Jazz Blog </strong> is near-complete and due to launch in 3 days. It is for your personal growth, kindly ensure to read at least once daily. <button class="mybg-alt"><a href="/blog" style="color: #f0f8ff; font-weight: 600;">Go To Blog </a> </button>'
 // };
 
 // User.find({}, function(err, found) {
@@ -204,9 +228,9 @@ const welcomeNotification = [
 // 			user.save(function(err) {
 // 				if (err) {
 // 					console.log('err');
-// 				}else{
-// 					console.log('added new notif')
-//				}
+// 				} else {
+// 					console.log('added new notif');
+// 				}
 // 			});
 // 		});
 // 	}
@@ -223,8 +247,195 @@ app.get('/about', function(req, res) {
 	res.render('about-us', { title: 'About' });
 });
 
+app.get('/admin', function(req, res) {
+	if (req.isAuthenticated()) {
+		if (req.user.username === 'nwalobright@gmail.com') {
+			res.render('admin', { title: 'Dashboard-Admin' });
+		} else {
+			res.render('403', {
+				title: '403 Error - Access Forbidden'
+			});
+		}
+	} else {
+		res.redirect('/login');
+	}
+});
+
+app.post('/admin', upload.single('file'), function(req, res) {
+	var tags = req.body.tags.split(';').map(function(i) {
+		return _.capitalize(i);
+	});
+
+	const blogPost = {
+		title: _.capitalize(req.body.title),
+		image: {
+			name: req.file.filename,
+			originalName: req.file.originalname,
+			data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+			contentType: req.file.mimetype
+		},
+		content: req.body.content,
+		category: _.capitalize(req.body.category),
+		tags: tags,
+		date: moment().format('DD MMM, YYYY'),
+		author: _.capitalize(req.body.author)
+	};
+
+	console.log(blogPost.author);
+
+	Blog.findOne({ title: req.body.title }, function(err, found) {
+		if (err) {
+			console.log('err');
+		} else {
+			if (found) {
+				console.log('found');
+			} else {
+				Blog.create(blogPost, function(err, blog) {
+					if (!err) {
+						blog.save(function(err) {
+							if (!err) {
+								console.log('new blog added');
+							}
+						});
+					}
+				});
+			}
+		}
+	});
+	res.redirect('/blog');
+});
+
 app.get('/blog', function(req, res) {
-	res.render('coming', { title: 'Blog' });
+	Blog.find({}, function(err, found) {
+		res.render('blog', { title: 'Blog', posts: found });
+	});
+});
+
+app.get('/blog/post/:postId', function(req, res) {
+	const categoryName = [];
+	const categoryNumber = [];
+	Blog.findOne({ _id: req.params.postId }, function(err, found) {
+		Blog.find({}, function(err, foundPosts) {
+			for (var i = 0; i < foundPosts.length; i++) {
+				if (!categoryName.includes(foundPosts[i].category)) {
+					let num = foundPosts.filter(function(j) {
+						return j.category == foundPosts[i].category;
+					});
+					// console.log(foundPosts[i].category, num.length);
+					categoryName.push(foundPosts[i].category);
+					categoryNumber.push(num.length);
+				}
+			}
+
+			// console.log(found.content);
+
+			if (found) {
+				res.render('blog-details', {
+					title: `Blog | ${found.title}`,
+					post: found,
+					posts: foundPosts.slice(0, 5),
+					categoryName,
+					categoryNumber
+				});
+			} else {
+				res.render('404', { title: '404 Error - Page Not Found' });
+			}
+		});
+	});
+});
+
+app.get('/blog/category/:categoryLink', function(req, res) {
+	const categoryName = [];
+	const categoryNumber = [];
+	const authors = [];
+	const categoryLink = _.capitalize(req.params.categoryLink);
+
+	Blog.find({ category: categoryLink }, function(error, found) {
+		// To find the posts that match the category
+		Blog.find({}, function(err, foundPosts) {
+			//To find all post so that i can extract all their ctegories
+			for (var i = 0; i < foundPosts.length; i++) {
+				if (!categoryName.includes(foundPosts[i].category)) {
+					let num = foundPosts.filter(function(j) {
+						// To filter the results of a the found category so we can find how many of that category exist.
+						return j.category == foundPosts[i].category;
+					});
+					categoryName.push(foundPosts[i].category);
+					categoryNumber.push(num.length);
+				}
+			}
+
+			for (var i = 0; i < foundPosts.length; i++) {
+				if (!authors.includes(foundPosts[i].author)) {
+					authors.push(foundPosts[i].author);
+				}
+			}
+
+			if (foundPosts) {
+				res.render('blog-left-sidebar', {
+					title: `Blog | Category | ${categoryLink}`,
+					postByCategory: found,
+					posts: foundPosts.slice(0, 5),
+					categoryLink,
+					categoryName,
+					authors,
+					categoryNumber
+				});
+			} else {
+				res.render('404', { title: '404 Error - Page Not Found' });
+			}
+		});
+	});
+});
+
+app.post('/blog/category', function(req, res) {
+	const categoryLink = req.body.categoryRadio;
+	res.redirect('/blog/category/' + categoryLink);
+});
+
+app.get('/blog/tags/:tagName', function(req, res) {
+	const categoryName = [];
+	const categoryNumber = [];
+	const authors = [];
+	Blog.find({ tags: _.capitalize(req.params.tagName) }, function(err, tagFound) {
+		// Searching the query tags array directly using the string value
+
+		Blog.find({}, function(err, foundPosts) {
+			foundPosts.forEach((i) => {
+				console.log(i.category);
+			});
+			for (var i = 0; i < foundPosts.length; i++) {
+				if (!categoryName.includes(foundPosts[i].category)) {
+					let num = foundPosts.filter(function(j) {
+						return j.category == foundPosts[i].category;
+					});
+					// console.log(foundPosts[i].category, num.length);
+					categoryName.push(foundPosts[i].category);
+					categoryNumber.push(num.length);
+				}
+			}
+
+			for (var i = 0; i < foundPosts.length; i++) {
+				if (!authors.includes(foundPosts[i].author)) {
+					authors.push(foundPosts[i].author);
+				}
+			}
+
+			if (tagFound) {
+				res.render('blog-right-sidebar', {
+					title: `Blog | Category | ${tagFound}`,
+					postByTag: tagFound,
+					tagLink: _.capitalize(req.params.tagName),
+					posts: foundPosts.slice(0, 5),
+					categoryName,
+					authors,
+					categoryNumber
+				});
+			} else {
+				res.render('404', { title: '404 Error - Page Not Found' });
+			}
+		});
+	});
 });
 
 app.get('/coming', function(req, res) {
@@ -685,7 +896,11 @@ app.post('/login', function(req, res) {
 				console.log(err);
 			} else {
 				console.log('logged in');
-				res.redirect('/dashboard');
+				if (req.user.username == 'nwalobright@gmail.com') {
+					res.redirect('/admin');
+				} else {
+					res.redirect('/dashboard');
+				}
 			}
 		});
 	})(req, res);
@@ -1143,28 +1358,15 @@ app.post('/theme', function(req, res) {
 // 	res.render('learn', { title: 'learn' });
 // });
 
-User.updateMany({ 'course.title': '80 Solo Techniques in 4 Weeks' }, { course: courses.courses[0] }, function(
-	err,
-	found
-) {
-	if (err) {
-		console.log(err);
-	} else {
-		// found.forEach(function(user) {
-		console.log(found.fname);
-		console.log('updated the course');
-
-		// 	user.notification.push(text);
-		// 	user.save(function(err) {
-		// 		if (err) {
-		// 			console.log('err');
-		// 		}else{
-		// 			console.log('added new notif')
-		// 		}
-		// 	});
-		// });
-	}
-});
+// User.updateMany({ 'course.title': '80 Solo Techniques in 4 Weeks' }, { course: courses.courses[0] }, function(
+// 	err
+// ) {
+// 	if (err) {
+// 		console.log(err);
+// 	} else {
+// 		console.log('updated the course');
+// 	}
+// });
 
 app.get('/403', function(req, res) {
 	res.render('403', {

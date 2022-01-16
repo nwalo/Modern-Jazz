@@ -383,9 +383,13 @@
                   </div>
                 </div>
                 <div class="card-body">
+                  <!-- <div class="alert mybg">
+                    <span> </span>
+                  </div> -->
                   <% foundUser.notification.reverse().slice(0,5).forEach(function(notif ){ %>
+                  
                   <div class="alert mybg">
-                    <span><%= notif.message %></span>
+                    <span><%- notif.message %></span>
                   </div>
                   <% }) %>
                 </div>

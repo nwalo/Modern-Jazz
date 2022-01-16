@@ -33,13 +33,13 @@ exports.courses = [
 				name: 'Jazz Chords',
 				lesson: '1.2',
 				status: 'lock',
-				video: ''
+				video: 'https://player.vimeo.com/video/666425936?h=dddbbc07b2'
 			},
 			{
 				name: 'ARPEGGIOS',
 				lesson: '1.3',
 				status: 'lock',
-				video: ''
+				video: 'https://player.vimeo.com/video/666427836?h=0cdbaf0b37'
 			},
 			{
 				name: 'Arpeggio Extensions',

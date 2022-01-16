@@ -20,7 +20,7 @@
         <div class="page-banner-bg bg_cover" style="background-image: url(/assets/images/page-banner.jpg);">
             <div class="container">
                 <div class="banner-content text-center">
-                    <h2 style="color: white;">Blog &nbsp; <i class="fa fa-angle-right"></i> &nbsp; Category &nbsp; <i class="fa fa-angle-right"></i> &nbsp; <%= categoryLink %></h2>
+                    <h2 style="color: white;">Blog &nbsp; <i class="fa fa-angle-right"></i> &nbsp; Tags &nbsp; <i class="fa fa-angle-right"></i> &nbsp; <%= tagLink %></h2>
                 </div>
             </div>
         </div>
@@ -32,10 +32,10 @@
 
     <section class="blog-page">
         <div class="container">
-            <div class="row flex-row-reverse">
+            <div class="row">
                 <div class="col-lg-8">
                     <div class="row">
-                        <% postByCategory.forEach(function(i){ %>
+                        <% postByTag.forEach(function(i){ %>
                         <div class="col-md-6">
                             <div class="single-blog mt-30">
                                 <div class="blog-image">
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                         </div> 
-                        <% }) %>                       
+                        <% }) %> 
                     </div>
                     <ul class="pagination-items text-center">
                         <li><a class="active" href="#">01</a></li>
@@ -64,7 +64,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <div class="blog-sidebar">
+                    <div class="blog-sidebar right-sidebar">
                         <div class="blog-sidebar-category mt-30">
                             <div class="sidebar-title">
                                 <h4 class="title">Categories</h4>
@@ -74,17 +74,12 @@
                                     <li>
                                     <div class="form-radio">
                                         <form action="/blog/category" method="post">
-                                        <% if(categoryName[i] == categoryLink){ %>
-                                            <input type="radio" value="<%= categoryName[i] %>" name="categoryRadio" checked id="categoryRadio<%= i %>" onchange="this.form.submit()">
-                                            <label for="categoryRadio<%= i %>"> <span></span> <%= categoryName[i] %> <strong>(<%= categoryNumber[i] %>)</strong></label>
-                                        <% }else{ %>
                                             <input type="radio" value="<%= categoryName[i] %>" name="categoryRadio" id="categoryRadio<%= i %>" onchange="this.form.submit()">
                                             <label for="categoryRadio<%= i %>"> <span></span> <%= categoryName[i] %> <strong>(<%= categoryNumber[i] %>)</strong></label>
-                                        <% } %>
                                         </form>
                                     </div>
                                     </li>
-                                <% }  %>
+                                <% } %>
                             </ul>
                         </div>
 
@@ -139,6 +134,7 @@
             $(this).prop('checked', true);
         })
     </script>
+    
 </body>
 
 </html>
