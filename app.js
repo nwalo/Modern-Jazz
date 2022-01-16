@@ -307,7 +307,7 @@ app.post('/admin', upload.single('file'), function(req, res) {
 
 app.get('/blog', function(req, res) {
 	Blog.find({}, function(err, found) {
-		res.render('blog', { title: 'Blog', posts: found });
+		res.render('coming', { title: 'Blog', posts: found });
 	});
 });
 
@@ -609,7 +609,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 								res.redirect('/course/' + newCourseLink + '/lesson/1.' + req.session.url);
 								console.log('pk');
 							} else {
-								var modules = currentCourse.modules.slice(0, 1);
+								var modules = currentCourse.modules.slice(0, 2);
 								req.session.url = number;
 								res.render('module', {
 									title: 'Learn',
@@ -816,55 +816,6 @@ app.get('/enroll/:courseLink', function(req, res) {
 		res.redirect('/login');
 	}
 });
-
-// app.get('/learn/:courseLink', function(req, res) {
-// 	req.session.link = req.params.courseLink;
-
-// 	var courseLink = req.session.link;
-// 	let number = 1;
-// 	let currentLesson = '1.' + number;
-
-// 	User.findById(req.user, function(err, foundUser) {
-// 		if (err) {
-// 			console.log(err);
-// 		} else {
-// 			if (!foundUser) {
-// 				res.redirect('/course');
-// 			} else {
-// 				var currentCourse = foundUser.course.find(function(course) {
-// 					return course.link == courseLink;
-// 				});
-
-// 				if (currentCourse) {
-// 					var currentCourseModule = currentCourse.modules.find(function(course) {
-// 						return course.lesson == currentLesson;
-// 					});
-// 					var modules = currentCourse.modules.slice(0 , 0);
-// 					res.render('module', {
-// 						courseTitle: currentCourse.title,
-// 						title: 'Learn',
-// 						module: modules,
-// 						lessonNumber: '1.1',
-// 						currentCourse,
-// 						currentCourseModule
-// 					});
-// 				} else {
-// 					var dataType = typeof Number(courseLink);
-
-// 					if (dataType == 'number') {
-// 						var currentCourse = foundUser.course.find(function(course) {
-// 							return course.link == courseLink;
-// 						});
-// 						console.log('num');
-// 					} else {
-// 						console.log('str');
-// 					}
-// 					res.render('404', { title: 'Page Not Found' });
-// 				}
-// 			}
-// 		}
-// 	});
-// });
 
 app.get('/login', function(req, res) {
 	res.render('login', {
@@ -1354,13 +1305,7 @@ app.post('/theme', function(req, res) {
 // 	}
 // );
 
-// app.get('/learn', function(req, res) {
-// 	res.render('learn', { title: 'learn' });
-// });
-
-// User.updateMany({ 'course.title': '80 Solo Techniques in 4 Weeks' }, { course: courses.courses[0] }, function(
-// 	err
-// ) {
+// User.updateMany({ 'course.title': '80 Solo Techniques in 4 Weeks' }, { course: courses.courses[0] }, function(err) {
 // 	if (err) {
 // 		console.log(err);
 // 	} else {
