@@ -41,7 +41,7 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
@@ -281,8 +281,6 @@ app.post('/admin', upload.single('file'), function(req, res) {
 		author: _.capitalize(req.body.author)
 	};
 
-	console.log(blogPost.author);
-
 	Blog.findOne({ title: req.body.title }, function(err, found) {
 		if (err) {
 			console.log('err');
@@ -307,7 +305,7 @@ app.post('/admin', upload.single('file'), function(req, res) {
 
 app.get('/blog', function(req, res) {
 	Blog.find({}, function(err, found) {
-		res.render('coming', { title: 'Blog', posts: found });
+		res.render('blog', { title: 'Blog', posts: found });
 	});
 });
 
@@ -401,15 +399,11 @@ app.get('/blog/tags/:tagName', function(req, res) {
 		// Searching the query tags array directly using the string value
 
 		Blog.find({}, function(err, foundPosts) {
-			foundPosts.forEach((i) => {
-				console.log(i.category);
-			});
 			for (var i = 0; i < foundPosts.length; i++) {
 				if (!categoryName.includes(foundPosts[i].category)) {
 					let num = foundPosts.filter(function(j) {
 						return j.category == foundPosts[i].category;
 					});
-					// console.log(foundPosts[i].category, num.length);
 					categoryName.push(foundPosts[i].category);
 					categoryNumber.push(num.length);
 				}

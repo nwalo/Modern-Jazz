@@ -3,7 +3,7 @@
 
     <!--====== Head Start ======-->
 
-  <%- include('partials/header') %>
+  <%- include('partials/blog/header') %>
 
   <!--====== Head Ends ======-->
 
@@ -13,11 +13,22 @@
     <%- include('partials/navigation') %>
 
     <!--====== Navigation Ends ======-->
+
+    <style>
+        .blog-details-content .details-content p.sub-title{
+            font-size: 32px;
+            font-weight: 600;
+            color: #f23f00;
+        }
+    </style>
     
     <!--====== Page Banner Start ======-->
 
     <section class="page-banner">
-        <div class="page-banner-bg bg_cover" style="background-image: url(/assets/images/page-banner.jpg);">
+        <div class="page-banner-bg bg_cover" 
+        style="background-image: url(/assets/images/blog/blog.jpg);
+        background-color: #24242475;
+        background-blend-mode: overlay;">
             <div class="container">
                 <div class="banner-content text-center">
                    <h2 style="color: white;">Blog-Details </h2>
@@ -46,7 +57,9 @@
                             <h3 class="title"><%= post.title%></h3>
 
                             <p id="mainPost"> <%- post.content %></p>
-
+                            <p> 
+                                
+                            </p>
                             <ul class="blog-list">
                                 
                             </ul>
