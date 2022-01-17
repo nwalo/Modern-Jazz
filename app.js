@@ -41,16 +41,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -632,6 +632,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 });
 
 app.get('/dashboard', function(req, res) {
+	console.log(req.user);
 	if (req.isAuthenticated()) {
 		User.findById(req.user, function(err, foundUser) {
 			let userInitials = foundUser.fname.slice(0, 1) + foundUser.lname.slice(0, 1);
