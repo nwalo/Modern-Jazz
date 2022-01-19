@@ -41,16 +41,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -83,6 +83,7 @@ const courseSchema = new mongoose.Schema({
 	img: String,
 	duration: String,
 	lesson: String,
+	tutor: String,
 	rating: String,
 	ratingNumber: String,
 	fee_$: String,
@@ -144,6 +145,7 @@ const userSchema = new mongoose.Schema({
 	fname: String,
 	lname: String,
 	nick: String,
+	type: String,
 	theme: String,
 	course: [ courseSchema ],
 	review: [ reviewSchema ],
@@ -603,7 +605,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 								res.redirect('/course/' + newCourseLink + '/lesson/1.' + req.session.url);
 								console.log('pk');
 							} else {
-								var modules = currentCourse.modules.slice(0, 2);
+								var modules = currentCourse.modules.slice(0, 5);
 								req.session.url = number;
 								res.render('module', {
 									title: 'Learn',
@@ -844,6 +846,8 @@ app.post('/login', function(req, res) {
 				console.log('logged in');
 				if (req.user.username == 'nwalobright@gmail.com') {
 					res.redirect('/admin');
+				} else if (req.user.type == 'teacher') {
+					res.redirect('/teacher/dashboard');
 				} else {
 					res.redirect('/dashboard');
 				}
@@ -1162,7 +1166,7 @@ app.post('/register', function(req, res) {
 						{
 							fname: _.capitalize(req.body.fname),
 							lname: _.capitalize(req.body.lname),
-							nick: req.body.nick,
+							nick: _.capitalize(req.body.nick),
 							notification: welcomeNotification
 						},
 						function(err) {
@@ -1206,6 +1210,112 @@ app.post('/register', function(req, res) {
 	);
 });
 
+app.get('/teacher/dashboard', function(req, res) {
+	if (req.isAuthenticated()) {
+		if (req.user.type === 'teacher') {
+			let coursesByTeacher = courses.courses.filter((element) => {
+				return element.tutor == req.user.nick;
+			});
+
+			User.find({ 'course.tutor': 'Wale' }, function(err, foundUser) {
+				if (err) {
+					console.log('err');
+				} else {
+				}
+			});
+			res.render('admin-teacher', { title: 'Teacher dashboard', coursesByTeacher, teacher: req.user });
+		} else {
+			res.render('403', {
+				title: '403 Error - Access Forbidden'
+			});
+		}
+	} else {
+		res.redirect('/login');
+	}
+});
+
+app.get('/teacher/dashboard/student-list/:courseLink', function(req, res) {
+	User.find({ 'course.link': req.params.courseLink }, function(err, found) {
+		if (err) {
+			res.redirect('/teacher/dashboard');
+		} else {
+			res.render('admin-teacher-list', { title: 'List of students offering this course', found });
+		}
+	});
+});
+
+app.get('/teacher/register', function(req, res) {
+	res.render('register-teacher', {
+		errorMsg: '',
+		title: 'Register as a teacher'
+	});
+});
+
+app.post('/teacher/register', function(req, res) {
+	User.register(
+		{
+			username: req.body.username
+		},
+		req.body.password,
+		function(err) {
+			if (err) {
+				console.log('err');
+				res.render('/teacher/register', {
+					errorMsg: 'Error ! User registration failed.',
+					title: 'Register as a teacher'
+				});
+			} else {
+				passport.authenticate('local')(req, res, function() {
+					User.updateOne(
+						{
+							_id: req.user.id
+						},
+						{
+							fname: _.capitalize(req.body.fname),
+							lname: _.capitalize(req.body.lname),
+							nick: _.capitalize(req.body.nick),
+							type: 'teacher',
+							notification: welcomeNotification
+						},
+						function(err) {
+							if (!err) {
+								console.log('teacher registered');
+
+								// // LOG IN USER AFTER REGISTRATION
+								const user = new User({
+									username: req.body.username,
+									password: req.body.password
+								});
+
+								passport.authenticate('local', function(err, user, info) {
+									if (err) {
+										console.log(err);
+										res.redirect('/teacher/register');
+									}
+									if (!user) {
+										return res.render('login', {
+											errorMsg: 'Invalid username or password !',
+											title: 'Login'
+										});
+									}
+
+									req.logIn(user, function(err) {
+										if (err) {
+											console.log(err);
+										} else {
+											res.redirect('/teacher/dashboard');
+										}
+									});
+								})(req, res);
+							}
+						}
+					);
+				});
+			}
+		}
+	);
+});
+
 app.get('/sitemap', function(req, res) {
 	res.sendFile(__dirname + '/sitemap.xml');
 });
@@ -1223,7 +1333,6 @@ app.get('/tutors', function(req, res) {
 
 app.get('/tutors/:name', function(req, res) {
 	let tutor = tutors.tutors.find(function(i) {
-		// console.log(i.name, _.capitalize(req.params.name));
 		return i.name == _.capitalize(req.params.name);
 	});
 	// console.log(tutor);

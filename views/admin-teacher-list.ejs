@@ -1,0 +1,179 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <!--====== Head Start ======-->
+
+  <%- include('partials/header') %>
+
+  <!--====== Head Ends ======-->
+
+  <body>
+    <!--====== Navigation Start ======-->
+
+    <%- include('partials/admin-nav') %>
+
+    <!--====== Navigation Ends ======-->
+    
+    <!--====== Notice Start ======-->
+
+    <section class="notice-area">
+        <div class="container">
+            
+            <section class="">
+                <div class="container x">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section-title-2">
+                        <h3>Enrolled Students (<%= found.length%> Students)</h3>
+                        <span class="line mt-10"></span>
+                        <div>
+                            <ul class="course-list">
+                                <% if(found.length > 0){ %>
+                                    <%found.forEach(student=> { %>
+                                <a ><p> <span> <%= student.lname%> &nbsp; &nbsp; <%= student.fname%></span>  </p></a>
+                                <% }) %>
+                                <%} else{ %>
+                                    <a ><p> <span> No student has enrolled for this course</span>  </p></a>
+                                 <%}%>
+                            </ul>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </section>
+
+    <div class="footer-copyright " >
+            <div class="container">
+                <div class="copyright text-center">
+                    <p style=" color: #fafafa;">&copy; 2022 <span> ModernJazzWithNoels </span> Made with <i class="fa fa-heart"></i> by NobTech</p>
+                </div>
+            </div>
+    </div>
+
+    <!--====== Notice Ends ======-->
+    
+    
+    <!--====== BACK TOP TOP PART START ======-->
+
+    <a href="#" class="back-to-top"><i class="fal fa-chevron-up"></i></a>
+
+    <!--====== BACK TOP TOP PART ENDS ======-->
+        
+    <style>
+
+        .course-list p{
+            border-bottom: 1px solid #b9b8b8;
+            padding-bottom: 20px;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .course-list a{
+            color: #303030;
+            width: 100%;
+        }
+        .course-list a:hover > p{
+            color: #ca9400;
+        }
+
+        .stick-bottom{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .submit-form{
+            padding: 10px 0;
+            background-color: #f23f00;
+            outline: none;
+            border: none;
+            color: white;
+        }
+
+        .submit-form:hover{
+            background-color: #ca9400;  
+        }
+
+        input{
+            width: 300px;
+            padding: 0 10px;
+        }
+
+        textarea{
+            padding: 10px;
+            width: 100%;
+            min-width: 70vw;
+            min-height: 300px;
+        }
+
+        span.notice-title{
+            width: 150px;
+        }
+
+        .footer-copyright{
+            margin-top: 50px;
+            background-color: #113153;
+        }
+
+        @media (max-width: 992px){
+
+        .stud{
+            display: none;
+        }
+                
+        .course-list p span{
+            max-width: 400px;
+        }
+
+        .course-list p{
+            width: 100%;
+        }
+        }
+
+        @media (max-width: 760px){
+            .header-logo{
+                margin: 0 auto;
+            }
+            input{
+            width: 250px;
+            padding: 0 10px;
+        }
+        .mt-50{
+            margin-top: 100px;
+        }
+        .mb-100{
+            margin-bottom: 50px;
+        }
+        .x{
+            margin-top: 100px;
+        }
+        textarea{
+            min-width: 330px;
+            min-height: 200px;
+        }
+            span.notice-title{
+            width: 80px;
+        }
+            .single-notice {
+    padding-left: 0;
+        }
+        .course-list p span{
+            max-width: 300px;
+        }
+        }
+
+        @media (max-width: 500px) {
+            .course-list p span{
+            max-width: 260px;
+        }
+        }
+    </style>
+    
+</body>
+
+</html>
