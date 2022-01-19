@@ -632,6 +632,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 });
 
 app.get('/dashboard', function(req, res) {
+	// console.log(req.user);
 	if (req.isAuthenticated()) {
 		User.findById(req.user, function(err, foundUser) {
 			let userInitials = foundUser.fname.slice(0, 1) + foundUser.lname.slice(0, 1);

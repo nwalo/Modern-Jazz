@@ -45,13 +45,13 @@ exports.courses = [
 				name: 'Arpeggio Extensions',
 				lesson: '1.4',
 				status: 'lock',
-				video: ''
+				video: 'https://player.vimeo.com/video/666570297?h=8cb47e2055'
 			},
 			{
 				name: 'Enclosures',
 				lesson: '1.5',
 				status: 'lock',
-				video: ''
+				video: 'https://player.vimeo.com/video/666570451?h=2a1e3b09e4'
 			},
 			{
 				name: 'CHROMATICISM',
