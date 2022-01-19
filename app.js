@@ -50,7 +50,7 @@ mongoose.connect(process.env.MONGO_URL, {
 	useUnifiedTopology: true
 });
 
-mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
