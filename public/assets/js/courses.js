@@ -1967,7 +1967,7 @@ exports.courses = [
 		type: 'Music',
 		title: 'Lecture by other teacher',
 		fulltitle: 'Lecture by other teacher',
-		status: 'unlock',
+		status: 'lock',
 		link: 'lecture_by_other_teacher',
 		overview: `This course explains in details the anatomy, classes, roles, tone generation and terms associated with musical instruments. It will help students gain a full understanding of common musical instruments and the music styles they are used in.`,
 		benefits: [

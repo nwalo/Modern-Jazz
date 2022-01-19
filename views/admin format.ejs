@@ -15,4 +15,47 @@ Another thing that varies widely is how readily people can learn to read music. 
 If you decide that you would like to move forward in musical expression faster than your ability to read music will allow, look for a teacher who can teach you to improvise and play by ear. I’m working on materials for beginner improv. I’ll share those as soon as I can. It’s called Canjam. Until you find a helpful mentor in this area, don’t be afraid to go exploring on your own. Einstein said that the highest form of research is play! Always feel free to play like yer three! And if you decide to develop the ability to read music, be sure that you spend plenty of time reading at an easy level, and then progress very gradually to higher levels of difficulty. Fortunately, there are lots of excellent tutors of materials available for you at  <span style="color: #f23f00">ModernJazzWithNoels</span>, <a href="https://www.noelsjazzacademy.com/register/" style="color: #ca9400;"> apply now !</a>
 </p>
 
-<iframe src="https://player.vimeo.com/video/666427836?h=0cdbaf0b37" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/666570297?h=8cb47e2055" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+
+
+<!-- TESTING THE NUMBER OF STUDENT FOR EACH COURSE -->
+
+<!-- let omo = '2';
+	let numberOfStudent = [];
+	let courseName = [];
+	var i;
+	if (req.isAuthenticated()) {
+		if (req.user.type === 'teacher') {
+			let coursesByTeacher = courses.courses.filter((element) => {
+				return element.tutor == req.user.nick;
+			});
+
+			for (i = 0; i < coursesByTeacher.length; i++) {
+				if (!courseName.includes(coursesByTeacher[i].title)) {
+					// let num = foundPosts.filter(function(j) {
+					// 	return j.category == foundPosts[i].category;
+					// });
+					// console.log(foundPosts[i].category, num.length);
+					courseName.push(coursesByTeacher[i].title);
+					// numberOfStudent.push(num.length);
+				}
+
+				User.find({ 'course.title': coursesByTeacher[i].title }, function(err, foundUser) {
+					if (err) {
+						console.log('err');
+					} else {
+						// console.log(foundUser.length);
+						// numberOfStudent.push('o');
+						for (j = 0; j < coursesByTeacher.length; j++) {
+							
+							if (!numberOfStudent.includes(j)) {
+								numberOfStudent.push(j);
+							}
+						}
+					}
+				});
+			}
+			// console.log(omo);
+
+			// res.render('admin-teacher', { title: 'Teacher dashboard', coursesByTeacher, teacher: req.user }); -->

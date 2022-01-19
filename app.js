@@ -1217,12 +1217,6 @@ app.get('/teacher/dashboard', function(req, res) {
 				return element.tutor == req.user.nick;
 			});
 
-			User.find({ 'course.tutor': 'Wale' }, function(err, foundUser) {
-				if (err) {
-					console.log('err');
-				} else {
-				}
-			});
 			res.render('admin-teacher', { title: 'Teacher dashboard', coursesByTeacher, teacher: req.user });
 		} else {
 			res.render('403', {
