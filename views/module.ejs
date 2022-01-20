@@ -112,7 +112,7 @@
                             </div>
                             <ul>
                                 <%  module.forEach(function(i){ %>
-                                   <li> <a href="<%= i.lesson%>"><i class="fal fa-book"></i> <%= i.name %></a> <strong> <i class="fas fa-<%= i.status %>" ></i></strong></li> 
+                                   <li> <a id="no" href="<%= i.lesson%>"><i class="fal fa-book"></i> <%= i.name %></a> <strong> <i class="fas fa-<%= i.status %>" ></i></strong></li> 
                                 <%})%>
                                 <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Intervals</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
                                 <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Jazz Chords</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
@@ -217,16 +217,21 @@
                     $('.myles').fadeOut(200)
                     $('.myles').fadeIn(1000)
                 })
+            }
+
+            const getLastItem = thePath => thePath.substring(thePath.lastIndexOf('/') + 1)
+            let lastUrlPath = getLastItem(window.location.pathname)
 
                 $('.courses-features ul li a').click(function (e) {
-                    
-                    if (this.href.slice(55,) > '1.' +'<%= module.length%>') {
+                    let linkPath = this.href;
+                    let lastLinkPath = getLastItem(linkPath)  
+                    // console.log(lastLinkPath, lastUrlPath) 
+                    if(lastLinkPath == lastUrlPath + '#nxt') {
                         $('.myles').fadeOut(200);
                         $('.myles').fadeIn(1000);
                         e.preventDefault();
-                    }
-                })
-            }        
+                    } 
+                })  
         })
     </script>  
 

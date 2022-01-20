@@ -1383,21 +1383,23 @@ app.post('/theme', function(req, res) {
 // 		'course.title': title,
 // 		'course.modules.lesson': lesson
 // 	},
-// 	function(err, found) {
+// 	function(err, foundUser) {
 // 		if (err) {
 // 			console.log(err);
 // 		} else {
-// 			found.forEach(function(i) {
-// 				i.course.forEach(function(j) {
-// 					j.modules.forEach(function(k) {
-// 						j.save(function(err) {
-// 							if (!err) {
-// 								k['video'] = '';
-// 								console.log(k);
-// 							}
-// 						});
-// 					});
-// 				});
+// 			foundUser.forEach(function(user) {
+// 				console.log(user.fname);
+// 				let foundCourse = user;
+// 				// user.course.forEach(function(course) {
+// 				// 	course.modules.forEach(function(module) {
+// 				// 		course.save(function(err) {
+// 				// 			if (!err) {
+// 				// 				module['video'] = 'vid';
+// 				// 				console.log(module);
+// 				// 			}
+// 				// 		});
+// 				// 	});
+// 				// });
 // 			});
 // 		}
 // 	}
