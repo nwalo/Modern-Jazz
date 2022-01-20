@@ -605,7 +605,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 								res.redirect('/course/' + newCourseLink + '/lesson/1.' + req.session.url);
 								console.log('pk');
 							} else {
-								var modules = currentCourse.modules.slice(0, 2);
+								var modules = currentCourse.modules.slice(0, 3);
 								req.session.url = number;
 								res.render('module', {
 									title: 'Learn',
