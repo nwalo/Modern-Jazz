@@ -498,8 +498,8 @@ exports.courses = [
 	{
 		series: 'You Too Can Play Series #1',
 		type: 'Guitar',
-		title: 'The Art of Playing The Guitar 1',
-		fulltitle: 'The Art of Playing Guitar 1 - A Lead Guitarist',
+		title: 'The Art of Guitar Playing 1',
+		fulltitle: 'The Art of Guitar Playing  1 - A Lead Guitarist',
 		overview: `In this training session, you will be learning the overview of what a lead guitar does as well as the techniques involved in become a professional guitarist.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of guitar.',
@@ -955,10 +955,10 @@ exports.courses = [
 	{
 		series: 'You Too Can Play Series #1',
 		type: 'Music',
-		title: 'The Art of Playing Saxophone 1',
-		fulltitle: 'The Art of Playing Saxophone 1 (Basic)',
+		title: 'The Art of Saxophone Playing  1',
+		fulltitle: 'The Art of Saxophone Playing  1 (Basic)',
 		status: 'unlock',
-		link: 'the_art_of_playing_saxophone_1',
+		link: 'the_art_of_saxophone_playing_1',
 		overview: `This course contains sequentially arranged vocal techniques as well as standard exercises able to aid contemporary music vocal mastery, coloration, articulation and strength.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of playing saxophone.',
@@ -1475,10 +1475,10 @@ exports.courses = [
 	{
 		series: 'You Too Can Play Series #1',
 		type: 'Trumpet',
-		title: 'The Art of Playing The Trumpet 1',
-		fulltitle: 'The Art of Playing The Trumpet 1 (Beginners)',
+		title: 'The Art of Trumpet Playing 1',
+		fulltitle: 'The Art of Trumpet Playing 1 (Beginners)',
 		status: 'unlock',
-		link: 'the_art_of_playing_the_trumpet_1',
+		link: 'the_art_of_trumpet_playing_1',
 		overview: `The lessons in this course will help you learn the basics of playing the trumpet correctly as you begin your journey of mastering the instrument. Lessons have been made easy through the consistent use of simple illustrations and practical examples so as to aid the understanding of all the techniques and exercises needed to correctly play the instrument.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of the trumpet.',

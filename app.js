@@ -41,16 +41,16 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -605,7 +605,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 								res.redirect('/course/' + newCourseLink + '/lesson/1.' + req.session.url);
 								console.log('pk');
 							} else {
-								var modules = currentCourse.modules.slice(0, 3);
+								var modules = currentCourse.modules.slice(0, 4);
 								req.session.url = number;
 								res.render('module', {
 									title: 'Learn',
@@ -1375,8 +1375,34 @@ app.post('/theme', function(req, res) {
 	);
 });
 
-// var lesson = '1.10';
 // var title = '80 Solo Techniques in 4 Weeks';
+
+// User.updateMany(
+// 	{
+// 		'course.title': title
+// 	},
+// 	{
+// 		$set: {
+// 			'course.$[outer].modules.$[lower].video': 'https://player.vimeo.com/video/666425936?h=dddbbc07b2'
+// 		}
+// 	},
+// 	{
+// 		arrayFilters: [
+// 			{ 'outer.title': title },
+// 			{
+// 				lower: {
+// 					name: 'Jazz Chords',
+// 					lesson: '1.2',
+// 					status: 'lock',
+// 					video: 'myj'
+// 				}
+// 			}
+// 		]
+// 	},
+// 	function(err, status) {
+// 		console.log(err, status);
+// 	}
+// );
 
 // User.find(
 // 	{
@@ -1388,8 +1414,25 @@ app.post('/theme', function(req, res) {
 // 			console.log(err);
 // 		} else {
 // 			foundUser.forEach(function(user) {
-// 				console.log(user.fname);
-// 				let foundCourse = user;
+// 				// console.log(user.fname);
+// 				let foundCourse = user.course.filter(function(i) {
+// 					return i.title == title;
+// 				});
+// 				foundCourse.forEach((course) => {
+// 					let modu = course.modules.filter(function(mod) {
+// 						return mod.lesson == lesson;
+// 					});
+
+// 					user.save(function(err) {
+// 						if (err) {
+// 							log(err);
+// 						} else {
+// 							modu['video'] = 'this is the video link';
+
+// 							console.log('saved vid');
+// 						}
+// 					});
+// 				});
 // 				// user.course.forEach(function(course) {
 // 				// 	course.modules.forEach(function(module) {
 // 				// 		course.save(function(err) {
