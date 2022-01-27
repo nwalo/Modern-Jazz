@@ -58,7 +58,7 @@ exports.courses = [
 				name: 'CHROMATICISM',
 				lesson: '1.6',
 				status: 'lock',
-				video: ''
+				video: 'https://player.vimeo.com/video/670423664?h=8b46a7123d'
 			},
 			{
 				name: 'Ambigous Scales',
@@ -1175,8 +1175,8 @@ exports.courses = [
 	{
 		series: 'You Too Can Play Series #1',
 		type: '',
-		title: 'The Art of Mastering Hand Improvisation',
-		fulltitle: 'The Art of Mastering Hand Improvisation',
+		title: 'Mastering Both Hand Improvisation',
+		fulltitle: 'Mastering Both Hand Improvisation',
 		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
 		benefits: [
 			'The course has been fully simplified to enable students have a thorough understanding of music.',
@@ -1186,7 +1186,7 @@ exports.courses = [
 			'Professional Certification.'
 		],
 		status: 'lock',
-		link: 'the_art_of_mastering_hand_improvisation',
+		link: 'mastering_both_hand_improvisation',
 		img: 'teach.jpg',
 		duration: '2 Weeks',
 		lesson: '10',
@@ -1231,17 +1231,17 @@ exports.courses = [
 	{
 		series: 'You Too Can Play Series #1',
 		type: 'piano',
-		title: 'Gospel/Jazz Leaks For Aspiring Pianist',
-		fulltitle: '200 Gospel/Jazz Leaks For The Aspiring Pianist',
+		title: 'Gospel/Jazz Licks For Aspiring Pianist',
+		fulltitle: '200 Gospel/Jazz Licks For The Aspiring Pianist',
 		overview: `This course contains the essential techniques needed to completely gain mastery of improvisation as essentially needed in today's world of modern jazz and contemporary music. The improvisational approaches needed for all music styles has been thoroughly dissected in this course.`,
 		benefits: [
-			'The course has been fully simplified to give students leaks and tweaks on gospel-jazz.',
+			'The course has been fully simplified to give students licks and tweaks on gospel-jazz.',
 			'Weekly live virtual class on telegram.',
 			'Mentorship.',
 			'Professional Certification.'
 		],
 		status: 'lock',
-		link: '200_gospel/jazz_leaks_for_the_aspiring_pianist',
+		link: '200_gospel/jazz_licks_for_the_aspiring_pianist',
 		img: 'gospel.jpg',
 		duration: '3 Weeks',
 		lesson: '26',

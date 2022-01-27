@@ -41,7 +41,7 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
@@ -605,7 +605,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 								res.redirect('/course/' + newCourseLink + '/lesson/1.' + req.session.url);
 								console.log('pk');
 							} else {
-								var modules = currentCourse.modules.slice(0, 4);
+								var modules = currentCourse.modules.slice(0, 5);
 								req.session.url = number;
 								res.render('module', {
 									title: 'Learn',
