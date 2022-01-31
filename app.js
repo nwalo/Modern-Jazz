@@ -1375,6 +1375,8 @@ app.post('/theme', function(req, res) {
 	);
 });
 
+// =================== UPDATING THE VIDEOS TO THE COURSES ==========================================
+
 // var title = '80 Solo Techniques in 4 Weeks';
 
 // User.updateMany(
@@ -1401,50 +1403,6 @@ app.post('/theme', function(req, res) {
 // 	},
 // 	function(err, status) {
 // 		console.log(err, status);
-// 	}
-// );
-
-// User.find(
-// 	{
-// 		'course.title': title,
-// 		'course.modules.lesson': lesson
-// 	},
-// 	function(err, foundUser) {
-// 		if (err) {
-// 			console.log(err);
-// 		} else {
-// 			foundUser.forEach(function(user) {
-// 				// console.log(user.fname);
-// 				let foundCourse = user.course.filter(function(i) {
-// 					return i.title == title;
-// 				});
-// 				foundCourse.forEach((course) => {
-// 					let modu = course.modules.filter(function(mod) {
-// 						return mod.lesson == lesson;
-// 					});
-
-// 					user.save(function(err) {
-// 						if (err) {
-// 							log(err);
-// 						} else {
-// 							modu['video'] = 'this is the video link';
-
-// 							console.log('saved vid');
-// 						}
-// 					});
-// 				});
-// 				// user.course.forEach(function(course) {
-// 				// 	course.modules.forEach(function(module) {
-// 				// 		course.save(function(err) {
-// 				// 			if (!err) {
-// 				// 				module['video'] = 'vid';
-// 				// 				console.log(module);
-// 				// 			}
-// 				// 		});
-// 				// 	});
-// 				// });
-// 			});
-// 		}
 // 	}
 // );
 
