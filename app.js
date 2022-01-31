@@ -45,12 +45,12 @@ app.use(passport.session());
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGO_URL, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
 
 // MULTER CONFIG
 
@@ -1386,8 +1386,8 @@ app.post('/theme', function(req, res) {
 // 			'course.$[outer].modules.$[lower].video': 'https://player.vimeo.com/video/670423664?h=8b46a7123d'
 // 		}
 // 	},
-// 	{
 // 		arrayFilters: [
+// 	{
 // 			{ 'outer.title': title },
 // 			{
 // 				lower: {
@@ -1455,6 +1455,38 @@ app.post('/theme', function(req, res) {
 // 		console.log('updated the course');
 // 	}
 // });
+
+app.get('/reset-password', function(req, res) {
+	res.render('reset-password', {
+		title: 'Reset your password',
+		errorMsg: ''
+	});
+});
+
+app.post('/reset-password', function(req, res) {
+	User.findOne({ username: req.body.username }, function(err, userGot) {
+		if (err) {
+			res.render('reset-password', {
+				title: 'Reset your password',
+				errorMsg: 'Sorry, unable to process this request please try again ...'
+			});
+		} else {
+			if (userGot) {
+				userGot.setPassword(req.body.password, function(err, userDetails) {
+					userGot.save(function(err, saved) {
+						console.log('password reset');
+						res.redirect('/dashboard');
+					});
+				});
+			} else {
+				res.render('reset-password', {
+					title: 'Reset your password',
+					errorMsg: 'Error, user does not exist. Kindly create a new account ...'
+				});
+			}
+		}
+	});
+});
 
 app.get('/403', function(req, res) {
 	res.render('403', {
