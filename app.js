@@ -605,7 +605,7 @@ app.get('/course/:courseLink/lesson/:lesson', function(req, res) {
 								res.redirect('/course/' + newCourseLink + '/lesson/1.' + req.session.url);
 								console.log('pk');
 							} else {
-								var modules = currentCourse.modules.slice(0, 5);
+								var modules = currentCourse.modules.slice(0, 6);
 								req.session.url = number;
 								res.render('module', {
 									title: 'Learn',
@@ -1383,7 +1383,7 @@ app.post('/theme', function(req, res) {
 // 	},
 // 	{
 // 		$set: {
-// 			'course.$[outer].modules.$[lower].video': 'https://player.vimeo.com/video/666425936?h=dddbbc07b2'
+// 			'course.$[outer].modules.$[lower].video': 'https://player.vimeo.com/video/670423664?h=8b46a7123d'
 // 		}
 // 	},
 // 	{
@@ -1391,10 +1391,10 @@ app.post('/theme', function(req, res) {
 // 			{ 'outer.title': title },
 // 			{
 // 				lower: {
-// 					name: 'Jazz Chords',
-// 					lesson: '1.2',
-// 					status: 'lock',
-// 					video: 'myj'
+// 					name: 'CHROMATICISM',
+// 					lesson: '1.6',
+// 					status: 'unlock',
+// 					video: ''
 // 				}
 // 			}
 // 		]
@@ -1468,7 +1468,7 @@ app.get('*', function(req, res) {
 
 let port = process.env.PORT;
 if (port == null || port == '') {
-	port = 3000;
+	port = 5000;
 }
 
 app.listen(port, function() {
