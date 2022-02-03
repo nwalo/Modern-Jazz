@@ -64,7 +64,7 @@ exports.courses = [
 				name: 'Ambigous Scales',
 				lesson: '1.7',
 				status: 'lock',
-				video: ''
+				video: 'https://player.vimeo.com/video/673096790?h=5e5aa778df'
 			},
 			{
 				name: 'Constant Melodies',
