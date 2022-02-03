@@ -41,7 +41,7 @@ app.use(passport.session());
 
 // EXPRESS-SSLIFY
 
-// app.use(enforce.HTTPS({ trustProtoHeader: true }));
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // CONNECT DATABASE - MONGODB
 
@@ -1377,34 +1377,34 @@ app.post('/theme', function(req, res) {
 
 // =================== UPDATING THE VIDEOS TO THE COURSES ==========================================
 
-var title = '80 Solo Techniques in 4 Weeks';
+// var title = '80 Solo Techniques in 4 Weeks';
 
-User.updateMany(
-	{
-		'course.title': title
-	},
-	{
-		$set: {
-			'course.$[outer].modules.$[lower].video': 'https://player.vimeo.com/video/673096790?h=5e5aa778df'
-		}
-	},
-	{
-		arrayFilters: [
-			{ 'outer.title': title },
-			{
-				lower: {
-					name: 'Ambigous Scales',
-					lesson: '1.7',
-					status: 'unlock',
-					video: 'https://player.vimeo.com/video/670423664?h=8b46a7123d'
-				}
-			}
-		]
-	},
-	function(err, status) {
-		console.log(err, status);
-	}
-);
+// User.updateMany(
+// 	{
+// 		'course.title': title
+// 	},
+// 	{
+// 		$set: {
+// 			'course.$[outer].modules.$[lower].video': 'https://player.vimeo.com/video/673096790?h=5e5aa778df'
+// 		}
+// 	},
+// 	{
+// 		arrayFilters: [
+// 			{ 'outer.title': title },
+// 			{
+// 				lower: {
+// 					name: 'Ambigous Scales',
+// 					lesson: '1.7',
+// 					status: 'unlock',
+// 					video: 'https://player.vimeo.com/video/670423664?h=8b46a7123d'
+// 				}
+// 			}
+// 		]
+// 	},
+// 	function(err, status) {
+// 		console.log(err, status);
+// 	}
+// );
 
 // User.updateMany({ 'course.title': '80 Solo Techniques in 4 Weeks' }, { course: courses.courses[0] }, function(err) {
 // 	if (err) {
