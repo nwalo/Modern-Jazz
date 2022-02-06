@@ -50,7 +50,9 @@ mongoose.connect(process.env.MONGO_URL, {
   useUnifiedTopology: true,
 })
 
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', { useUnifiedTopology: true });
+// mongoose.connect('mongodb://localhost:27017/modernJazzDB', {
+//   useUnifiedTopology: true,
+// })
 
 // MULTER CONFIG
 
@@ -152,6 +154,7 @@ const userSchema = new mongoose.Schema({
   notification: [notificationSchema],
   address: String,
   city: String,
+  phone: String,
   country: String,
   zipCode: String,
   details: String,
@@ -1236,6 +1239,7 @@ app.post('/register', function (req, res) {
               fname: _.capitalize(req.body.fname),
               lname: _.capitalize(req.body.lname),
               nick: _.capitalize(req.body.nick),
+              phone: req.body.phone,
               notification: welcomeNotification,
             },
             function (err) {
