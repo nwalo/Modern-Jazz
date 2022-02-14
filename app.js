@@ -1460,35 +1460,35 @@ app.post('/theme', function (req, res) {
 
 // =================== UPDATING THE VIDEOS TO THE COURSES ==========================================
 
-var title = '80 Solo Techniques in 4 Weeks'
+// var title = '80 Solo Techniques in 4 Weeks'
 
-User.updateMany(
-  {
-    'course.title': title,
-  },
-  {
-    $set: {
-      'course.$[outer].modules.$[lower].video':
-        'https://player.vimeo.com/video/677066854?h=4472d60858',
-    },
-  },
-  {
-    arrayFilters: [
-      { 'outer.title': title },
-      {
-        lower: {
-          name: 'Constant Melodies',
-          lesson: '1.8',
-          status: 'lock',
-          video: '',
-        },
-      },
-    ],
-  },
-  function (err, status) {
-    console.log(err, status)
-  },
-)
+// User.updateMany(
+//   {
+//     'course.title': title,
+//   },
+//   {
+//     $set: {
+//       'course.$[outer].modules.$[lower].video':
+//         'https://player.vimeo.com/video/677066854?h=4472d60858',
+//     },
+//   },
+//   {
+//     arrayFilters: [
+//       { 'outer.title': title },
+//       {
+//         lower: {
+//           name: 'Constant Melodies',
+//           lesson: '1.8',
+//           status: 'lock',
+//           video: '',
+//         },
+//       },
+//     ],
+//   },
+//   function (err, status) {
+//     console.log(err, status)
+//   },
+// )
 
 // IRST VERSION
 
