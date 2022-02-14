@@ -70,7 +70,7 @@ exports.courses = [
         name: 'Constant Melodies',
         lesson: '1.8',
         status: 'lock',
-        video: '',
+        video: 'https://player.vimeo.com/video/677066854?h=4472d60858',
       },
       {
         name: 'Durational Values',
