@@ -76,7 +76,7 @@ exports.courses = [
         name: 'Durational Values',
         lesson: '1.9',
         status: 'lock',
-        video: '',
+        video: 'https://player.vimeo.com/video/679464146?h=1335624671',
       },
       {
         name: 'Jazz Rhythms',

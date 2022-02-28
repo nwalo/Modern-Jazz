@@ -45,14 +45,14 @@ app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', {
+// mongoose.connect(process.env.MONGO_URL, {
+//   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // })
+
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', {
+  useUnifiedTopology: true,
+})
 
 // MULTER CONFIG
 
@@ -641,7 +641,7 @@ app.get('/course/:courseLink/lesson/:lesson', function (req, res) {
                 )
                 console.log('pk')
               } else {
-                var modules = currentCourse.modules.slice(0, 8)
+                var modules = currentCourse.modules.slice(0, 9)
                 req.session.url = number
                 res.render('module', {
                   title: 'Learn',
@@ -1460,35 +1460,35 @@ app.post('/theme', function (req, res) {
 
 // =================== UPDATING THE VIDEOS TO THE COURSES ==========================================
 
-// var title = '80 Solo Techniques in 4 Weeks'
+var title = '80 Solo Techniques in 4 Weeks'
 
-// User.updateMany(
-//   {
-//     'course.title': title,
-//   },
-//   {
-//     $set: {
-//       'course.$[outer].modules.$[lower].video':
-//         'https://player.vimeo.com/video/677066854?h=4472d60858',
-//     },
-//   },
-//   {
-//     arrayFilters: [
-//       { 'outer.title': title },
-//       {
-//         lower: {
-//           name: 'Constant Melodies',
-//           lesson: '1.8',
-//           status: 'lock',
-//           video: '',
-//         },
-//       },
-//     ],
-//   },
-//   function (err, status) {
-//     console.log(err, status)
-//   },
-// )
+User.updateMany(
+  {
+    'course.title': title,
+  },
+  {
+    $set: {
+      'course.$[outer].modules.$[lower].video':
+        'https://player.vimeo.com/video/679464146?h=1335624671',
+    },
+  },
+  {
+    arrayFilters: [
+      { 'outer.title': title },
+      {
+        lower: {
+          name: 'Durational Values',
+          lesson: '1.9',
+          status: 'lock',
+          video: '',
+        },
+      },
+    ],
+  },
+  function (err, status) {
+    console.log(err, status)
+  },
+)
 
 // IRST VERSION
 
