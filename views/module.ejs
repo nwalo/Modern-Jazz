@@ -6,8 +6,8 @@
     <%- include('partials/header') %>
 
     <!--====== Head Ends ======-->
-
-  <body oncontextmenu='return false'>
+<!-- return false -->
+  <body oncontextmenu=''>
 
     <% if(currentCourse.title == '80 Solo Techniques in 4 Weeks'){ %>
 
@@ -208,10 +208,15 @@
                 $('.mysuc').fadeIn(1000)
             })
 
-            var checkNum = $('#number').val();
+            var checkNum = $('#number').val().slice(2,);
             $('.myles').hide()
 
-            if (checkNum >= '1.'+ '<%= module.length%>') {
+            // console.log(checkNum.slice(2,));
+            // console.log('<%= module.length%>');
+
+            if (Number(checkNum) >= Number('<%= module.length%>')) {
+                console.log(checkNum);
+                console.log('1.'+ '<%= module.length%>');
                 $('#myform').on('submit', function (e) {
                     e.preventDefault();
                     $('.myles').fadeOut(200)
@@ -414,6 +419,8 @@
             })
 
             var checkNum = $('#number').val();
+            console.log(checkNum);
+            console.log('checkNum');
             $('.myles').hide()
 
             if (checkNum == '1.1') {
@@ -424,7 +431,6 @@
                 })
 
                 $('.courses-features ul li a').click(function (e) {
-                    
                     if (this.href.slice(55,) > '1.1') {
                         $('.myles').fadeIn(1000);
                         e.preventDefault();

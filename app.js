@@ -41,7 +41,7 @@ app.use(passport.session())
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }))
+// app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 // CONNECT DATABASE - MONGODB
 
@@ -1460,35 +1460,35 @@ app.post('/theme', function (req, res) {
 
 // =================== UPDATING THE VIDEOS TO THE COURSES ==========================================
 
-var title = '80 Solo Techniques in 4 Weeks'
+// var title = '80 Solo Techniques in 4 Weeks'
 
-User.updateMany(
-  {
-    'course.title': title,
-  },
-  {
-    $set: {
-      'course.$[outer].modules.$[lower].video':
-        'https://player.vimeo.com/video/686668379?h=40e62a1fb0',
-    },
-  },
-  {
-    arrayFilters: [
-      { 'outer.title': title },
-      {
-        lower: {
-          name: 'Durational Values',
-          lesson: '1.9',
-          status: 'lock',
-          video: '',
-        },
-      },
-    ],
-  },
-  function (err, status) {
-    console.log(err, status)
-  },
-)
+// User.updateMany(
+//   {
+//     'course.title': title,
+//   },
+//   {
+//     $set: {
+//       'course.$[outer].modules.$[lower].video':
+//         'https://player.vimeo.com/video/686668379?h=40e62a1fb0',
+//     },
+//   },
+//   {
+//     arrayFilters: [
+//       { 'outer.title': title },
+//       {
+//         lower: {
+//           name: 'Jazz Rhythms',
+//           lesson: '1.10',
+//           status: 'lock',
+//           video: '',
+//         },
+//       },
+//     ],
+//   },
+//   function (err, status) {
+//     console.log(err, status)
+//   },
+// )
 
 // IRST VERSION
 
