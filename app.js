@@ -639,6 +639,7 @@ app.get('/course/:courseLink/lesson/:lesson', function (req, res) {
                 res.redirect(
                   '/course/' + newCourseLink + '/lesson/1.' + req.session.url,
                 )
+                console.log('pk')
               } else {
                 var modules = currentCourse.modules.slice(0, 10)
                 req.session.url = number
@@ -649,6 +650,7 @@ app.get('/course/:courseLink/lesson/:lesson', function (req, res) {
                   currentCourse,
                   currentCourseModule,
                 })
+                console.log('pl')
               }
             } else {
               res.redirect('/course/' + newCourseLink)
