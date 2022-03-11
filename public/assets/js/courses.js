@@ -82,7 +82,7 @@ exports.courses = [
         name: 'Jazz Rhythms',
         lesson: '1.10',
         status: 'lock',
-        video: '',
+        video: 'https://player.vimeo.com/video/686668379?h=40e62a1fb0',
       },
       {
         name: 'Rhythmic Improvisation',
