@@ -1469,7 +1469,7 @@ User.updateMany(
   {
     $set: {
       'course.$[outer].modules.$[lower].video':
-        'https://player.vimeo.com/video/679464146?h=1335624671',
+        'https://player.vimeo.com/video/686668379?h=40e62a1fb0',
     },
   },
   {
