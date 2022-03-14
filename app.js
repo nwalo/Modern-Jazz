@@ -641,7 +641,7 @@ app.get('/course/:courseLink/lesson/:lesson', function (req, res) {
                 )
                 console.log('pk')
               } else {
-                var modules = currentCourse.modules.slice(0, 10)
+                var modules = currentCourse.modules.slice(0, 11)
                 req.session.url = number
                 res.render('module', {
                   title: 'Learn',
@@ -1460,35 +1460,35 @@ app.post('/theme', function (req, res) {
 
 // =================== UPDATING THE VIDEOS TO THE COURSES ==========================================
 
-// var title = '80 Solo Techniques in 4 Weeks'
+var title = '80 Solo Techniques in 4 Weeks'
 
-// User.updateMany(
-//   {
-//     'course.title': title,
-//   },
-//   {
-//     $set: {
-//       'course.$[outer].modules.$[lower].video':
-//         'https://player.vimeo.com/video/686668379?h=40e62a1fb0',
-//     },
-//   },
-//   {
-//     arrayFilters: [
-//       { 'outer.title': title },
-//       {
-//         lower: {
-//           name: 'Jazz Rhythms',
-//           lesson: '1.10',
-//           status: 'lock',
-//           video: '',
-//         },
-//       },
-//     ],
-//   },
-//   function (err, status) {
-//     console.log(err, status)
-//   },
-// )
+User.updateMany(
+  {
+    'course.title': title,
+  },
+  {
+    $set: {
+      'course.$[outer].modules.$[lower].video':
+        'https://player.vimeo.com/video/687838780?h=a1d6a57420',
+    },
+  },
+  {
+    arrayFilters: [
+      { 'outer.title': title },
+      {
+        lower: {
+          name: 'Rhythmic Improvisation',
+        lesson: '1.11',
+        status: 'lock',
+        video: '',
+        },
+      },
+    ],
+  },
+  function (err, status) {
+    console.log(err, status)
+  },
+)
 
 // IRST VERSION
 
