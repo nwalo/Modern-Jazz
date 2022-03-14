@@ -1460,35 +1460,35 @@ app.post('/theme', function (req, res) {
 
 // =================== UPDATING THE VIDEOS TO THE COURSES ==========================================
 
-var title = '80 Solo Techniques in 4 Weeks'
+// let title = '80 Solo Techniques in 4 Weeks'
 
-User.updateMany(
-  {
-    'course.title': title,
-  },
-  {
-    $set: {
-      'course.$[outer].modules.$[lower].video':
-        'https://player.vimeo.com/video/687838780?h=a1d6a57420',
-    },
-  },
-  {
-    arrayFilters: [
-      { 'outer.title': title },
-      {
-        lower: {
-          name: 'Rhythmic Improvisation',
-        lesson: '1.11',
-        status: 'lock',
-        video: '',
-        },
-      },
-    ],
-  },
-  function (err, status) {
-    console.log(err, status)
-  },
-)
+// User.updateMany(
+//   {
+//     'course.title': title,
+//   },
+//   {
+//     $set: {
+//       'course.$[outer].modules.$[lower].video':
+//         'https://player.vimeo.com/video/687838780?h=a1d6a57420',
+//     },
+//   },
+//   {
+//     arrayFilters: [
+//       { 'outer.title': title },
+//       {
+//         lower: {
+//           name: 'Rhythmic Improvisation',
+//         lesson: '1.11',
+//         status: 'lock',
+//         video: '',
+//         },
+//       },
+//     ],
+//   },
+//   function (err, status) {
+//     console.log(err, status)
+//   },
+// )
 
 // IRST VERSION
 
