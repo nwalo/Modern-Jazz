@@ -1460,7 +1460,7 @@ app.post('/theme', function (req, res) {
 
 // =================== UPDATING THE VIDEOS TO THE COURSES ==========================================
 
-// let title = '80 Solo Techniques in 4 Weeks'
+let title = '80 Solo Techniques in 4 Weeks'
 
 // User.updateMany(
 //   {
@@ -1477,10 +1477,10 @@ app.post('/theme', function (req, res) {
 //       { 'outer.title': title },
 //       {
 //         lower: {
-//           name: 'Rhythmic Improvisation',
-//         lesson: '1.11',
-//         status: 'lock',
-//         video: '',
+//           name: 'Melodic Patterns',
+//           lesson: '1.13',
+//           status: 'lock',
+//           video: '',
 //         },
 //       },
 //     ],
