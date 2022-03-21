@@ -641,7 +641,7 @@ app.get('/course/:courseLink/lesson/:lesson', function (req, res) {
                 )
                 console.log('pk')
               } else {
-                var modules = currentCourse.modules.slice(0, 11)
+                var modules = currentCourse.modules.slice(0, 13)
                 req.session.url = number
                 res.render('module', {
                   title: 'Learn',
@@ -1469,7 +1469,7 @@ app.post('/theme', function (req, res) {
 //   {
 //     $set: {
 //       'course.$[outer].modules.$[lower].video':
-//         'https://player.vimeo.com/video/687838780?h=a1d6a57420',
+//         'https://player.vimeo.com/video/690408681?h=83449fa27b',
 //     },
 //   },
 //   {

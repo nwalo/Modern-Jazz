@@ -100,7 +100,7 @@ exports.courses = [
         name: 'Melodic Patterns',
         lesson: '1.13',
         status: 'lock',
-        video: '',
+        video: 'https://player.vimeo.com/video/690408681?h=83449fa27b',
       },
       {
         name: 'Cycled Patterns',
