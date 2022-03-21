@@ -50,7 +50,11 @@
             <div class="row flex-row-reverse">
                 <div class="col-lg-8" >
                     <div class="courses-details-content mt-50">
-                        <iframe class="video" src="<%= currentCourseModule.video%>" width="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        <% if (currentCourseModule.video) { %> 
+                        <iframe class="video" src="<%= currentCourseModule.video %>" width="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        <% } else { %>
+                            <h1> Please Advance to Next Lesson.</h1>
+                        <% } %>
                     </div>
 
                     <div style="margin-top: 50px;">
