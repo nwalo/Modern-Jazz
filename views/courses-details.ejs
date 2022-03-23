@@ -237,6 +237,7 @@
                                         </div>
                                     </div>
 
+                                    <% if (isLogIn) { %> 
                                     <div class="review-form">
                                         <div class="review-rating">
                                             <h5 class="title">Write a Review</h5>
@@ -261,7 +262,9 @@
                                         </div>
 
                                         <div class="review-form-wrapper">
-                                            <form action="/course" method="post">
+                                            <form id="review" action="/review" method="post">
+                                                <input type="text" hidden id="myRating" value="" name="rating">
+                                                <input type="text" hidden disabled id="title" value="<%=course.title%>" name="title">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="single-form">
@@ -273,7 +276,7 @@
                                                             <input type="email" name="email" placeholder="Email">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <!-- <div class="col-md-6">
                                                         <div class="single-form">
                                                             <input type="text" name="phone" placeholder="Phone">
                                                         </div>
@@ -282,7 +285,7 @@
                                                         <div class="single-form">
                                                             <input type="text" name="title" placeholder="Title of Course" required>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="col-md-12">
                                                         <div class="single-form">
                                                             <textarea name="review" placeholder="Write here..."></textarea>
@@ -290,13 +293,14 @@
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="single-form">
-                                                            <button class="main-btn">Submit now</button>
+                                                            <button class="main-btn" type="submit">Submit now</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
+                                    <% } %> 
                                 </div>
                                 
                             </div>

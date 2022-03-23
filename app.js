@@ -41,18 +41,18 @@ app.use(passport.session())
 
 // EXPRESS-SSLIFY
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }))
+// app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', {
+// mongoose.connect(process.env.MONGO_URL, {
+//   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // })
+
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', {
+  useUnifiedTopology: true,
+})
 
 // MULTER CONFIG
 
@@ -96,9 +96,18 @@ const courseSchema = new mongoose.Schema({
 const reviewSchema = new mongoose.Schema({
   name: String,
   email: String,
-  phone: String,
-  title: String,
   reviewMsg: String,
+  rating: String,
+  date: Date,
+  timestamp: {
+    type: String,
+    default: () => moment().format('DD MMM, YYYY'),
+  },
+})
+
+const courseReviewSchema = new mongoose.Schema({
+  title: String,
+  reviews: [reviewSchema],
 })
 
 const blogSchema = new mongoose.Schema({
@@ -123,21 +132,13 @@ const blogSchema = new mongoose.Schema({
   },
 })
 
-const userReviewSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  phone: String,
-  title: String,
-  reviewMsg: String,
-})
-
-const courseReviewSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  phone: String,
-  title: String,
-  reviewMsg: String,
-})
+// const courseReviewSchema = new mongoose.Schema({
+//   name: String,
+//   email: String,
+//   phone: String,
+//   title: String,
+//   reviewMsg: String,
+// })
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -150,7 +151,6 @@ const userSchema = new mongoose.Schema({
   type: String,
   theme: String,
   course: [courseSchema],
-  review: [reviewSchema],
   notification: [notificationSchema],
   address: String,
   city: String,
@@ -171,7 +171,6 @@ const userSchema = new mongoose.Schema({
 
 const tutorSchema = new mongoose.Schema({
   title: String,
-  reviewMsg: String,
 })
 
 userSchema.plugin(passportLocalMongoose)
@@ -182,6 +181,7 @@ userSchema.plugin(findOrCreate)
 const Blog = mongoose.model('Blog', blogSchema)
 const User = mongoose.model('User', userSchema)
 const Review = mongoose.model('Review', reviewSchema)
+const CourseReview = mongoose.model('CourseReview', courseReviewSchema)
 const Tutor = mongoose.model('Tutor', tutorSchema)
 const Notification = mongoose.model('Notification', notificationSchema)
 
@@ -222,6 +222,8 @@ const welcomeNotification = [
       'A live virtual class session takes place on the telegram channel on Mondays and Thursdays.',
   },
 ]
+
+// ============ NEW NOTICATIONS
 
 // var text = {
 // 	message:
@@ -522,6 +524,12 @@ app.get('/course/:courseLink', function (req, res) {
     return i.name == _.capitalize(req.params.name)
   })
 
+  let isLogIn = false
+
+  req.isAuthenticated() ? (isLogIn = true) : (isLogIn = false)
+
+  console.log(isLogIn)
+
   if (typeof course === 'undefined') {
     res.redirect('/courses/page1')
   } else {
@@ -530,69 +538,8 @@ app.get('/course/:courseLink', function (req, res) {
       allTutors,
       tutor,
       title: 'Course - ' + course.title,
+      isLogIn,
     })
-  }
-})
-
-app.post('/course', function (req, res) {
-  review = new Review({
-    title: req.body.title,
-    reviewMsg: req.body.review,
-  })
-  var message = `<p> Hi ${req.body.name}, </p>
-						<p>Thank you for your review on <b style="color:#F23F00">${req.body.title}</b>,
-						 we appreciate our customers feedbacks.</p>						
-						<h4>REVIEW</h4>
-						<p> ${req.body.review}</p>
-						
-						<p><b>Emmanuel Umoh</b></p>
-						<i>Customer Support, Modern Jazz<i> 
-						`
-
-  console.log(message)
-
-  if (req.isAuthenticated()) {
-    Review.create(review, function (err, item) {
-      if (err) {
-        console.log('err')
-      } else {
-        item.save(function (err) {
-          if (!err) {
-            var transporter = nodemailer.createTransport({
-              host: 'smtp.gmail.com',
-              port: '465',
-              secure: true,
-              auth: {
-                user: process.env.GMAIL_ID,
-                pass: process.env.GMAIL_PASS,
-              },
-            })
-
-            var options = {
-              from: 'Admin <modernjazzwithnoels@gmail.com>',
-              to: req.body.email, // Email from web
-              bcc: process.env.GMAIL_TO, // used as RCPT TO: address for SMTP
-              subject: 'Course Review - ' + req.body.title,
-              html: message,
-            }
-
-            transporter.sendMail(options, function (err, info) {
-              if (err) {
-                console.log(err)
-                res.send(
-                  "Oops! Something went wrong and we couldn't send your message.",
-                )
-              } else {
-                res.send('Review sent successfully !')
-                console.log('Email status: ' + info.response)
-              }
-            })
-          }
-        })
-      }
-    })
-  } else {
-    res.redirect('/login')
   }
 })
 
@@ -1281,6 +1228,58 @@ app.post('/register', function (req, res) {
       }
     },
   )
+})
+
+app.post('/review', function (req, res) {
+  review = new Review({
+    name: req.body.name,
+    email: req.body.email,
+    title: req.body.title,
+    reviewMsg: req.body.review,
+    rating: req.body.rating,
+    date: moment().format('DD MMM, YYYY'),
+  })
+
+  const myReview = new CourseReview({
+    title: req.body.title,
+    reviews: [review],
+  })
+
+  var message = `<p> Hi ${req.body.name}, </p>
+						<p>Thank you for your review on <b style="color:#F23F00">${req.body.title}</b>,
+						 we appreciate our customers feedbacks.</p>						
+						<h4>REVIEW</h4>
+						<p> ${req.body.review}</p>
+						
+						<p><b>Emmanuel Umoh</b></p>
+						<i style="color:#F23F00">Customer Support, Modern Jazz<i> 
+						`
+
+  CourseReview.findOne({ title: req.body.title }, function (err, rev) {
+    if (err) {
+      console.log(err)
+    } else {
+      if (!rev) {
+        // create new course review
+        CourseReview.create(myReview, function (err, item) {
+          if (err) {
+            console.log('err')
+          } else {
+            item.save(function (erro) {
+              if (!erro) {
+                console.log('saved new review')
+              }
+            })
+          }
+        })
+      } else {
+        //Add new review to that existing course
+        rev.reviews.push(review)
+        rev.save()
+        console.log('saved review')
+      }
+    }
+  })
 })
 
 app.get('/teacher/dashboard', function (req, res) {

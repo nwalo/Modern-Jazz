@@ -1,44 +1,49 @@
-$(function($) {
-	let url = location.href;
+$(function ($) {
+  let url = location.href
 
-	$('nav ul li a').each(function() {
-		if (this.href === url) {
-			$(this).addClass('active');
-		}
-	});
+  $('nav ul li a').each(function () {
+    if (this.href === url) {
+      $(this).addClass('active')
+    }
+  })
 
-	$('.sidebar ul.nav li a').each(function() {
-		if (this.href === url) {
-			$(this).parents('li').addClass('active');
-		}
-	});
+  $('.sidebar ul.nav li a').each(function () {
+    if (this.href === url) {
+      $(this).parents('li').addClass('active')
+    }
+  })
 
-	$('.courses-sidebar .courses-features ul li a').each(function() {
-		if (this.href === url) {
-			$(this).addClass('active');
-			console.log(this);
-		}
-	});
+  $('.courses-sidebar .courses-features ul li a').each(function () {
+    if (this.href === url) {
+      $(this).addClass('active')
+      console.log(this)
+    }
+  })
 
-	$('ul.pagination-items li a').each(function() {
-		if (this.href === url) {
-			$(this).addClass('active');
-		}
-	});
+  $('ul.pagination-items li a').each(function () {
+    if (this.href === url) {
+      $(this).addClass('active')
+    }
+  })
 
-	let errorImage = $('.erImg');
-	let errorText = $('.erText');
+  let errorImage = $('.erImg')
+  let errorText = $('.erText')
 
-	// console.log(errorText.text().length);
-	$('p.success').hide();
-	if (errorText.text().length > 0) {
-		$('p.success').show();
-		errorImage.html('<img src="assets/images/icon/warning.png" alt=""> ');
-	}
+  // console.log(errorText.text().length);
+  $('p.success').hide()
+  if (errorText.text().length > 0) {
+    $('p.success').show()
+    errorImage.html('<img src="assets/images/icon/warning.png" alt=""> ')
+  }
 
-	$(document).ready(function() {
-		$('video').bind('contextmenu', function() {
-			return false;
-		});
-	});
-});
+  $('video').bind('contextmenu', function () {
+    return false
+  })
+
+  $('#review').on('submit', function (e) {
+    if ($('#myRating').val().length < 1) {
+      e.preventDefault()
+      console.log('No rating')
+    }
+  })
+})
