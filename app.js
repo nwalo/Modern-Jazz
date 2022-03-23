@@ -514,6 +514,8 @@ app.get('/courses/:page', function (req, res) {
 })
 
 app.get('/course/:courseLink', function (req, res) {
+  let isLogIn = false
+
   let course = courses.courses.find((element) => {
     return element.link == req.params.courseLink
   })
@@ -523,8 +525,6 @@ app.get('/course/:courseLink', function (req, res) {
   let tutor = tutors.tutors.find(function (i) {
     return i.name == _.capitalize(req.params.name)
   })
-
-  let isLogIn = false
 
   req.isAuthenticated() ? (isLogIn = true) : (isLogIn = false)
 
