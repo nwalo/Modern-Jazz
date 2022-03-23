@@ -528,8 +528,6 @@ app.get('/course/:courseLink', function (req, res) {
 
   req.isAuthenticated() ? (isLogIn = true) : (isLogIn = false)
 
-  console.log(isLogIn)
-
   if (typeof course === 'undefined') {
     res.redirect('/courses/page1')
   } else {
