@@ -1220,7 +1220,6 @@ app.post('/register', function (req, res) {
               }
             },
           )
-
           // res.redirect('/login');
         })
       }
@@ -1266,6 +1265,7 @@ app.post('/review', function (req, res) {
             item.save(function (erro) {
               if (!erro) {
                 console.log('saved new review')
+                res.redirect(req.get('referer'))
               }
             })
           }
@@ -1274,7 +1274,7 @@ app.post('/review', function (req, res) {
         //Add new review to that existing course
         rev.reviews.push(review)
         rev.save()
-        console.log('saved review')
+        res.redirect(req.get('referer'))
       }
     }
   })

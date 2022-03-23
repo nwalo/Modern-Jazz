@@ -237,7 +237,7 @@
                                         </div>
                                     </div>
 
-                                    <% if (isLogIn) { %> 
+                                     
                                     <div class="review-form">
                                         <div class="review-rating">
                                             <h5 class="title">Write a Review</h5>
@@ -264,7 +264,7 @@
                                         <div class="review-form-wrapper">
                                             <form id="review" action="/review" method="post">
                                                 <input type="text" hidden id="myRating" value="" name="rating">
-                                                <input type="text" hidden disabled id="title" value="<%=course.title%>" name="title">
+                                                <input type="text" hidden id="title" value="<%=course.title%>" name="title">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="single-form">
@@ -300,7 +300,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <% } %> 
+                                    
                                 </div>
                                 
                             </div>
