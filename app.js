@@ -1387,6 +1387,10 @@ app.post('/teacher/register', function (req, res) {
   )
 })
 
+app.get('/shop', function (req, res) {
+  res.render('coming')
+})
+
 app.get('/sitemap', function (req, res) {
   res.sendFile(__dirname + '/sitemap.xml')
 })
