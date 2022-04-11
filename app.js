@@ -1388,7 +1388,7 @@ app.post('/teacher/register', function (req, res) {
 })
 
 app.get('/shop', function (req, res) {
-  res.render('coming')
+  res.render('coming', { title: 'Shop' })
 })
 
 app.get('/sitemap', function (req, res) {
