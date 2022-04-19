@@ -1071,7 +1071,7 @@ app.post('/newsletter', function (req, res) {
       })
     } else {
       console.log('error')
-      res.render('success', {
+      res.render('error', {
         message: 'Sorry! unable to subscribe to our news letter',
         emoji: 'fa fa-thumbs-down',
         title: 'Error Page',
