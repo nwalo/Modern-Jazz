@@ -45,14 +45,14 @@ app.use(passport.session())
 
 // CONNECT DATABASE - MONGODB
 
-mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-
-// mongoose.connect('mongodb://localhost:27017/modernJazzDB', {
+// mongoose.connect(process.env.MONGO_URL, {
+//   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // })
+
+mongoose.connect('mongodb://localhost:27017/modernJazzDB', {
+  useUnifiedTopology: true,
+})
 
 // MULTER CONFIG
 
@@ -495,10 +495,11 @@ app.post('/contact', function (req, res) {
 })
 
 app.get('/courses/:page', function (req, res) {
-  var page = req.params.page.slice(4)
+  var page = Number(req.params.page.slice(4))
   var myCourse = courses.courses
   var length = []
 
+  // The number ov paginations that is possible. e.g. when total is 44, we have 6
   for (let i = 0; i < myCourse.length; i++) {
     if (i % 8 == 0) {
       length.push(i)
@@ -510,6 +511,7 @@ app.get('/courses/:page', function (req, res) {
     courses: myCourse,
     n: page,
     length,
+    url: 'courses',
   })
 })
 
@@ -1388,7 +1390,28 @@ app.post('/teacher/register', function (req, res) {
 })
 
 app.get('/shop', function (req, res) {
-  res.render('coming', { title: 'Shop' })
+  res.render('shop', { title: 'Shop' })
+})
+
+app.get('/shop/:page', function (req, res) {
+  var page = Number(req.params.page.slice(4))
+  var myCourse = courses.courses
+  var length = []
+
+  // The number ov paginations that is possible. e.g. when total is 44, we have 6
+  for (let i = 0; i < myCourse.length; i++) {
+    if (i % 8 == 0) {
+      length.push(i)
+    }
+  }
+
+  res.render('our-courses-list', {
+    title: 'All Courses',
+    courses: myCourse,
+    n: page,
+    length,
+    url: 'courses',
+  })
 })
 
 app.get('/sitemap', function (req, res) {
