@@ -45,14 +45,14 @@ app.use(passport.session())
 
 // CONNECT DATABASE - MONGODB
 
-// mongoose.connect(process.env.MONGO_URL, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// })
-
-mongoose.connect('mongodb://localhost:27017/modernJazzDB', {
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
   useUnifiedTopology: true,
 })
+
+// mongoose.connect('mongodb://localhost:27017/modernJazzDB', {
+//   useUnifiedTopology: true,
+// })
 
 // MULTER CONFIG
 
