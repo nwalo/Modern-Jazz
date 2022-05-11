@@ -277,6 +277,10 @@ app.post('/admin', upload.single('file'), function (req, res) {
     return _.capitalize(i)
   })
 
+  console.log(req.body.content)
+  console.log(req.body.contents)
+  console.log(req.body.title)
+
   const blogPost = {
     title: _.capitalize(req.body.title),
     image: {
@@ -306,6 +310,9 @@ app.post('/admin', upload.single('file'), function (req, res) {
             blog.save(function (err) {
               if (!err) {
                 console.log('new blog added')
+                res.redirect('/blog')
+              } else {
+                res.redirect('/admin')
               }
             })
           }
@@ -313,7 +320,6 @@ app.post('/admin', upload.single('file'), function (req, res) {
       }
     }
   })
-  res.redirect('/blog')
 })
 
 app.get('/blog', function (req, res) {
