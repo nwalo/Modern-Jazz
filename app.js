@@ -573,6 +573,12 @@ app.get('/course/:courseLink/lesson/:lesson', function (req, res) {
           req.session.link,
           req.session.url,
         )
+
+        // if (!req.session.url) {
+        //   res.redirect('/enroll/' + newCourseLink)
+        //   return
+        // }
+
         if (newCourseLink) {
           var currentCourse = foundUser.course.find(function (course) {
             return course.link == newCourseLink
@@ -776,7 +782,7 @@ app.post('/dashboard-user', upload.single('file'), function (req, res) {
           city: req.body.city,
           country: req.body.country,
           zipCode: req.body.zipCode,
-          details: req.body.details,
+          details: req.body.details !== '' && req.body.details,
         },
         { multi: true },
         function (err) {
