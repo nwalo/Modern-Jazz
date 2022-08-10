@@ -1,251 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
+  <!--====== Head Start ======-->
 
-    <!--====== Head Start ======-->
+  <%- include('partials/header') %>
 
-    <%- include('partials/header') %>
+  <!--====== Head Ends ======-->
 
-    <!--====== Head Ends ======-->
-
-  <body oncontextmenu='return false'>
-
+  <body oncontextmenu="return false">
     <% if(currentCourse.title == '80 Solo Techniques in 4 Weeks'){ %>
 
-<!--====== Navigation Start ======-->
-
-    <%- include('partials/navigation') %>
-
-    <!--====== Navigation Ends ======-->
-
-    <!--====== Learning Start ======-->
-
-    <style>
-        .hide{
-            display: none;
-        }
-
-        iframe{
-            width:"100%";
-            height: 100%;
-        }
-
-        .courses-details-content{
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%;
-        }
-
-        .video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-
-    <section class="courses-details mysec">
-        <div class="container">
-            <div class="row flex-row-reverse">
-                <div class="col-lg-8" >
-                    <div class="courses-details-content mt-50">
-                        <% if (currentCourseModule.video) { %> 
-                        <iframe class="video" src="<%= currentCourseModule.video %>" width="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                        <% } else { %>
-                            <h1> Please Advance to Next Lesson.</h1>
-                        <% } %>
-                    </div>
-
-                    <div style="margin-top: 50px;">
-                        <h2 class="title my"> <%= currentCourse.title %> <br> 
-                            Lesson <%= lessonNumber %> : <%= currentCourseModule.name%> 
-                        </h2>
-
-                        <form action="/modules/:courseLink" id="myform" method="post">
-                        <div class="sidebar-btn " style="margin: 80px auto 0; width: 110px; " >
-                                                
-                            <% if (lessonNumber) { %>
-                            <input type="text " value="<%= currentCourse.link %>" name="courseLink" hidden >
-                            <input type="text " id="number" value="<%= lessonNumber %>" name="lessonValue" hidden >
-                            <% } %>
-                            <button class="main-btn">Finish Lesson</button>
-                        </div>
-                    </form>
-                    </div>
-
-                    <p class="form-message success myles" id="nextLesson" style="margin-left: 0; margin-right: 0">
-                        <span class="erImg"></span>
-                        <span> </span>
-                        <!-- <span class="erText">No more lessons for the week, next lesson would be available on Monday</span> -->
-                        <span class="erText">Next lesson(s) would be available on soon...</span>
-                    </p>
-
-                <div class="courses-details-tab">
-                 <div class="benefit-content">
-                     <% if(currentCourse.title == '80 Solo Techniques in 4 Weeks'){ %>
-                        <h4 style="text-transform: uppercase">KINDLY NOTE THE SUPPORTING INFORMATION BELOW:</h4>
-                    <% } else { %>
-                        <h4 style="text-transform: uppercase">THANK YOU FOR ENROLLING FOR THE COURSE "<%= currentCourse.title %>", LESSONS SHALL BE AVAILABLE ON 1ST OF MAY, 2022.</h4>
-                        <% } %>
-                        <ul class="courses-details-list">
-                            <li>
-                                <i class="far fa-check-circle"></i>
-                                <p>Join our Telegram channel <a href="https://t.me/+8KIwRtycjitkNTM0" style="color: #ca9400;">here</a> to engage in the live virtual class session.</p>
-                            </li>
-                            <li>
-                                <i class="far fa-check-circle"></i>
-                                <p> Only two (2) courses would be available weekly.</p>
-                            </li>
-                            <li>
-                                <i class="far fa-check-circle"></i>
-                                <p> The live class session on telegram takes place on Mondays and Thursdays.</p>
-                            </li>
-                        </ul>
-
-                  </div>
-                 </div>
-                    
-                </div>
-                
-                <div class="col-lg-4 "> 
-                    <div class="courses-sidebar pt-20">
-                        <div class="courses-features mt-30">
-                            <div class="sidebar-title">
-                                <h4 class="title">Course Modules</h4>
-                            </div> 
-                            <ul>
-                                <%  module.forEach(function(i){ %>
-                                   <li> <a id="no" href="<%= i.lesson%>"><i class="fal fa-book"></i> <%= i.name %></a> <strong> <i class="fas fa-<%= i.status %>" ></i></strong></li> 
-                                <%})%>
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Intervals</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Jazz Chords</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> ARPEGGIOS</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Arpeggio Extensions</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Enclosures</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> CHROMATICISM</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Ambigous Scales</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Constant Melodies</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Durational Values</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Jazz Rhythms</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Rhythmic Improvisation </a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Rhythmic Exercises</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Melodic Patterns</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Cycled Patterns</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Advance Cycled Patterns </a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Major Scale Exercises</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Basic Jazz Voicings (Part 1)</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Basic Jazz Voicings (Part 2)</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Basic Jazz Voicings (Part 3)</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> 2 5 1 Chord Progressions</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Modes</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Modal Interchange</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> The Greatness Of The Major Scale</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Modal Superimposition</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Modal Use Of Scales</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Summary</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                            </ul>
-                                
-                                <% var checkStatus = module.find(function(i){ %>
-                                 <% return i.status == 'lock' %>
-                                <%})%>
-                                    
-                                <% if (checkStatus){ %>
-                                <div class="sidebar-btn">
-                                    <a class="main-btn mybtn cert" href="#!">Print Certificate</a>
-                                </div>
-                                <%} else {%>
-                                <div class="sidebar-btn">
-                                    <a class="main-btn mybtn cert" href="#!">Print Certificate</a>
-                                </div>
-                                <% } %>
-                            <div>
-                            <p class="form-message success mysuc" id="error" style="margin-left: 0; margin-right: 0">
-                                <span class="erImg"></span>
-                                <span> </span>
-                                <span class="erText">Kindly complete all modules</span>
-                            </p>
-                        </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--====== Learning Ends ======-->
-
-    
-    <!--====== Modal Starts ======-->
-    
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Course Alert</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Next lesson(s) would be available on soon...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="main-btn mybtn" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-    <!--====== Modal Ends ======-->
-    
-    <!--====== Footer Starts ======-->
-    
-    <%- include('partials/footer') %>
-
-    <!--====== Footer Ends ======-->
-
-    <script>
-        $(function () {
-            $('.mysuc').hide()
-            $('.cert').on('click', function () {
-                $('.mysuc').fadeIn(1000)
-            })
-
-            var checkNum = $('#number').val().slice(2,);
-            $('.myles').hide()
-
-            // console.log(checkNum.slice(2,));
-            // console.log('<%= module.length%>');
-
-            if (Number(checkNum) >= Number('<%= module.length%>')) {
-                console.log(checkNum);
-                console.log('1.'+ '<%= module.length%>');
-                $('#myform').on('submit', function (e) {
-                    e.preventDefault();
-                    $('.myles').fadeOut(200)
-                    $('.myles').fadeIn(1000)
-                })
-            }
-
-            const getLastItem = thePath => thePath.substring(thePath.lastIndexOf('/') + 1)
-            let lastUrlPath = getLastItem(window.location.pathname)
-
-                $('.courses-features ul li a').click(function (e) {
-                    let linkPath = this.href;
-                    let lastLinkPath = getLastItem(linkPath)  
-                    // console.log(lastLinkPath, lastUrlPath) 
-                    if(lastLinkPath == lastUrlPath + '#nxt') {
-                        $('.myles').fadeOut(200);
-                        $('.myles').fadeIn(1000);
-                        e.preventDefault();
-                    } 
-                })  
-        })
-    </script>  
-
-         <% } else { %>
-    
     <!--====== Navigation Start ======-->
 
     <%- include('partials/navigation') %>
@@ -255,26 +18,410 @@
     <!--====== Learning Start ======-->
 
     <style>
-        .hide{
-            display: none;
-        }
+      .hide {
+        display: none;
+      }
+
+      iframe {
+        width: "100%";
+        height: 100%;
+      }
+
+      .courses-details-content {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+      }
+
+      .video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     </style>
 
     <section class="courses-details mysec">
-        <div class="container">
-            <!-- <div class="row flex-row-reverse"> -->
-            <div class="row flex-row-reverse">
-                <div class="col-lg-10">
-                    <div class="courses-details-content mt-50">
-                    
-                        <img src="/assets/images/courses/<%= currentCourse.img %>" alt="Course image" width="80%">
-                        <h2 class="title my"> <%= currentCourse.title %> <br> 
-                            <!-- Lesson <%= lessonNumber %> : <%= currentCourseModule.name%>  -->
-                        </h2>
+      <div class="container">
+        <div class="row flex-row-reverse">
+          <div class="col-lg-8">
+            <div class="courses-details-content mt-50">
+              <% if (currentCourseModule.video) { %>
+              <iframe
+                class="video"
+                src="<%= currentCourseModule.video %>"
+                width="100%"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <% } else { %>
+              <h1>Please Advance to Next Lesson.</h1>
+              <% } %>
+            </div>
 
-                    </div>
+            <div style="margin-top: 50px">
+              <h2 class="title my">
+                <%= currentCourse.title %> <br />
+                Lesson <%= lessonNumber %> : <%= currentCourseModule.name%>
+              </h2>
 
-                    <!-- <form action="/modules/:courseLink" id="myform" method="post">
+              <form action="/modules/:courseLink" id="myform" method="post">
+                <div
+                  class="sidebar-btn"
+                  style="margin: 80px auto 0; width: 110px"
+                >
+                  <% if (lessonNumber) { %>
+                  <input
+                    type="text "
+                    value="<%= currentCourse.link %>"
+                    name="courseLink"
+                    hidden
+                  />
+                  <input
+                    type="text "
+                    id="number"
+                    value="<%= lessonNumber %>"
+                    name="lessonValue"
+                    hidden
+                  />
+                  <% } %>
+                  <button class="main-btn">Finish Lesson</button>
+                </div>
+              </form>
+            </div>
+
+            <p
+              class="form-message success myles"
+              id="nextLesson"
+              style="margin-left: 0; margin-right: 0"
+            >
+              <span class="erImg"></span>
+              <span> </span>
+              <!-- <span class="erText">No more lessons for the week, next lesson would be available on Monday</span> -->
+              <span class="erText"
+                >Next lesson(s) would be available on soon...</span
+              >
+            </p>
+
+            <div class="courses-details-tab">
+              <div class="benefit-content">
+                <% if(currentCourse.title == '80 Solo Techniques in 4 Weeks'){
+                %>
+                <h4 style="text-transform: uppercase">
+                  KINDLY NOTE THE SUPPORTING INFORMATION BELOW:
+                </h4>
+                <% } else { %>
+                <h4 style="text-transform: uppercase">
+                  THANK YOU FOR ENROLLING FOR THE COURSE "<%=
+                  currentCourse.title %>", LESSONS SHALL BE AVAILABLE ON 1ST OF
+                  MAY, 2022.
+                </h4>
+                <% } %>
+                <ul class="courses-details-list">
+                  <li>
+                    <i class="far fa-check-circle"></i>
+                    <p>
+                      Join our Telegram channel
+                      <a
+                        href="https://t.me/+8KIwRtycjitkNTM0"
+                        style="color: #ca9400"
+                        >here</a
+                      >
+                      to engage in the live virtual class session.
+                    </p>
+                  </li>
+                  <li>
+                    <i class="far fa-check-circle"></i>
+                    <p>Only two (2) courses would be available weekly.</p>
+                  </li>
+                  <li>
+                    <i class="far fa-check-circle"></i>
+                    <p>
+                      The live class session on telegram takes place on Mondays
+                      and Thursdays.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="courses-sidebar pt-20">
+              <div class="courses-features mt-30">
+                <div class="sidebar-title">
+                  <h4 class="title">Course Modules</h4>
+                </div>
+                <ul>
+                  <% module.forEach(function(i){ %>
+                  <li>
+                    <a id="no" href="<%= i.lesson%>"
+                      ><i class="fal fa-book"></i> <%= i.name %></a
+                    >
+                    <strong> <i class="fas fa-<%= i.status %>"></i></strong>
+                  </li>
+                  <%})%>
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Intervals</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Jazz Chords</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> ARPEGGIOS</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Arpeggio Extensions</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Enclosures</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> CHROMATICISM</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Ambigous Scales</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Constant Melodies</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Durational Values</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Jazz Rhythms</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Rhythmic Improvisation </a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Rhythmic Exercises</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Melodic Patterns</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <!-- <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Cycled Patterns</a> <strong> <i class="fa fa-lock"></i></strong></li>
+                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Advance Cycled Patterns </a> <strong> <i class="fa fa-lock"></i></strong></li>
+                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Major Scale Exercises</a> <strong> <i class="fa fa-lock"></i></strong></li>
+                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Basic Jazz Voicings (Part 1)</a> <strong> <i class="fa fa-lock"></i></strong></li> -->
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Basic Jazz Voicings (Part
+                      2)</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Basic Jazz Voicings (Part
+                      3)</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> 2 5 1 Chord Progressions</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Modes</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Modal Interchange</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> The Greatness Of The Major
+                      Scale</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Modal Superimposition</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Modal Use Of Scales</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Summary</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                </ul>
+
+                <% var checkStatus = module.find(function(i){ %> <% return
+                i.status == 'lock' %> <%})%> <% if (checkStatus){ %>
+                <div class="sidebar-btn">
+                  <a class="main-btn mybtn cert" href="#!">Print Certificate</a>
+                </div>
+                <%} else {%>
+                <div class="sidebar-btn">
+                  <a class="main-btn mybtn cert" href="#!">Print Certificate</a>
+                </div>
+                <% } %>
+                <div>
+                  <p
+                    class="form-message success mysuc"
+                    id="error"
+                    style="margin-left: 0; margin-right: 0"
+                  >
+                    <span class="erImg"></span>
+                    <span> </span>
+                    <span class="erText">Kindly complete all modules</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--====== Learning Ends ======-->
+
+    <!--====== Modal Starts ======-->
+
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Course Alert</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Next lesson(s) would be available on soon...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="main-btn mybtn" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--====== Modal Ends ======-->
+
+    <!--====== Footer Starts ======-->
+
+    <%- include('partials/footer') %>
+
+    <!--====== Footer Ends ======-->
+
+    <script>
+      $(function () {
+        $(".mysuc").hide();
+        $(".cert").on("click", function () {
+          $(".mysuc").fadeIn(1000);
+        });
+
+        var checkNum = $("#number").val().slice(2);
+        $(".myles").hide();
+
+        // console.log(checkNum.slice(2,));
+        // console.log('<%= module.length%>');
+
+        if (Number(checkNum) >= Number("<%= module.length%>")) {
+          console.log(checkNum);
+          console.log("1." + "<%= module.length%>");
+          $("#myform").on("submit", function (e) {
+            e.preventDefault();
+            $(".myles").fadeOut(200);
+            $(".myles").fadeIn(1000);
+          });
+        }
+
+        const getLastItem = (thePath) =>
+          thePath.substring(thePath.lastIndexOf("/") + 1);
+        let lastUrlPath = getLastItem(window.location.pathname);
+
+        $(".courses-features ul li a").click(function (e) {
+          let linkPath = this.href;
+          let lastLinkPath = getLastItem(linkPath);
+          // console.log(lastLinkPath, lastUrlPath)
+          if (lastLinkPath == lastUrlPath + "#nxt") {
+            $(".myles").fadeOut(200);
+            $(".myles").fadeIn(1000);
+            e.preventDefault();
+          }
+        });
+      });
+    </script>
+
+    <% } else { %>
+
+    <!--====== Navigation Start ======-->
+
+    <%- include('partials/navigation') %>
+
+    <!--====== Navigation Ends ======-->
+
+    <!--====== Learning Start ======-->
+
+    <style>
+      .hide {
+        display: none;
+      }
+    </style>
+
+    <section class="courses-details mysec">
+      <div class="container">
+        <!-- <div class="row flex-row-reverse"> -->
+        <div class="row flex-row-reverse">
+          <div class="col-lg-10">
+            <div class="courses-details-content mt-50">
+              <img
+                src="/assets/images/courses/<%= currentCourse.img %>"
+                alt="Course image"
+                width="80%"
+              />
+              <h2 class="title my">
+                <%= currentCourse.title %> <br />
+                <!-- Lesson <%= lessonNumber %> : <%= currentCourseModule.name%>  -->
+              </h2>
+            </div>
+
+            <!-- <form action="/modules/:courseLink" id="myform" method="post">
                     <div class="sidebar-btn " style="margin: 80px auto 0; width: 110px; " >
                                              
                         <% if (lessonNumber) { %>
@@ -285,166 +432,440 @@
                     </div>
                     </form> -->
 
-                    <p class="form-message success myles" id="nextLesson" style="margin-left: 0; margin-right: 0">
-                        <span class="erImg"></span>
-                        <span> </span>
-                        <!-- <span class="erText">No more lessons for the week, next lesson would be available on Monday</span> -->
-                        <span class="erText">Next lesson would be available on TUESDAY 1ST OF MARCH, 2022.</span>
+            <p
+              class="form-message success myles"
+              id="nextLesson"
+              style="margin-left: 0; margin-right: 0"
+            >
+              <span class="erImg"></span>
+              <span> </span>
+              <!-- <span class="erText">No more lessons for the week, next lesson would be available on Monday</span> -->
+              <span class="erText"
+                >Next lesson would be available on TUESDAY 1ST OF MARCH,
+                2022.</span
+              >
+            </p>
+
+            <div class="courses-details-tab">
+              <div class="benefit-content">
+                <% if(currentCourse.title == '80 Solo Techniques in 4 Weeks'){
+                %>
+                <h4 style="text-transform: uppercase">
+                  THANK YOU FOR ENROLLING FOR THE COURSE "<%=
+                  currentCourse.title %>", LESSONS SHALL BE AVAILABLE ON TUESDAY
+                  1ST OF MARCH, 2022.
+                </h4>
+                <% } else { %>
+                <h4 style="text-transform: uppercase">
+                  THANK YOU FOR ENROLLING FOR THE COURSE "<%=
+                  currentCourse.title %>", LESSONS SHALL BE AVAILABLE ON TUESDAY
+                  1ST OF MARCH, 2022.
+                </h4>
+                <% } %>
+                <ul class="courses-details-list">
+                  <li>
+                    <i class="far fa-check-circle"></i>
+                    <p>
+                      Join our Telegram channel
+                      <a
+                        href="https://t.me/+8KIwRtycjitkNTM0"
+                        style="color: #ca9400"
+                        >here</a
+                      >
+                      to engage in the live virtual class session.
                     </p>
-
-                <div class="courses-details-tab">
-                 <div class="benefit-content">
-                     <% if(currentCourse.title == '80 Solo Techniques in 4 Weeks'){ %>
-                        <h4 style="text-transform: uppercase">THANK YOU FOR ENROLLING FOR THE COURSE "<%= currentCourse.title %>", LESSONS SHALL BE AVAILABLE ON TUESDAY 1ST OF MARCH, 2022.</h4>
-                    <% } else { %>
-                        <h4 style="text-transform: uppercase">THANK YOU FOR ENROLLING FOR THE COURSE "<%= currentCourse.title %>", LESSONS SHALL BE AVAILABLE ON TUESDAY 1ST OF MARCH, 2022.</h4>
-                        <% } %>
-                        <ul class="courses-details-list">
-                            <li>
-                                <i class="far fa-check-circle"></i>
-                                <p>Join our Telegram channel <a href="https://t.me/+8KIwRtycjitkNTM0" style="color: #ca9400;">here</a> to engage in the live virtual class session.</p>
-                            </li>
-                            <li>
-                                <i class="far fa-check-circle"></i>
-                                <p> Only two (2) courses would be available weekly.</p>
-                            </li>
-                            <li>
-                                <i class="far fa-check-circle"></i>
-                                <p> The live class session on telegram takes place on Mondays and Thursdays.</p>
-                            </li>
-                        </ul>
-
-                  </div>
-                 </div>
-                    
+                  </li>
+                  <li>
+                    <i class="far fa-check-circle"></i>
+                    <p>Only two (2) courses would be available weekly.</p>
+                  </li>
+                  <li>
+                    <i class="far fa-check-circle"></i>
+                    <p>
+                      The live class session on telegram takes place on Mondays
+                      and Thursdays.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 hide">
+            <div class="courses-sidebar pt-20">
+              <div class="courses-features mt-30">
+                <div class="sidebar-title">
+                  <h4 class="title">Course Modules</h4>
                 </div>
-                <div class="col-lg-4 hide"> 
-                    <div class="courses-sidebar pt-20">
-                        <div class="courses-features mt-30">
-                            <div class="sidebar-title">
-                                <h4 class="title">Course Modules</h4>
-                            </div>
-                            <ul>
-                                <!-- <%  module.forEach(function(i){ %>
+                <ul>
+                  <!-- <%  module.forEach(function(i){ %>
                                    <li> <a href="<%= i.lesson%>"><i class="fal fa-book"></i> <%= i.name %></a> <strong> <i class="fas fa-<%= i.status %>" ></i></strong></li> 
                                 <%})%> -->
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Intervals</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Jazz Chords</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> ARPEGGIOS</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Arpeggio Extensions</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Enclosures</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> CHROMATICISM</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Ambigous Scales</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Constant Melodies</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Durational Values</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Jazz Rhythms</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Rhythmic Improvisation </a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Rhythmic Exercises</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Melodic Patterns</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Cycled Patterns</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Advance Cycled Patterns </a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Major Scale Exercises</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Basic Jazz Voicings (Part 1)</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Basic Jazz Voicings (Part 2)</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Basic Jazz Voicings (Part 3)</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> 2 5 1 Chord Progressions</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Modes</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Modal Interchange</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> The Greatness Of The Major Scale</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Modal Superimposition</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Modal Use Of Scales</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                                <li><a href="#nxt" data-toggle="modal" data-target="#exampleModalCenter" class="mylesson"><i class="fal fa-book"></i> Summary</a> <strong> <i class="fa fa-lock"></i></strong></li>
-                            </ul>
-                                
-                                <% var checkStatus = module.find(function(i){ %>
-                                 <% return i.status == 'lock' %>
-                                <%})%>
-                                    
-                                <% if (checkStatus){ %>
-                                <div class="sidebar-btn">
-                                    <a class="main-btn mybtn" href="#!">Print Certificate</a>
-                                </div>
-                                <%} else {%>
-                                <div class="sidebar-btn">
-                                    <a class="main-btn mybtn" href="#!">Print Certificate</a>
-                                </div>
-                                <% } %>
-                            <div>
-                            <p class="form-message success mysuc" id="error" style="margin-left: 0; margin-right: 0">
-                                <span class="erImg"></span>
-                                <span> </span>
-                                <span class="erText">Kindly complete all modules</span>
-                            </p>
-                        </div>
-                        </div>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Intervals</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Jazz Chords</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> ARPEGGIOS</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Arpeggio Extensions</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Enclosures</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> CHROMATICISM</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Ambigous Scales</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Constant Melodies</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Durational Values</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Jazz Rhythms</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Rhythmic Improvisation
+                    </a>
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Rhythmic Exercises</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Melodic Patterns</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Cycled Patterns</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Advance Cycled Patterns
+                    </a>
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Major Scale Exercises</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Basic Jazz Voicings (Part
+                      1)</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Basic Jazz Voicings (Part
+                      2)</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Basic Jazz Voicings (Part
+                      3)</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> 2 5 1 Chord Progressions</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Modes</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Modal Interchange</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> The Greatness Of The Major
+                      Scale</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Modal Superimposition</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Modal Use Of Scales</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                  <li>
+                    <a
+                      href="#nxt"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                      class="mylesson"
+                      ><i class="fal fa-book"></i> Summary</a
+                    >
+                    <strong> <i class="fa fa-lock"></i></strong>
+                  </li>
+                </ul>
 
-                    </div>
+                <% var checkStatus = module.find(function(i){ %> <% return
+                i.status == 'lock' %> <%})%> <% if (checkStatus){ %>
+                <div class="sidebar-btn">
+                  <a class="main-btn mybtn" href="#!">Print Certificate</a>
                 </div>
+                <%} else {%>
+                <div class="sidebar-btn">
+                  <a class="main-btn mybtn" href="#!">Print Certificate</a>
+                </div>
+                <% } %>
+                <div>
+                  <p
+                    class="form-message success mysuc"
+                    id="error"
+                    style="margin-left: 0; margin-right: 0"
+                  >
+                    <span class="erImg"></span>
+                    <span> </span>
+                    <span class="erText">Kindly complete all modules</span>
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!--====== Learning Ends ======-->
 
-    
     <!--====== Modal Starts ======-->
-    
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Course Alert</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Next lesson would be available on TUESDAY 1ST OF MARCH, 2022.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="main-btn mybtn" data-dismiss="modal">Close</button>
+
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Course Alert</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Next lesson would be available on TUESDAY 1ST OF MARCH, 2022.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="main-btn mybtn" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
     <!--====== Modal Ends ======-->
-    
+
     <!--====== Footer Starts ======-->
-    
+
     <%- include('partials/footer') %>
 
     <!--====== Footer Ends ======-->
 
     <script>
-        $(function () {
-            $('.mysuc').hide()
-            $('.mybtn').on('click', function () {
-                $('.mysuc').fadeIn(1000)
-            })
+      $(function () {
+        $(".mysuc").hide();
+        $(".mybtn").on("click", function () {
+          $(".mysuc").fadeIn(1000);
+        });
 
-            var checkNum = $('#number').val();
-            console.log(checkNum);
-            console.log('checkNum');
-            $('.myles').hide()
+        var checkNum = $("#number").val();
+        console.log(checkNum);
+        console.log("checkNum");
+        $(".myles").hide();
 
-            if (checkNum == '1.1') {
-                $('#myform').on('submit', function (e) {
-                    e.preventDefault();
-                    $('.myles').fadeOut(200)
-                    $('.myles').fadeIn(1000)
-                })
+        if (checkNum == "1.1") {
+          $("#myform").on("submit", function (e) {
+            e.preventDefault();
+            $(".myles").fadeOut(200);
+            $(".myles").fadeIn(1000);
+          });
 
-                $('.courses-features ul li a').click(function (e) {
-                    if (this.href.slice(55,) > '1.1') {
-                        $('.myles').fadeIn(1000);
-                        e.preventDefault();
-                    }
-                })
+          $(".courses-features ul li a").click(function (e) {
+            if (this.href.slice(55) > "1.1") {
+              $(".myles").fadeIn(1000);
+              e.preventDefault();
             }
-            
-        })
+          });
+        }
+      });
     </script>
     <% } %>
-</body>
-
+  </body>
 </html>
