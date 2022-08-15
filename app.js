@@ -278,10 +278,6 @@ app.post("/admin", upload.single("file"), function (req, res) {
     return _.capitalize(i);
   });
 
-  console.log(req.body.content);
-  console.log(req.body.contents);
-  console.log(req.body.title);
-
   const blogPost = {
     title: _.capitalize(req.body.title),
     image: {
@@ -344,8 +340,6 @@ app.get("/blog/post/:postId", function (req, res) {
           categoryNumber.push(num.length);
         }
       }
-
-      // console.log(found.content);
 
       if (found) {
         res.render("blog-details", {
@@ -605,7 +599,7 @@ app.get("/course/:courseLink/lesson/:lesson", function (req, res) {
                 );
                 console.log("pk");
               } else {
-                var modules = currentCourse.modules.slice(0, 17);
+                var modules = currentCourse.modules.slice(0, 18);
 
                 res.render("module", {
                   title: "Learn",
@@ -1510,7 +1504,7 @@ let title = "80 Solo Techniques in 4 Weeks";
 //   {
 //     $set: {
 //       "course.$[outer].modules.$[lower].video":
-//         "https://player.vimeo.com/video/738173552?h=ae920b07ae",
+//         "https://player.vimeo.com/video/739023765?h=01de61edcb",
 //     },
 //   },
 //   {
@@ -1518,8 +1512,8 @@ let title = "80 Solo Techniques in 4 Weeks";
 //       { "outer.title": title },
 //       {
 //         lower: {
-//           name: "Basic Jazz Voicings (Part 1)",
-//           lesson: "1.17",
+//           name: "Basic Jazz Voicings (Part 2)",
+//           lesson: "1.18",
 //           status: "lock",
 //           video: "",
 //         },

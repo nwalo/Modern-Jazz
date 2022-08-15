@@ -130,7 +130,7 @@ exports.courses = [
         name: "Basic Jazz Voicings (Part 2)",
         lesson: "1.18",
         status: "lock",
-        video: "",
+        video: "https://player.vimeo.com/video/739023765?h=01de61edcb",
       },
       {
         name: "Basic Jazz Voicings (Part 3)",
