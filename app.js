@@ -1494,7 +1494,7 @@ app.post("/theme", function (req, res) {
 
 // =================== UPDATING THE VIDEOS TO THE COURSES ==========================================
 
-// let title = "80 Solo Techniques in 4 Weeks";
+let title = "80 Solo Techniques in 4 Weeks";
 
 // User.updateMany(
 //   {
@@ -1503,7 +1503,7 @@ app.post("/theme", function (req, res) {
 //   {
 //     $set: {
 //       "course.$[outer].modules.$[lower].video":
-//         "https://player.vimeo.com/video/740316207?h=69b2d25078",
+//         "https://player.vimeo.com/video/740422861?h=7dea0a8a20",
 //     },
 //   },
 //   {
@@ -1511,8 +1511,8 @@ app.post("/theme", function (req, res) {
 //       { "outer.title": title },
 //       {
 //         lower: {
-//           name: "Cycled Patterns",
-//           lesson: "1.14",
+//           name: "Advance Cycled Patterns",
+//           lesson: "1.15",
 //           status: "check-circle",
 //           video: "",
 //         },
