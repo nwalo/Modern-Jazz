@@ -227,7 +227,7 @@ const welcomeNotification = [
 
 // var text = {
 //   message:
-//     "80 Solo Techniques - New lesson is now available, Lesson 17, Basic Jazz Voicings (Part 1) has been updated",
+//     "80 Solo Techniques - New lesson is now available, Lesson 14, Cycles Patterns has been updated",
 // };
 
 // User.find({}, function (err, found) {
@@ -240,11 +240,10 @@ const welcomeNotification = [
 //         if (err) {
 //           console.log("err");
 //         } else {
-//
 //         }
 //       });
 //     });
-// console.log("added new notif");
+//     console.log("added new notif");
 //   }
 // });
 
@@ -1495,7 +1494,7 @@ app.post("/theme", function (req, res) {
 
 // =================== UPDATING THE VIDEOS TO THE COURSES ==========================================
 
-let title = "80 Solo Techniques in 4 Weeks";
+// let title = "80 Solo Techniques in 4 Weeks";
 
 // User.updateMany(
 //   {
@@ -1504,7 +1503,7 @@ let title = "80 Solo Techniques in 4 Weeks";
 //   {
 //     $set: {
 //       "course.$[outer].modules.$[lower].video":
-//         "https://player.vimeo.com/video/739023765?h=01de61edcb",
+//         "https://player.vimeo.com/video/740316207?h=69b2d25078",
 //     },
 //   },
 //   {
@@ -1512,9 +1511,9 @@ let title = "80 Solo Techniques in 4 Weeks";
 //       { "outer.title": title },
 //       {
 //         lower: {
-//           name: "Basic Jazz Voicings (Part 2)",
-//           lesson: "1.18",
-//           status: "lock",
+//           name: "Cycled Patterns",
+//           lesson: "1.14",
+//           status: "check-circle",
 //           video: "",
 //         },
 //       },

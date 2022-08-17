@@ -106,7 +106,7 @@ exports.courses = [
         name: "Cycled Patterns",
         lesson: "1.14",
         status: "lock",
-        video: "",
+        video: "https://player.vimeo.com/video/740316207?h=69b2d25078",
       },
       {
         name: "Advance Cycled Patterns",
