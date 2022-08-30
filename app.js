@@ -227,7 +227,7 @@ const welcomeNotification = [
 
 // var text = {
 //   message:
-//     "80 Solo Techniques - New lesson is now available, Lesson 14, Cycles Patterns has been updated",
+//     "The course module for 80 Solo Techniques has been changed and updated to best improve your learning. Kindly advance to your last watched course.",
 // };
 
 // User.find({}, function (err, found) {
@@ -1494,7 +1494,7 @@ app.post("/theme", function (req, res) {
 
 // =================== UPDATING THE VIDEOS TO THE COURSES ==========================================
 
-let title = "80 Solo Techniques in 4 Weeks";
+// let title = "80 Solo Techniques in 4 Weeks";
 
 // User.updateMany(
 //   {
@@ -1503,7 +1503,7 @@ let title = "80 Solo Techniques in 4 Weeks";
 //   {
 //     $set: {
 //       "course.$[outer].modules.$[lower].video":
-//         "https://player.vimeo.com/video/740422861?h=7dea0a8a20",
+//         "https://player.vimeo.com/video/740423342?h=dfd89a32aa",
 //     },
 //   },
 //   {
@@ -1513,7 +1513,7 @@ let title = "80 Solo Techniques in 4 Weeks";
 //         lower: {
 //           name: "Advance Cycled Patterns",
 //           lesson: "1.15",
-//           status: "check-circle",
+//           status: "lock",
 //           video: "",
 //         },
 //       },
@@ -1527,13 +1527,19 @@ let title = "80 Solo Techniques in 4 Weeks";
 
 // IRST VERSION
 
-// User.updateMany({ 'course.title': '80 Solo Techniques in 4 Weeks' }, { course: courses.courses[0] }, function(err) {
-// 	if (err) {
-// 		console.log(err);
-// 	} else {
-// 		console.log('updated the course');
-// 	}
-// });
+// console.log(courses.courses[0]);
+
+// User.updateMany(
+//   { "course.title": "80 Solo Techniques in 4 Weeks" },
+//   { course: courses.courses[0] },
+//   function (err) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log("updated the course");
+//     }
+//   }
+// );
 
 app.get("/reset-password", function (req, res) {
   res.render("reset-password", {
